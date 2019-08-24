@@ -11,6 +11,7 @@ int main()
 {
     Texture texture;
     WindowDisplay windowDisplay;
+    Player _player{200,380, true};
 
     if(!texture.loadFromFile("spaceship.png")) {
         exit(1);
@@ -18,6 +19,8 @@ int main()
 
     Sprite sprite;
     sprite.setTexture(texture);
+    sprite.setPosition(Vector2f(_player.getXposition(), _player.getYposition()));
+    sprite.setScale(Vector2f(0.5f, 0.5f));
 
     while(windowDisplay.getWindow()->isOpen()) {
         windowDisplay.CheckEvent();

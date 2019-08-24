@@ -16,8 +16,8 @@ public:
     shared_ptr<RenderWindow> getWindow();
 
 private:
-    const int width = 500;
-    int height = 500;
+    const int width = 400;
+    int height = 400;
     shared_ptr<RenderWindow> _window;
     
 };
