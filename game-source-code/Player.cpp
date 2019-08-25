@@ -1,59 +1,30 @@
 #include "Player.h"
-#include <iostream>
-using namespace std;
 
-Player::Player(int _xPosition, int _yPosition, bool life)
+Player::Player(int x, int y)
+    : GameEntity{ 0, 0 }
 {
-    xPosition = _xPosition;
-    yPosition = _yPosition;
-    Life = life;
+    setXposition(x);
+    setYposition(y);
 }
 
-void Player::setXposition(int x)
-{
-    xPosition = x;
-}
-void Player::setYposition(int y)
-{
-    yPosition = y;
-}
-void Player::move(Direction _direction)
+ void Player::move(Direction _direction)
 {
     auto leftBoundary = 0;
     auto rightBoundary = 380;
-    auto gameSpeed = 5;
+    auto speed = 5;
 
     switch(_direction) {
     case LEFT:
-        if(xPosition != leftBoundary) {
-            xPosition = xPosition - gameSpeed;
+        if(getXposition() != leftBoundary) {
+            setXposition(getXposition() - speed);
         }
         break;
     case RIGHT:
-        if(xPosition != rightBoundary) {
-            xPosition = xPosition + gameSpeed;
+        if(getXposition() != rightBoundary) {
+            setXposition(getXposition() + speed);
         }
         break;
     default:
         break;
     }
-}
-
-int Player::getXposition()
-{
-    return xPosition;
-}
-int Player::getYposition()
-{
-    return yPosition;
-}
-
-void Player::setLife(bool _life)
-{
-    Life = _life;
-}
-
-bool Player::getLife()
-{
-    return Life;
 }

@@ -1,23 +1,15 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
+#include "GameEntity.h"
 
-enum Direction { UP, DOWN, LEFT, RIGHT };
-
-class Player
+class Player : public GameEntity
 {
 public:
-    Player(int _xPosition, int _yPosition, bool life);
-    void setXposition(int x);
-    void setYposition(int y);
-    void move(Direction _direction);
-    int getXposition();
-    int getYposition();
-    void setLife(bool _life);
-    bool getLife();
+    Player(int x, int y);
+  virtual  void move(Direction _direction);
 
 private:
-    int xPosition, yPosition;
-    bool Life;
+    
 };
 
 #endif // PLAYER_H_INCLUDED

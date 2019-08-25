@@ -19,3 +19,16 @@ void KeyHandler::KeyCheck(Player& _player)
         exit(0);
     }
 }
+
+void KeyHandler::KeyCheck2(Player& _player)
+{
+    if(Keyboard::isKeyPressed(Keyboard::Key::D)) {
+        _player.move(RIGHT);
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Key::A)) {
+        _player.move(LEFT);
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
+        exit(0);
+    }
+}
