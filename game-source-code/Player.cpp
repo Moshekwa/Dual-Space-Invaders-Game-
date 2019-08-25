@@ -7,21 +7,30 @@ Player::Player(int x, int y)
     setYposition(y);
 }
 
+void Player::shoot()
+{
+    _laser.move(UP);
+}
+
+Laser Player::getLaser()
+{
+    return _laser;
+}
+
  void Player::move(Direction _direction)
 {
     auto leftBoundary = 0;
     auto rightBoundary = 380;
-    auto speed = 5;
 
     switch(_direction) {
     case LEFT:
         if(getXposition() != leftBoundary) {
-            setXposition(getXposition() - speed);
+            setXposition(getXposition() - getEntitySpeed() );
         }
         break;
     case RIGHT:
         if(getXposition() != rightBoundary) {
-            setXposition(getXposition() + speed);
+            setXposition(getXposition() + getEntitySpeed() );
         }
         break;
     default:

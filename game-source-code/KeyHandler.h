@@ -9,8 +9,8 @@ class KeyHandler
 {
 public:
     KeyHandler();
-    void KeyCheck(Player& _player);
-    void KeyCheck2(Player& _player);
+    void KeyCheck(Player& player);
+    void KeyCheck2(Player& player2);
 
         private:
 };

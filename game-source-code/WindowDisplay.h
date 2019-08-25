@@ -14,12 +14,12 @@ public:
     int getWidth() const;
     int getHeight() const;
     shared_ptr<RenderWindow> getWindow();
+    
 
 private:
     const int width = 400;
-    int height = 400;
+    const int height = 400;
     shared_ptr<RenderWindow> _window;
-    
 };
 
 #endif // WINDOWDISPLAY_H_INCLUDED

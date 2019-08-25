@@ -7,26 +7,29 @@ KeyHandler::KeyHandler()
 {
 }
 
-void KeyHandler::KeyCheck(Player& _player)
+void KeyHandler::KeyCheck(Player& player)
 {
     if(Keyboard::isKeyPressed(Keyboard::Key::Right)) {
-        _player.move(RIGHT);
+        player.move(RIGHT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Left)) {
-        _player.move(LEFT);
+        player.move(LEFT);
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Key::Up)) {
+         player.shoot();
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
         exit(0);
     }
 }
 
-void KeyHandler::KeyCheck2(Player& _player)
+void KeyHandler::KeyCheck2(Player& player2)
 {
     if(Keyboard::isKeyPressed(Keyboard::Key::D)) {
-        _player.move(RIGHT);
+        player2.move(RIGHT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::A)) {
-        _player.move(LEFT);
+        player2.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
         exit(0);

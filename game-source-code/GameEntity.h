@@ -9,12 +9,14 @@ public:
     GameEntity(int x, int y);
     void setXposition(int x);
     void setYposition(int y);
-    int getXposition();
-    int getYposition();
+    int getXposition() const;
+    int getYposition() const;
+    int getEntitySpeed() const;
     virtual void move(Direction _direction) = 0;
 
 private:
     int xPosition, yPosition;
+    const int speed = 5;
 };
 
 #endif // GAMEENTITY_H_INCLUDED

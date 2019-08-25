@@ -16,12 +16,17 @@ void GameEntity::setYposition(int y)
     yPosition = y;
 }
 
-int GameEntity::getXposition()
+int GameEntity::getXposition() const
 {
     return xPosition;
 }
 
-int GameEntity::getYposition()
+int GameEntity::getYposition() const
 {
     return yPosition;
+}
+
+int GameEntity::getEntitySpeed() const
+{
+    return speed;
 }
