@@ -18,7 +18,6 @@ int main()
     auto _keyHandler = KeyHandler{};
     auto _player = Player{ windowDisplay.getWidth() / 2 - 10, windowDisplay.getHeight() - 20 };
     auto _player2 = Player{ windowDisplay.getWidth() / 2 - 10, 0 };
-    auto _laser = Laser{};
 
     if(!texture.loadFromFile("player1.png")) {
         exit(1);
@@ -48,8 +47,15 @@ int main()
         sprite2.setPosition(Vector2f(_player2.getXposition(), _player2.getYposition()));
         laserSprite.setPosition(Vector2f(_player.getLaser().getXposition(), _player.getLaser().getYposition()));
         
+        if(_player.getLaser().getLife() == true){
+            cout << _player.getLaser().getYposition() << "First" << endl;
+            _player.getLaser().move(UP);
+             cout << _player.getLaser().getYposition() << "Second" << endl;
+        }
+        
         _keyHandler.KeyCheck(_player);
         _keyHandler.KeyCheck2(_player2);
+        
         
         windowDisplay.CheckEvent();
         windowDisplay.getWindow()->clear();

@@ -16,7 +16,7 @@ void KeyHandler::KeyCheck(Player& player)
         player.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Up)) {
-         player.shoot();
+         player.shootLaser();
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
         exit(0);

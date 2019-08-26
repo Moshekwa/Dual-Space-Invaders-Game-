@@ -6,10 +6,11 @@
 class Player : public GameEntity
 {
 public:
-    Player(int x, int y);
-    void shoot();
-    Laser getLaser();
-  virtual  void move(Direction _direction);
+    Player();
+    void shootLaser();
+    void moveLaser();
+    Laser getLaser() const;
+    virtual void move(Direction _direction);
 
 private:
     Laser _laser;

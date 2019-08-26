@@ -1,32 +1,39 @@
 #include "GameEntity.h"
 
-GameEntity::GameEntity(int x, int y)
+GameEntity::GameEntity(int x, int y, int speed, bool life) : _coordinates{EntityCoordinates{x,y}}
 {
-    xPosition = x;
-    yPosition = y;
+    _entitySpeed = speed;
+    _life = life;
 }
 
 void GameEntity::setXposition(int x)
 {
-    xPosition = x;
+    _coordinates.setXposition(x);
 }
 
 void GameEntity::setYposition(int y)
 {
-    yPosition = y;
+    _coordinates.setYposition(y);
 }
 
-int GameEntity::getXposition() const
+void GameEntity::setEntityLife(bool life)
 {
-    return xPosition;
+    _life = life;
 }
 
-int GameEntity::getYposition() const
+bool GameEntity::isAlive() const
 {
-    return yPosition;
+    return _life;
+}
+
+EntityCoordinates GameEntity::getEntityCoordinates() const
+{
+    return _coordinates;
 }
 
 int GameEntity::getEntitySpeed() const
 {
-    return speed;
+    return _entitySpeed;
 }
+
+
