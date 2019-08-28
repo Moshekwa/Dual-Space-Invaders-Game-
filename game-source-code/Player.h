@@ -10,6 +10,7 @@ public:
     void shootLaser();
     void moveLaser();
     Laser getLaser() const;
+	void update_Laser_position();
     virtual void move(Direction _direction);
 
 private:

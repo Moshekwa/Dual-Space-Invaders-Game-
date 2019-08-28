@@ -9,7 +9,6 @@
 #include "WindowDisplay.h"
 #include "GameUpdater.h"
 
-
 #include <memory>
 #include <vector>
 

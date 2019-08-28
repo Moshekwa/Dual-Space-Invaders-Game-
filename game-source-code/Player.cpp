@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player()
-    : GameEntity{ 190, 380, 5, true }
+    : GameEntity{ 190, 380, 5, true } 
 {
     auto _coordintates =
         EntityCoordinates{ getEntityCoordinates().getXposition(), getEntityCoordinates().getYposition() };
@@ -37,11 +37,21 @@ void Player::shootLaser()
 void Player::moveLaser()
 {
     if(_laser.isAlive()){
-        move(UP);
+		_laser.move(UP);
     }
 }
 
 Laser Player::getLaser() const
 {
     return _laser;
+}
+
+void Player::update_Laser_position()
+{
+	if(!_laser.isAlive())
+	{
+		auto _coordinates = EntityCoordinates{getEntityCoordinates().getXposition(),getEntityCoordinates().getYposition()};
+		_laser.update_position(_coordinates);
+	}
+	
 }

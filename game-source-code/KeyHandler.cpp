@@ -3,9 +3,7 @@
 #include <cstdlib>
 using sf::Keyboard;
 
-KeyHandler::KeyHandler()
-{
-}
+KeyHandler::KeyHandler(){}
 
 void KeyHandler::KeyCheck(Player& player)
 {

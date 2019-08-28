@@ -1,6 +1,5 @@
 #include "EntityDrawer.h"
 
-
 EntityDrawer::EntityDrawer(shared_ptr<RenderWindow> window) : _window{window}
 {
     _entityImageLoader.loadEntityImages();
@@ -16,7 +15,7 @@ void EntityDrawer::drawPlayer(const EntityCoordinates& _coordinates)
 
 void EntityDrawer::drawLaser(const EntityCoordinates& _coordinates)
 {
-    _sprites.at(2)->setScale(0.5f,0.5f);
+    _sprites.at(2)->setScale(0.9f,0.9f);
     _sprites.at(2)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
     _window->draw(*_sprites.at(2));
 }
