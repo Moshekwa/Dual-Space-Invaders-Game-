@@ -10,6 +10,7 @@ class EntityDrawerProxy
 public:
     EntityDrawerProxy(shared_ptr<EntityDrawer> entityDrawer);
     void _drawPlayer(const Player& _player) const;
+	void _drawPlayer2(const Player& _player2) const;
 
 private:
     shared_ptr<EntityDrawer> _entityDrawer;

@@ -17,6 +17,7 @@ public:
     EntityDrawer(shared_ptr<RenderWindow> window);
     void drawPlayer(const EntityCoordinates& _coordinates);
     void drawLaser(const EntityCoordinates& _coordinates);
+	void drawPlayer2(const EntityCoordinates& _coordinates);
 private:
     shared_ptr<RenderWindow> _window;
     Sprites _sprites;

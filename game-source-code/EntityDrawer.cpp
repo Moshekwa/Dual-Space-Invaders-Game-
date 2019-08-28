@@ -13,6 +13,13 @@ void EntityDrawer::drawPlayer(const EntityCoordinates& _coordinates)
     _window->draw(*_sprites.at(0));
 }
 
+void EntityDrawer::drawPlayer2(const EntityCoordinates& _coordinates)
+{
+    _sprites.at(1)->setScale(0.5f,0.5f);
+    _sprites.at(1)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+    _window->draw(*_sprites.at(1));
+}
+
 void EntityDrawer::drawLaser(const EntityCoordinates& _coordinates)
 {
     _sprites.at(2)->setScale(0.9f,0.9f);

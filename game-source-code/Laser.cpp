@@ -24,3 +24,4 @@ void Laser::update_position(const EntityCoordinates& _entityCoordinates)
 	setXposition(_entityCoordinates.getXposition() + 6 );
 	setYposition(_entityCoordinates.getYposition());
 }
+

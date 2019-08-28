@@ -6,7 +6,7 @@
 class Player : public GameEntity
 {
 public:
-    Player();
+    Player(int x, int y);
     void shootLaser();
     void moveLaser();
     Laser getLaser() const;

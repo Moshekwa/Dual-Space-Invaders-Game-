@@ -1,7 +1,7 @@
 #include "Player.h"
 
-Player::Player()
-    : GameEntity{ 190, 380, 5, true } 
+Player::Player(int x, int y)
+    : GameEntity{ x, y, 5, true } 
 {
     auto _coordintates =
         EntityCoordinates{ getEntityCoordinates().getXposition(), getEntityCoordinates().getYposition() };
