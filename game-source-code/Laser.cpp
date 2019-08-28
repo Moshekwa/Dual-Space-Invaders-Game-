@@ -14,6 +14,10 @@ void Laser::move(Direction _direction)
             setYposition(getEntityCoordinates().getYposition() - getEntitySpeed());
         }
         break;
+	case DOWN: 
+			 if(getEntityCoordinates().getYposition() != 400) {
+				 //cout << getEntityCoordinates().getYposition() << endl;
+			 setYposition(getEntityCoordinates().getYposition() + getEntitySpeed()); }
     default:
         break;
     }
@@ -24,4 +28,5 @@ void Laser::update_position(const EntityCoordinates& _entityCoordinates)
 	setXposition(_entityCoordinates.getXposition() + 6 );
 	setYposition(_entityCoordinates.getYposition());
 }
+
 

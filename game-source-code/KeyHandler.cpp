@@ -29,6 +29,9 @@ void KeyHandler::KeyCheck2(Player& player2)
     if(Keyboard::isKeyPressed(Keyboard::Key::A)) {
         player2.move(LEFT);
     }
+	if(Keyboard::isKeyPressed(Keyboard::Key::S)) {
+         player2.shootLaser2();
+    }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
         exit(0);
     }

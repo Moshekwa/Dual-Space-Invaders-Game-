@@ -11,7 +11,6 @@ public:
     virtual void move(Direction _direction);
 
 private:
-    bool life;
 };
 
 #endif // LASER_H_INCLUDED

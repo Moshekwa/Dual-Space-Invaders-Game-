@@ -26,3 +26,10 @@ void EntityDrawer::drawLaser(const EntityCoordinates& _coordinates)
     _sprites.at(2)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
     _window->draw(*_sprites.at(2));
 }
+
+void EntityDrawer::drawLaser2(const EntityCoordinates& _coordinates)
+{
+    _sprites.at(3)->setScale(0.9f,0.9f);
+    _sprites.at(3)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+    _window->draw(*_sprites.at(3));
+}

@@ -4,7 +4,7 @@ using std::string;
 
 EntityImageLoader::EntityImageLoader()
 {
-    auto numberOfTextures = 3;
+    auto numberOfTextures = 4;
     for(int i = 0; i < numberOfTextures; i++) {
         auto _texture = Texture{};
         _textures.push_back(_texture);
@@ -26,7 +26,7 @@ Sprites EntityImageLoader::getSprites()
 
 void EntityImageLoader::loadImages()
 {
-    vector<string> image_filenames{ "player1.png", "player2.png", "laser1.png" };
+    vector<string> image_filenames{ "player1.png", "player2.png", "laser1.png" , "laser1.png"};
     for(auto i = 0u; i < _textures.size(); i++) {
         if(!_textures.at(i).loadFromFile(image_filenames.at(i).c_str()))
             exit(1);

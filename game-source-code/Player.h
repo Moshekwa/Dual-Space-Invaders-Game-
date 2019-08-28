@@ -3,18 +3,22 @@
 #include "GameEntity.h"
 #include "Laser.h"
 
+
 class Player : public GameEntity
 {
 public:
     Player(int x, int y);
     void shootLaser();
+	void shootLaser2();
     void moveLaser();
     Laser getLaser() const;
 	void update_Laser_position();
+	void update_Laser2_position();
     virtual void move(Direction _direction);
 
 private:
     Laser _laser;
+	Laser _laser2; 
 };
 
 #endif // PLAYER_H_INCLUDED
