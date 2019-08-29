@@ -3,36 +3,38 @@
 #include <cstdlib>
 using sf::Keyboard;
 
-KeyHandler::KeyHandler(){}
+KeyHandler::KeyHandler()
+{
+}
 
 void KeyHandler::KeyCheck(Player& player)
 {
     if(Keyboard::isKeyPressed(Keyboard::Key::Right)) {
-        player.move(RIGHT);
+	player.move(RIGHT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Left)) {
-        player.move(LEFT);
+	player.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Up)) {
-         player.shootLaser();
+	player.shootLaser();
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
-        exit(0);
+	exit(0);
     }
 }
 
 void KeyHandler::KeyCheck2(Player& player2)
 {
     if(Keyboard::isKeyPressed(Keyboard::Key::D)) {
-        player2.move(RIGHT);
+	player2.move(RIGHT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::A)) {
-        player2.move(LEFT);
+	player2.move(LEFT);
     }
-	if(Keyboard::isKeyPressed(Keyboard::Key::S)) {
-         player2.shootLaser2();
+    if(Keyboard::isKeyPressed(Keyboard::Key::W)) {
+	player2.shootLaser2();
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
-        exit(0);
+	exit(0);
     }
 }

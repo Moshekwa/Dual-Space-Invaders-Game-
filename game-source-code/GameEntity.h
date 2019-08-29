@@ -21,7 +21,6 @@ public:
     virtual void move(Direction _direction) = 0;
 
 private:
-
     EntityCoordinates _coordinates;
     int _entitySpeed;
     bool _life;

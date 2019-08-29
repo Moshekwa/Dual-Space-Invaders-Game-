@@ -7,7 +7,7 @@ class Laser : public GameEntity
 {
 public:
     Laser(const EntityCoordinates& _coordinates = EntityCoordinates{ 0, 0 });
-	void update_position(const EntityCoordinates& _entityCoordinates);
+    void update_position(const EntityCoordinates& _entityCoordinates);
     virtual void move(Direction _direction);
 
 private:

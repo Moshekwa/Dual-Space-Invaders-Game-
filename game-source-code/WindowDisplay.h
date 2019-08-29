@@ -14,7 +14,6 @@ public:
     int getWidth() const;
     int getHeight() const;
     shared_ptr<RenderWindow> getWindow();
-    
 
 private:
     const int width = 400;

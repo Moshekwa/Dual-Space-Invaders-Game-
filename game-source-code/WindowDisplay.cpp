@@ -1,6 +1,7 @@
 #include "WindowDisplay.h"
 
-WindowDisplay::WindowDisplay() :_window {new RenderWindow{VideoMode(width, height), "Duel Invaders"}}
+WindowDisplay::WindowDisplay()
+    : _window{ new RenderWindow{ VideoMode(width, height), "Duel Invaders" } }
 {
     /// set frame rate
     const int FPS = 60;
@@ -10,10 +11,10 @@ WindowDisplay::WindowDisplay() :_window {new RenderWindow{VideoMode(width, heigh
 void WindowDisplay::CheckEvent()
 {
     Event event;
-    while(_window->pollEvent(event)){
-        if(event.type == Event::Closed){
-            _window->close();
-        }
+    while(_window->pollEvent(event)) {
+	if(event.type == Event::Closed) {
+	    _window->close();
+	}
     }
 }
 

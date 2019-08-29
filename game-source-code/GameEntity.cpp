@@ -1,6 +1,7 @@
 #include "GameEntity.h"
 
-GameEntity::GameEntity(int x, int y, int speed, bool life) : _coordinates{EntityCoordinates{x,y}}
+GameEntity::GameEntity(int x, int y, int speed, bool life)
+    : _coordinates{ EntityCoordinates{ x, y } }
 {
     _entitySpeed = speed;
     _life = life;
@@ -35,5 +36,3 @@ int GameEntity::getEntitySpeed() const
 {
     return _entitySpeed;
 }
-
-

@@ -12,7 +12,7 @@ public:
     void KeyCheck(Player& player);
     void KeyCheck2(Player& player2);
 
-        private:
+private:
 };
 
 #endif // KEYHANDLER_H_INCLUDED

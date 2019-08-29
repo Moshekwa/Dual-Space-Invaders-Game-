@@ -1,13 +1,13 @@
 #ifndef GAMELOOP_H_INCLUDED
 #define GAMELOOP_H_INCLUDED
-#include "GameEntity.h"
 #include "EntityDrawer.h"
 #include "EntityDrawerProxy.h"
+#include "GameEntity.h"
+#include "GameUpdater.h"
 #include "KeyHandler.h"
 #include "Laser.h"
 #include "Player.h"
 #include "WindowDisplay.h"
-#include "GameUpdater.h"
 
 #include <memory>
 #include <vector>
@@ -24,7 +24,7 @@ public:
 private:
     unique_ptr<WindowDisplay> _windowDisplay;
     shared_ptr<Player> _player;
-	shared_ptr<Player> _player2;
+    shared_ptr<Player> _player2;
     shared_ptr<EntityDrawer> _entityDrawer;
     KeyHandler _keyHandler;
     void timerCheck();
