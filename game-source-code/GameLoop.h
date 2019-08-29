@@ -29,6 +29,7 @@ private:
     KeyHandler _keyHandler;
     void timerCheck();
     void drawGameEntities();
+    void HomeScreen();
 };
 
 #endif // GAMELOOP_H_INCLUDED

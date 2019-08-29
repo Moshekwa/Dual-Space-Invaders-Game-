@@ -10,6 +10,7 @@ GameLoop::GameLoop()
 
 void GameLoop::PlayGame()
 {
+    HomeScreen();
     while(_windowDisplay->getWindow()->isOpen()) {
 	timerCheck();
 	drawGameEntities();
@@ -33,4 +34,9 @@ void GameLoop::drawGameEntities()
     auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
     _entityDrawerProxy._drawPlayer(*_player);
     _entityDrawerProxy._drawPlayer2(*_player2);
+}
+
+void GameLoop::HomeScreen()
+{
+    _windowDisplay->drawHomeScreen();
 }

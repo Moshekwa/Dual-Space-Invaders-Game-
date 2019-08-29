@@ -13,12 +13,20 @@ public:
     void CheckEvent();
     int getWidth() const;
     int getHeight() const;
+    void drawHomeScreen();
+    
+    void setPlay(bool& play);
+    bool isPlay() const;
+    
     shared_ptr<RenderWindow> getWindow();
+    
 
 private:
     const int width = 400;
     const int height = 400;
     shared_ptr<RenderWindow> _window;
+    bool _play;
+    Sprite _sprite;
 };
 
 #endif // WINDOWDISPLAY_H_INCLUDED
