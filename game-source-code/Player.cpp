@@ -16,12 +16,12 @@ void Player::move(Direction _direction)
 
     switch(_direction) {
     case LEFT:
-	if(getEntityCoordinates().getXposition() > leftBoundary) {
+	if(getEntityCoordinates().getXposition() - getEntitySpeed() > leftBoundary) {
 	    setXposition(getEntityCoordinates().getXposition() - getEntitySpeed());
 	}
 	break;
     case RIGHT:
-	if(getEntityCoordinates().getXposition() < rightBoundary) {
+	if(getEntityCoordinates().getXposition() + getEntitySpeed() < rightBoundary) {
 	    setXposition(getEntityCoordinates().getXposition() + getEntitySpeed());
 	}
 	break;
