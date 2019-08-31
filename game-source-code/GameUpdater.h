@@ -11,8 +11,7 @@ class GameUpdater
 {
 public:
     GameUpdater();
-    void updatePlayerLaser(Player& _player);
-    void updatePlayerLaser2(Player& _player2);
+    void updatePlayerLaser(Player& _player, Player& _player2);
 
 private:
 };

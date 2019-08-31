@@ -7,13 +7,10 @@ class Player : public GameEntity
 {
 public:
     Player(int x, int y);
-    void shootLaser();
-    void shootLaser2();
+    void shootLaser(int laser_number);
     void moveLaser();
-    Laser getLaser() const;
-    Laser getLaser2() const;
-    void update_Laser_position();
-    void update_Laser2_position();
+    Laser getLaser(int laser_number) const;
+    void update_Laser_position(int laser_number);
     virtual void move(Direction _direction);
 
 private:

@@ -16,7 +16,8 @@ void KeyHandler::KeyCheck(Player& player)
 	player.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Up)) {
-	player.shootLaser();
+        auto laser_number = 1;
+	player.shootLaser(laser_number);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
 	exit(0);
@@ -32,7 +33,8 @@ void KeyHandler::KeyCheck2(Player& player2)
 	player2.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::W)) {
-	player2.shootLaser2();
+        auto laser_number = 2;
+	player2.shootLaser(laser_number);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
 	exit(0);

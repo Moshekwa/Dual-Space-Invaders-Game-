@@ -5,18 +5,17 @@ EntityDrawerProxy::EntityDrawerProxy(shared_ptr<EntityDrawer> entityDrawer)
 {
 }
 
-void EntityDrawerProxy::_drawPlayer(const Player& _player) const
+void EntityDrawerProxy::_drawPlayer(const Player& _player, const Player _player2) const
 {
+    auto laser1 = 1;
+    auto laser2 = 2;
+    
     if(_player.isAlive()) {
-	_entityDrawer->drawPlayer(_player.getEntityCoordinates());
-	_entityDrawer->drawLaser(_player.getLaser().getEntityCoordinates());
+        _entityDrawer->drawPlayer(_player.getEntityCoordinates());
+        _entityDrawer->drawLaser(_player.getLaser(laser1).getEntityCoordinates());
     }
-}
-
-void EntityDrawerProxy::_drawPlayer2(const Player& _player2) const
-{
     if(_player2.isAlive()) {
-	_entityDrawer->drawPlayer2(_player2.getEntityCoordinates());
-	_entityDrawer->drawLaser2(_player2.getLaser2().getEntityCoordinates());
+        _entityDrawer->drawPlayer2(_player2.getEntityCoordinates());
+        _entityDrawer->drawLaser2(_player2.getLaser(laser2).getEntityCoordinates());
     }
 }

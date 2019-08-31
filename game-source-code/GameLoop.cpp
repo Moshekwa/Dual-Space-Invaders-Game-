@@ -25,15 +25,13 @@ void GameLoop::timerCheck()
     _keyHandler.KeyCheck2(*_player2);
     _windowDisplay->CheckEvent();
     GameUpdater _updater;
-    _updater.updatePlayerLaser(*_player);
-    _updater.updatePlayerLaser2(*_player2);
+    _updater.updatePlayerLaser(*_player, *_player2);
 }
 
 void GameLoop::drawGameEntities()
 {
     auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
-    _entityDrawerProxy._drawPlayer(*_player);
-    _entityDrawerProxy._drawPlayer2(*_player2);
+    _entityDrawerProxy._drawPlayer(*_player, *_player2);
 }
 
 void GameLoop::HomeScreen()
