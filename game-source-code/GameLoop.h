@@ -6,7 +6,7 @@
 #include "GameUpdater.h"
 #include "KeyHandler.h"
 #include "Laser.h"
-#include "Player.h"
+#include "LaserCanon.h"
 #include "WindowDisplay.h"
 
 #include <memory>
@@ -23,8 +23,8 @@ public:
 
 private:
     unique_ptr<WindowDisplay> _windowDisplay;
-    shared_ptr<Player> _player;
-    shared_ptr<Player> _player2;
+    shared_ptr<LaserCanon> _laserCanon1;
+    shared_ptr<LaserCanon> _laserCanon2;
     shared_ptr<EntityDrawer> _entityDrawer;
     KeyHandler _keyHandler;
     void timerCheck();

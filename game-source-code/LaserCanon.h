@@ -1,12 +1,12 @@
-#ifndef PLAYER_H_INCLUDED
-#define PLAYER_H_INCLUDED
+#ifndef LASERCANON_H_INCLUDED
+#define LASERCANON_H_INCLUDED
 #include "GameEntity.h"
 #include "Laser.h"
 
-class Player : public GameEntity
+class LaserCanon : public GameEntity
 {
 public:
-    Player(int x, int y);
+    LaserCanon(int x, int y);
     void shootLaser(int laser_number);
     void moveLaser();
     Laser getLaser(int laser_number) const;
@@ -18,4 +18,4 @@ private:
     Laser _laser2;
 };
 
-#endif // PLAYER_H_INCLUDED
+#endif // LASERCANON_H_INCLUDED

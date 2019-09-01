@@ -1,7 +1,7 @@
 #ifndef KEYHANDLER_H_INCLUDED
 #define KEYHANDLER_H_INCLUDED
 
-#include "Player.h"
+#include "LaserCanon.h"
 #include <memory>
 using std::shared_ptr;
 
@@ -9,8 +9,8 @@ class KeyHandler
 {
 public:
     KeyHandler();
-    void KeyCheck(Player& player);
-    void KeyCheck2(Player& player2);
+    void KeyCheck(LaserCanon& _laserCanon1);
+    void KeyCheck2(LaserCanon& _laserCanon2);
 
 private:
 };

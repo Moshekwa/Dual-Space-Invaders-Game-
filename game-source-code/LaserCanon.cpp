@@ -1,6 +1,6 @@
-#include "Player.h"
+#include "LaserCanon.h"
 
-Player::Player(int x, int y)
+LaserCanon::LaserCanon(int x, int y)
     : GameEntity{ x, y, 5, true }
 {
     auto _coordintates =
@@ -9,7 +9,7 @@ Player::Player(int x, int y)
     _laser2 = Laser{ _coordintates };
 }
 
-void Player::move(Direction _direction)
+void LaserCanon::move(Direction _direction)
 {
     auto leftBoundary = 0;
     auto rightBoundary = 380;
@@ -30,7 +30,7 @@ void Player::move(Direction _direction)
     }
 }
 
-void Player::shootLaser(int laser_number)
+void LaserCanon::shootLaser(int laser_number)
 {
     if(laser_number == 1) {
         _laser.setEntityLife(true);
@@ -40,7 +40,7 @@ void Player::shootLaser(int laser_number)
     }
 }
 
-void Player::moveLaser()
+void LaserCanon::moveLaser()
 {
     if(_laser.isAlive()) {
         _laser.move(UP);
@@ -51,7 +51,7 @@ void Player::moveLaser()
     }
 }
 
-Laser Player::getLaser(int laser_number) const
+Laser LaserCanon::getLaser(int laser_number) const
 {
     if(laser_number == 1) {
         return _laser;
@@ -64,7 +64,7 @@ Laser Player::getLaser(int laser_number) const
     }
 }
 
-void Player::update_Laser_position(int laser_number)
+void LaserCanon::update_Laser_position(int laser_number)
 {
     if(!_laser.isAlive() && laser_number == 1) {
         auto _coordinates =

@@ -2,8 +2,8 @@
 
 GameLoop::GameLoop()
     : _windowDisplay{ new WindowDisplay }
-    , _player{ new Player{ 190, 380 } }
-    , _player2{ new Player{ 190, 0 } }
+    , _laserCanon1{ new LaserCanon{ 190, 380 } }
+    , _laserCanon2{ new LaserCanon{ 190, 0 } }
     , _entityDrawer{ new EntityDrawer{ _windowDisplay->getWindow() } }
 {
 }
@@ -12,26 +12,26 @@ void GameLoop::PlayGame()
 {
     HomeScreen();
     while(_windowDisplay->getWindow()->isOpen()) {
-	timerCheck();
-	drawGameEntities();
-	_windowDisplay->getWindow()->display();
-	_windowDisplay->getWindow()->clear();
+        timerCheck();
+        drawGameEntities();
+        _windowDisplay->getWindow()->display();
+        _windowDisplay->getWindow()->clear();
     }
 }
 
 void GameLoop::timerCheck()
 {
-    _keyHandler.KeyCheck(*_player);
-    _keyHandler.KeyCheck2(*_player2);
+    _keyHandler.KeyCheck(*_laserCanon1);
+    _keyHandler.KeyCheck2(*_laserCanon2);
     _windowDisplay->CheckEvent();
     GameUpdater _updater;
-    _updater.updatePlayerLaser(*_player, *_player2);
+    _updater.updatePlayerLaser(*_laserCanon1, *_laserCanon2);
 }
 
 void GameLoop::drawGameEntities()
 {
     auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
-    _entityDrawerProxy._drawPlayer(*_player, *_player2);
+    _entityDrawerProxy._drawPlayer(*_laserCanon1, *_laserCanon2);
 }
 
 void GameLoop::HomeScreen()

@@ -7,36 +7,36 @@ KeyHandler::KeyHandler()
 {
 }
 
-void KeyHandler::KeyCheck(Player& player)
+void KeyHandler::KeyCheck(LaserCanon& _laserCanon1)
 {
     if(Keyboard::isKeyPressed(Keyboard::Key::Right)) {
-	player.move(RIGHT);
+        _laserCanon1.move(RIGHT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Left)) {
-	player.move(LEFT);
+        _laserCanon1.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Up)) {
         auto laser_number = 1;
-	player.shootLaser(laser_number);
+        _laserCanon1.shootLaser(laser_number);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
-	exit(0);
+        exit(0);
     }
 }
 
-void KeyHandler::KeyCheck2(Player& player2)
+void KeyHandler::KeyCheck2(LaserCanon& _laserCanon2)
 {
     if(Keyboard::isKeyPressed(Keyboard::Key::D)) {
-	player2.move(RIGHT);
+        _laserCanon2.move(RIGHT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::A)) {
-	player2.move(LEFT);
+        _laserCanon2.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::W)) {
         auto laser_number = 2;
-	player2.shootLaser(laser_number);
+        _laserCanon2.shootLaser(laser_number);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
-	exit(0);
+        exit(0);
     }
 }

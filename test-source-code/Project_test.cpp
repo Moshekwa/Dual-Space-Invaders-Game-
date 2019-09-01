@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../game-source-code/EntityCoordinates.h"
-#include "../game-source-code/Player.h"
+#include "../game-source-code/LaserCanon.h"
 #include "doctest.h"
 
 //---------------------Testing Entity Coordinates-----------------------------------------
