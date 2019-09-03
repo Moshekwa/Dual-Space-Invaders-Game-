@@ -26,13 +26,13 @@ void WindowDisplay::CheckEvent()
 void WindowDisplay::drawHomeScreen()
 {
     auto texture = Texture{};
-    if(!texture.loadFromFile("splash_screen.jpg")) {
+    if(!texture.loadFromFile("screen_splash.png")) {
         exit(1);
     }
     texture.setSmooth(true);
     _sprite.setTexture(texture, true);
     _sprite.setPosition(0, 0);
-    _sprite.setScale(0.27, 0.46);
+    _sprite.setScale(0.46, 0.80);
 
     while(_window->isOpen() && !_play) {
 
