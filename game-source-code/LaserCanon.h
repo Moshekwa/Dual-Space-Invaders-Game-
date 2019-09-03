@@ -8,6 +8,7 @@ class LaserCanon : public GameEntity
 public:
     LaserCanon(int x, int y);
     void shootLaser(int laser_number);
+    void destroyLaser(int laser_number);
     void moveLaser();
     Laser getLaser(int laser_number) const;
     void update_Laser_position(int laser_number);

@@ -32,11 +32,29 @@ void LaserCanon::move(Direction _direction)
 
 void LaserCanon::shootLaser(int laser_number)
 {
-    if(laser_number == 1) {
+    switch(laser_number) {
+    case 1:
         _laser.setEntityLife(true);
-    }
-    if(laser_number == 2) {
+        break;
+    case 2:
         _laser2.setEntityLife(true);
+        break;
+    default:
+        break;
+    }
+}
+
+void LaserCanon::destroyLaser(int laser_number)
+{
+    switch(laser_number) {
+    case 1:
+        _laser.setEntityLife(false);
+        break;
+    case 2:
+        _laser2.setEntityLife(false);
+        break;
+    default:
+        break;
     }
 }
 
@@ -52,7 +70,7 @@ void LaserCanon::moveLaser()
 }
 
 Laser LaserCanon::getLaser(int laser_number) const
-{
+{  
     if(laser_number == 1) {
         return _laser;
     }
