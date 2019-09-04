@@ -1,7 +1,8 @@
 #include "Alien.h"
 
 Alien::Alien(int x, int y)
-    : GameEntity{ x, y, 5, true }
+    : GameEntity{ x, y, 4, true }
+    , alienRightDirection{ true }
 {
 }
 
@@ -36,4 +37,14 @@ void Alien::move(Direction _direction)
     default:
         break;
     }
+}
+
+void Alien::setAlienRightDirection(bool rightDirection)
+{
+    alienRightDirection = rightDirection;
+}
+
+bool Alien::getAlienRightDirection() const
+{
+    return alienRightDirection;
 }

@@ -27,6 +27,7 @@ void GameLoop::timerCheck()
     _windowDisplay->CheckEvent();
     GameUpdater _updater;
     _updater.updatePlayerLaser(*_laserCanon1, *_laserCanon2);
+    _updater.updateAlienPosition(*_alien);
 }
 
 void GameLoop::drawGameEntities()
