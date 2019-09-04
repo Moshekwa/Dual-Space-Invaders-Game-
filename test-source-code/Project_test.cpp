@@ -120,3 +120,44 @@ TEST_CASE("Testing the move fuction")
     _alien.move(Direction::DOWN);
     CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
 }
+
+TEST_CASE("Testing the move function at right boundary")
+{
+    auto xPosition = 380;
+    auto yPosition = 200;
+
+    auto _alien = Alien{ xPosition, yPosition };
+    _alien.move(Direction::RIGHT);
+    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
+}
+
+TEST_CASE("Testing the move function at left boundary")
+{
+    auto xPosition = 0;
+    auto yPosition = 200;
+
+    auto _alien = Alien{ xPosition, yPosition };
+    _alien.move(Direction::LEFT);
+    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
+}
+
+TEST_CASE("Testing the move function at upper boundary")
+{
+    auto xPosition = 0;
+    auto yPosition = 20;
+
+    auto _alien = Alien{ xPosition, yPosition };
+    _alien.move(Direction::UP);
+    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
+}
+
+TEST_CASE("Testing the move function at bottom boundary")
+{
+    auto xPosition = 380;
+    auto yPosition = 380;
+
+    auto _alien = Alien{ xPosition, yPosition };
+    _alien.move(Direction::DOWN);
+    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
+}
+
