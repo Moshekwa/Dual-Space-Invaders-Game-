@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "../game-source-code/Alien.h"
 #include "../game-source-code/EntityCoordinates.h"
 #include "../game-source-code/LaserCanon.h"
-#include "../game-source-code/Alien.h"
 #include "doctest.h"
 
 //---------------------Testing Entity Coordinates-----------------------------------------
@@ -93,14 +93,30 @@ TEST_CASE("Testing if the Laser Canon obeys the right boundary restrictions")
     CHECK_FALSE(_laserCanon.getEntityCoordinates().getXposition() == xPosition + _laserCanon.getEntitySpeed());
 }
 
-
 //------------------------------Test for the Alien class--------------------------------------------------------------
+
 TEST_CASE("Testing if the Alien class is able to create a valid object with initial positions")
 {
     auto xPosition = 200;
     auto yPosition = 200;
-    
-    auto _alien = Alien{xPosition, yPosition};
+
+    auto _alien = Alien{ xPosition, yPosition };
     CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
+    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
+}
+
+TEST_CASE("Testing the move fuction")
+{
+    auto xPosition = 200;
+    auto yPosition = 200;
+
+    auto _alien = Alien{ xPosition, yPosition };
+    _alien.move(Direction::LEFT);
+    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition - _alien.getEntitySpeed());
+    _alien.move(Direction::RIGHT);
+    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
+    _alien.move(Direction::UP);
+    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition - _alien.getEntitySpeed());
+    _alien.move(Direction::DOWN);
     CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
 }
