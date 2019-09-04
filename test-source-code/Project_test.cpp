@@ -204,5 +204,3 @@ TEST_CASE("Testing laser downward movement functionality")
 	_laser.move(Direction::DOWN);
 	CHECK(_laser.getEntityCoordinates().getYposition() == y_position2);
 }
-
-

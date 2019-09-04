@@ -8,8 +8,8 @@ class Alien : public GameEntity
 public:
     Alien(int x, int y);
     virtual void move(Direction _direction);
-   bool getAlienRightDirection() const;
-   void setAlienRightDirection(bool rightDirection);
+    bool getAlienRightDirection() const;
+    void setAlienRightDirection(bool rightDirection);
 
 private:
     bool alienRightDirection;

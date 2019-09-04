@@ -12,6 +12,10 @@
 
 using std::shared_ptr;
 using std::unique_ptr;
+using std::make_shared;
+using std::vector;
+
+typedef vector<shared_ptr<Alien>> Aliens;
 
 class GameLoop
 {
@@ -23,8 +27,8 @@ private:
     unique_ptr<WindowDisplay> _windowDisplay;
     shared_ptr<LaserCanon> _laserCanon1;
     shared_ptr<LaserCanon> _laserCanon2;
-    shared_ptr<Alien> _alien;
     shared_ptr<EntityDrawer> _entityDrawer;
+    Aliens _aliens;
     KeyHandler _keyHandler;
     void timerCheck();
     void drawGameEntities();
