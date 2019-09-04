@@ -4,6 +4,7 @@ GameLoop::GameLoop()
     : _windowDisplay{ new WindowDisplay }
     , _laserCanon1{ new LaserCanon{ 190, 380 } }
     , _laserCanon2{ new LaserCanon{ 190, 0 } }
+    , _alien{ new Alien{ 200, 200 } }
     , _entityDrawer{ new EntityDrawer{ _windowDisplay->getWindow() } }
 {
 }
@@ -32,6 +33,7 @@ void GameLoop::drawGameEntities()
 {
     auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
     _entityDrawerProxy._drawPlayer(*_laserCanon1, *_laserCanon2);
+    _entityDrawerProxy._drawAliens(*_alien);
 }
 
 void GameLoop::HomeScreen()
