@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../game-source-code/EntityCoordinates.h"
 #include "../game-source-code/LaserCanon.h"
+#include "../game-source-code/Alien.h"
 #include "doctest.h"
 
 //---------------------Testing Entity Coordinates-----------------------------------------
@@ -36,27 +37,27 @@ TEST_CASE("Testing if player is able to create 2 Laser Canon objects at differen
     auto xPosition2 = 190;
     auto yPosition2 = 0;
 
-    auto _player1 = LaserCanon{ xPosition1, yPosition1 };
-    auto _player2 = LaserCanon{ xPosition2, yPosition2 };
+    auto _laserCanon1 = LaserCanon{ xPosition1, yPosition1 };
+    auto _laserCanon2 = LaserCanon{ xPosition2, yPosition2 };
 
-    CHECK(_player1.getEntityCoordinates().getXposition() == xPosition1);
-    CHECK(_player2.getEntityCoordinates().getXposition() == xPosition2);
-    CHECK(_player1.getEntityCoordinates().getYposition() == yPosition1);
-    CHECK(_player2.getEntityCoordinates().getYposition() == yPosition2);
+    CHECK(_laserCanon1.getEntityCoordinates().getXposition() == xPosition1);
+    CHECK(_laserCanon2.getEntityCoordinates().getXposition() == xPosition2);
+    CHECK(_laserCanon1.getEntityCoordinates().getYposition() == yPosition1);
+    CHECK(_laserCanon2.getEntityCoordinates().getYposition() == yPosition2);
 }
 
-TEST_CASE("Testing the setPosition functions for laser")
+TEST_CASE("Testing the setPosition functions for Laser Canon")
 {
     auto xPosition = 190;
     auto yPosition = 380;
 
-    auto _player = LaserCanon{ 0, 0 };
+    auto _laserCanon = LaserCanon{ 0, 0 };
 
-    _player.setXposition(xPosition);
-    _player.setYposition(yPosition);
+    _laserCanon.setXposition(xPosition);
+    _laserCanon.setYposition(yPosition);
 
-    CHECK(_player.getEntityCoordinates().getXposition() == xPosition);
-    CHECK(_player.getEntityCoordinates().getYposition() == yPosition);
+    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition);
+    CHECK(_laserCanon.getEntityCoordinates().getYposition() == yPosition);
 }
 
 TEST_CASE("Testing the move function for Lasor Canon")
@@ -64,12 +65,12 @@ TEST_CASE("Testing the move function for Lasor Canon")
     auto xPosition = 190;
     auto yPosition = 380;
 
-    auto _player = LaserCanon{ xPosition, yPosition };
+    auto _laserCanon = LaserCanon{ xPosition, yPosition };
 
-    _player.move(Direction::LEFT);
-    CHECK(_player.getEntityCoordinates().getXposition() == xPosition - _player.getEntitySpeed());
-    _player.move(Direction::RIGHT);
-    CHECK(_player.getEntityCoordinates().getXposition() == xPosition);
+    _laserCanon.move(Direction::LEFT);
+    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition - _laserCanon.getEntitySpeed());
+    _laserCanon.move(Direction::RIGHT);
+    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition);
 }
 
 TEST_CASE("Testing if the Laser Canon obeys the left boundary restrictions")
@@ -77,9 +78,9 @@ TEST_CASE("Testing if the Laser Canon obeys the left boundary restrictions")
     auto xPosition = 4;
     auto yPosition = 380;
 
-    auto _player = LaserCanon{ xPosition, yPosition };
-    _player.move(Direction::LEFT);
-    CHECK_FALSE(_player.getEntityCoordinates().getXposition() == xPosition - _player.getEntitySpeed());
+    auto _laserCanon = LaserCanon{ xPosition, yPosition };
+    _laserCanon.move(Direction::LEFT);
+    CHECK_FALSE(_laserCanon.getEntityCoordinates().getXposition() == xPosition - _laserCanon.getEntitySpeed());
 }
 
 TEST_CASE("Testing if the Laser Canon obeys the right boundary restrictions")
@@ -87,7 +88,19 @@ TEST_CASE("Testing if the Laser Canon obeys the right boundary restrictions")
     auto xPosition = 375;
     auto yPosition = 380;
 
-    auto _player = LaserCanon{ xPosition, yPosition };
-    _player.move(Direction::RIGHT);
-    CHECK_FALSE(_player.getEntityCoordinates().getXposition() == xPosition + _player.getEntitySpeed());
+    auto _laserCanon = LaserCanon{ xPosition, yPosition };
+    _laserCanon.move(Direction::RIGHT);
+    CHECK_FALSE(_laserCanon.getEntityCoordinates().getXposition() == xPosition + _laserCanon.getEntitySpeed());
+}
+
+
+//------------------------------Test for the Alien class--------------------------------------------------------------
+TEST_CASE("Testing if the Alien class is able to create a valid object with initial positions")
+{
+    auto xPosition = 200;
+    auto yPosition = 200;
+    
+    auto _alien = Alien{xPosition, yPosition};
+    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
+    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
 }
