@@ -61,7 +61,8 @@ void GameLoop::timerCheck()
     GameUpdater _updater;
     _updater.updatePlayerLaser(*_laserCanon1, *_laserCanon2);
     auto _collisionDetector = CollisionDetector{};
-    
+    _collisionDetector.LaserCanonLaserCollision(*_laserCanon1,*_laserCanon2);
+	
     for(auto greenAlien : _greenAliens) {
         _updater.updateAlienPosition(*greenAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *greenAlien);
