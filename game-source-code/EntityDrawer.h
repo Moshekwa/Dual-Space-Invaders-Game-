@@ -28,6 +28,8 @@ public:
     void drawUpRedAliens(const EntityCoordinates& _coordinates);
     void drawUpPurpleAliens(const EntityCoordinates& _coordinates);
     
+    void drawHomeScreen();
+    
 private:
     shared_ptr<RenderWindow> _window;
     Sprites _sprites;

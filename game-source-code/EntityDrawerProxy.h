@@ -19,6 +19,8 @@ public:
     void _drawUpGreenAliens(const Alien& _alien);
     void _drawUpPurpleAliens(const Alien& _alien);
     void _drawUpRedAliens(const Alien& _alien);
+    
+    void _drawHomeScreen();
 
 private:
     shared_ptr<EntityDrawer> _entityDrawer;

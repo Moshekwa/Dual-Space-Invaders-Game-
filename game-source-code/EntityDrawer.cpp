@@ -76,3 +76,10 @@ void EntityDrawer::drawUpRedAliens(const EntityCoordinates& _coordinates)
     _sprites.at(9)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
     _window->draw(*_sprites.at(9));
 }
+
+void EntityDrawer::drawHomeScreen()
+{
+    _sprites.at(10)->setScale(0.46, 0.80);
+    _sprites.at(10)->setPosition(0, 0);
+    _window->draw(*_sprites.at(10));
+}

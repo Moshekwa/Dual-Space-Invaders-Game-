@@ -7,7 +7,7 @@ GameLoop::GameLoop()
     , _entityDrawer{ new EntityDrawer{ _windowDisplay->getWindow() } }
 {
     auto numberOfAliens = 5;
-    
+
     for(auto i = 0; i < numberOfAliens; i++) {
         auto _greenAlien = make_shared<Alien>(200 - 20 * i, 200, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
         _greenAliens.push_back(_greenAlien);
@@ -24,7 +24,7 @@ GameLoop::GameLoop()
         _redAliens.push_back(_redAlien);
     }
     //=----------------------------------------------------------------------------------------------------------------------
-    
+
     for(auto i = 0; i < numberOfAliens; i++) {
         auto _upGreenAlien = make_shared<Alien>(200 - 20 * i, 180, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
         _upGreenAliens.push_back(_upGreenAlien);
@@ -44,12 +44,37 @@ GameLoop::GameLoop()
 
 void GameLoop::PlayGame()
 {
-    HomeScreen();
+    /*
+        while(_windowDisplay->getWindow()->isOpen() && !_windowDisplay->isPlay()) {
+            auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
+            _entityDrawerProxy._drawHomeScreen();
+
+            _windowDisplay->CheckEvent();
+            _windowDisplay->getWindow()->display();
+            _windowDisplay->getWindow()->clear();
+        }
+
+        while(_windowDisplay->getWindow()->isOpen() && _windowDisplay->isPlay()) {
+            timerCheck();
+            drawGameEntities();
+            _windowDisplay->getWindow()->display();
+            _windowDisplay->getWindow()->clear();
+        }*/
+
     while(_windowDisplay->getWindow()->isOpen()) {
-        timerCheck();
-        drawGameEntities();
-        _windowDisplay->getWindow()->display();
-        _windowDisplay->getWindow()->clear();
+        if(!_windowDisplay->isPlay()) {
+            auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
+            _entityDrawerProxy._drawHomeScreen();
+
+            _windowDisplay->CheckEvent();
+            _windowDisplay->getWindow()->display();
+            _windowDisplay->getWindow()->clear();
+        } else if(_windowDisplay->isPlay()) {
+            timerCheck();
+            drawGameEntities();
+            _windowDisplay->getWindow()->display();
+            _windowDisplay->getWindow()->clear();
+        }
     }
 }
 
@@ -61,8 +86,8 @@ void GameLoop::timerCheck()
     GameUpdater _updater;
     _updater.updatePlayerLaser(*_laserCanon1, *_laserCanon2);
     auto _collisionDetector = CollisionDetector{};
-    _collisionDetector.LaserCanonLaserCollision(*_laserCanon1,*_laserCanon2);
-	
+    _collisionDetector.LaserCanonLaserCollision(*_laserCanon1, *_laserCanon2);
+
     for(auto greenAlien : _greenAliens) {
         _updater.updateAlienPosition(*greenAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *greenAlien);
@@ -75,7 +100,7 @@ void GameLoop::timerCheck()
         _updater.updateAlienPosition(*redAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *redAlien);
     }
-    
+
     //-------------------------------------------------------------------
     for(auto UpGreenAlien : _upGreenAliens) {
         _updater.updateUpAlienPosition(*UpGreenAlien);
@@ -89,14 +114,13 @@ void GameLoop::timerCheck()
         _updater.updateUpAlienPosition(*UpRedAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpRedAlien);
     }
-    
 }
 
 void GameLoop::drawGameEntities()
 {
     auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
     _entityDrawerProxy._drawPlayer(*_laserCanon1, *_laserCanon2);
-    
+
     for(auto greenAlien : _greenAliens) {
         _entityDrawerProxy._drawGreenAliens(*greenAlien);
     }
@@ -106,9 +130,9 @@ void GameLoop::drawGameEntities()
     for(auto redAlien : _redAliens) {
         _entityDrawerProxy._drawRedAliens(*redAlien);
     }
-    
+
     //--------------------------------------------------------------
-    
+
     for(auto UpGreenAlien : _upGreenAliens) {
         _entityDrawerProxy._drawUpGreenAliens(*UpGreenAlien);
     }
@@ -118,9 +142,4 @@ void GameLoop::drawGameEntities()
     for(auto UpRedAlien : _upRedAliens) {
         _entityDrawerProxy._drawUpRedAliens(*UpRedAlien);
     }
-}
-
-void GameLoop::HomeScreen()
-{
-    _windowDisplay->drawHomeScreen();
 }

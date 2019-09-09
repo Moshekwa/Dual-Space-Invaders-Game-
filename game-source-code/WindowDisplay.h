@@ -13,7 +13,6 @@ public:
     void CheckEvent();
     int getWidth() const;
     int getHeight() const;
-    void drawHomeScreen();
     
     void setPlay(bool& play);
     bool isPlay() const;

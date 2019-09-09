@@ -61,3 +61,8 @@ void EntityDrawerProxy::_drawUpRedAliens(const Alien& _alien)
         _entityDrawer->drawUpRedAliens(_alien.getEntityCoordinates());
     }
 }
+
+void EntityDrawerProxy::_drawHomeScreen()
+{
+    _entityDrawer->drawHomeScreen();
+}
