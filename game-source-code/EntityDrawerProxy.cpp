@@ -20,9 +20,44 @@ void EntityDrawerProxy::_drawPlayer(const LaserCanon& _laserCanon1, const LaserC
     }
 }
 
-void EntityDrawerProxy::_drawAliens(const Alien& _alien)
+void EntityDrawerProxy::_drawGreenAliens(const Alien& _alien)
 {
     if(_alien.isAlive()) {
-        _entityDrawer->drawAliens(_alien.getEntityCoordinates());
+        _entityDrawer->drawGreenAliens(_alien.getEntityCoordinates());
+    }
+}
+
+void EntityDrawerProxy::_drawPurpleAliens(const Alien& _alien)
+{
+    if(_alien.isAlive()) {
+        _entityDrawer->drawPurpleAliens(_alien.getEntityCoordinates());
+    }
+}
+
+void EntityDrawerProxy::_drawRedAliens(const Alien& _alien)
+{
+    if(_alien.isAlive()) {
+        _entityDrawer->drawRedAliens(_alien.getEntityCoordinates());
+    }
+}
+
+void EntityDrawerProxy::_drawUpGreenAliens(const Alien& _alien)
+{
+    if(_alien.isAlive()) {
+        _entityDrawer->drawUpGreenAliens(_alien.getEntityCoordinates());
+    }
+}
+
+void EntityDrawerProxy::_drawUpPurpleAliens(const Alien& _alien)
+{
+    if(_alien.isAlive()) {
+        _entityDrawer->drawUpPurpleAliens(_alien.getEntityCoordinates());
+    }
+}
+
+void EntityDrawerProxy::_drawUpRedAliens(const Alien& _alien)
+{
+    if(_alien.isAlive()) {
+        _entityDrawer->drawUpRedAliens(_alien.getEntityCoordinates());
     }
 }

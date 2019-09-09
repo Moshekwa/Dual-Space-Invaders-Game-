@@ -6,12 +6,16 @@
 class Alien : public GameEntity
 {
 public:
-    Alien(int x, int y);
+    Alien(int x, int y, int _rightBoundary, int _leftBoundary);
     virtual void move(Direction _direction);
     bool getAlienRightDirection() const;
     void setAlienRightDirection(bool rightDirection);
+    int getRightBoundary() const;
+    int getLeftBoundary() const;
 
 private:
+    int rightBoundary;
+    int leftBoundary;
     bool alienRightDirection;
 };
 

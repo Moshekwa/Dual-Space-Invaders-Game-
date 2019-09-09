@@ -1,15 +1,27 @@
 #include "Alien.h"
 
-Alien::Alien(int x, int y)
-    : GameEntity{ x, y, 4, true }
+Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary)
+    : GameEntity{ x, y, 2, true }
+    , rightBoundary { _rightBoundary}
+    , leftBoundary {_leftBoundary}
     , alienRightDirection{ true }
 {
 }
 
+int Alien::getRightBoundary() const
+{
+    return rightBoundary;
+}
+
+int Alien::getLeftBoundary() const
+{
+    return leftBoundary;
+}
+
 void Alien::move(Direction _direction)
 {
-    auto leftBoundary = 0;
-    auto rightBoundary = 380;
+    //auto leftBoundary = 0;
+    //auto rightBoundary = 380;
     auto upperBoundary = 20;
     auto bottomBoundary = 360;
 
@@ -26,12 +38,12 @@ void Alien::move(Direction _direction)
         break;
     case UP:
         if(getEntityCoordinates().getYposition() > upperBoundary) {
-            setYposition(getEntityCoordinates().getYposition() - getEntitySpeed());
+            setYposition(getEntityCoordinates().getYposition() - 2*getEntitySpeed());
         }
         break;
     case DOWN:
         if(getEntityCoordinates().getYposition() < bottomBoundary) {
-            setYposition(getEntityCoordinates().getYposition() + getEntitySpeed());
+            setYposition(getEntityCoordinates().getYposition() + 2*getEntitySpeed());
         }
         break;
     default:

@@ -9,6 +9,7 @@ public:
     GameUpdater();
     void updatePlayerLaser(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2);
     void updateAlienPosition(Alien& _alien);
+    void updateUpAlienPosition(Alien& _alien);
 
 private:
 };

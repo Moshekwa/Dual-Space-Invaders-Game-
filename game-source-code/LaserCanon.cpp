@@ -71,6 +71,7 @@ void LaserCanon::moveLaser()
 
 Laser LaserCanon::getLaser(int laser_number) const
 {  
+
     if(laser_number == 1) {
         return _laser;
     }
