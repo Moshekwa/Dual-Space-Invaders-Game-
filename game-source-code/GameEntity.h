@@ -16,6 +16,7 @@ public:
     void setYposition(int y);
     int getEntitySpeed() const;
     void setEntityLife(bool life);
+    void destroyEntity();
     bool isAlive() const;
     EntityCoordinates getEntityCoordinates() const;
     virtual void move(Direction _direction) = 0;

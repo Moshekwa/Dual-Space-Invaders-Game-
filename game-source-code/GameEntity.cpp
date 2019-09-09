@@ -22,6 +22,11 @@ void GameEntity::setEntityLife(bool life)
     _life = life;
 }
 
+void GameEntity::destroyEntity()
+{
+    setEntityLife(false);
+}
+
 bool GameEntity::isAlive() const
 {
     return _life;

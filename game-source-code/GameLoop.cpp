@@ -64,24 +64,29 @@ void GameLoop::timerCheck()
     
     for(auto greenAlien : _greenAliens) {
         _updater.updateAlienPosition(*greenAlien);
-        _collisionDetector.LaserAlienCollision(*_laserCanon1, *greenAlien);
+        _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *greenAlien);
     }
     for(auto purpleAlien : _purpleAliens) {
         _updater.updateAlienPosition(*purpleAlien);
+        _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *purpleAlien);
     }
     for(auto redAlien : _redAliens) {
         _updater.updateAlienPosition(*redAlien);
+        _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *redAlien);
     }
     
     //-------------------------------------------------------------------
     for(auto UpGreenAlien : _upGreenAliens) {
         _updater.updateUpAlienPosition(*UpGreenAlien);
+        _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpGreenAlien);
     }
     for(auto UpPurpleAlien : _upPurpleAliens) {
         _updater.updateUpAlienPosition(*UpPurpleAlien);
+        _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpPurpleAlien);
     }
     for(auto UpRedAlien : _upRedAliens) {
         _updater.updateUpAlienPosition(*UpRedAlien);
+        _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpRedAlien);
     }
     
 }
