@@ -2,11 +2,14 @@
 
 GameLoop::GameLoop()
     : _windowDisplay{ new WindowDisplay }
-    , _laserCanon1{ new LaserCanon{ 190, 380 } }
+    , _laserCanon1{ new LaserCanon{
+          (get<0>(_windowDisplay->screenDimensions()) / 2) - 10, get<1>(_windowDisplay->screenDimensions()) - 20 } }
     , _laserCanon2{ new LaserCanon{ 190, 0 } }
     , _entityDrawer{ new EntityDrawer{ _windowDisplay->getWindow() } }
 {
-    auto numberOfAliens = 5;
+
+    auto _alien = Alien{ 0, 0, 0, 0 };
+    auto numberOfAliens = _alien.getNumberOfAliens();
 
     for(auto i = 0; i < numberOfAliens; i++) {
         auto _greenAlien = make_shared<Alien>(200 - 20 * i, 200, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
@@ -23,7 +26,6 @@ GameLoop::GameLoop()
             make_shared<Alien>(200 - 20 * i, 200 + 40, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
         _redAliens.push_back(_redAlien);
     }
-    //=----------------------------------------------------------------------------------------------------------------------
 
     for(auto i = 0; i < numberOfAliens; i++) {
         auto _upGreenAlien = make_shared<Alien>(200 - 20 * i, 180, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
@@ -44,23 +46,6 @@ GameLoop::GameLoop()
 
 void GameLoop::PlayGame()
 {
-    /*
-        while(_windowDisplay->getWindow()->isOpen() && !_windowDisplay->isPlay()) {
-            auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
-            _entityDrawerProxy._drawHomeScreen();
-
-            _windowDisplay->CheckEvent();
-            _windowDisplay->getWindow()->display();
-            _windowDisplay->getWindow()->clear();
-        }
-
-        while(_windowDisplay->getWindow()->isOpen() && _windowDisplay->isPlay()) {
-            timerCheck();
-            drawGameEntities();
-            _windowDisplay->getWindow()->display();
-            _windowDisplay->getWindow()->clear();
-        }*/
-
     while(_windowDisplay->getWindow()->isOpen()) {
         if(!_windowDisplay->isPlay()) {
             auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
@@ -100,8 +85,6 @@ void GameLoop::timerCheck()
         _updater.updateAlienPosition(*redAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *redAlien);
     }
-
-    //-------------------------------------------------------------------
     for(auto UpGreenAlien : _upGreenAliens) {
         _updater.updateUpAlienPosition(*UpGreenAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpGreenAlien);
@@ -121,25 +104,22 @@ void GameLoop::drawGameEntities()
     auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
     _entityDrawerProxy._drawPlayer(*_laserCanon1, *_laserCanon2);
 
-    for(auto greenAlien : _greenAliens) {
-        _entityDrawerProxy._drawGreenAliens(*greenAlien);
+    for(auto GreenAliens : _greenAliens) {
+        _entityDrawerProxy._drawGreenAliens(*GreenAliens);
     }
-    for(auto purpleAlien : _purpleAliens) {
-        _entityDrawerProxy._drawPurpleAliens(*purpleAlien);
+    for(auto PurpleAliens : _purpleAliens) {
+        _entityDrawerProxy._drawPurpleAliens(*PurpleAliens);
     }
-    for(auto redAlien : _redAliens) {
-        _entityDrawerProxy._drawRedAliens(*redAlien);
+    for(auto RedAliens : _redAliens) {
+        _entityDrawerProxy._drawRedAliens(*RedAliens);
     }
-
-    //--------------------------------------------------------------
-
-    for(auto UpGreenAlien : _upGreenAliens) {
-        _entityDrawerProxy._drawUpGreenAliens(*UpGreenAlien);
+    for(auto UpGreenAliens : _upGreenAliens) {
+        _entityDrawerProxy._drawUpGreenAliens(*UpGreenAliens);
     }
-    for(auto UpPurpleAlien : _upPurpleAliens) {
-        _entityDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien);
+    for(auto UpPurpleAliens : _upPurpleAliens) {
+        _entityDrawerProxy._drawUpPurpleAliens(*UpPurpleAliens);
     }
-    for(auto UpRedAlien : _upRedAliens) {
-        _entityDrawerProxy._drawUpRedAliens(*UpRedAlien);
+    for(auto UpRedAliens : _upRedAliens) {
+        _entityDrawerProxy._drawUpRedAliens(*UpRedAliens);
     }
 }

@@ -12,8 +12,10 @@ public:
     void setAlienRightDirection(bool rightDirection);
     int getRightBoundary() const;
     int getLeftBoundary() const;
+    int getNumberOfAliens() const;
 
 private:
+    int numberOfAliens;
     int rightBoundary;
     int leftBoundary;
     bool alienRightDirection;

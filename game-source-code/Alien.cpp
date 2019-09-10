@@ -2,10 +2,16 @@
 
 Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary)
     : GameEntity{ x, y, 2, true }
+    , numberOfAliens {5}
     , rightBoundary { _rightBoundary}
     , leftBoundary {_leftBoundary}
     , alienRightDirection{ true }
 {
+}
+
+int Alien::getNumberOfAliens() const
+{
+    return numberOfAliens;
 }
 
 int Alien::getRightBoundary() const

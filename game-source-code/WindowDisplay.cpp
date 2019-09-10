@@ -1,13 +1,16 @@
 #include "WindowDisplay.h"
 
 WindowDisplay::WindowDisplay()
-    : _window{ new RenderWindow{ VideoMode(width, height), "Duel Invaders" } }
+    : _window{ new RenderWindow{ VideoMode(screenWidth, screenHeight), "Duel Invaders" } }
 {
     /// set frame rate
     const int FPS = 60;
     _window->setFramerateLimit(FPS);
     _play = false;
 }
+
+const int WindowDisplay::screenWidth{ 400 };
+const int WindowDisplay::screenHeight{ 400 };
 
 void WindowDisplay::CheckEvent()
 {
@@ -37,12 +40,8 @@ shared_ptr<RenderWindow> WindowDisplay::getWindow()
     return _window;
 }
 
-int WindowDisplay::getWidth() const
+tuple <int, int> WindowDisplay::screenDimensions() const
 {
-    return width;
+    return {screenWidth,screenHeight};
 }
 
-int WindowDisplay::getHeight() const
-{
-    return height;
-}
