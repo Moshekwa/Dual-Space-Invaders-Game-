@@ -4,12 +4,12 @@ using std::string;
 
 EntityImageLoader::EntityImageLoader()
 {
-    auto numberOfTextures = 11;
+    auto numberOfTextures = 13;
     for(int i = 0; i < numberOfTextures; i++) {
-        auto _texture = Texture{};
-        _textures.push_back(_texture);
-        shared_ptr<Sprite> _sprite{ new Sprite };
-        _sprites.push_back(_sprite);
+	auto _texture = Texture{};
+	_textures.push_back(_texture);
+	shared_ptr<Sprite> _sprite{ new Sprite };
+	_sprites.push_back(_sprite);
     }
 }
 
@@ -27,17 +27,18 @@ Sprites EntityImageLoader::getSprites()
 void EntityImageLoader::loadImages()
 {
     vector<string> image_filenames{ "player1.png", "player2.png", "laser1.png", "laser1.png", "green_alien.png",
-        "purple_alien.png", "red_alien.png", "up_green_alien.png", "up_purple_alien.png", "up_red_alien.png", "screen_splash.png" };
+	"purple_alien.png", "red_alien.png", "up_green_alien.png", "up_purple_alien.png", "up_red_alien.png",
+	"screen_splash.png","gamewon.png","gamelost.png"};
     for(auto i = 0u; i < _textures.size(); i++) {
-        if(!_textures.at(i).loadFromFile(image_filenames.at(i).c_str()))
-            exit(1);
+	if(!_textures.at(i).loadFromFile(image_filenames.at(i).c_str()))
+	    exit(1);
     }
 }
 
 void EntityImageLoader::setSprites()
 {
     for(auto i = 0u; i < _textures.size(); i++) {
-        _textures.at(i).setSmooth(true);
-        _sprites.at(i)->setTexture(_textures.at(i), true);
+	_textures.at(i).setSmooth(true);
+	_sprites.at(i)->setTexture(_textures.at(i), true);
     }
 }
