@@ -86,14 +86,14 @@ void EntityDrawer::drawHomeScreen()
 
 void EntityDrawer::drawGameWon()
 {
-    _sprites.at(11)->setScale(0.30, 0.60);
+    _sprites.at(11)->setScale(0.33, 0.60);
     _sprites.at(11)->setPosition(0, 0);
     _window->draw(*_sprites.at(11));
 }
 
 void EntityDrawer::drawGameLost()
 {
-    _sprites.at(12)->setScale(0.30, 0.60);
+    _sprites.at(12)->setScale(0.33, 0.60);
     _sprites.at(12)->setPosition(0, 0);
     _window->draw(*_sprites.at(12));
 }

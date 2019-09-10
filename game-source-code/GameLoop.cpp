@@ -81,6 +81,14 @@ void GameLoop::timerCheck()
     _updater.updatePlayerLaser(*_laserCanon1, *_laserCanon2);
     auto _collisionDetector = CollisionDetector{};
     _collisionDetector.LaserCanonLaserCollision(*_laserCanon1, *_laserCanon2);
+	
+	if(!_laserCanon1->isAlive() || !_laserCanon2->isAlive() )
+	{
+		gameLost = true;
+		auto play = false;
+		_windowDisplay->setPlay(play);
+	}
+	
     auto counter = 0;
     auto _alien = Alien{ 0, 0, 0, 0 };
     auto numberOfAliens = _alien.getNumberOfAliens() * 6;
