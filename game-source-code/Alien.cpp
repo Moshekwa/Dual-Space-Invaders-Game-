@@ -2,7 +2,7 @@
 
 Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary)
     : GameEntity{ x, y, 2, true }
-    , numberOfAliens {5}
+    , numberOfAliens {1}
     , rightBoundary { _rightBoundary}
     , leftBoundary {_leftBoundary}
     , alienRightDirection{ true }

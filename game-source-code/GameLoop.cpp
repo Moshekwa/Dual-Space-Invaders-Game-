@@ -1,10 +1,12 @@
 #include "GameLoop.h"
+#include <iostream>
+using namespace std;
 
 GameLoop::GameLoop()
     : _windowDisplay{ new WindowDisplay }
     , _laserCanon1{ new LaserCanon{
           (get<0>(_windowDisplay->screenDimensions()) / 2) - 10, get<1>(_windowDisplay->screenDimensions()) - 20 } }
-    , _laserCanon2{ new LaserCanon{ 190, 0 } }
+    , _laserCanon2{ new LaserCanon{ (get<0>(_windowDisplay->screenDimensions()) / 2) - 10, 0 } }
     , _entityDrawer{ new EntityDrawer{ _windowDisplay->getWindow() } }
 {
 
@@ -72,30 +74,86 @@ void GameLoop::timerCheck()
     _updater.updatePlayerLaser(*_laserCanon1, *_laserCanon2);
     auto _collisionDetector = CollisionDetector{};
     _collisionDetector.LaserCanonLaserCollision(*_laserCanon1, *_laserCanon2);
+    auto counter = 0;
+    auto _alien = Alien{ 0, 0, 0, 0 };
+    auto numberOfAliens = _alien.getNumberOfAliens() * 6;
 
     for(auto greenAlien : _greenAliens) {
         _updater.updateAlienPosition(*greenAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *greenAlien);
+        if(!greenAlien->isAlive()) {
+            counter++;
+            if(numberOfAliens == counter) {
+                auto play = false;
+                _windowDisplay->setPlay(play);
+                ;
+            }
+        }
     }
+
     for(auto purpleAlien : _purpleAliens) {
         _updater.updateAlienPosition(*purpleAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *purpleAlien);
+        if(!purpleAlien->isAlive()) {
+            counter++;
+            if(numberOfAliens == counter) {
+                auto play = false;
+                _windowDisplay->setPlay(play);
+                ;
+            }
+        }
     }
+
     for(auto redAlien : _redAliens) {
         _updater.updateAlienPosition(*redAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *redAlien);
+        if(!redAlien->isAlive()) {
+            counter++;
+            if(numberOfAliens == counter) {
+                auto play = false;
+                _windowDisplay->setPlay(play);
+                ;
+            }
+        }
     }
+
     for(auto UpGreenAlien : _upGreenAliens) {
         _updater.updateUpAlienPosition(*UpGreenAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpGreenAlien);
+        if(!UpGreenAlien->isAlive()) {
+            counter++;
+            if(numberOfAliens == counter) {
+                auto play = false;
+                _windowDisplay->setPlay(play);
+                ;
+            }
+        }
     }
+
     for(auto UpPurpleAlien : _upPurpleAliens) {
         _updater.updateUpAlienPosition(*UpPurpleAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpPurpleAlien);
+        if(!UpPurpleAlien->isAlive()) {
+            counter++;
+            if(numberOfAliens == counter) {
+                auto play = false;
+                _windowDisplay->setPlay(play);
+                ;
+            }
+        }
     }
+
     for(auto UpRedAlien : _upRedAliens) {
         _updater.updateUpAlienPosition(*UpRedAlien);
         _collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpRedAlien);
+        if(!UpRedAlien->isAlive()) {
+            counter++;
+            if(numberOfAliens == counter) {
+                auto play = false;
+                _windowDisplay->setPlay(play);
+                ;
+            }
+        }
     }
 }
 
