@@ -1,10 +1,12 @@
 #include "Alien.h"
 
 Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary)
-    : GameEntity{ x, y, 2, true }
-    , numberOfAliens {1}
-    , rightBoundary { _rightBoundary}
-    , leftBoundary {_leftBoundary}
+    : GameEntity{ x, y, 4, true }
+    , numberOfAliens{ 1 }
+    , rightBoundary{ _rightBoundary }
+    , leftBoundary{ _leftBoundary }
+    , upperBoundary{ 20 }
+    , bottomBoundary{ 360 }
     , alienRightDirection{ true }
 {
 }
@@ -14,20 +16,20 @@ int Alien::getNumberOfAliens() const
     return numberOfAliens;
 }
 
-int Alien::getRightBoundary() const
+tuple<int, int> Alien::getHorizontalBoundaries() const
 {
-    return rightBoundary;
+    return { leftBoundary, rightBoundary };
 }
 
-int Alien::getLeftBoundary() const
+tuple<int, int> Alien::getVerticalBoundaries() const
 {
-    return leftBoundary;
+    return { upperBoundary, bottomBoundary };
 }
 
 void Alien::move(Direction _direction)
 {
-    //auto leftBoundary = 0;
-    //auto rightBoundary = 380;
+    // auto leftBoundary = 0;
+    // auto rightBoundary = 380;
     auto upperBoundary = 20;
     auto bottomBoundary = 360;
 
@@ -44,12 +46,12 @@ void Alien::move(Direction _direction)
         break;
     case UP:
         if(getEntityCoordinates().getYposition() > upperBoundary) {
-            setYposition(getEntityCoordinates().getYposition() - 2*getEntitySpeed());
+            setYposition(getEntityCoordinates().getYposition() - 2 * getEntitySpeed());
         }
         break;
     case DOWN:
         if(getEntityCoordinates().getYposition() < bottomBoundary) {
-            setYposition(getEntityCoordinates().getYposition() + 2*getEntitySpeed());
+            setYposition(getEntityCoordinates().getYposition() + 2 * getEntitySpeed());
         }
         break;
     default:

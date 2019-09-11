@@ -2,6 +2,8 @@
 #define ALIEN_H_INCLUDED
 #include "EntityCoordinates.h"
 #include "GameEntity.h"
+#include <tuple>
+using namespace std;
 
 class Alien : public GameEntity
 {
@@ -10,14 +12,16 @@ public:
     virtual void move(Direction _direction);
     bool getAlienRightDirection() const;
     void setAlienRightDirection(bool rightDirection);
-    int getRightBoundary() const;
-    int getLeftBoundary() const;
+    tuple<int, int> getHorizontalBoundaries() const;
+    tuple<int, int> getVerticalBoundaries() const;
     int getNumberOfAliens() const;
 
 private:
     int numberOfAliens;
     int rightBoundary;
     int leftBoundary;
+    int upperBoundary;
+    int bottomBoundary;
     bool alienRightDirection;
 };
 
