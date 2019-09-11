@@ -28,7 +28,7 @@ void EntityImageLoader::loadImages()
 {
     vector<string> image_filenames{ "player1.png", "player2.png", "laser1.png", "laser1.png", "green_alien.png",
 	"purple_alien.png", "red_alien.png", "up_green_alien.png", "up_purple_alien.png", "up_red_alien.png",
-	"screen_splash.png","gamewon.png","gamelost.png"};
+	"splash_screen.png","gamewon.png","gamelost.png"};
     for(auto i = 0u; i < _textures.size(); i++) {
 	if(!_textures.at(i).loadFromFile(image_filenames.at(i).c_str()))
 	    exit(1);
