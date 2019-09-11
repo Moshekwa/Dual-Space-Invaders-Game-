@@ -3,7 +3,7 @@
 WindowDisplay::WindowDisplay()
     : _window{ new RenderWindow{ VideoMode(screenWidth, screenHeight), "Duel Invaders" } }
 {
-    /// set frame rate
+    // set frame rate
     const int FPS = 60;
     _window->setFramerateLimit(FPS);
     _play = false;

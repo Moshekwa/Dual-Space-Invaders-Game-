@@ -49,6 +49,7 @@ private:
 
     bool gameWon;
     bool gameLost;
+	
 };
 
 #endif // GAMELOOP_H_INCLUDED

@@ -1,6 +1,4 @@
 #include "GameLoop.h"
-#include <iostream>
-using namespace std;
 
 GameLoop::GameLoop()
     : _windowDisplay{ new WindowDisplay }
@@ -16,34 +14,56 @@ GameLoop::GameLoop()
     auto numberOfAliens = _alien.getNumberOfAliens();
 
     for(auto i = 0; i < numberOfAliens; i++) {
-	auto _greenAlien = make_shared<Alien>(200 - 20 * i, 200, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
+	auto xPosition = get<0>(_windowDisplay->screenDimensions()) / 2 - 25 * i;
+	auto yPosition = get<1>(_windowDisplay->screenDimensions()) / 2;
+	auto rightBoundary = get<0>(_windowDisplay->screenDimensions()) - 20 - 25 * i;
+	auto leftBoundary = ((25 * numberOfAliens) - 25) - 25 * i;
+	auto _greenAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
 	_greenAliens.push_back(_greenAlien);
     }
 
     for(auto i = 0; i < numberOfAliens; i++) {
-	auto _purpleAlien =
-	    make_shared<Alien>(200 - 20 * i, 200 + 20, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
+	auto xPosition = get<0>(_windowDisplay->screenDimensions()) / 2 - 25 * i;
+	auto yPosition = get<1>(_windowDisplay->screenDimensions()) / 2 + 20;
+	auto rightBoundary = get<0>(_windowDisplay->screenDimensions()) - 20 - 25 * i;
+	auto leftBoundary = ((25 * numberOfAliens) - 25) - 25 * i;
+	auto _purpleAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
 	_purpleAliens.push_back(_purpleAlien);
     }
+
     for(auto i = 0; i < numberOfAliens; i++) {
-	auto _redAlien =
-	    make_shared<Alien>(200 - 20 * i, 200 + 40, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
+	auto xPosition = get<0>(_windowDisplay->screenDimensions()) / 2 - 25 * i;
+	auto yPosition = get<1>(_windowDisplay->screenDimensions()) / 2 + 40;
+	auto rightBoundary = get<0>(_windowDisplay->screenDimensions()) - 20 - 25 * i;
+	auto leftBoundary = ((25 * numberOfAliens) - 25) - 25 * i;
+	auto _redAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
 	_redAliens.push_back(_redAlien);
     }
 
     for(auto i = 0; i < numberOfAliens; i++) {
-	auto _upGreenAlien = make_shared<Alien>(200 - 20 * i, 180, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
+	auto xPosition = get<0>(_windowDisplay->screenDimensions()) / 2 - 25 * i;
+	auto yPosition = get<1>(_windowDisplay->screenDimensions()) / 2 - 20;
+	auto rightBoundary = get<0>(_windowDisplay->screenDimensions()) - 20 - 25 * i;
+	auto leftBoundary = ((25 * numberOfAliens) - 25) - 25 * i;
+	auto _upGreenAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
 	_upGreenAliens.push_back(_upGreenAlien);
     }
 
     for(auto i = 0; i < numberOfAliens; i++) {
-	auto _upPurpleAlien =
-	    make_shared<Alien>(200 - 20 * i, 180 - 20, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
+	auto xPosition = get<0>(_windowDisplay->screenDimensions()) / 2 - 25 * i;
+	auto yPosition = get<1>(_windowDisplay->screenDimensions()) / 2 - 40;
+	auto rightBoundary = get<0>(_windowDisplay->screenDimensions()) - 20 - 25 * i;
+	auto leftBoundary = ((25 * numberOfAliens) - 25) - 25 * i;
+	auto _upPurpleAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
 	_upPurpleAliens.push_back(_upPurpleAlien);
     }
+
     for(auto i = 0; i < numberOfAliens; i++) {
-	auto _upRedAlien =
-	    make_shared<Alien>(200 - 20 * i, 180 - 40, 380 - 20 * i, ((20 * numberOfAliens) - 20) - 20 * i);
+	auto xPosition = get<0>(_windowDisplay->screenDimensions()) / 2 - 25 * i;
+	auto yPosition = get<1>(_windowDisplay->screenDimensions()) / 2 - 60;
+	auto rightBoundary = get<0>(_windowDisplay->screenDimensions()) - 20 - 25 * i;
+	auto leftBoundary = ((25 * numberOfAliens) - 25) - 25 * i;
+	auto _upRedAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
 	_upRedAliens.push_back(_upRedAlien);
     }
 }
