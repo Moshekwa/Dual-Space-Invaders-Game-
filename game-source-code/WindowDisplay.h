@@ -17,6 +17,8 @@ public:
 
     void setPlay(bool& play);
     bool isPlay() const;
+    
+    int getPlayMode() const;
 
     shared_ptr<RenderWindow> getWindow();
 
@@ -26,6 +28,7 @@ private:
     shared_ptr<RenderWindow> _window;
     bool _play;
     Sprite _sprite;
+    int _playMode;
 };
 
 #endif // WINDOWDISPLAY_H_INCLUDED

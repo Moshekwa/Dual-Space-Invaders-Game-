@@ -1,7 +1,6 @@
 #ifndef COLLISIONDETECTOR_H_INCLUDED
 #define COLLISIONDETECTOR_H_INCLUDED
 #include "Alien.h"
-#include "Laser.h"
 #include "LaserCanon.h"
 
 class CollisionDetector

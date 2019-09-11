@@ -2,7 +2,7 @@
 
 Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary)
     : GameEntity{ x, y, 4, true }
-    , numberOfAliens{ 1 }
+    , numberOfAliens{ 5 }
     , rightBoundary{ _rightBoundary }
     , leftBoundary{ _leftBoundary }
     , upperBoundary{ 20 }
@@ -16,23 +16,13 @@ int Alien::getNumberOfAliens() const
     return numberOfAliens;
 }
 
-tuple<int, int> Alien::getHorizontalBoundaries() const
+tuple<int, int, int, int> Alien::getBoundaries() const
 {
-    return { leftBoundary, rightBoundary };
-}
-
-tuple<int, int> Alien::getVerticalBoundaries() const
-{
-    return { upperBoundary, bottomBoundary };
+    return { leftBoundary, rightBoundary, upperBoundary, bottomBoundary };
 }
 
 void Alien::move(Direction _direction)
 {
-    // auto leftBoundary = 0;
-    // auto rightBoundary = 380;
-    auto upperBoundary = 20;
-    auto bottomBoundary = 360;
-
     switch(_direction) {
     case LEFT:
         if(getEntityCoordinates().getXposition() > leftBoundary) {

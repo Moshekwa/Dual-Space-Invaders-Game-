@@ -12,8 +12,7 @@ public:
     virtual void move(Direction _direction);
     bool getAlienRightDirection() const;
     void setAlienRightDirection(bool rightDirection);
-    tuple<int, int> getHorizontalBoundaries() const;
-    tuple<int, int> getVerticalBoundaries() const;
+    tuple<int, int, int, int> getBoundaries() const;
     int getNumberOfAliens() const;
 
 private:

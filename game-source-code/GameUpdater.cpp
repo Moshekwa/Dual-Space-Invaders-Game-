@@ -31,14 +31,14 @@ void GameUpdater::updateAlienPosition(Alien& _alien)
     if(_alien.isAlive()) {
 	if(_alien.getAlienRightDirection()) {
 	    _alien.move(Direction::RIGHT);
-	    if(_alien.getEntityCoordinates().getXposition() >= get<1>(_alien.getHorizontalBoundaries())) {
+	    if(_alien.getEntityCoordinates().getXposition() >= get<1>(_alien.getBoundaries())) {
 		_alien.move(Direction::DOWN);
 		_alien.setAlienRightDirection(false);
 	    }
 	}
 	if(!_alien.getAlienRightDirection()) {
 	    _alien.move(Direction::LEFT);
-	    if(_alien.getEntityCoordinates().getXposition() <= get<0>(_alien.getHorizontalBoundaries())) {
+	    if(_alien.getEntityCoordinates().getXposition() <= get<0>(_alien.getBoundaries())) {
 		_alien.move(Direction::DOWN);
 		_alien.setAlienRightDirection(true);
 		;
@@ -52,14 +52,14 @@ void GameUpdater::updateUpAlienPosition(Alien& _alien)
     if(_alien.isAlive()) {
 	if(_alien.getAlienRightDirection()) {
 	    _alien.move(Direction::RIGHT);
-	    if(_alien.getEntityCoordinates().getXposition() >= get<1>(_alien.getHorizontalBoundaries())) {
+	    if(_alien.getEntityCoordinates().getXposition() >= get<1>(_alien.getBoundaries())) {
 		_alien.move(Direction::UP);
 		_alien.setAlienRightDirection(false);
 	    }
 	}
 	if(!_alien.getAlienRightDirection()) {
 	    _alien.move(Direction::LEFT);
-	    if(_alien.getEntityCoordinates().getXposition() <= get<0>(_alien.getHorizontalBoundaries())) {
+	    if(_alien.getEntityCoordinates().getXposition() <= get<0>(_alien.getBoundaries())) {
 		_alien.move(Direction::UP);
 		_alien.setAlienRightDirection(true);
 		;

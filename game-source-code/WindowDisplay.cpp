@@ -7,6 +7,7 @@ WindowDisplay::WindowDisplay()
     const int FPS = 60;
     _window->setFramerateLimit(FPS);
     _play = false;
+    _playMode = 0;
 }
 
 const int WindowDisplay::screenWidth{ 400 };
@@ -21,6 +22,11 @@ void WindowDisplay::CheckEvent()
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Enter)) {
             _play = true;
+            _playMode = 1;
+        }
+        if(Keyboard::isKeyPressed(Keyboard::Key::L)){
+            _play = true;
+            _playMode = 2;
         }
     }
 }
@@ -33,6 +39,11 @@ void WindowDisplay::setPlay(bool& play)
 bool WindowDisplay::isPlay() const
 {
     return _play;
+}
+
+int WindowDisplay::getPlayMode() const
+{
+    return _playMode;
 }
 
 shared_ptr<RenderWindow> WindowDisplay::getWindow()

@@ -76,8 +76,10 @@ void GameLoop::PlayGame()
 
 void GameLoop::timerCheck()
 {
-    _keyHandler.KeyCheck(*_laserCanon1);
-    _keyHandler.KeyCheck2(*_laserCanon2);
+    _keyHandler.KeyCheck(*_laserCanon1, *_laserCanon2, _windowDisplay->getPlayMode());
+    if(_windowDisplay->getPlayMode() == 1) {
+        _keyHandler.KeyCheck2(*_laserCanon2);
+    }
     _windowDisplay->CheckEvent();
     GameUpdater _updater;
     _updater.updatePlayerLaser(*_laserCanon1, *_laserCanon2);
@@ -97,7 +99,7 @@ void GameLoop::timerCheck()
     for(auto greenAlien : _greenAliens) {
         _updater.updateAlienPosition(*greenAlien);
         if(greenAlien->isAlive() &&
-            greenAlien->getEntityCoordinates().getYposition() >= get<1>(greenAlien->getVerticalBoundaries())) {
+            greenAlien->getEntityCoordinates().getYposition() >= get<3>(greenAlien->getBoundaries())) {
             gameLost = true;
             auto play = false;
             _windowDisplay->setPlay(play);
@@ -116,7 +118,8 @@ void GameLoop::timerCheck()
 
     for(auto purpleAlien : _purpleAliens) {
         _updater.updateAlienPosition(*purpleAlien);
-        if(purpleAlien->isAlive() && purpleAlien->getEntityCoordinates().getYposition() >= get<1>(purpleAlien->getVerticalBoundaries())) {
+        if(purpleAlien->isAlive() &&
+            purpleAlien->getEntityCoordinates().getYposition() >= get<3>(purpleAlien->getBoundaries())) {
             gameLost = true;
             auto play = false;
             _windowDisplay->setPlay(play);
@@ -135,7 +138,8 @@ void GameLoop::timerCheck()
 
     for(auto redAlien : _redAliens) {
         _updater.updateAlienPosition(*redAlien);
-        if(redAlien->isAlive() && redAlien->getEntityCoordinates().getYposition() >= get<1>(redAlien->getVerticalBoundaries())) {
+        if(redAlien->isAlive() &&
+            redAlien->getEntityCoordinates().getYposition() >= get<3>(redAlien->getBoundaries())) {
             gameLost = true;
             auto play = false;
             _windowDisplay->setPlay(play);
