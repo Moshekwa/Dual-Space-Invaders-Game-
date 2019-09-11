@@ -9,8 +9,9 @@ class KeyHandler
 {
 public:
     KeyHandler();
-    void KeyCheck(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, int playMode);
+    void KeyCheck(LaserCanon& _laserCanon1);
     void KeyCheck2(LaserCanon& _laserCanon2);
+    void singleModeKeyCheck(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2);
 
 private:
 };

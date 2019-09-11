@@ -76,9 +76,10 @@ void GameLoop::PlayGame()
 
 void GameLoop::timerCheck()
 {
-    _keyHandler.KeyCheck(*_laserCanon1, *_laserCanon2, _windowDisplay->getPlayMode());
-    if(_windowDisplay->getPlayMode() == 1) {
-        _keyHandler.KeyCheck2(*_laserCanon2);
+    _keyHandler.KeyCheck(*_laserCanon1);
+    _keyHandler.KeyCheck2(*_laserCanon2);
+    if(_windowDisplay->is_singleMode()) {
+    _keyHandler.singleModeKeyCheck(*_laserCanon1,*_laserCanon2);
     }
     _windowDisplay->CheckEvent();
     GameUpdater _updater;
