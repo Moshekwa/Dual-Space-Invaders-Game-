@@ -4,7 +4,7 @@
 class EntityCoordinates
 {
 public:
-    EntityCoordinates(int x=0, int y=0);
+    EntityCoordinates(int x = 0, int y = 0);
     void setXposition(int x);
     void setYposition(int y);
     int getXposition() const;

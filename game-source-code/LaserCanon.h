@@ -3,10 +3,14 @@
 #include "GameEntity.h"
 #include "Laser.h"
 
+class InvalidLaserCanonCoordinates
+{
+};
+
 class LaserCanon : public GameEntity
 {
 public:
-    LaserCanon(int x, int y);
+    LaserCanon(int x, int y, int canonNumber);
     void shootLaser(int laser_number);
     void destroyLaser(int laser_number);
     void moveLaser();

@@ -34,6 +34,7 @@ private:
     shared_ptr<LaserCanon> _laserCanon1;
     shared_ptr<LaserCanon> _laserCanon2;
     shared_ptr<EntityDrawer> _entityDrawer;
+    shared_ptr<Alien> _alien;
 
     GreenAliens _greenAliens;
     PurpleAliens _purpleAliens;
@@ -47,13 +48,12 @@ private:
     EntityDrawerProxy _entityDrawerProxy;
     void timerCheck();
     void drawGameEntities();
-    void drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries );
+    void drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries);
     void drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
     void drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
 
     bool gameWon;
     bool gameLost;
-	
 };
 
 #endif // GAMELOOP_H_INCLUDED

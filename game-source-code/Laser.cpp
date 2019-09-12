@@ -3,6 +3,10 @@
 Laser::Laser(const EntityCoordinates& _coordinates)
     : GameEntity{ _coordinates.getXposition(), _coordinates.getYposition(), 5, false }
 {
+    if(getEntityCoordinates().getXposition() < 0 || getEntityCoordinates().getXposition() > 400 ||
+        getEntityCoordinates().getYposition() < 0 || getEntityCoordinates().getYposition() > 400) {
+	throw InvalidLaserCoordinates{};
+    }
 }
 
 void Laser::move(Direction _direction)

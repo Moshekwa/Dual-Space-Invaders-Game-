@@ -5,6 +5,10 @@
 #include <tuple>
 using namespace std;
 
+class InvalidAlienCoordinates
+{
+};
+
 class Alien : public GameEntity
 {
 public:

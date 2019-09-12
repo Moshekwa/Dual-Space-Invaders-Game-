@@ -1,7 +1,7 @@
 #ifndef GAMEUPDATER_H_INCLUDED
 #define GAMEUPDATER_H_INCLUDED
-#include "LaserCanon.h"
 #include "Alien.h"
+#include "LaserCanon.h"
 
 class GameUpdater
 {

@@ -3,6 +3,10 @@
 #include "EntityCoordinates.h"
 #include "GameEntity.h"
 
+class InvalidLaserCoordinates
+{
+};
+
 class Laser : public GameEntity
 {
 public:
@@ -11,7 +15,6 @@ public:
     virtual void move(Direction _direction);
 
 private:
-    
 };
 
 #endif // LASER_H_INCLUDED

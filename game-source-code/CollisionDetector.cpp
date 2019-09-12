@@ -50,14 +50,13 @@ void CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserCanon1, Laser
     auto LaserCanon2Ycentre = _laserCanon2.getEntityCoordinates().getYposition() + laserCanonRadius;
 
     auto centreDistance = sqrt(pow(laserXCentre - LaserCanon2Xcentre, 2) + pow(laserYCentre - LaserCanon2Ycentre, 2));
-    auto centreDistance2 =
-        sqrt(pow(laser2XCentre - LaserCanonXcentre, 2) + pow(laser2YCentre - LaserCanonYcentre, 2));
+    auto centreDistance2 = sqrt(pow(laser2XCentre - LaserCanonXcentre, 2) + pow(laser2YCentre - LaserCanonYcentre, 2));
 
     if(centreDistance < radii_sum && _laserCanon2.isAlive() && _laserCanon1.getLaser(laserOne).isAlive()) {
 	_laserCanon1.destroyLaser(laserOne);
 	_laserCanon2.destroyEntity();
     }
-	
+
     if(centreDistance2 < radii_sum && _laserCanon1.isAlive() && _laserCanon2.getLaser(laserTwo).isAlive()) {
 	_laserCanon2.destroyLaser(laserTwo);
 	_laserCanon1.destroyEntity();
