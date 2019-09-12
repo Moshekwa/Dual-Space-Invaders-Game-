@@ -35,25 +35,73 @@ void EntityDrawer::drawLaser2(const EntityCoordinates& _coordinates)
     _window->draw(*_sprites.at(3));
 }
 
-void EntityDrawer::drawGreenAliens(const EntityCoordinates& _coordinates)
+void EntityDrawer::drawGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
-    _sprites.at(4)->setScale(0.7f, 0.72f);
-    _sprites.at(4)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-    _window->draw(*_sprites.at(4));
+    switch(spriteNumber) {
+    case 1:
+        _sprites.at(4)->setScale(0.7f, 0.72f);
+        _sprites.at(4)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(4));
+        break;
+    case 2:
+        _sprites.at(13)->setScale(0.7f, 0.72f);
+        _sprites.at(13)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(13));
+        break;
+    case 3:
+        _sprites.at(14)->setScale(0.7f, 0.72f);
+        _sprites.at(14)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(14));
+        break;
+    default:
+        break;
+    }
 }
 
-void EntityDrawer::drawPurpleAliens(const EntityCoordinates& _coordinates)
+void EntityDrawer::drawPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
-    _sprites.at(5)->setScale(0.7f, 0.72f);
-    _sprites.at(5)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-    _window->draw(*_sprites.at(5));
+    switch(spriteNumber) {
+    case 1:
+        _sprites.at(5)->setScale(0.7f, 0.72f);
+        _sprites.at(5)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(5));
+        break;
+    case 2:
+        _sprites.at(15)->setScale(0.7f, 0.72f);
+        _sprites.at(15)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(15));
+        break;
+    case 3:
+        _sprites.at(16)->setScale(0.7f, 0.72f);
+        _sprites.at(16)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(16));
+        break;
+    default:
+        break;
+    }
 }
 
-void EntityDrawer::drawRedAliens(const EntityCoordinates& _coordinates)
+void EntityDrawer::drawRedAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
-    _sprites.at(6)->setScale(0.7f, 0.72f);
-    _sprites.at(6)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-    _window->draw(*_sprites.at(6));
+    switch(spriteNumber) {
+    case 1:
+        _sprites.at(6)->setScale(0.7f, 0.72f);
+        _sprites.at(6)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(6));
+        break;
+    case 2:
+        _sprites.at(17)->setScale(0.7f, 0.72f);
+        _sprites.at(17)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(17));
+        break;
+    case 3:
+        _sprites.at(18)->setScale(0.7f, 0.72f);
+        _sprites.at(18)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(18));
+        break;
+    default:
+        break;
+    }
 }
 
 void EntityDrawer::drawUpGreenAliens(const EntityCoordinates& _coordinates)

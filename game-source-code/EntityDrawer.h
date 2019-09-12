@@ -20,9 +20,10 @@ public:
     void drawLaser(const EntityCoordinates& _coordinates);
     void drawLaser2(const EntityCoordinates& _coordinates);
 
-    void drawGreenAliens(const EntityCoordinates& _coordinates);
-    void drawRedAliens(const EntityCoordinates& _coordinates);
-    void drawPurpleAliens(const EntityCoordinates& _coordinates);
+    void drawGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber);
+    void drawPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber);
+    void drawRedAliens(const EntityCoordinates& _coordinates, int spriteNumber);
+    
 
     void drawUpGreenAliens(const EntityCoordinates& _coordinates);
     void drawUpRedAliens(const EntityCoordinates& _coordinates);
