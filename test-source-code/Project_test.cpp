@@ -100,7 +100,7 @@ TEST_CASE("Testing if the Alien class is able to create a valid object with init
     auto xPosition = 200;
     auto yPosition = 200;
 
-    auto _alien = Alien{ xPosition, yPosition };
+    auto _alien = Alien{ xPosition, yPosition};
     CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
     CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
 }

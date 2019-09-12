@@ -44,11 +44,12 @@ private:
     UpRedAliens _upRedAliens;
 
     KeyHandler _keyHandler;
+    EntityDrawerProxy _entityDrawerProxy;
     void timerCheck();
     void drawGameEntities();
-    void drawGreenAlians(vector<int> spriteNumber);
-    void drawPurpleAliens(vector<int> spriteNumber);
-    void drawRedAliens(vector<int> spriteNumber);
+    void drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries );
+    void drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
+    void drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
 
     bool gameWon;
     bool gameLost;

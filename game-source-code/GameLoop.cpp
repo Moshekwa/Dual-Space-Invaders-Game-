@@ -6,12 +6,14 @@ GameLoop::GameLoop()
           (get<0>(_windowDisplay->screenDimensions()) / 2) - 10, get<1>(_windowDisplay->screenDimensions()) - 20 } }
     , _laserCanon2{ new LaserCanon{ (get<0>(_windowDisplay->screenDimensions()) / 2) - 10, 0 } }
     , _entityDrawer{ new EntityDrawer{ _windowDisplay->getWindow() } }
+    , _entityDrawerProxy{ _entityDrawer }
     , gameWon{ false }
     , gameLost{ false }
 {
 
     auto _alien = Alien{ 0, 0, 0, 0 };
     auto numberOfAliens = _alien.getNumberOfAliens();
+    auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
 
     for(auto i = 0; i < numberOfAliens; i++) {
         auto xPosition = get<0>(_windowDisplay->screenDimensions()) / 2 - 25 * i;
@@ -72,7 +74,6 @@ void GameLoop::PlayGame()
 {
     while(_windowDisplay->getWindow()->isOpen()) {
         if(!_windowDisplay->isPlay()) {
-            auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
 
             if(gameWon) {
                 _entityDrawerProxy._drawGameWon();
@@ -237,43 +238,42 @@ void GameLoop::timerCheck()
 
 void GameLoop::drawGameEntities()
 {
-    auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
     _entityDrawerProxy._drawLaserCanonsAndLasers(*_laserCanon1, *_laserCanon2);
 
     auto spriteNumber = vector<int>{ 1, 2, 3 };
-    drawGreenAlians(spriteNumber);
-    drawPurpleAliens(spriteNumber);
-    drawRedAliens(spriteNumber);
+    auto spriteBoundaries = vector<int>{ 0, 40, 80, 120, 160, 200, 240, 280, 320, 380 };
+    drawGreenAlians(spriteNumber, spriteBoundaries);
+    drawPurpleAliens(spriteNumber, spriteBoundaries);
+    drawRedAliens(spriteNumber, spriteBoundaries);
 }
 
-void GameLoop::drawGreenAlians(vector<int> spriteNumber)
+void GameLoop::drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries)
 {
-    auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
     for(auto GreenAlien : _greenAliens) {
-        if((GreenAlien->getEntityCoordinates().getXposition() >= 0 &&
-               GreenAlien->getEntityCoordinates().getXposition() < 40) ||
-            (GreenAlien->getEntityCoordinates().getXposition() >= 120 &&
-                GreenAlien->getEntityCoordinates().getXposition() < 160) ||
-            (GreenAlien->getEntityCoordinates().getXposition() >= 240 &&
-                GreenAlien->getEntityCoordinates().getXposition() < 280)) {
+        if((GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(0) &&
+               GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(1)) ||
+            (GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(3) &&
+                GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(4)) ||
+            (GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
+                GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
             _entityDrawerProxy._drawGreenAliens(*GreenAlien, spriteNumber.at(0));
 
-        } else if((GreenAlien->getEntityCoordinates().getXposition() >= 40 &&
-                      GreenAlien->getEntityCoordinates().getXposition() < 80) ||
-            (GreenAlien->getEntityCoordinates().getXposition() >= 160 &&
-                GreenAlien->getEntityCoordinates().getXposition() < 200) ||
-            (GreenAlien->getEntityCoordinates().getXposition() >= 280 &&
-                GreenAlien->getEntityCoordinates().getXposition() < 320)) {
+        } else if((GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
+                      GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
+            (GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(4) &&
+                GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(5)) ||
+            (GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
+                GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
             _entityDrawerProxy._drawGreenAliens(*GreenAlien, spriteNumber.at(1));
 
-        } else if((GreenAlien->getEntityCoordinates().getXposition() >= 80 &&
-                      GreenAlien->getEntityCoordinates().getXposition() < 120) ||
-            (GreenAlien->getEntityCoordinates().getXposition() >= 200 &&
-                GreenAlien->getEntityCoordinates().getXposition() < 240) ||
-            (GreenAlien->getEntityCoordinates().getXposition() >= 320 &&
-                GreenAlien->getEntityCoordinates().getXposition() < 380)) {
+        } else if((GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
+                      GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
+            (GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(5) &&
+                GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(6)) ||
+            (GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
+                GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
             _entityDrawerProxy._drawGreenAliens(*GreenAlien, spriteNumber.at(2));
         }
@@ -281,65 +281,64 @@ void GameLoop::drawGreenAlians(vector<int> spriteNumber)
 
     for(auto UpGreenAlien : _upGreenAliens) {
 
-        if((UpGreenAlien->getEntityCoordinates().getXposition() >= 0 &&
-               UpGreenAlien->getEntityCoordinates().getXposition() < 40) ||
-            (UpGreenAlien->getEntityCoordinates().getXposition() >= 120 &&
-                UpGreenAlien->getEntityCoordinates().getXposition() < 160) ||
-            (UpGreenAlien->getEntityCoordinates().getXposition() >= 240 &&
-                UpGreenAlien->getEntityCoordinates().getXposition() < 280)) {
+        if((UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(0) &&
+               UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(1)) ||
+            (UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(3) &&
+                UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(4)) ||
+            (UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
+                UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
             _entityDrawerProxy._drawUpGreenAliens(*UpGreenAlien, spriteNumber.at(0));
 
-        } else if((UpGreenAlien->getEntityCoordinates().getXposition() >= 40 &&
-                      UpGreenAlien->getEntityCoordinates().getXposition() < 80) ||
-            (UpGreenAlien->getEntityCoordinates().getXposition() >= 160 &&
-                UpGreenAlien->getEntityCoordinates().getXposition() < 200) ||
-            (UpGreenAlien->getEntityCoordinates().getXposition() >= 280 &&
-                UpGreenAlien->getEntityCoordinates().getXposition() < 320)) {
+        } else if((UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
+                      UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
+            (UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(4) &&
+                UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(5)) ||
+            (UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
+                UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
             _entityDrawerProxy._drawUpGreenAliens(*UpGreenAlien, spriteNumber.at(1));
 
-        } else if((UpGreenAlien->getEntityCoordinates().getXposition() >= 80 &&
-                      UpGreenAlien->getEntityCoordinates().getXposition() < 120) ||
-            (UpGreenAlien->getEntityCoordinates().getXposition() >= 200 &&
-                UpGreenAlien->getEntityCoordinates().getXposition() < 240) ||
-            (UpGreenAlien->getEntityCoordinates().getXposition() >= 320 &&
-                UpGreenAlien->getEntityCoordinates().getXposition() < 380)) {
+        } else if((UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
+                      UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
+            (UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(5) &&
+                UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(6)) ||
+            (UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
+                UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
             _entityDrawerProxy._drawUpGreenAliens(*UpGreenAlien, spriteNumber.at(2));
         }
     }
 }
 
-void GameLoop::drawPurpleAliens(vector<int> spriteNumber)
+void GameLoop::drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoundaries)
 {
-    auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
     for(auto PurpleAlien : _purpleAliens) {
 
-        if((PurpleAlien->getEntityCoordinates().getXposition() >= 0 &&
-               PurpleAlien->getEntityCoordinates().getXposition() < 40) ||
-            (PurpleAlien->getEntityCoordinates().getXposition() >= 120 &&
-                PurpleAlien->getEntityCoordinates().getXposition() < 160) ||
-            (PurpleAlien->getEntityCoordinates().getXposition() >= 240 &&
-                PurpleAlien->getEntityCoordinates().getXposition() < 280)) {
+        if((PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(0) &&
+               PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(1)) ||
+            (PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(3) &&
+                PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(4)) ||
+            (PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
+                PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
             _entityDrawerProxy._drawPurpleAliens(*PurpleAlien, spriteNumber.at(0));
 
-        } else if((PurpleAlien->getEntityCoordinates().getXposition() >= 40 &&
-                      PurpleAlien->getEntityCoordinates().getXposition() < 80) ||
-            (PurpleAlien->getEntityCoordinates().getXposition() >= 160 &&
-                PurpleAlien->getEntityCoordinates().getXposition() < 200) ||
-            (PurpleAlien->getEntityCoordinates().getXposition() >= 280 &&
-                PurpleAlien->getEntityCoordinates().getXposition() < 320)) {
+        } else if((PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
+                      PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
+            (PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(4) &&
+                PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(5)) ||
+            (PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
+                PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
             _entityDrawerProxy._drawPurpleAliens(*PurpleAlien, spriteNumber.at(1));
 
-        } else if((PurpleAlien->getEntityCoordinates().getXposition() >= 80 &&
-                      PurpleAlien->getEntityCoordinates().getXposition() < 120) ||
-            (PurpleAlien->getEntityCoordinates().getXposition() >= 200 &&
-                PurpleAlien->getEntityCoordinates().getXposition() < 240) ||
-            (PurpleAlien->getEntityCoordinates().getXposition() >= 320 &&
-                PurpleAlien->getEntityCoordinates().getXposition() < 380)) {
+        } else if((PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
+                      PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
+            (PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(5) &&
+                PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(6)) ||
+            (PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
+                PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
             _entityDrawerProxy._drawPurpleAliens(*PurpleAlien, spriteNumber.at(2));
         }
@@ -347,65 +346,64 @@ void GameLoop::drawPurpleAliens(vector<int> spriteNumber)
 
     for(auto UpPurpleAlien : _upPurpleAliens) {
 
-        if((UpPurpleAlien->getEntityCoordinates().getXposition() >= 0 &&
-               UpPurpleAlien->getEntityCoordinates().getXposition() < 40) ||
-            (UpPurpleAlien->getEntityCoordinates().getXposition() >= 120 &&
-                UpPurpleAlien->getEntityCoordinates().getXposition() < 160) ||
-            (UpPurpleAlien->getEntityCoordinates().getXposition() >= 240 &&
-                UpPurpleAlien->getEntityCoordinates().getXposition() < 280)) {
+        if((UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(0) &&
+               UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(1)) ||
+            (UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(3) &&
+                UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(4)) ||
+            (UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
+                UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
             _entityDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien, spriteNumber.at(0));
 
-        } else if((UpPurpleAlien->getEntityCoordinates().getXposition() >= 40 &&
-                      UpPurpleAlien->getEntityCoordinates().getXposition() < 80) ||
-            (UpPurpleAlien->getEntityCoordinates().getXposition() >= 160 &&
-                UpPurpleAlien->getEntityCoordinates().getXposition() < 200) ||
-            (UpPurpleAlien->getEntityCoordinates().getXposition() >= 280 &&
-                UpPurpleAlien->getEntityCoordinates().getXposition() < 320)) {
+        } else if((UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
+                      UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
+            (UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(4) &&
+                UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(5)) ||
+            (UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
+                UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
             _entityDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien, spriteNumber.at(1));
 
-        } else if((UpPurpleAlien->getEntityCoordinates().getXposition() >= 80 &&
-                      UpPurpleAlien->getEntityCoordinates().getXposition() < 120) ||
-            (UpPurpleAlien->getEntityCoordinates().getXposition() >= 200 &&
-                UpPurpleAlien->getEntityCoordinates().getXposition() < 240) ||
-            (UpPurpleAlien->getEntityCoordinates().getXposition() >= 320 &&
-                UpPurpleAlien->getEntityCoordinates().getXposition() < 380)) {
+        } else if((UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
+                      UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
+            (UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(5) &&
+                UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(6)) ||
+            (UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
+                UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
             _entityDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien, spriteNumber.at(2));
         }
     }
 }
 
-void GameLoop::drawRedAliens(vector<int> spriteNumber)
+void GameLoop::drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundaries)
 {
-    auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
     for(auto RedAlien : _redAliens) {
 
-        if((RedAlien->getEntityCoordinates().getXposition() >= 0 &&
-               RedAlien->getEntityCoordinates().getXposition() < 40) ||
-            (RedAlien->getEntityCoordinates().getXposition() >= 120 &&
-                RedAlien->getEntityCoordinates().getXposition() < 160) ||
-            (RedAlien->getEntityCoordinates().getXposition() >= 240 &&
-                RedAlien->getEntityCoordinates().getXposition() < 280)) {
+        if((RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(0) &&
+               RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(1)) ||
+            (RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(3) &&
+                RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(4)) ||
+            (RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
+                RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
             _entityDrawerProxy._drawRedAliens(*RedAlien, spriteNumber.at(0));
 
-        } else if((RedAlien->getEntityCoordinates().getXposition() >= 40 &&
-                      RedAlien->getEntityCoordinates().getXposition() < 80) ||
-            (RedAlien->getEntityCoordinates().getXposition() >= 160 &&
-                RedAlien->getEntityCoordinates().getXposition() < 200) ||
-            (RedAlien->getEntityCoordinates().getXposition() >= 280 &&
-                RedAlien->getEntityCoordinates().getXposition() < 320)) {
+        } else if((RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
+                      RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
+            (RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(4) &&
+                RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(5)) ||
+            (RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
+                RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
             _entityDrawerProxy._drawRedAliens(*RedAlien, spriteNumber.at(1));
 
-        } else if((RedAlien->getEntityCoordinates().getXposition() >= 80 &&
-                      RedAlien->getEntityCoordinates().getXposition() < 120) ||
-            (RedAlien->getEntityCoordinates().getXposition() >= 200 &&
-                RedAlien->getEntityCoordinates().getXposition() < 240) ||
-            (RedAlien->getEntityCoordinates().getXposition() >= 320 &&
-                RedAlien->getEntityCoordinates().getXposition() < 380)) {
+        } else if((RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
+                      RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
+            (RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(5) &&
+                RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(6)) ||
+            (RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
+                RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
             _entityDrawerProxy._drawRedAliens(*RedAlien, spriteNumber.at(2));
         }
@@ -413,30 +411,30 @@ void GameLoop::drawRedAliens(vector<int> spriteNumber)
 
     for(auto UpRedAlien : _upRedAliens) {
 
-        if((UpRedAlien->getEntityCoordinates().getXposition() >= 0 &&
-               UpRedAlien->getEntityCoordinates().getXposition() < 40) ||
-            (UpRedAlien->getEntityCoordinates().getXposition() >= 120 &&
-                UpRedAlien->getEntityCoordinates().getXposition() < 160) ||
-            (UpRedAlien->getEntityCoordinates().getXposition() >= 240 &&
-                UpRedAlien->getEntityCoordinates().getXposition() < 280)) {
+        if((UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(0) &&
+               UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(1)) ||
+            (UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(3) &&
+                UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(4)) ||
+            (UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
+                UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
             _entityDrawerProxy._drawUpRedAliens(*UpRedAlien, spriteNumber.at(0));
 
-        } else if((UpRedAlien->getEntityCoordinates().getXposition() >= 40 &&
-                      UpRedAlien->getEntityCoordinates().getXposition() < 80) ||
-            (UpRedAlien->getEntityCoordinates().getXposition() >= 160 &&
-                UpRedAlien->getEntityCoordinates().getXposition() < 200) ||
-            (UpRedAlien->getEntityCoordinates().getXposition() >= 280 &&
-                UpRedAlien->getEntityCoordinates().getXposition() < 320)) {
+        } else if((UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
+                      UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
+            (UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(4) &&
+                UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(5)) ||
+            (UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
+                UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
             _entityDrawerProxy._drawUpRedAliens(*UpRedAlien, spriteNumber.at(1));
 
-        } else if((UpRedAlien->getEntityCoordinates().getXposition() >= 80 &&
-                      UpRedAlien->getEntityCoordinates().getXposition() < 120) ||
-            (UpRedAlien->getEntityCoordinates().getXposition() >= 200 &&
-                UpRedAlien->getEntityCoordinates().getXposition() < 240) ||
-            (UpRedAlien->getEntityCoordinates().getXposition() >= 320 &&
-                UpRedAlien->getEntityCoordinates().getXposition() < 380)) {
+        } else if((UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
+                      UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
+            (UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(5) &&
+                UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(6)) ||
+            (UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
+                UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
             _entityDrawerProxy._drawUpRedAliens(*UpRedAlien, spriteNumber.at(2));
         }
