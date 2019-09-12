@@ -46,6 +46,9 @@ private:
     KeyHandler _keyHandler;
     void timerCheck();
     void drawGameEntities();
+    void drawGreenAlians(vector<int> spriteNumber);
+    void drawPurpleAliens(vector<int> spriteNumber);
+    void drawRedAliens(vector<int> spriteNumber);
 
     bool gameWon;
     bool gameLost;

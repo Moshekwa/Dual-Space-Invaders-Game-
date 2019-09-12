@@ -1,7 +1,7 @@
 #include "Alien.h"
 
 Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary)
-    : GameEntity{ x, y, 2, true }
+    : GameEntity{ x, y, 3, true }
     , numberOfAliens{ 5 }
     , rightBoundary{ _rightBoundary }
     , leftBoundary{ _leftBoundary }
