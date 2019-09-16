@@ -11,22 +11,22 @@ WindowDisplay::WindowDisplay()
 }
 
 const int WindowDisplay::screenWidth{ 400 };
-const int WindowDisplay::screenHeight{ 400 };
+const int WindowDisplay::screenHeight{ 500 };
 
 void WindowDisplay::CheckEvent()
 {
     auto event = Event{};
     while(_window->pollEvent(event)) {
-	if(event.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
-	    _window->close();
-	}
-	if(Keyboard::isKeyPressed(Keyboard::Key::K)) {
-	    _play = true;
-	}
-	if(Keyboard::isKeyPressed(Keyboard::Key::L)) {
-	    _play = true;
-	    _singleMode = true;
-	}
+        if(event.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
+            _window->close();
+        }
+        if(Keyboard::isKeyPressed(Keyboard::Key::K)) {
+            _play = true;
+        }
+        if(Keyboard::isKeyPressed(Keyboard::Key::L)) {
+            _play = true;
+            _singleMode = true;
+        }
     }
 }
 
@@ -50,7 +50,7 @@ shared_ptr<RenderWindow> WindowDisplay::getWindow()
     return _window;
 }
 
-tuple<int, int> WindowDisplay::screenDimensions() const
+tuple<int, int> WindowDisplay::screenDimensions()
 {
     return { screenWidth, screenHeight };
 }

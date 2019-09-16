@@ -1,6 +1,4 @@
 #include "GameUpdater.h"
-#include <iostream>
-using namespace std;
 
 GameUpdater::GameUpdater()
 {
@@ -9,7 +7,7 @@ GameUpdater::GameUpdater()
 void GameUpdater::updateLaser1Position(LaserCanon& _laserCanon1, Laser& _laser1)
 {
     if(_laser1.isAlive()) {
-        if(_laser1.getEntityCoordinates().getYposition() == 0) {
+        if(_laser1.getEntityCoordinates().getYposition() <= 40) {
             _laser1.destroyEntity();
         } else {
             _laser1.move(UP);
@@ -21,15 +19,27 @@ void GameUpdater::updateLaser1Position(LaserCanon& _laserCanon1, Laser& _laser1)
 
 void GameUpdater::updateLaser2Position(LaserCanon& _laserCanon2, Laser& _laser2)
 {
-    cout << _laser2.isAlive() << endl;
     if(_laser2.isAlive()) {
-        if(_laser2.getEntityCoordinates().getYposition() == 0) {
+        if(_laser2.getEntityCoordinates().getYposition() >= 490) {
             _laser2.destroyEntity();
         } else {
             _laser2.move(DOWN);
         }
     } else {
         _laser2.moveLaserWithCanon(_laserCanon2);
+    }
+}
+
+void GameUpdater::updateAlienLaserPosition(Alien& _alien, Laser& _alienLaser)
+{
+    if(_alien.isAlive()) {
+        if(_alienLaser.getEntityCoordinates().getYposition() >= 490) {
+            _alienLaser.destroyEntity();
+        } else {
+            _alienLaser.move(DOWN);
+        }
+    } else {
+        _alienLaser.moveLaserWithAlien(_alien);
     }
 }
 

@@ -13,6 +13,7 @@ public:
     ImageDrawerProxy(shared_ptr<ImageDrawer> imageDrawer);
     void _drawLaserCanons(const LaserCanon& _laserCanon1, const LaserCanon& _laserCanon2) const;
     void _drawLasers(const Laser& _laser1, const Laser& _laser2) const;
+    void _drawAlienLasers(const Laser& _alienLaser) const;
 
     void _drawGreenAliens(const Alien& _alien, int spriteNumber);
     void _drawPurpleAliens(const Alien& _alien, int spriteNumber);

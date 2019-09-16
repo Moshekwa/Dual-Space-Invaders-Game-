@@ -4,19 +4,20 @@ using namespace std;
 
 Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary)
     : GameEntity{ x, y, 3, true }
-    , numberOfAliens{ 5 }
     , rightBoundary{ _rightBoundary }
     , leftBoundary{ _leftBoundary }
-    , upperBoundary{ 20 }
-    , bottomBoundary{ 360 }
+    , upperBoundary{ 70 }
+    , bottomBoundary{ 450 }
     , alienRightDirection{ true }
 {
 
-    if(x < 0 || x > 380)
-	throw InvalidAlienCoordinates{};
+    //if(x < 0 || x > 380)
+	//throw InvalidAlienCoordinates{};
 }
 
-int Alien::getNumberOfAliens() const
+const int Alien::numberOfAliens{5};
+
+int Alien::getNumberOfAliens() 
 {
     return numberOfAliens;
 }

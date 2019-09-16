@@ -19,6 +19,7 @@ public:
     void drawLaserCanon2(const EntityCoordinates& _coordinates);
     void drawLaser(const EntityCoordinates& _coordinates);
     void drawLaser2(const EntityCoordinates& _coordinates);
+    void drawAlienLaser(const EntityCoordinates& _coordinates);
 
     void drawGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber);
     void drawPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber);

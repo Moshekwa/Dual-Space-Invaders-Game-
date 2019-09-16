@@ -26,6 +26,13 @@ void ImageDrawerProxy::_drawLasers(const Laser& _laser1, const Laser& _laser2) c
     }
 }
 
+void ImageDrawerProxy::_drawAlienLasers(const Laser& _alienLaser) const
+{
+    if(_alienLaser.isAlive()){
+        _imageDrawer->drawAlienLaser(_alienLaser.getEntityCoordinates());
+    }
+}
+
 void ImageDrawerProxy::_drawGreenAliens(const Alien& _alien, int spriteNumber)
 {
     if(_alien.isAlive()) {

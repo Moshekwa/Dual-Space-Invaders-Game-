@@ -35,76 +35,14 @@ void ImageDrawer::drawLaser2(const EntityCoordinates& _coordinates)
     _window->draw(*_sprites.at(3));
 }
 
+void ImageDrawer::drawAlienLaser(const EntityCoordinates& _coordinates)
+{
+    _sprites.at(25)->setScale(0.9f, 0.9f);
+    _sprites.at(25)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+    _window->draw(*_sprites.at(25));
+}
+
 void ImageDrawer::drawGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber)
-{
-    switch(spriteNumber) {
-    case 1:
-	_sprites.at(4)->setScale(0.7f, 0.72f);
-	_sprites.at(4)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-	_window->draw(*_sprites.at(4));
-	break;
-    case 2:
-	_sprites.at(13)->setScale(0.7f, 0.72f);
-	_sprites.at(13)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-	_window->draw(*_sprites.at(13));
-	break;
-    case 3:
-	_sprites.at(14)->setScale(0.7f, 0.72f);
-	_sprites.at(14)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-	_window->draw(*_sprites.at(14));
-	break;
-    default:
-	break;
-    }
-}
-
-void ImageDrawer::drawPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber)
-{
-    switch(spriteNumber) {
-    case 1:
-	_sprites.at(5)->setScale(0.7f, 0.72f);
-	_sprites.at(5)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-	_window->draw(*_sprites.at(5));
-	break;
-    case 2:
-	_sprites.at(15)->setScale(0.7f, 0.72f);
-	_sprites.at(15)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-	_window->draw(*_sprites.at(15));
-	break;
-    case 3:
-	_sprites.at(16)->setScale(0.7f, 0.72f);
-	_sprites.at(16)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-	_window->draw(*_sprites.at(16));
-	break;
-    default:
-	break;
-    }
-}
-
-void ImageDrawer::drawRedAliens(const EntityCoordinates& _coordinates, int spriteNumber)
-{
-    switch(spriteNumber) {
-    case 1:
-	_sprites.at(6)->setScale(0.7f, 0.72f);
-	_sprites.at(6)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-	_window->draw(*_sprites.at(6));
-	break;
-    case 2:
-	_sprites.at(17)->setScale(0.7f, 0.72f);
-	_sprites.at(17)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-	_window->draw(*_sprites.at(17));
-	break;
-    case 3:
-	_sprites.at(18)->setScale(0.7f, 0.72f);
-	_sprites.at(18)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-	_window->draw(*_sprites.at(18));
-	break;
-    default:
-	break;
-    }
-}
-
-void ImageDrawer::drawUpGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
     switch(spriteNumber) {
     case 1:
@@ -127,7 +65,7 @@ void ImageDrawer::drawUpGreenAliens(const EntityCoordinates& _coordinates, int s
     }
 }
 
-void ImageDrawer::drawUpPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+void ImageDrawer::drawPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
     switch(spriteNumber) {
     case 1:
@@ -150,7 +88,7 @@ void ImageDrawer::drawUpPurpleAliens(const EntityCoordinates& _coordinates, int 
     }
 }
 
-void ImageDrawer::drawUpRedAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+void ImageDrawer::drawRedAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
     switch(spriteNumber) {
     case 1:
@@ -173,23 +111,92 @@ void ImageDrawer::drawUpRedAliens(const EntityCoordinates& _coordinates, int spr
     }
 }
 
+void ImageDrawer::drawUpGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+{
+    switch(spriteNumber) {
+    case 1:
+	_sprites.at(4)->setScale(0.7f, 0.72f);
+	_sprites.at(4)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+	_window->draw(*_sprites.at(4));
+	break;
+    case 2:
+	_sprites.at(13)->setScale(0.7f, 0.72f);
+	_sprites.at(13)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+	_window->draw(*_sprites.at(13));
+	break;
+    case 3:
+	_sprites.at(14)->setScale(0.7f, 0.72f);
+	_sprites.at(14)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+	_window->draw(*_sprites.at(14));
+	break;
+    default:
+	break;
+    }
+}
+
+void ImageDrawer::drawUpPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+{
+    switch(spriteNumber) {
+    case 1:
+	_sprites.at(5)->setScale(0.7f, 0.72f);
+	_sprites.at(5)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+	_window->draw(*_sprites.at(5));
+	break;
+    case 2:
+	_sprites.at(15)->setScale(0.7f, 0.72f);
+	_sprites.at(15)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+	_window->draw(*_sprites.at(15));
+	break;
+    case 3:
+	_sprites.at(16)->setScale(0.7f, 0.72f);
+	_sprites.at(16)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+	_window->draw(*_sprites.at(16));
+	break;
+    default:
+	break;
+    }
+}
+
+void ImageDrawer::drawUpRedAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+{
+    switch(spriteNumber) {
+    case 1:
+	_sprites.at(6)->setScale(0.7f, 0.72f);
+	_sprites.at(6)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+	_window->draw(*_sprites.at(6));
+	break;
+    case 2:
+	_sprites.at(17)->setScale(0.7f, 0.72f);
+	_sprites.at(17)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+	_window->draw(*_sprites.at(17));
+	break;
+    case 3:
+	_sprites.at(18)->setScale(0.7f, 0.72f);
+	_sprites.at(18)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+	_window->draw(*_sprites.at(18));
+	break;
+    default:
+	break;
+    }
+}
+
 void ImageDrawer::drawHomeScreen()
 {
     _sprites.at(10)->setScale(0.60, 0.99);
-    _sprites.at(10)->setPosition(0, 0);
+    _sprites.at(10)->setPosition(0, 50);
     _window->draw(*_sprites.at(10));
 }
 
 void ImageDrawer::drawGameWon()
 {
     _sprites.at(11)->setScale(0.33, 0.60);
-    _sprites.at(11)->setPosition(0, 0);
+    _sprites.at(11)->setPosition(0, 50);
     _window->draw(*_sprites.at(11));
 }
 
 void ImageDrawer::drawGameLost()
 {
     _sprites.at(12)->setScale(0.33, 0.60);
-    _sprites.at(12)->setPosition(0, 0);
+    _sprites.at(12)->setPosition(0, 50);
     _window->draw(*_sprites.at(12));
 }

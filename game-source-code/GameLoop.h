@@ -23,6 +23,8 @@ typedef vector<shared_ptr<Alien>> UpGreenAliens;
 typedef vector<shared_ptr<Alien>> UpPurpleAliens;
 typedef vector<shared_ptr<Alien>> UpRedAliens;
 
+typedef vector<shared_ptr<Laser>> AlienLasers;
+
 class GameLoop
 {
 public:
@@ -45,6 +47,8 @@ private:
     UpGreenAliens _upGreenAliens;
     UpPurpleAliens _upPurpleAliens;
     UpRedAliens _upRedAliens;
+    
+    AlienLasers _alienLasers;
 
     KeyHandler _keyHandler;
     ImageDrawerProxy _imageDrawerProxy;

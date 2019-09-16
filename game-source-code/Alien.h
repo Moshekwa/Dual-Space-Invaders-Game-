@@ -17,15 +17,15 @@ public:
     bool getAlienRightDirection() const;
     void setAlienRightDirection(bool rightDirection);
     tuple<int, int, int, int> getBoundaries() const;
-    int getNumberOfAliens() const;
+    static int getNumberOfAliens();
 
 private:
-    int numberOfAliens;
     int rightBoundary;
     int leftBoundary;
     int upperBoundary;
     int bottomBoundary;
     bool alienRightDirection;
+    const static int numberOfAliens;
 };
 
 #endif // ALIEN_H_INCLUDED

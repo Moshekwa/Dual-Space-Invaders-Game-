@@ -13,7 +13,7 @@ class WindowDisplay
 public:
     WindowDisplay();
     void CheckEvent();
-    tuple<int, int> screenDimensions() const;
+    static tuple<int, int> screenDimensions();
 
     void setPlay(bool& play);
     bool isPlay() const;
