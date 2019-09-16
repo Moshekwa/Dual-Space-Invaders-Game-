@@ -5,14 +5,13 @@ GameLoop::GameLoop()
     , _laserCanon1{ new LaserCanon{
           (get<0>(_windowDisplay->screenDimensions()) / 2) - 10, get<1>(_windowDisplay->screenDimensions()) - 20, 1 } }
     , _laserCanon2{ new LaserCanon{ (get<0>(_windowDisplay->screenDimensions()) / 2) - 10, 0, 2 } }
-    , _entityDrawer{ new EntityDrawer{ _windowDisplay->getWindow() } }
-    , _entityDrawerProxy{ _entityDrawer }
+    , _imageDrawer{ new ImageDrawer{ _windowDisplay->getWindow() } }
+    , _imageDrawerProxy{ _imageDrawer }
     , gameWon{ false }
     , gameLost{ false }
 {
 
     auto numberOfAliens = 5;
-    auto _entityDrawerProxy = EntityDrawerProxy{ _entityDrawer };
 
     for(auto i = 0; i < numberOfAliens; i++) {
 	auto xPosition = get<0>(_windowDisplay->screenDimensions()) / 2 - 25 * i;
@@ -75,18 +74,18 @@ void GameLoop::PlayGame()
 	if(!_windowDisplay->isPlay()) {
 
 	    if(gameWon) {
-		_entityDrawerProxy._drawGameWon();
+		_imageDrawerProxy._drawGameWon();
 	    } else if(gameLost) {
-		_entityDrawerProxy._drawGameLost();
+		_imageDrawerProxy._drawGameLost();
 	    } else {
-		_entityDrawerProxy._drawHomeScreen();
+		_imageDrawerProxy._drawHomeScreen();
 	    }
 
 	    _windowDisplay->CheckEvent();
 	    _windowDisplay->getWindow()->display();
 	    _windowDisplay->getWindow()->clear();
 	} else if(_windowDisplay->isPlay()) {
-	    timerCheck();
+	    gameActivities();
 	    drawGameEntities();
 	    _windowDisplay->getWindow()->display();
 	    _windowDisplay->getWindow()->clear();
@@ -94,7 +93,7 @@ void GameLoop::PlayGame()
     }
 }
 
-void GameLoop::timerCheck()
+void GameLoop::gameActivities()
 {
     if(_windowDisplay->is_singleMode()) {
 	_keyHandler.singleModeKeyCheck(*_laserCanon1, *_laserCanon2);
@@ -237,7 +236,7 @@ void GameLoop::timerCheck()
 
 void GameLoop::drawGameEntities()
 {
-    _entityDrawerProxy._drawLaserCanonsAndLasers(*_laserCanon1, *_laserCanon2);
+    _imageDrawerProxy._drawLaserCanonsAndLasers(*_laserCanon1, *_laserCanon2);
 
     auto spriteNumber = vector<int>{ 1, 2, 3 };
     auto spriteBoundaries = vector<int>{ 0, 40, 80, 120, 160, 200, 240, 280, 320, 380 };
@@ -256,7 +255,7 @@ void GameLoop::drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBound
 	    (GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
 	        GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
-	    _entityDrawerProxy._drawGreenAliens(*GreenAlien, spriteNumber.at(0));
+	    _imageDrawerProxy._drawGreenAliens(*GreenAlien, spriteNumber.at(0));
 
 	} else if((GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
 	              GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
@@ -265,7 +264,7 @@ void GameLoop::drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBound
 	    (GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
 	        GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
-	    _entityDrawerProxy._drawGreenAliens(*GreenAlien, spriteNumber.at(1));
+	    _imageDrawerProxy._drawGreenAliens(*GreenAlien, spriteNumber.at(1));
 
 	} else if((GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
 	              GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
@@ -274,7 +273,7 @@ void GameLoop::drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBound
 	    (GreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
 	        GreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
-	    _entityDrawerProxy._drawGreenAliens(*GreenAlien, spriteNumber.at(2));
+	    _imageDrawerProxy._drawGreenAliens(*GreenAlien, spriteNumber.at(2));
 	}
     }
 
@@ -287,7 +286,7 @@ void GameLoop::drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBound
 	    (UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
 	        UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
-	    _entityDrawerProxy._drawUpGreenAliens(*UpGreenAlien, spriteNumber.at(0));
+	    _imageDrawerProxy._drawUpGreenAliens(*UpGreenAlien, spriteNumber.at(0));
 
 	} else if((UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
 	              UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
@@ -296,7 +295,7 @@ void GameLoop::drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBound
 	    (UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
 	        UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
-	    _entityDrawerProxy._drawUpGreenAliens(*UpGreenAlien, spriteNumber.at(1));
+	    _imageDrawerProxy._drawUpGreenAliens(*UpGreenAlien, spriteNumber.at(1));
 
 	} else if((UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
 	              UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
@@ -305,7 +304,7 @@ void GameLoop::drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBound
 	    (UpGreenAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
 	        UpGreenAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
-	    _entityDrawerProxy._drawUpGreenAliens(*UpGreenAlien, spriteNumber.at(2));
+	    _imageDrawerProxy._drawUpGreenAliens(*UpGreenAlien, spriteNumber.at(2));
 	}
     }
 }
@@ -321,7 +320,7 @@ void GameLoop::drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoun
 	    (PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
 	        PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
-	    _entityDrawerProxy._drawPurpleAliens(*PurpleAlien, spriteNumber.at(0));
+	    _imageDrawerProxy._drawPurpleAliens(*PurpleAlien, spriteNumber.at(0));
 
 	} else if((PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
 	              PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
@@ -330,7 +329,7 @@ void GameLoop::drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoun
 	    (PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
 	        PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
-	    _entityDrawerProxy._drawPurpleAliens(*PurpleAlien, spriteNumber.at(1));
+	    _imageDrawerProxy._drawPurpleAliens(*PurpleAlien, spriteNumber.at(1));
 
 	} else if((PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
 	              PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
@@ -339,7 +338,7 @@ void GameLoop::drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoun
 	    (PurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
 	        PurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
-	    _entityDrawerProxy._drawPurpleAliens(*PurpleAlien, spriteNumber.at(2));
+	    _imageDrawerProxy._drawPurpleAliens(*PurpleAlien, spriteNumber.at(2));
 	}
     }
 
@@ -352,7 +351,7 @@ void GameLoop::drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoun
 	    (UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
 	        UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
-	    _entityDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien, spriteNumber.at(0));
+	    _imageDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien, spriteNumber.at(0));
 
 	} else if((UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
 	              UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
@@ -361,7 +360,7 @@ void GameLoop::drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoun
 	    (UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
 	        UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
-	    _entityDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien, spriteNumber.at(1));
+	    _imageDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien, spriteNumber.at(1));
 
 	} else if((UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
 	              UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
@@ -370,7 +369,7 @@ void GameLoop::drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoun
 	    (UpPurpleAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
 	        UpPurpleAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
-	    _entityDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien, spriteNumber.at(2));
+	    _imageDrawerProxy._drawUpPurpleAliens(*UpPurpleAlien, spriteNumber.at(2));
 	}
     }
 }
@@ -386,7 +385,7 @@ void GameLoop::drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundar
 	    (RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
 	        RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
-	    _entityDrawerProxy._drawRedAliens(*RedAlien, spriteNumber.at(0));
+	    _imageDrawerProxy._drawRedAliens(*RedAlien, spriteNumber.at(0));
 
 	} else if((RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
 	              RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
@@ -395,7 +394,7 @@ void GameLoop::drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundar
 	    (RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
 	        RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
-	    _entityDrawerProxy._drawRedAliens(*RedAlien, spriteNumber.at(1));
+	    _imageDrawerProxy._drawRedAliens(*RedAlien, spriteNumber.at(1));
 
 	} else if((RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
 	              RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
@@ -404,7 +403,7 @@ void GameLoop::drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundar
 	    (RedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
 	        RedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
-	    _entityDrawerProxy._drawRedAliens(*RedAlien, spriteNumber.at(2));
+	    _imageDrawerProxy._drawRedAliens(*RedAlien, spriteNumber.at(2));
 	}
     }
 
@@ -417,7 +416,7 @@ void GameLoop::drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundar
 	    (UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(6) &&
 	        UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(7))) {
 
-	    _entityDrawerProxy._drawUpRedAliens(*UpRedAlien, spriteNumber.at(0));
+	    _imageDrawerProxy._drawUpRedAliens(*UpRedAlien, spriteNumber.at(0));
 
 	} else if((UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(1) &&
 	              UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(2)) ||
@@ -426,7 +425,7 @@ void GameLoop::drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundar
 	    (UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(7) &&
 	        UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(8))) {
 
-	    _entityDrawerProxy._drawUpRedAliens(*UpRedAlien, spriteNumber.at(1));
+	    _imageDrawerProxy._drawUpRedAliens(*UpRedAlien, spriteNumber.at(1));
 
 	} else if((UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(2) &&
 	              UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(3)) ||
@@ -435,7 +434,7 @@ void GameLoop::drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundar
 	    (UpRedAlien->getEntityCoordinates().getXposition() >= spriteBoundaries.at(8) &&
 	        UpRedAlien->getEntityCoordinates().getXposition() < spriteBoundaries.at(9))) {
 
-	    _entityDrawerProxy._drawUpRedAliens(*UpRedAlien, spriteNumber.at(2));
+	    _imageDrawerProxy._drawUpRedAliens(*UpRedAlien, spriteNumber.at(2));
 	}
     }
 }

@@ -12,12 +12,12 @@ typedef vector<shared_ptr<Sprite>> Sprites;
 typedef vector<shared_ptr<Text>> Texts;
 typedef vector<Texture> Textures;
 
-class EntityImageLoader
+class ImageLoader
 {
 public:
-    EntityImageLoader();
-    void loadEntityImages();
-    Sprites getSprites();
+    ImageLoader();
+    void loadImagesAndSetSprites();
+    Sprites getSprites() const;
 
 private:
     Sprites _sprites;

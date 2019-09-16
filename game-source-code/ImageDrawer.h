@@ -1,7 +1,7 @@
 #ifndef ENTITYDRAWER_H_INCLUDED
 #define ENTITYDRAWER_H_INCLUDED
 #include "EntityCoordinates.h"
-#include "EntityImageLoader.h"
+#include "ImageLoader.h"
 #include "GameEntity.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
@@ -11,10 +11,10 @@ using std::shared_ptr;
 using std::vector;
 using namespace sf;
 
-class EntityDrawer
+class ImageDrawer
 {
 public:
-    EntityDrawer(shared_ptr<RenderWindow> window);
+    ImageDrawer(shared_ptr<RenderWindow> window);
     void drawLaserCanon(const EntityCoordinates& _coordinates);
     void drawLaserCanon2(const EntityCoordinates& _coordinates);
     void drawLaser(const EntityCoordinates& _coordinates);
@@ -35,7 +35,7 @@ public:
 private:
     shared_ptr<RenderWindow> _window;
     Sprites _sprites;
-    EntityImageLoader _entityImageLoader;
+    ImageLoader _imageLoader;
 };
 
 #endif // ENTITYDRAWER_H_INCLUDED

@@ -1,41 +1,41 @@
-#include "EntityDrawer.h"
+#include "ImageDrawer.h"
 
-EntityDrawer::EntityDrawer(shared_ptr<RenderWindow> window)
+ImageDrawer::ImageDrawer(shared_ptr<RenderWindow> window)
     : _window{ window }
 {
-    _entityImageLoader.loadEntityImages();
-    _sprites = _entityImageLoader.getSprites();
+    _imageLoader.loadImagesAndSetSprites();
+    _sprites = _imageLoader.getSprites();
 }
 
-void EntityDrawer::drawLaserCanon(const EntityCoordinates& _coordinates)
+void ImageDrawer::drawLaserCanon(const EntityCoordinates& _coordinates)
 {
     _sprites.at(0)->setScale(0.5f, 0.5f);
     _sprites.at(0)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
     _window->draw(*_sprites.at(0));
 }
 
-void EntityDrawer::drawLaserCanon2(const EntityCoordinates& _coordinates)
+void ImageDrawer::drawLaserCanon2(const EntityCoordinates& _coordinates)
 {
     _sprites.at(1)->setScale(0.5f, 0.5f);
     _sprites.at(1)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
     _window->draw(*_sprites.at(1));
 }
 
-void EntityDrawer::drawLaser(const EntityCoordinates& _coordinates)
+void ImageDrawer::drawLaser(const EntityCoordinates& _coordinates)
 {
     _sprites.at(2)->setScale(0.9f, 0.9f);
     _sprites.at(2)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
     _window->draw(*_sprites.at(2));
 }
 
-void EntityDrawer::drawLaser2(const EntityCoordinates& _coordinates)
+void ImageDrawer::drawLaser2(const EntityCoordinates& _coordinates)
 {
     _sprites.at(3)->setScale(0.9f, 0.9f);
     _sprites.at(3)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
     _window->draw(*_sprites.at(3));
 }
 
-void EntityDrawer::drawGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+void ImageDrawer::drawGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
     switch(spriteNumber) {
     case 1:
@@ -58,7 +58,7 @@ void EntityDrawer::drawGreenAliens(const EntityCoordinates& _coordinates, int sp
     }
 }
 
-void EntityDrawer::drawPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+void ImageDrawer::drawPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
     switch(spriteNumber) {
     case 1:
@@ -81,7 +81,7 @@ void EntityDrawer::drawPurpleAliens(const EntityCoordinates& _coordinates, int s
     }
 }
 
-void EntityDrawer::drawRedAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+void ImageDrawer::drawRedAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
     switch(spriteNumber) {
     case 1:
@@ -104,7 +104,7 @@ void EntityDrawer::drawRedAliens(const EntityCoordinates& _coordinates, int spri
     }
 }
 
-void EntityDrawer::drawUpGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+void ImageDrawer::drawUpGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
     switch(spriteNumber) {
     case 1:
@@ -127,7 +127,7 @@ void EntityDrawer::drawUpGreenAliens(const EntityCoordinates& _coordinates, int 
     }
 }
 
-void EntityDrawer::drawUpPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+void ImageDrawer::drawUpPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
     switch(spriteNumber) {
     case 1:
@@ -150,7 +150,7 @@ void EntityDrawer::drawUpPurpleAliens(const EntityCoordinates& _coordinates, int
     }
 }
 
-void EntityDrawer::drawUpRedAliens(const EntityCoordinates& _coordinates, int spriteNumber)
+void ImageDrawer::drawUpRedAliens(const EntityCoordinates& _coordinates, int spriteNumber)
 {
     switch(spriteNumber) {
     case 1:
@@ -173,21 +173,21 @@ void EntityDrawer::drawUpRedAliens(const EntityCoordinates& _coordinates, int sp
     }
 }
 
-void EntityDrawer::drawHomeScreen()
+void ImageDrawer::drawHomeScreen()
 {
     _sprites.at(10)->setScale(0.60, 0.99);
     _sprites.at(10)->setPosition(0, 0);
     _window->draw(*_sprites.at(10));
 }
 
-void EntityDrawer::drawGameWon()
+void ImageDrawer::drawGameWon()
 {
     _sprites.at(11)->setScale(0.33, 0.60);
     _sprites.at(11)->setPosition(0, 0);
     _window->draw(*_sprites.at(11));
 }
 
-void EntityDrawer::drawGameLost()
+void ImageDrawer::drawGameLost()
 {
     _sprites.at(12)->setScale(0.33, 0.60);
     _sprites.at(12)->setPosition(0, 0);

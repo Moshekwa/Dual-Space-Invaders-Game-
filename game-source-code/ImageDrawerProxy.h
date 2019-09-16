@@ -1,15 +1,15 @@
 #ifndef ENTITYDRAWERPROXY_H_INCLUDED
 #define ENTITYDRAWERPROXY_H_INCLUDED
 #include "Alien.h"
-#include "EntityDrawer.h"
+#include "ImageDrawer.h"
 #include "LaserCanon.h"
 #include <memory>
 using std::shared_ptr;
 
-class EntityDrawerProxy
+class ImageDrawerProxy
 {
 public:
-    EntityDrawerProxy(shared_ptr<EntityDrawer> entityDrawer);
+    ImageDrawerProxy(shared_ptr<ImageDrawer> imageDrawer);
     void _drawLaserCanonsAndLasers(const LaserCanon& _laserCanon1, const LaserCanon& _laserCanon2) const;
 
     void _drawGreenAliens(const Alien& _alien, int spriteNumber);
@@ -25,7 +25,7 @@ public:
     void _drawGameLost();
 
 private:
-    shared_ptr<EntityDrawer> _entityDrawer;
+    shared_ptr<ImageDrawer> _imageDrawer;
 };
 
 #endif // ENTITYDRAWERPROXY_H_INCLUDED

@@ -1,7 +1,7 @@
 #ifndef GAMELOOP_H_INCLUDED
 #define GAMELOOP_H_INCLUDED
 #include "CollisionDetector.h"
-#include "EntityDrawerProxy.h"
+#include "ImageDrawerProxy.h"
 #include "GameEntity.h"
 #include "GameUpdater.h"
 #include "KeyHandler.h"
@@ -33,7 +33,7 @@ private:
     shared_ptr<WindowDisplay> _windowDisplay;
     shared_ptr<LaserCanon> _laserCanon1;
     shared_ptr<LaserCanon> _laserCanon2;
-    shared_ptr<EntityDrawer> _entityDrawer;
+    shared_ptr<ImageDrawer> _imageDrawer;
     shared_ptr<Alien> _alien;
 
     GreenAliens _greenAliens;
@@ -45,8 +45,8 @@ private:
     UpRedAliens _upRedAliens;
 
     KeyHandler _keyHandler;
-    EntityDrawerProxy _entityDrawerProxy;
-    void timerCheck();
+    ImageDrawerProxy _imageDrawerProxy;
+    void gameActivities();
     void drawGameEntities();
     void drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries);
     void drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
