@@ -5,6 +5,8 @@ GameLoop::GameLoop()
     , _laserCanon1{ new LaserCanon{
           (get<0>(_windowDisplay->screenDimensions()) / 2) - 10, get<1>(_windowDisplay->screenDimensions()) - 20, 1 } }
     , _laserCanon2{ new LaserCanon{ (get<0>(_windowDisplay->screenDimensions()) / 2) - 10, 0, 2 } }
+    , _laser1 {new Laser{*_laserCanon1}}
+    , _laser2 {new Laser{*_laserCanon2}}
     , _imageDrawer{ new ImageDrawer{ _windowDisplay->getWindow() } }
     , _imageDrawerProxy{ _imageDrawer }
     , gameWon{ false }
@@ -96,16 +98,17 @@ void GameLoop::PlayGame()
 void GameLoop::gameActivities()
 {
     if(_windowDisplay->is_singleMode()) {
-	_keyHandler.singleModeKeyCheck(*_laserCanon1, *_laserCanon2);
+	_keyHandler.singleModeKeyCheck(*_laserCanon1, *_laserCanon2, *_laser1, *_laser2);
     } else {
-	_keyHandler.KeyCheck(*_laserCanon1);
-	_keyHandler.KeyCheck2(*_laserCanon2);
+	_keyHandler.KeyCheck(*_laserCanon1, *_laser1);
+	_keyHandler.KeyCheck2(*_laserCanon2, *_laser2);
     }
     _windowDisplay->CheckEvent();
-    GameUpdater _updater;
-    _updater.updatePlayerLaser(*_laserCanon1, *_laserCanon2);
+    auto _updater = GameUpdater{};
+    _updater.updateLaser1Position(*_laserCanon1, *_laser1);
+    _updater.updateLaser2Position(*_laserCanon2, *_laser2);
     auto _collisionDetector = CollisionDetector{};
-    _collisionDetector.LaserCanonLaserCollision(*_laserCanon1, *_laserCanon2);
+    _collisionDetector.LaserCanonLaserCollision(*_laserCanon1, *_laserCanon2, *_laser1, *_laser2);
 
     if(!_laserCanon1->isAlive() || !_laserCanon2->isAlive()) {
 	gameLost = true;
@@ -126,7 +129,7 @@ void GameLoop::gameActivities()
 	    _windowDisplay->setPlay(play);
 	}
 
-	_collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *greenAlien);
+	_collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *greenAlien);
 	if(!greenAlien->isAlive()) {
 	    counter++;
 	    if(numberOfAliens == counter) {
@@ -146,7 +149,7 @@ void GameLoop::gameActivities()
 	    _windowDisplay->setPlay(play);
 	}
 
-	_collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *purpleAlien);
+	_collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *purpleAlien);
 	if(!purpleAlien->isAlive()) {
 	    counter++;
 	    if(numberOfAliens == counter) {
@@ -165,7 +168,7 @@ void GameLoop::gameActivities()
 	    auto play = false;
 	    _windowDisplay->setPlay(play);
 	}
-	_collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *redAlien);
+	_collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *redAlien);
 	if(!redAlien->isAlive()) {
 	    counter++;
 	    if(numberOfAliens == counter) {
@@ -184,7 +187,7 @@ void GameLoop::gameActivities()
 	    auto play = false;
 	    _windowDisplay->setPlay(play);
 	}
-	_collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpGreenAlien);
+	_collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpGreenAlien);
 	if(!UpGreenAlien->isAlive()) {
 	    counter++;
 	    if(numberOfAliens == counter) {
@@ -203,7 +206,7 @@ void GameLoop::gameActivities()
 	    auto play = false;
 	    _windowDisplay->setPlay(play);
 	}
-	_collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpPurpleAlien);
+	_collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpPurpleAlien);
 	if(!UpPurpleAlien->isAlive()) {
 	    counter++;
 	    if(numberOfAliens == counter) {
@@ -222,7 +225,7 @@ void GameLoop::gameActivities()
 	    auto play = false;
 	    _windowDisplay->setPlay(play);
 	}
-	_collisionDetector.LaserAlienCollision(*_laserCanon1, *_laserCanon2, *UpRedAlien);
+	_collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpRedAlien);
 	if(!UpRedAlien->isAlive()) {
 	    counter++;
 	    if(numberOfAliens == counter) {
@@ -236,7 +239,8 @@ void GameLoop::gameActivities()
 
 void GameLoop::drawGameEntities()
 {
-    _imageDrawerProxy._drawLaserCanonsAndLasers(*_laserCanon1, *_laserCanon2);
+    _imageDrawerProxy._drawLaserCanons(*_laserCanon1, *_laserCanon2);
+    _imageDrawerProxy._drawLasers(*_laser1, *_laser2);
 
     auto spriteNumber = vector<int>{ 1, 2, 3 };
     auto spriteBoundaries = vector<int>{ 0, 40, 80, 120, 160, 200, 240, 280, 320, 380 };

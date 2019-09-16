@@ -20,10 +20,10 @@ LaserCanon::LaserCanon(int x, int y, int canonNumber)
     default:
 	break;
     }
-    auto _coordintates =
-        EntityCoordinates{ getEntityCoordinates().getXposition(), getEntityCoordinates().getYposition() };
-    _laser = Laser{ _coordintates };
-    _laser2 = Laser{ _coordintates };
+  //  auto _coordintates =
+  //      EntityCoordinates{ getEntityCoordinates().getXposition(), getEntityCoordinates().getYposition() };
+  //  _laser = Laser{ _coordintates };
+  //  _laser2 = Laser{ _coordintates };
 }
 
 void LaserCanon::move(Direction _direction)
@@ -46,7 +46,7 @@ void LaserCanon::move(Direction _direction)
 	break;
     }
 }
-
+/*
 void LaserCanon::shootLaser(int laser_number)
 {
     switch(laser_number) {
@@ -100,7 +100,7 @@ Laser LaserCanon::getLaser(int laser_number) const
     }
 }
 
-void LaserCanon::update_Laser_position(int laser_number)
+void LaserCanon::moveLaserWithCanon(int laser_number)
 {
     if(!_laser.isAlive() && laser_number == 1) {
 	auto _coordinates =
@@ -113,3 +113,4 @@ void LaserCanon::update_Laser_position(int laser_number)
 	_laser2.update_position(_coordinates);
     }
 }
+ */ 

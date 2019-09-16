@@ -2,6 +2,7 @@
 #define LASER_H_INCLUDED
 #include "EntityCoordinates.h"
 #include "GameEntity.h"
+#include "LaserCanon.h"
 
 class InvalidLaserCoordinates
 {
@@ -10,8 +11,9 @@ class InvalidLaserCoordinates
 class Laser : public GameEntity
 {
 public:
-    Laser(const EntityCoordinates& _coordinates = EntityCoordinates{ 0, 0 });
-    void update_position(const EntityCoordinates& _entityCoordinates);
+    Laser(LaserCanon& _laserCanon);
+    void shootLaser();
+    void moveLaserWithCanon(LaserCanon& _laserCanon);
     virtual void move(Direction _direction);
 
 private:

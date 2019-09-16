@@ -3,6 +3,7 @@
 #include "Alien.h"
 #include "ImageDrawer.h"
 #include "LaserCanon.h"
+#include "Laser.h"
 #include <memory>
 using std::shared_ptr;
 
@@ -10,7 +11,8 @@ class ImageDrawerProxy
 {
 public:
     ImageDrawerProxy(shared_ptr<ImageDrawer> imageDrawer);
-    void _drawLaserCanonsAndLasers(const LaserCanon& _laserCanon1, const LaserCanon& _laserCanon2) const;
+    void _drawLaserCanons(const LaserCanon& _laserCanon1, const LaserCanon& _laserCanon2) const;
+    void _drawLasers(const Laser& _laser1, const Laser& _laser2) const;
 
     void _drawGreenAliens(const Alien& _alien, int spriteNumber);
     void _drawPurpleAliens(const Alien& _alien, int spriteNumber);

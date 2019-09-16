@@ -1,11 +1,14 @@
 #include "Laser.h"
+#include <iostream>
+using namespace std;
 
-Laser::Laser(const EntityCoordinates& _coordinates)
-    : GameEntity{ _coordinates.getXposition(), _coordinates.getYposition(), 5, false }
+Laser::Laser(LaserCanon& _laserCanon)
+    : GameEntity{ _laserCanon.getEntityCoordinates().getXposition(), _laserCanon.getEntityCoordinates().getYposition(),
+        5, false }
 {
     if(getEntityCoordinates().getXposition() < 0 || getEntityCoordinates().getXposition() > 400 ||
         getEntityCoordinates().getYposition() < 0 || getEntityCoordinates().getYposition() > 400) {
-	throw InvalidLaserCoordinates{};
+        throw InvalidLaserCoordinates{};
     }
 }
 
@@ -13,22 +16,27 @@ void Laser::move(Direction _direction)
 {
     switch(_direction) {
     case UP:
-	if(getEntityCoordinates().getYposition() != 0) {
-	    setYposition(getEntityCoordinates().getYposition() - getEntitySpeed());
-	}
-	break;
+        if(getEntityCoordinates().getYposition() != 0) {
+            setYposition(getEntityCoordinates().getYposition() - getEntitySpeed());
+        }
+        break;
     case DOWN:
-	if(getEntityCoordinates().getYposition() < 395) {
-
-	    setYposition(getEntityCoordinates().getYposition() + getEntitySpeed());
-	}
+        if(getEntityCoordinates().getYposition() < 395) {
+            cout << getEntityCoordinates().getYposition() << endl;
+            setYposition(getEntityCoordinates().getYposition() + getEntitySpeed());
+        }
     default:
-	break;
+        break;
     }
 }
 
-void Laser::update_position(const EntityCoordinates& _entityCoordinates)
+void Laser::shootLaser()
 {
-    setXposition(_entityCoordinates.getXposition() + 6);
-    setYposition(_entityCoordinates.getYposition());
+    setEntityLife(true);
+}
+
+void Laser::moveLaserWithCanon(LaserCanon& _laserCanon)
+{
+    setXposition(_laserCanon.getEntityCoordinates().getXposition() + 6);
+    setYposition(_laserCanon.getEntityCoordinates().getYposition());
 }

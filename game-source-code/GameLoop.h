@@ -33,6 +33,8 @@ private:
     shared_ptr<WindowDisplay> _windowDisplay;
     shared_ptr<LaserCanon> _laserCanon1;
     shared_ptr<LaserCanon> _laserCanon2;
+    shared_ptr<Laser> _laser1;
+    shared_ptr<Laser> _laser2;
     shared_ptr<ImageDrawer> _imageDrawer;
     shared_ptr<Alien> _alien;
 
