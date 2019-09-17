@@ -13,7 +13,7 @@ Laser::Laser(LaserCanon& _laserCanon)
 }
 
 Laser::Laser(Alien& _alien)
-    : GameEntity{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 2, false }
+    : GameEntity{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 1, false }
 {
 }
 

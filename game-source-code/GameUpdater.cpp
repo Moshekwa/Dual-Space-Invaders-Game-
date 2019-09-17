@@ -47,6 +47,20 @@ void GameUpdater::updateAlienLaserPosition(Alien& _alien, Laser& _alienLaser)
 
 }
 
+void GameUpdater::updateUpAlienLaserPosition(Alien& _alien, Laser& _alienLaser)
+{
+    if(_alienLaser.isAlive()) {
+        if(_alienLaser.getEntityCoordinates().getYposition() <= 40) {
+            _alienLaser.destroyEntity();
+            _alienLaser.moveLaserWithAlien(_alien);
+        } else {
+            _alienLaser.move(UP);
+        }
+    } else {
+        _alienLaser.moveLaserWithAlien(_alien);
+    }
+}
+
 void GameUpdater::updateAlienPosition(Alien& _alien)
 {
     if(_alien.isAlive()) {

@@ -62,6 +62,8 @@ private:
     bool gameLost;
     bool redAlienRowAlive;
     bool purpleAlienRowAlive;
+    bool upRedAlienRowAlive;
+    bool upPurpleAlienRowAlive;
 };
 
 #endif // GAMELOOP_H_INCLUDED

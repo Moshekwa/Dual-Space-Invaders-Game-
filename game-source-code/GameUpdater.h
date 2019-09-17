@@ -12,6 +12,7 @@ public:
     void updateAlienPosition(Alien& _alien);
     void updateUpAlienPosition(Alien& _alien);
     void updateAlienLaserPosition(Alien& _alien, Laser& _alienLaser);
+    void updateUpAlienLaserPosition(Alien& _alien, Laser& _alienLaser);
 
 private:
 };
