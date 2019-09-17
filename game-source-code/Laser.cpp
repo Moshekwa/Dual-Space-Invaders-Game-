@@ -1,4 +1,6 @@
 #include "Laser.h"
+#include <iostream>
+using namespace std;
 
 Laser::Laser(LaserCanon& _laserCanon)
     : GameEntity{ _laserCanon.getEntityCoordinates().getXposition(), _laserCanon.getEntityCoordinates().getYposition(),
@@ -11,7 +13,7 @@ Laser::Laser(LaserCanon& _laserCanon)
 }
 
 Laser::Laser(Alien& _alien)
-    : GameEntity{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 5, true }
+    : GameEntity{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 1, false }
 {
 }
 

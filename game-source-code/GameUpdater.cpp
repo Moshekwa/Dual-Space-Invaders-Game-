@@ -1,4 +1,6 @@
 #include "GameUpdater.h"
+#include <iostream>
+using namespace std;
 
 GameUpdater::GameUpdater()
 {
@@ -32,15 +34,17 @@ void GameUpdater::updateLaser2Position(LaserCanon& _laserCanon2, Laser& _laser2)
 
 void GameUpdater::updateAlienLaserPosition(Alien& _alien, Laser& _alienLaser)
 {
-    if(_alien.isAlive()) {
+    if(_alienLaser.isAlive()) {
         if(_alienLaser.getEntityCoordinates().getYposition() >= 490) {
             _alienLaser.destroyEntity();
+            _alienLaser.moveLaserWithAlien(_alien);
         } else {
             _alienLaser.move(DOWN);
         }
     } else {
         _alienLaser.moveLaserWithAlien(_alien);
     }
+
 }
 
 void GameUpdater::updateAlienPosition(Alien& _alien)

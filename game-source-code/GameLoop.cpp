@@ -1,4 +1,7 @@
 #include "GameLoop.h"
+#include <cstdlib>
+#include <iostream>
+using namespace std;
 
 GameLoop::GameLoop()
     : _windowDisplay{ new WindowDisplay }
@@ -22,6 +25,8 @@ GameLoop::GameLoop()
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
         auto _greenAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
         _greenAliens.push_back(_greenAlien);
+        auto _alienLaser = make_shared<Laser>(*_greenAlien);
+        _alienLasers.push_back(_alienLaser);
     }
 
     for(auto i = 0; i < numberOfAliens; i++) {
@@ -31,6 +36,8 @@ GameLoop::GameLoop()
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
         auto _purpleAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
         _purpleAliens.push_back(_purpleAlien);
+        auto _alienLaser = make_shared<Laser>(*_purpleAlien);
+        _alienLasers.push_back(_alienLaser);
     }
 
     for(auto i = 0; i < numberOfAliens; i++) {
@@ -40,10 +47,8 @@ GameLoop::GameLoop()
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
         auto _redAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
         _redAliens.push_back(_redAlien);
-        if(i == 3){
-            auto _alienLaser = make_shared<Laser>(*_redAlien);
-            _alienLasers.push_back(_alienLaser);
-        }
+        auto _alienLaser = make_shared<Laser>(*_redAlien);
+        _alienLasers.push_back(_alienLaser);
     }
 
     for(auto i = 0; i < numberOfAliens; i++) {
@@ -53,6 +58,8 @@ GameLoop::GameLoop()
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
         auto _upGreenAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
         _upGreenAliens.push_back(_upGreenAlien);
+        auto _alienLaser = make_shared<Laser>(*_upGreenAlien);
+        _alienLasers.push_back(_alienLaser);
     }
 
     for(auto i = 0; i < numberOfAliens; i++) {
@@ -62,6 +69,8 @@ GameLoop::GameLoop()
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
         auto _upPurpleAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
         _upPurpleAliens.push_back(_upPurpleAlien);
+        auto _alienLaser = make_shared<Laser>(*_upPurpleAlien);
+        _alienLasers.push_back(_alienLaser);
     }
 
     for(auto i = 0; i < numberOfAliens; i++) {
@@ -71,6 +80,8 @@ GameLoop::GameLoop()
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
         auto _upRedAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary);
         _upRedAliens.push_back(_upRedAlien);
+        auto _alienLaser = make_shared<Laser>(*_upRedAlien);
+        _alienLasers.push_back(_alienLaser);
     }
 }
 
@@ -124,13 +135,27 @@ void GameLoop::gameActivities()
 
     auto counter = 0;
     auto totalNumberOfAliens = Alien::getNumberOfAliens() * 6;
-    
-    for(auto i =0u; i< _alienLasers.size(); i++){
-        _updater.updateAlienLaserPosition(*_redAliens.at(3), *_alienLasers.at(i));
-    }
+    /*
+        for(auto i = 0u; i < _alienLasers.size(); i++) {
+            if(_redAliens.at(0)->getEntityCoordinates().getXposition() >= 120 &&
+                _redAliens.at(0)->getEntityCoordinates().getXposition() < 160) {
+                _alienLasers.at(i)->shootLaser();
+            }
+            _updater.updateAlienLaserPosition(*_redAliens.at(0), *_alienLasers.at(i));
+        }
+    */
+
+    auto randomXposition = (rand() % get<0>(WindowDisplay::screenDimensions())) + 1;
+    auto AlienCounter = 0;
 
     for(auto greenAlien : _greenAliens) {
         _updater.updateAlienPosition(*greenAlien);
+
+        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition) {
+            //_alienLasers.at(AlienCounter)->shootLaser();
+        }
+        _updater.updateAlienLaserPosition(*greenAlien, *_alienLasers.at(AlienCounter));
+
         if(greenAlien->isAlive() &&
             greenAlien->getEntityCoordinates().getYposition() >= get<3>(greenAlien->getBoundaries())) {
             gameLost = true;
@@ -151,6 +176,12 @@ void GameLoop::gameActivities()
 
     for(auto purpleAlien : _purpleAliens) {
         _updater.updateAlienPosition(*purpleAlien);
+
+        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition) {
+            // _alienLasers.at(AlienCounter)->shootLaser();
+        }
+        _updater.updateAlienLaserPosition(*purpleAlien, *_alienLasers.at(AlienCounter));
+
         if(purpleAlien->isAlive() &&
             purpleAlien->getEntityCoordinates().getYposition() >= get<3>(purpleAlien->getBoundaries())) {
             gameLost = true;
@@ -171,6 +202,11 @@ void GameLoop::gameActivities()
 
     for(auto redAlien : _redAliens) {
         _updater.updateAlienPosition(*redAlien);
+        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition) {
+            _alienLasers.at(AlienCounter)->shootLaser();
+        }
+        _updater.updateAlienLaserPosition(*redAlien, *_alienLasers.at(AlienCounter));
+
         if(redAlien->isAlive() &&
             redAlien->getEntityCoordinates().getYposition() >= get<3>(redAlien->getBoundaries())) {
             gameLost = true;
@@ -186,10 +222,17 @@ void GameLoop::gameActivities()
                 gameWon = true;
             }
         }
+        AlienCounter++;
     }
 
     for(auto UpGreenAlien : _upGreenAliens) {
         _updater.updateUpAlienPosition(*UpGreenAlien);
+
+        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition) {
+            // _alienLasers.at(AlienCounter)->shootLaser();
+        }
+        _updater.updateAlienLaserPosition(*UpGreenAlien, *_alienLasers.at(AlienCounter));
+
         if(UpGreenAlien->isAlive() &&
             UpGreenAlien->getEntityCoordinates().getYposition() <= get<2>(UpGreenAlien->getBoundaries())) {
             gameLost = true;
@@ -209,6 +252,12 @@ void GameLoop::gameActivities()
 
     for(auto UpPurpleAlien : _upPurpleAliens) {
         _updater.updateUpAlienPosition(*UpPurpleAlien);
+
+        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition) {
+            // _alienLasers.at(AlienCounter)->shootLaser();
+        }
+        _updater.updateAlienLaserPosition(*UpPurpleAlien, *_alienLasers.at(AlienCounter));
+
         if(UpPurpleAlien->isAlive() &&
             UpPurpleAlien->getEntityCoordinates().getYposition() <= get<2>(UpPurpleAlien->getBoundaries())) {
             gameLost = true;
@@ -228,6 +277,12 @@ void GameLoop::gameActivities()
 
     for(auto UpRedAlien : _upRedAliens) {
         _updater.updateUpAlienPosition(*UpRedAlien);
+
+        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition) {
+            // _alienLasers.at(AlienCounter)->shootLaser();
+        }
+        _updater.updateAlienLaserPosition(*UpRedAlien, *_alienLasers.at(AlienCounter));
+
         if(UpRedAlien->isAlive() &&
             UpRedAlien->getEntityCoordinates().getYposition() <= get<2>(UpRedAlien->getBoundaries())) {
             gameLost = true;
@@ -250,8 +305,8 @@ void GameLoop::drawGameEntities()
 {
     _imageDrawerProxy._drawLaserCanons(*_laserCanon1, *_laserCanon2);
     _imageDrawerProxy._drawLasers(*_laser1, *_laser2);
-    for(auto _alienLaser : _alienLasers){
-    _imageDrawerProxy._drawAlienLasers(*_alienLaser);
+    for(auto _alienLaser : _alienLasers) {
+        _imageDrawerProxy._drawAlienLasers(*_alienLaser);
     }
 
     auto spriteNumber = vector<int>{ 1, 2, 3 };
