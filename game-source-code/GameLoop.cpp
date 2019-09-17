@@ -1,4 +1,5 @@
 #include "GameLoop.h"
+#include <algorithm>
 #include <cstdlib>
 #include <iostream>
 using namespace std;
@@ -14,6 +15,8 @@ GameLoop::GameLoop()
     , _imageDrawerProxy{ _imageDrawer }
     , gameWon{ false }
     , gameLost{ false }
+    , redAlienRowAlive{ true }
+    , purpleAlienRowAlive{ true }
 {
 
     auto numberOfAliens = Alien::getNumberOfAliens();
@@ -135,24 +138,16 @@ void GameLoop::gameActivities()
 
     auto counter = 0;
     auto totalNumberOfAliens = Alien::getNumberOfAliens() * 6;
-    /*
-        for(auto i = 0u; i < _alienLasers.size(); i++) {
-            if(_redAliens.at(0)->getEntityCoordinates().getXposition() >= 120 &&
-                _redAliens.at(0)->getEntityCoordinates().getXposition() < 160) {
-                _alienLasers.at(i)->shootLaser();
-            }
-            _updater.updateAlienLaserPosition(*_redAliens.at(0), *_alienLasers.at(i));
-        }
-    */
 
-    auto randomXposition = (rand() % get<0>(WindowDisplay::screenDimensions())) + 1;
+    auto randomXposition = (rand() % ((get<0>(WindowDisplay::screenDimensions())) - 20)) + 1;
     auto AlienCounter = 0;
 
     for(auto greenAlien : _greenAliens) {
         _updater.updateAlienPosition(*greenAlien);
 
-        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition) {
-            //_alienLasers.at(AlienCounter)->shootLaser();
+        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition &&
+            purpleAlienRowAlive == false && greenAlien->isAlive()) {
+            _alienLasers.at(AlienCounter)->shootLaser();
         }
         _updater.updateAlienLaserPosition(*greenAlien, *_alienLasers.at(AlienCounter));
 
@@ -172,13 +167,19 @@ void GameLoop::gameActivities()
                 gameWon = true;
             }
         }
+        AlienCounter++;
     }
 
     for(auto purpleAlien : _purpleAliens) {
         _updater.updateAlienPosition(*purpleAlien);
 
-        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition) {
-            // _alienLasers.at(AlienCounter)->shootLaser();
+        auto isAlive = [](auto n) { return n->isAlive(); };
+        auto AlienRowAlive = any_of(_purpleAliens.begin(), _purpleAliens.end(), isAlive);
+        purpleAlienRowAlive = AlienRowAlive;
+
+        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition &&
+            redAlienRowAlive == false && purpleAlien->isAlive()) {
+            _alienLasers.at(AlienCounter)->shootLaser();
         }
         _updater.updateAlienLaserPosition(*purpleAlien, *_alienLasers.at(AlienCounter));
 
@@ -198,11 +199,18 @@ void GameLoop::gameActivities()
                 gameWon = true;
             }
         }
+        AlienCounter++;
     }
 
     for(auto redAlien : _redAliens) {
         _updater.updateAlienPosition(*redAlien);
-        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition) {
+
+        auto isAlive = [](auto n) { return n->isAlive(); };
+        auto AlienRowAlive = any_of(_redAliens.begin(), _redAliens.end(), isAlive);
+        redAlienRowAlive = AlienRowAlive;
+
+        if(_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition &&
+            redAlien->isAlive()) {
             _alienLasers.at(AlienCounter)->shootLaser();
         }
         _updater.updateAlienLaserPosition(*redAlien, *_alienLasers.at(AlienCounter));
@@ -248,6 +256,7 @@ void GameLoop::gameActivities()
                 gameWon = true;
             }
         }
+        AlienCounter++;
     }
 
     for(auto UpPurpleAlien : _upPurpleAliens) {
@@ -273,6 +282,7 @@ void GameLoop::gameActivities()
                 gameWon = true;
             }
         }
+        AlienCounter++;
     }
 
     for(auto UpRedAlien : _upRedAliens) {
@@ -299,6 +309,7 @@ void GameLoop::gameActivities()
             }
         }
     }
+    AlienCounter++;
 }
 
 void GameLoop::drawGameEntities()

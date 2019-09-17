@@ -15,7 +15,7 @@ Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary)
 	//throw InvalidAlienCoordinates{};
 }
 
-const int Alien::numberOfAliens{5};
+const int Alien::numberOfAliens{3};
 
 int Alien::getNumberOfAliens() 
 {

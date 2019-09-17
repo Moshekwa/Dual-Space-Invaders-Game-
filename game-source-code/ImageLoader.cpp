@@ -30,7 +30,7 @@ void ImageLoader::loadImages()
 	"purple_alien.png", "red_alien.png", "up_green_alien.png", "up_purple_alien.png", "up_red_alien.png",
 	"splash_screen.png", "gamewon.png", "gamelost.png", "green_alien2.png", "green_alien3.png", "purple_alien2.png",
 	"purple_alien3.png", "red_alien2.png", "red_alien3.png", "up_green_alien2.png", "up_green_alien3.png",
-	"up_purple_alien2.png", "up_purple_alien3.png", "up_red_alien2.png", "up_red_alien3.png", "laser1.png" };
+	"up_purple_alien2.png", "up_purple_alien3.png", "up_red_alien2.png", "up_red_alien3.png", "laser2.png" };
     
     for(auto i = 0u; i < _textures.size(); i++) {
 	if(!_textures.at(i).loadFromFile(image_filenames.at(i).c_str()))
