@@ -6,10 +6,9 @@
 class GameEntity
 {
 public:
-    GameEntity(int xPosition, int yPosition, int entitySpeed, bool life);
+    GameEntity(int xPosition, int yPosition, bool life);
     void setXposition(int x);
     void setYposition(int y);
-    int getEntitySpeed() const;
     void giveEntityLife();
     void destroyEntity();
     bool isAlive() const;
@@ -17,7 +16,6 @@ public:
 
 private:
     EntityCoordinates _coordinates;
-    int _entitySpeed;
     bool _life;
 };
 

@@ -21,21 +21,24 @@ void ImageDrawer::drawLaserCanon2(const EntityCoordinates& _coordinates)
     _window->draw(*_sprites.at(1));
 }
 
-void ImageDrawer::drawLaserCanonShields(const EntityCoordinates& _coordinates)
+void ImageDrawer::drawLaserCanonShields(const EntityCoordinates& _coordinates, int shieldNumber)
 {
-    _sprites.at(26)->setScale(0.2f, 0.1f);
-    _sprites.at(26)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
-    _window->draw(*_sprites.at(26));
-    
-    /*
-    _sprites.at(27)->setScale(0.2f, 0.1f);
-    _sprites.at(27)->setPosition(180,460);
-    _window->draw(*_sprites.at(27));
-    
-    _sprites.at(28)->setScale(0.2f, 0.1f);
-    _sprites.at(28)->setPosition(280,460);
-    _window->draw(*_sprites.at(28));
-     */
+
+    switch(shieldNumber) {
+    case 1:
+        _sprites.at(26)->setScale(0.2f, 0.1f);
+        _sprites.at(26)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(26));
+        break;
+    case 2:
+        _sprites.at(27)->setScale(0.2f, 0.1f);
+        _sprites.at(27)->setPosition(_coordinates.getXposition(), _coordinates.getYposition());
+        _window->draw(*_sprites.at(27));
+        break;
+
+    default:
+        break;
+    }
 }
 
 void ImageDrawer::drawLaser(const EntityCoordinates& _coordinates)

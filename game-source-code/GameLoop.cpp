@@ -10,7 +10,6 @@ GameLoop::GameLoop()
     , _laser1{ new Laser{ *_laserCanon1 } }
     , _laser2{ new Laser{ *_laserCanon2 } }
     , _imageDrawer{ new ImageDrawer{ _windowDisplay->getWindow() } }
-    , _laserCanonShield{ new LaserCanonShield{ 180, 460, true } }
     , _imageDrawerProxy{ _imageDrawer }
     , gameWon{ false }
     , gameLost{ false }
@@ -19,6 +18,14 @@ GameLoop::GameLoop()
     , upRedAlienRowAlive{ true }
     , upPurpleAlienRowAlive{ true }
 {
+    auto numberOfShields = LaserCanonShield::getNumberOfShields();
+
+    for(auto i = 0; i < (numberOfShields / 2); i++) {
+        auto _laserCanonShield = make_shared<LaserCanonShield>(80 + 100 * i, 450, true);
+        auto _UplaserCanonShield = make_shared<LaserCanonShield>(80 + 100 * i, 70, true);
+        _laserCanonShields.push_back(_laserCanonShield);
+        _laserCanonShields.push_back(_UplaserCanonShield);
+    }
 
     auto numberOfAliens = Alien::getNumberOfAliens();
 
@@ -335,7 +342,15 @@ void GameLoop::drawGameEntities()
 {
     _imageDrawerProxy._drawLaserCanons(*_laserCanon1, *_laserCanon2);
     _imageDrawerProxy._drawLasers(*_laser1, *_laser2);
-    _imageDrawerProxy._drawLaserCanonShields(*_laserCanonShield);
+
+    for(auto _laserCanonShield : _laserCanonShields) {
+        if(_laserCanonShield->getEntityCoordinates().getYposition() == 450) {
+            _imageDrawerProxy._drawLaserCanonShields(*_laserCanonShield, 1);
+        } else {
+            _imageDrawerProxy._drawLaserCanonShields(*_laserCanonShield, 2);
+        }
+    }
+
     for(auto _alienLaser : _alienLasers) {
         _imageDrawerProxy._drawAlienLasers(*_alienLaser);
     }
