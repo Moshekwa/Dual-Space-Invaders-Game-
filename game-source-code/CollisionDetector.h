@@ -10,6 +10,7 @@ public:
     CollisionDetector();
     void LaserAlienCollision(Laser& _laser1, Laser& _laser2, Alien& _alien);
     void LaserCanonLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _laser1, Laser& _laser2);
+    void LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _alienLaser);
 
 private:
     int laserRadius = 3;

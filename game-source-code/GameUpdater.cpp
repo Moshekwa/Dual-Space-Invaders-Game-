@@ -1,6 +1,4 @@
 #include "GameUpdater.h"
-#include <iostream>
-using namespace std;
 
 GameUpdater::GameUpdater()
 {
