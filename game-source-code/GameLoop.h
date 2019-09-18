@@ -39,6 +39,7 @@ private:
     shared_ptr<Laser> _laser2;
     shared_ptr<ImageDrawer> _imageDrawer;
     shared_ptr<Alien> _alien;
+    shared_ptr<LaserCanonShield> _laserCanonShield;
 
     GreenAliens _greenAliens;
     PurpleAliens _purpleAliens;

@@ -1,7 +1,6 @@
 #ifndef ALIEN_H_INCLUDED
 #define ALIEN_H_INCLUDED
-#include "EntityCoordinates.h"
-#include "GameEntity.h"
+#include "MovingEntity.h"
 #include <tuple>
 using namespace std;
 
@@ -9,7 +8,7 @@ class InvalidAlienCoordinates
 {
 };
 
-class Alien : public GameEntity
+class Alien : public MovingEntity
 {
 public:
     Alien(int x, int y, int _rightBoundary, int _leftBoundary);

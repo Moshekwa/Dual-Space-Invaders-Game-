@@ -1,8 +1,8 @@
 #include "Laser.h"
 
 Laser::Laser(LaserCanon& _laserCanon)
-    : GameEntity{ _laserCanon.getEntityCoordinates().getXposition(), _laserCanon.getEntityCoordinates().getYposition(),
-        5, false }
+    : MovingEntity{ _laserCanon.getEntityCoordinates().getXposition(),
+        _laserCanon.getEntityCoordinates().getYposition(), 5, false }
 {
     /*if(getEntityCoordinates().getXposition() < 0 || getEntityCoordinates().getXposition() > 400 ||
         getEntityCoordinates().getYposition() < 0 || getEntityCoordinates().getYposition() > 400) {
@@ -11,8 +11,13 @@ Laser::Laser(LaserCanon& _laserCanon)
 }
 
 Laser::Laser(Alien& _alien)
-    : GameEntity{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 2, false }
+    : MovingEntity{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 2, false }
 {
+}
+
+void Laser::shoot()
+{
+    giveEntityLife();
 }
 
 void Laser::move(Direction _direction)
@@ -26,11 +31,6 @@ void Laser::move(Direction _direction)
     default:
         break;
     }
-}
-
-void Laser::shootLaser()
-{
-    setEntityLife(true);
 }
 
 void Laser::moveLaserWithCanon(LaserCanon& _laserCanon)

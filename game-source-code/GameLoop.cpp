@@ -10,6 +10,7 @@ GameLoop::GameLoop()
     , _laser1{ new Laser{ *_laserCanon1 } }
     , _laser2{ new Laser{ *_laserCanon2 } }
     , _imageDrawer{ new ImageDrawer{ _windowDisplay->getWindow() } }
+    , _laserCanonShield{ new LaserCanonShield{ 180, 460, true } }
     , _imageDrawerProxy{ _imageDrawer }
     , gameWon{ false }
     , gameLost{ false }
@@ -135,8 +136,8 @@ void GameLoop::gameActivities()
         auto play = false;
         _windowDisplay->setPlay(play);
     }
-    
-    for(auto alienLaser : _alienLasers){
+
+    for(auto alienLaser : _alienLasers) {
         _collisionDetector.LaserCanonAlienLaserCollision(*_laserCanon1, *_laserCanon2, *alienLaser);
     }
 
@@ -153,7 +154,7 @@ void GameLoop::gameActivities()
         if((_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition ||
                _alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition2) &&
             purpleAlienRowAlive == false && greenAlien->isAlive()) {
-            _alienLasers.at(AlienCounter)->shootLaser();
+            _alienLasers.at(AlienCounter)->shoot();
         }
         _updater.updateAlienLaserPosition(*greenAlien, *_alienLasers.at(AlienCounter));
 
@@ -185,7 +186,7 @@ void GameLoop::gameActivities()
         if((_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition ||
                _alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition2) &&
             redAlienRowAlive == false && purpleAlien->isAlive()) {
-            _alienLasers.at(AlienCounter)->shootLaser();
+            _alienLasers.at(AlienCounter)->shoot();
         }
         _updater.updateAlienLaserPosition(*purpleAlien, *_alienLasers.at(AlienCounter));
 
@@ -217,7 +218,7 @@ void GameLoop::gameActivities()
         if((_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition ||
                _alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition2) &&
             redAlien->isAlive()) {
-            _alienLasers.at(AlienCounter)->shootLaser();
+            _alienLasers.at(AlienCounter)->shoot();
         }
         _updater.updateAlienLaserPosition(*redAlien, *_alienLasers.at(AlienCounter));
 
@@ -245,7 +246,7 @@ void GameLoop::gameActivities()
         if((_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition ||
                _alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition2) &&
             UpGreenAlien->isAlive() && upPurpleAlienRowAlive == false) {
-            _alienLasers.at(AlienCounter)->shootLaser();
+            _alienLasers.at(AlienCounter)->shoot();
         }
         _updater.updateUpAlienLaserPosition(*UpGreenAlien, *_alienLasers.at(AlienCounter));
 
@@ -276,7 +277,7 @@ void GameLoop::gameActivities()
         if((_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition ||
                _alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition2) &&
             UpPurpleAlien->isAlive() && upRedAlienRowAlive == false) {
-            _alienLasers.at(AlienCounter)->shootLaser();
+            _alienLasers.at(AlienCounter)->shoot();
         }
         _updater.updateUpAlienLaserPosition(*UpPurpleAlien, *_alienLasers.at(AlienCounter));
 
@@ -307,7 +308,7 @@ void GameLoop::gameActivities()
         if((_alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition ||
                _alienLasers.at(AlienCounter)->getEntityCoordinates().getXposition() == randomXposition2) &&
             UpRedAlien->isAlive()) {
-            _alienLasers.at(AlienCounter)->shootLaser();
+            _alienLasers.at(AlienCounter)->shoot();
         }
         _updater.updateUpAlienLaserPosition(*UpRedAlien, *_alienLasers.at(AlienCounter));
 
@@ -334,6 +335,7 @@ void GameLoop::drawGameEntities()
 {
     _imageDrawerProxy._drawLaserCanons(*_laserCanon1, *_laserCanon2);
     _imageDrawerProxy._drawLasers(*_laser1, *_laser2);
+    _imageDrawerProxy._drawLaserCanonShields(*_laserCanonShield);
     for(auto _alienLaser : _alienLasers) {
         _imageDrawerProxy._drawAlienLasers(*_alienLaser);
     }

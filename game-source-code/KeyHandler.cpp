@@ -16,7 +16,7 @@ void KeyHandler::KeyCheck(LaserCanon& _laserCanon1, Laser& _laser1)
 	_laserCanon1.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Up)) {
-	_laser1.shootLaser();
+	_laser1.shoot();
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
 	exit(0);
@@ -32,7 +32,7 @@ void KeyHandler::KeyCheck2(LaserCanon& _laserCanon2, Laser& _laser2)
 	_laserCanon2.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::W)) {
-	_laser2.shootLaser();
+	_laser2.shoot();
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
 	exit(0);
@@ -50,8 +50,8 @@ void KeyHandler::singleModeKeyCheck(LaserCanon& _laserCanon1, LaserCanon& _laser
 	_laserCanon2.move(RIGHT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Up)) {
-	_laser1.shootLaser();
-	_laser2.shootLaser();
+	_laser1.shoot();
+	_laser2.shoot();
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
 	exit(0);

@@ -1,9 +1,9 @@
 #include "GameEntity.h"
 
-GameEntity::GameEntity(int x, int y, int speed, bool life)
-    : _coordinates{ EntityCoordinates{ x, y } }
+GameEntity::GameEntity(int xPosition, int yPosition, int entitySpeed, bool life)
+    : _coordinates{ EntityCoordinates{ xPosition, yPosition } }
 {
-    _entitySpeed = speed;
+    _entitySpeed = entitySpeed;
     _life = life;
 }
 
@@ -17,14 +17,14 @@ void GameEntity::setYposition(int y)
     _coordinates.setYposition(y);
 }
 
-void GameEntity::setEntityLife(bool life)
+void GameEntity::giveEntityLife()
 {
-    _life = life;
+   _life = true;
 }
 
 void GameEntity::destroyEntity()
 {
-    setEntityLife(false);
+    _life = false;
 }
 
 bool GameEntity::isAlive() const

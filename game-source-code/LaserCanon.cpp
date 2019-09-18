@@ -1,7 +1,7 @@
 #include "LaserCanon.h"
 
 LaserCanon::LaserCanon(int x, int y, int canonNumber)
-    : GameEntity{ x, y, 5, true }
+    : MovingEntity{ x, y, 5, true }
 {
     /*switch(canonNumber) {
     case 1:

@@ -3,6 +3,7 @@
 #include "Alien.h"
 #include "ImageDrawer.h"
 #include "LaserCanon.h"
+#include "LaserCanonShield.h"
 #include "Laser.h"
 #include <memory>
 using std::shared_ptr;
@@ -22,6 +23,8 @@ public:
     void _drawUpGreenAliens(const Alien& _alien, int spriteNumber);
     void _drawUpPurpleAliens(const Alien& _alien, int spriteNumber);
     void _drawUpRedAliens(const Alien& _alien, int spriteNumber);
+    
+    void _drawLaserCanonShields(const LaserCanonShield& _laserCanonShield);
 
     void _drawHomeScreen();
     void _drawGameWon();

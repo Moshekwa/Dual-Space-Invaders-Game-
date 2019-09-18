@@ -28,6 +28,8 @@ public:
     void drawUpGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber);
     void drawUpPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber);
     void drawUpRedAliens(const EntityCoordinates& _coordinates, int spriteNumber);
+    
+    void drawLaserCanonShields(const EntityCoordinates& _coordinates);
 
     void drawHomeScreen();
     void drawGameWon();
