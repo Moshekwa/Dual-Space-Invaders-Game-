@@ -11,7 +11,7 @@ class InvalidAlienCoordinates
 class Alien : public MovingEntity
 {
 public:
-    Alien(int x, int y, int _rightBoundary, int _leftBoundary);
+    Alien(int x, int y, int _rightBoundary, int _leftBoundary, int numberOfLives);
     virtual void move(Direction _direction);
     bool getAlienRightDirection() const;
     void setAlienRightDirection(bool rightDirection);

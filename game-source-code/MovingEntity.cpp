@@ -1,7 +1,7 @@
 #include "MovingEntity.h"
 
-MovingEntity::MovingEntity(int xPosition, int yPosition, int entitySpeed, bool life)
-    : GameEntity{ xPosition, yPosition, life }
+MovingEntity::MovingEntity(int xPosition, int yPosition, int entitySpeed, bool life, int numberOfLives)
+    : GameEntity{ xPosition, yPosition, life, numberOfLives }
 {
     _entitySpeed = entitySpeed;
 }

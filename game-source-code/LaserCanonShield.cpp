@@ -1,7 +1,7 @@
 #include "LaserCanonShield.h"
 
-LaserCanonShield::LaserCanonShield(int xPosition, int yPosition, bool life)
-    : GameEntity{ xPosition, yPosition, life }
+LaserCanonShield::LaserCanonShield(int xPosition, int yPosition, bool life, int numberOfLives)
+    : GameEntity{ xPosition, yPosition, life, numberOfLives }
 {
 }
 

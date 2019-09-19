@@ -7,7 +7,7 @@ enum Direction { UP, DOWN, LEFT, RIGHT };
 class MovingEntity : public GameEntity
 {
 public:
-    MovingEntity(int xPosition, int yPosition, int entitySpeed, bool life);
+    MovingEntity(int xPosition, int yPosition, int entitySpeed, bool life, int numberOfLives);
     int getEntitySpeed() const;
     virtual void move(Direction _direction) = 0;
     

@@ -1,9 +1,10 @@
 #include "GameEntity.h"
 
-GameEntity::GameEntity(int xPosition, int yPosition, bool life)
+GameEntity::GameEntity(int xPosition, int yPosition, bool life, int numberOfLives)
     : _coordinates{ EntityCoordinates{ xPosition, yPosition } }
+    , _life{ life }
+    , _numberOfLives{ numberOfLives }
 {
-    _life = life;
 }
 
 void GameEntity::setXposition(int x)
@@ -18,12 +19,19 @@ void GameEntity::setYposition(int y)
 
 void GameEntity::giveEntityLife()
 {
-   _life = true;
+    _life = true;
 }
 
 void GameEntity::destroyEntity()
 {
-    _life = false;
+    if(getNumberOfLives() != 0) {
+        _numberOfLives = _numberOfLives - 1;
+        if(getNumberOfLives() == 0) {
+            _life = false;
+        }
+    } else{
+        _life = false;
+    } 
 }
 
 bool GameEntity::isAlive() const
@@ -31,9 +39,12 @@ bool GameEntity::isAlive() const
     return _life;
 }
 
+int GameEntity::getNumberOfLives() const
+{
+    return _numberOfLives;
+}
+
 EntityCoordinates GameEntity::getEntityCoordinates() const
 {
     return _coordinates;
 }
-
-

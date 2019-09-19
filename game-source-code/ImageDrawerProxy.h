@@ -26,7 +26,7 @@ public:
     void _drawUpRedAliens(const Alien& _alien, int spriteNumber);
 
     void _drawLaserCanonShields(const LaserCanonShield& _laserCanonShield, int shieldNumber);
-    void _drawLaserCanonLives(const LaserCanonLife& _laserCanonLives, int numberOfLives);
+    void _drawLaserCanonLives(const LaserCanonLife& _laserCanonLives);
 
     void _drawHomeScreen();
     void _drawGameWon();

@@ -9,7 +9,7 @@ class InvalidLaserCanonCoordinates
 class LaserCanon : public MovingEntity
 {
 public:
-    LaserCanon(int x, int y, int canonNumber);
+    LaserCanon(int x, int y, int canonNumber, int numberOfLives);
     virtual void move(Direction _direction);
 
 private:

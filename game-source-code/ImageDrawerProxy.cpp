@@ -82,10 +82,10 @@ void ImageDrawerProxy::_drawLaserCanonShields(const LaserCanonShield& _laserCano
     }
 }
 
-void ImageDrawerProxy::_drawLaserCanonLives(const LaserCanonLife& _laserCanonLife, int numberOfLives)
+void ImageDrawerProxy::_drawLaserCanonLives(const LaserCanonLife& _laserCanonLife)
 {
 	if(_laserCanonLife.isAlive()){
-    _imageDrawer->drawLaserCanonLives(_laserCanonLife.getEntityCoordinates(), numberOfLives);
+    _imageDrawer->drawLaserCanonLives(_laserCanonLife.getEntityCoordinates());
     }
 }
 	

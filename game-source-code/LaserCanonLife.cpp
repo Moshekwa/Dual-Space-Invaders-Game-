@@ -1,22 +1,10 @@
 #include "LaserCanonLife.h"
 
-LaserCanonLife::LaserCanonLife(int xPosition, int yPosition, bool life)
-    : GameEntity{ xPosition, yPosition, life }
+LaserCanonLife::LaserCanonLife(int xPosition, int yPosition, bool life, int numberOfLives)
+    : GameEntity{ xPosition, yPosition, life, numberOfLives }
 {
 }
 
 LaserCanonLife::~LaserCanonLife()
 {
 }
-
-void LaserCanonLife::setEntityLife()
-{
-    giveEntityLife();
-}
-
-int LaserCanonLife::getNumberOfLives()
-{
-    return numberOfLives;
-}
-
-const int LaserCanonLife::numberOfLives{ 3 };

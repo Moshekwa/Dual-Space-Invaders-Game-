@@ -5,7 +5,7 @@
 class LaserCanonShield : public GameEntity
 {
 public:
-    LaserCanonShield(int xPosition, int yPosition, bool life);
+    LaserCanonShield(int xPosition, int yPosition, bool life, int numberOfLives);
     void shoot();
     static int getNumberOfShields();
     

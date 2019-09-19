@@ -11,8 +11,8 @@ class InvalidLaserCoordinates
 class Laser : public MovingEntity
 {
 public:
-    Laser(LaserCanon& _laserCanon);
-    Laser(Alien& _alien);
+    Laser(LaserCanon& _laserCanon, int numberOfLives);
+    Laser(Alien& _alien, int numberOfLives);
     void shoot();
     void moveLaserWithCanon(LaserCanon& _laserCanon);
     void moveLaserWithAlien(Alien& _alien);
