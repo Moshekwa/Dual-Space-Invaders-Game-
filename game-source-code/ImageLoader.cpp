@@ -4,7 +4,7 @@ using std::string;
 
 ImageLoader::ImageLoader()
 {
-    auto numberOfTextures = 28;
+    auto numberOfTextures = 29;
     for(int i = 0; i < numberOfTextures; i++) {
         auto _texture = Texture{};
         _textures.push_back(_texture);
@@ -31,7 +31,7 @@ void ImageLoader::loadImages()
         "splash_screen.png", "gamewon.png", "gamelost.png", "green_alien2.png", "green_alien3.png", "purple_alien2.png",
         "purple_alien3.png", "red_alien2.png", "red_alien3.png", "up_green_alien2.png", "up_green_alien3.png",
         "up_purple_alien2.png", "up_purple_alien3.png", "up_red_alien2.png", "up_red_alien3.png", "laser2.png",
-        "shield1.png", "shield2.png" };
+        "shield1.png", "shield2.png", "playerlife.png" };
 
     for(auto i = 0u; i < _textures.size(); i++) {
         if(!_textures.at(i).loadFromFile(image_filenames.at(i).c_str()))

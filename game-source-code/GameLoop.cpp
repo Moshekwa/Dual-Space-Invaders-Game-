@@ -27,6 +27,17 @@ GameLoop::GameLoop()
 	_laserCanonShields.push_back(_UplaserCanonShield);
     }
 
+    auto numberOfLives = LaserCanonLife::getNumberOfLives();
+    
+	for(auto i = 0; i < numberOfLives; i++) {
+	auto _laserCanonLife1 = make_shared<LaserCanonLife>(380, 0, true);
+	auto _laserCanonLife2 = make_shared<LaserCanonLife>(360, 0, true);
+	auto _laserCanonLife3 = make_shared<LaserCanonLife>(320, 0, true);
+	_laserCanonLife.push_back(_laserCanonLife1);
+	_laserCanonLife.push_back(_laserCanonLife2);
+	_laserCanonLife.push_back(_laserCanonLife3);
+    }
+
     auto numberOfAliens = Alien::getNumberOfAliens();
 
     for(auto i = 0; i < numberOfAliens; i++) {
@@ -352,6 +363,22 @@ void GameLoop::drawGameEntities()
 	    _imageDrawerProxy._drawLaserCanonShields(*_laserCanonShield, 1);
 	} else {
 	    _imageDrawerProxy._drawLaserCanonShields(*_laserCanonShield, 2);
+	}
+    }
+
+    for(auto _laserCanonLives : _laserCanonLife) {
+	if(_laserCanonLives->getEntityCoordinates().getXposition() == 380 &&
+	    _laserCanonLives->getEntityCoordinates().getYposition() == 0) {
+	    _imageDrawerProxy._drawLaserCanonLives(*_laserCanonLives, 1);
+	}
+	if(_laserCanonLives->getEntityCoordinates().getXposition() == 360 &&
+	    _laserCanonLives->getEntityCoordinates().getYposition() == 0) {
+	    _imageDrawerProxy._drawLaserCanonLives(*_laserCanonLives, 2);
+	}
+
+	if(_laserCanonLives->getEntityCoordinates().getXposition() == 320 &&
+	    _laserCanonLives->getEntityCoordinates().getYposition() == 0) {
+	    _imageDrawerProxy._drawLaserCanonLives(*_laserCanonLives, 3);
 	}
     }
 

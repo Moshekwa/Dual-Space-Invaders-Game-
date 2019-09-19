@@ -2,9 +2,10 @@
 #define ENTITYDRAWERPROXY_H_INCLUDED
 #include "Alien.h"
 #include "ImageDrawer.h"
-#include "LaserCanon.h"
-#include "LaserCanonShield.h"
 #include "Laser.h"
+#include "LaserCanon.h"
+#include "LaserCanonLife.h"
+#include "LaserCanonShield.h"
 #include <memory>
 using std::shared_ptr;
 
@@ -23,8 +24,9 @@ public:
     void _drawUpGreenAliens(const Alien& _alien, int spriteNumber);
     void _drawUpPurpleAliens(const Alien& _alien, int spriteNumber);
     void _drawUpRedAliens(const Alien& _alien, int spriteNumber);
-    
+
     void _drawLaserCanonShields(const LaserCanonShield& _laserCanonShield, int shieldNumber);
+    void _drawLaserCanonLives(const LaserCanonLife& _laserCanonLives, int numberOfLives);
 
     void _drawHomeScreen();
     void _drawGameWon();

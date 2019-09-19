@@ -30,7 +30,8 @@ public:
     void drawUpRedAliens(const EntityCoordinates& _coordinates, int spriteNumber);
     
     void drawLaserCanonShields(const EntityCoordinates& _coordinates, int shieldNumber);
-
+	void drawLaserCanonLives(const EntityCoordinates& _coordinates, int numberOfLives);
+	
     void drawHomeScreen();
     void drawGameWon();
     void drawGameLost();

@@ -25,6 +25,7 @@ typedef vector<shared_ptr<Alien>> UpRedAliens;
 
 typedef vector<shared_ptr<Laser>> AlienLasers;
 typedef vector<shared_ptr<LaserCanonShield>> LaserCanonShields;
+typedef vector<shared_ptr<LaserCanonLife>> LaserCanonLives;
 
 class GameLoop
 {
@@ -51,7 +52,8 @@ private:
     
     AlienLasers _alienLasers;
     LaserCanonShields _laserCanonShields;
-
+	LaserCanonLives _laserCanonLife;
+	
     KeyHandler _keyHandler;
     ImageDrawerProxy _imageDrawerProxy;
     void gameActivities();
