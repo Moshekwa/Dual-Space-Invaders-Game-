@@ -31,7 +31,10 @@ void CollisionDetector::LaserAlienCollision(Laser& _laser1, Laser& _laser2, Alie
     }
 }
 
-void CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _laser1, Laser& _laser2)
+void CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserCanon1,
+    LaserCanon& _laserCanon2,
+    Laser& _laser1,
+    Laser& _laser2)
 {
     auto radii_sum = laserRadius + laserCanonRadius;
     auto laserXCentre = _laser1.getEntityCoordinates().getXposition() + laserRadius;
@@ -58,7 +61,9 @@ void CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserCanon1, Laser
     }
 }
 
-void CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _alienLaser)
+void CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1,
+    LaserCanon& _laserCanon2,
+    Laser& _alienLaser)
 {
     auto radii_sum = laserRadius + laserCanonRadius;
     auto laserXCentre = _alienLaser.getEntityCoordinates().getXposition() + laserRadius;
@@ -81,5 +86,50 @@ void CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1, 
 	_alienLaser.destroyEntity();
 	_laserCanon2.destroyEntity();
     }
-    
+}
+
+void CollisionDetector::LaserCanonShieldAlienLaserCollision(LaserCanonShield& _laserCanonShield, Laser& _alienLaser)
+{
+    auto radii_sum = laserRadius + LaserCanonShieldRadius;
+    auto laserXCentre = _alienLaser.getEntityCoordinates().getXposition() + laserRadius;
+    auto laserYCentre = _alienLaser.getEntityCoordinates().getYposition() + laserRadius;
+
+    auto LaserCanonShieldXcentre = _laserCanonShield.getEntityCoordinates().getXposition() + LaserCanonShieldRadius;
+    auto LaserCanonShieldYcentre = _laserCanonShield.getEntityCoordinates().getYposition() + LaserCanonShieldRadius;
+
+    auto centreDistance =
+        sqrt(pow(laserXCentre - LaserCanonShieldXcentre, 2) + pow(laserYCentre - LaserCanonShieldYcentre, 2));
+
+    if(centreDistance < radii_sum && _alienLaser.isAlive() && _laserCanonShield.isAlive()) {
+	_laserCanonShield.destroyEntity();
+	_alienLaser.destroyEntity();
+    }
+}
+
+void CollisionDetector::LaserCanonShieldLaserCollission(LaserCanonShield& _laserCanonShield,
+    Laser& _laser1,
+    Laser& _laser2)
+{
+    auto radii_sum = laserRadius + LaserCanonShieldRadius;
+
+    auto laserXCentre = _laser1.getEntityCoordinates().getXposition() + laserRadius;
+    auto laserYCentre = _laser1.getEntityCoordinates().getYposition() + laserRadius;
+
+    auto laser2XCentre = _laser2.getEntityCoordinates().getXposition() + laserRadius;
+    auto laser2YCentre = _laser2.getEntityCoordinates().getYposition() + laserRadius;
+
+    auto LaserCanonShieldXcentre = _laserCanonShield.getEntityCoordinates().getXposition() + LaserCanonShieldRadius;
+    auto LaserCanonShieldYcentre = _laserCanonShield.getEntityCoordinates().getYposition() + LaserCanonShieldRadius;
+
+    auto centreDistance =
+        sqrt(pow(laserXCentre - LaserCanonShieldXcentre, 2) + pow(laserYCentre - LaserCanonShieldYcentre, 2));
+    auto centreDistance2 =
+        sqrt(pow(laser2XCentre - LaserCanonShieldXcentre, 2) + pow(laser2YCentre - LaserCanonShieldYcentre, 2));
+
+    if(centreDistance < radii_sum && _laser1.isAlive() && _laserCanonShield.isAlive()) {
+	_laser1.destroyEntity();
+    }
+    if(centreDistance2 < radii_sum && _laser2.isAlive() && _laserCanonShield.isAlive()) {
+	_laser2.destroyEntity();
+    }
 }

@@ -1,7 +1,6 @@
 #ifndef LASER_H_INCLUDED
 #define LASER_H_INCLUDED
 #include "MovingEntity.h"
-#include "ShootingEntity.h"
 #include "LaserCanon.h"
 #include "Alien.h"
 
