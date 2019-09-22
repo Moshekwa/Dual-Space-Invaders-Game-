@@ -1,7 +1,7 @@
 #include "Laser.h"
 
 Laser::Laser(LaserCanon& _laserCanon, int numberOfLives)
-    : MovingEntity{ _laserCanon.getEntityCoordinates().getXposition(),
+    : Ammunition{ _laserCanon.getEntityCoordinates().getXposition(),
         _laserCanon.getEntityCoordinates().getYposition(), 5, false, numberOfLives }
 {
     /*if(getEntityCoordinates().getXposition() < 0 || getEntityCoordinates().getXposition() > 400 ||
@@ -11,13 +11,8 @@ Laser::Laser(LaserCanon& _laserCanon, int numberOfLives)
 }
 
 Laser::Laser(Alien& _alien, int numberOfLives)
-    : MovingEntity{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 2, false, numberOfLives }
+    : Ammunition{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 2, false, numberOfLives }
 {
-}
-
-void Laser::shoot()
-{
-    giveEntityLife();
 }
 
 void Laser::move(Direction _direction)
