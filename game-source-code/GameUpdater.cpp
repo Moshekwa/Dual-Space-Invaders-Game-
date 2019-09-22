@@ -99,3 +99,15 @@ void GameUpdater::updateUpAlienPosition(Alien& _alien)
         }
     }
 }
+
+void GameUpdater::updateCanon1_Score(LaserCanon& _laserCanon1, Alien& _alien)
+{
+    auto newScore = get<0>(_laserCanon1.getScoreAndHighScore()) + _alien.alienPoints(_alien.getAlienColour());
+    _laserCanon1.setScore(newScore);
+}
+
+void GameUpdater::updateCanon2_Score(LaserCanon& _laserCanon2, Alien& _alien)
+{
+    auto newScore = get<0>(_laserCanon2.getScoreAndHighScore()) + _alien.alienPoints(_alien.getAlienColour());
+    _laserCanon2.setScore(newScore);
+}

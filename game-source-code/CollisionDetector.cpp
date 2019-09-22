@@ -1,11 +1,16 @@
 #include "CollisionDetector.h"
+#include "GameUpdater.h"
 #include <cmath>
 
 CollisionDetector::CollisionDetector()
 {
 }
 
-void CollisionDetector::LaserAlienCollision(Laser& _laser1, Laser& _laser2, Alien& _alien)
+void CollisionDetector::LaserAlienCollision(Laser& _laser1,
+    Laser& _laser2,
+    Alien& _alien,
+    LaserCanon& _laserCanon1,
+    LaserCanon& _laserCanon2)
 {
     auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
     auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
@@ -25,14 +30,18 @@ void CollisionDetector::LaserAlienCollision(Laser& _laser1, Laser& _laser2, Alie
     auto centreDistance = sqrt(pow(laserXCentre - alienXCentre, 2) + pow(laserYCentre - alienYCentre, 2));
 
     auto centreDistance2 = sqrt(pow(laser2XCentre - alienXCentre, 2) + pow(laser2YCentre - alienYCentre, 2));
+    
+    auto _gameUpdater = GameUpdater{};
 
     if(centreDistance < radii_sum && _alien.isAlive()) {
         _laser1.destroyEntity();
         _alien.destroyEntity();
+        _gameUpdater.updateCanon1_Score(_laserCanon1, _alien);
     }
     if(centreDistance2 < radii_sum && _alien.isAlive()) {
         _laser2.destroyEntity();
         _alien.destroyEntity();
+        _gameUpdater.updateCanon2_Score(_laserCanon2, _alien);
     }
 }
 
@@ -184,7 +193,7 @@ void CollisionDetector::LaserAliensLaserCollision(Laser& _laser1, Laser& _laser2
     auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
     auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
     auto [alienLaser_xPosition, alienLaser_yPosition] = _alienLaser.entityPosition();
-    
+
     auto radii_sum = laserRadius + alienRadius;
     auto laserXCentre = laser1_xPosition + laserRadius;
     auto laserYCentre = laser1_yPosition + laserRadius;

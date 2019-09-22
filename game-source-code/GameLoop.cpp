@@ -74,7 +74,7 @@ void GameLoop::createAliens()
         auto yPosition = ((get<1>(WindowDisplay::screenDimensions()) / 2) + 30);
         auto rightBoundary = get<0>(WindowDisplay::screenDimensions()) - 20 - 30 * i;
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
-        auto _greenAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1);
+        auto _greenAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1, AlienColour::GREEN);
         _greenAliens.push_back(_greenAlien);
         auto _alienLaser = make_shared<Laser>(*_greenAlien, 1);
         _alienLasers.push_back(_alienLaser);
@@ -85,7 +85,7 @@ void GameLoop::createAliens()
         auto yPosition = ((get<1>(WindowDisplay::screenDimensions()) / 2) + 30) + 30;
         auto rightBoundary = get<0>(WindowDisplay::screenDimensions()) - 20 - 30 * i;
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
-        auto _purpleAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1);
+        auto _purpleAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1, AlienColour::PURPLE);
         _purpleAliens.push_back(_purpleAlien);
         auto _alienLaser = make_shared<Laser>(*_purpleAlien, 1);
         _alienLasers.push_back(_alienLaser);
@@ -96,7 +96,7 @@ void GameLoop::createAliens()
         auto yPosition = ((get<1>(WindowDisplay::screenDimensions()) / 2) + 30) + 60;
         auto rightBoundary = get<0>(WindowDisplay::screenDimensions()) - 20 - 30 * i;
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
-        auto _redAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1);
+        auto _redAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1, AlienColour::RED);
         _redAliens.push_back(_redAlien);
         auto _alienLaser = make_shared<Laser>(*_redAlien, 1);
         _alienLasers.push_back(_alienLaser);
@@ -107,7 +107,7 @@ void GameLoop::createAliens()
         auto yPosition = ((get<1>(WindowDisplay::screenDimensions()) / 2) - 10);
         auto rightBoundary = get<0>(WindowDisplay::screenDimensions()) - 20 - 30 * i;
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
-        auto _upGreenAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1);
+        auto _upGreenAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1, AlienColour::GREEN);
         _upGreenAliens.push_back(_upGreenAlien);
         auto _alienLaser = make_shared<Laser>(*_upGreenAlien, 1);
         _alienLasers.push_back(_alienLaser);
@@ -118,7 +118,7 @@ void GameLoop::createAliens()
         auto yPosition = ((get<1>(WindowDisplay::screenDimensions()) / 2) - 10) - 30;
         auto rightBoundary = get<0>(WindowDisplay::screenDimensions()) - 20 - 30 * i;
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
-        auto _upPurpleAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1);
+        auto _upPurpleAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1, AlienColour::PURPLE);
         _upPurpleAliens.push_back(_upPurpleAlien);
         auto _alienLaser = make_shared<Laser>(*_upPurpleAlien, 1);
         _alienLasers.push_back(_alienLaser);
@@ -129,7 +129,7 @@ void GameLoop::createAliens()
         auto yPosition = ((get<1>(WindowDisplay::screenDimensions()) / 2) - 10) - 60;
         auto rightBoundary = get<0>(WindowDisplay::screenDimensions()) - 20 - 30 * i;
         auto leftBoundary = ((30 * numberOfAliens) - 30) - 30 * i;
-        auto _upRedAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1);
+        auto _upRedAlien = make_shared<Alien>(xPosition, yPosition, rightBoundary, leftBoundary, 1, AlienColour::RED);
         _upRedAliens.push_back(_upRedAlien);
         auto _alienLaser = make_shared<Laser>(*_upRedAlien, 1);
         _alienLasers.push_back(_alienLaser);
@@ -315,7 +315,7 @@ void GameLoop::alienActivities()
             _windowDisplay->setPlay(play);
         }
 
-        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *greenAlien);
+        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *greenAlien, *_laserCanon1, *_laserCanon2);
         if(!greenAlien->isAlive()) {
             counter++;
             if(totalNumberOfAliens == counter) {
@@ -346,7 +346,7 @@ void GameLoop::alienActivities()
             _windowDisplay->setPlay(play);
         }
 
-        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *purpleAlien);
+        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *purpleAlien, *_laserCanon1, *_laserCanon2);
         if(!purpleAlien->isAlive()) {
             counter++;
             if(totalNumberOfAliens == counter) {
@@ -376,7 +376,7 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *redAlien);
+        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *redAlien, *_laserCanon1, *_laserCanon2);
         if(!redAlien->isAlive()) {
             counter++;
             if(totalNumberOfAliens == counter) {
@@ -403,7 +403,7 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpGreenAlien);
+        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpGreenAlien, *_laserCanon1, *_laserCanon2);
         if(!UpGreenAlien->isAlive()) {
             counter++;
             if(totalNumberOfAliens == counter) {
@@ -434,7 +434,7 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpPurpleAlien);
+        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpPurpleAlien, *_laserCanon1, *_laserCanon2);
         if(!UpPurpleAlien->isAlive()) {
             counter++;
             if(totalNumberOfAliens == counter) {
@@ -464,7 +464,7 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpRedAlien);
+        _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpRedAlien, *_laserCanon1, *_laserCanon2);
         if(!UpRedAlien->isAlive()) {
             counter++;
             if(totalNumberOfAliens == counter) {

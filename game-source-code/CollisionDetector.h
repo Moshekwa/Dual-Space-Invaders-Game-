@@ -12,7 +12,7 @@ class CollisionDetector
 public:
     CollisionDetector();
     
-    void LaserAlienCollision(Laser& _laser1, Laser& _laser2, Alien& _alien);
+    void LaserAlienCollision(Laser& _laser1, Laser& _laser2, Alien& _alien, LaserCanon& _laserCanon1, LaserCanon& _laserCanon2);
     tuple<bool, int> LaserCanonLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _laser1, Laser& _laser2);
     tuple<bool, int> LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _alienLaser);
     void LaserCanonShieldAlienLaserCollision(LaserCanonShield& _laserCanonShield, Laser& _alienLaser);
