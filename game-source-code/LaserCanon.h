@@ -13,7 +13,7 @@ public:
     virtual void move(Direction _direction);
 
 private:
-
+     bool lifeLost;
 };
 
 #endif // LASERCANON_H_INCLUDED

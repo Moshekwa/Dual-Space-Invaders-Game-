@@ -1,8 +1,12 @@
 #ifndef ENTITYDRAWER_H_INCLUDED
 #define ENTITYDRAWER_H_INCLUDED
-#include "EntityCoordinates.h"
 #include "ImageLoader.h"
 #include "GameEntity.h"
+#include "Laser.h"
+#include "LaserCanon.h"
+#include "LaserCanonLife.h"
+#include "LaserCanonShield.h"
+#include "Alien.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <vector>
@@ -15,22 +19,22 @@ class ImageDrawer
 {
 public:
     ImageDrawer(shared_ptr<RenderWindow> window);
-    void drawLaserCanon(const EntityCoordinates& _coordinates);
-    void drawLaserCanon2(const EntityCoordinates& _coordinates);
-    void drawLaser(const EntityCoordinates& _coordinates);
-    void drawLaser2(const EntityCoordinates& _coordinates);
-    void drawAlienLaser(const EntityCoordinates& _coordinates);
+    void drawLaserCanon(const LaserCanon& _laserCanon1);
+    void drawLaserCanon2(const LaserCanon& _laserCanon2);
+    void drawLaser(const Laser& _laser1);
+    void drawLaser2(const Laser& _laser2);
+    void drawAlienLaser(const Laser& _alienLaser);
 
-    void drawGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber);
-    void drawPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber);
-    void drawRedAliens(const EntityCoordinates& _coordinates, int spriteNumber);
+    void drawGreenAliens(const Alien& _alien, int spriteNumber);
+    void drawPurpleAliens(const Alien& _alien, int spriteNumber);
+    void drawRedAliens(const Alien& _alien, int spriteNumber);
 
-    void drawUpGreenAliens(const EntityCoordinates& _coordinates, int spriteNumber);
-    void drawUpPurpleAliens(const EntityCoordinates& _coordinates, int spriteNumber);
-    void drawUpRedAliens(const EntityCoordinates& _coordinates, int spriteNumber);
+    void drawUpGreenAliens(const Alien& _alien, int spriteNumber);
+    void drawUpPurpleAliens(const Alien& _alien, int spriteNumber);
+    void drawUpRedAliens(const Alien& _alien, int spriteNumber);
     
-    void drawLaserCanonShields(const EntityCoordinates& _coordinates, int shieldNumber, int shieldState);
-	void drawLaserCanonLives(const EntityCoordinates& _coordinates);
+    void drawLaserCanonShields(const LaserCanonShield& _canonShield, int shieldNumber, int shieldState);
+	void drawLaserCanonLives(const LaserCanonLife& _canonLife);
 	
     void drawHomeScreen();
     void drawGameWon();

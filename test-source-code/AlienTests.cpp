@@ -1,8 +1,19 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../game-source-code/Alien.h"
-#include "../game-source-code/Laser.h"
 #include "../game-source-code/CollisionDetector.h"
+#include "../game-source-code/Laser.h"
 #include "doctest.h"
+
+TEST_CASE("Exception throw for Invalid Alien Coordinates")
+{
+    auto x_position = -4;
+    auto y_position = 370;
+    CHECK_THROWS_AS(Alien(x_position, y_position, 380, 0, 1), InvalidAlienCoordinates);
+
+    x_position = 200;
+    y_position = 490;
+    CHECK_THROWS_AS(Alien(x_position, y_position, 380, 0, 1), InvalidAlienCoordinates);
+}
 
 TEST_CASE("Testing if the Alien class is able to create a valid object with initial positions")
 {
@@ -80,15 +91,16 @@ TEST_CASE("Alien gets destroyed when hit by a laserCanon laser")
     auto _laserCanon2 = LaserCanon{ 190, 40, 2, 3 };
     auto _laser1 = Laser{ _laserCanon1, 1 };
     auto _laser2 = Laser{ _laserCanon2, 1 };
-    
+
     auto _alien = Alien{ alienXposition, alienYposition, 380, 0, alienLives };
-    
+
     _laser1.setXposition(alienXposition);
     _laser1.setYposition(alienYposition);
     _laser1.giveEntityLife();
-    
+
     auto _collisionDetector = CollisionDetector{};
     _collisionDetector.LaserAlienCollision(_laser1, _laser2, _alien);
-    
-    CHECK(_alien.isAlive() == false);    
+
+    CHECK(_alien.isAlive() == false);
 }
+

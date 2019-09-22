@@ -1,21 +1,27 @@
 #include "GameEntity.h"
 
 GameEntity::GameEntity(int xPosition, int yPosition, bool life, int numberOfLives)
-    : _coordinates{ EntityCoordinates{ xPosition, yPosition } }
+    : _Xposition{ xPosition }
+    , _Yposition{ yPosition }
     , _life{ life }
     , _numberOfLives{ numberOfLives }
-    , lifeDecreased{ false }
+
 {
 }
 
 void GameEntity::setXposition(int x)
 {
-    _coordinates.setXposition(x);
+    _Xposition = x;
 }
 
 void GameEntity::setYposition(int y)
 {
-    _coordinates.setYposition(y);
+    _Yposition = y;
+}
+
+tuple<int, int> GameEntity::entityPosition() const
+{
+    return { _Xposition, _Yposition };
 }
 
 void GameEntity::giveEntityLife()
@@ -43,23 +49,4 @@ bool GameEntity::isAlive() const
 int GameEntity::getNumberOfLives() const
 {
     return _numberOfLives;
-}
-
-void GameEntity::resetLifeDecreasedFlag()
-{
-    if(isEntityLifeDecreased()){
-        lifeDecreased = false;
-    } else {
-        lifeDecreased = true;
-    }
-}
-
-bool GameEntity::isEntityLifeDecreased()
-{
-    return lifeDecreased;
-}
-
-EntityCoordinates GameEntity::getEntityCoordinates() const
-{
-    return _coordinates;
 }

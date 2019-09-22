@@ -4,7 +4,11 @@
 #include "LaserCanon.h"
 #include "Alien.h"
 
-class InvalidLaserCoordinates
+class InvalidCanonLaserCoordinates
+{
+};
+
+class InvalidAlienLaserCoordinates
 {
 };
 

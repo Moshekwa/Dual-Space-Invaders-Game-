@@ -2,6 +2,7 @@
 
 LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
     : MovingEntity{ x, y, 5, true, numberOfLives }
+    , lifeLost{ false }
 {
     switch(canonNumber) {
     case 1:
@@ -24,20 +25,21 @@ void LaserCanon::move(Direction _direction)
 {
     auto leftBoundary = 0;
     auto rightBoundary = 380;
-
+    auto x_position = get<0>(entityPosition());
     switch(_direction) {
     case LEFT:
-	if(getEntityCoordinates().getXposition() - getEntitySpeed() > leftBoundary) {
-	    setXposition(getEntityCoordinates().getXposition() - getEntitySpeed());
+	if(x_position > leftBoundary) {
+	    setXposition(x_position - getEntitySpeed());
 	}
 	break;
     case RIGHT:
-	if(getEntityCoordinates().getXposition() + getEntitySpeed() < rightBoundary) {
-	    setXposition(getEntityCoordinates().getXposition() + getEntitySpeed());
+	if(x_position < rightBoundary) {
+	    setXposition(x_position + getEntitySpeed());
 	}
 	break;
     default:
 	break;
     }
 }
+
 

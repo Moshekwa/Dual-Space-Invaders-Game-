@@ -4,6 +4,22 @@
 #include "../game-source-code/LaserCanon.h"
 #include "doctest.h"
 
+TEST_CASE("Testing for Invalid Laser Canon Coordinates of the first player")
+{
+    auto xPosition = -4;
+    auto yPosition = 400;
+
+    CHECK_THROWS_AS(LaserCanon(xPosition, yPosition, 1, 3), InvalidLaserCanonCoordinates);
+}
+
+TEST_CASE("Testing for Invalid Laser Canon Coordinates of the second player")
+{
+    auto xPosition = 500;
+    auto yPosition = 0;
+
+    CHECK_THROWS_AS(LaserCanon(xPosition, yPosition, 2, 3), InvalidLaserCanonCoordinates);
+}
+
 TEST_CASE("Testing if player is able to create 2 Laser Canon objects at different initial positions")
 {
     auto xPosition1 = 190;
@@ -66,22 +82,6 @@ TEST_CASE("Testing if the Laser Canon obeys the right boundary restrictions")
     _laserCanon.move(Direction::RIGHT);
     CHECK_FALSE(_laserCanon.getEntityCoordinates().getXposition() == xPosition + _laserCanon.getEntitySpeed());
     CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition);
-}
-
-TEST_CASE("Testing for Invalid Laser Canon Coordinates of the first player")
-{
-    auto xPosition = -4;
-    auto yPosition = 400;
-
-    CHECK_THROWS_AS(LaserCanon(xPosition, yPosition, 1, 3), InvalidLaserCanonCoordinates);
-}
-
-TEST_CASE("Testing for Invalid Laser Canon Coordinates of the second player")
-{
-    auto xPosition = 500;
-    auto yPosition = 0;
-
-    CHECK_THROWS_AS(LaserCanon(xPosition, yPosition, 2, 3), InvalidLaserCanonCoordinates);
 }
 
 TEST_CASE("Testing the destroyEntity function for laserCanon")

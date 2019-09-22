@@ -7,15 +7,20 @@ CollisionDetector::CollisionDetector()
 
 void CollisionDetector::LaserAlienCollision(Laser& _laser1, Laser& _laser2, Alien& _alien)
 {
+    auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
+    auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
+    auto [alienXposition, alienYposition] = _alien.entityPosition();
+
     auto radii_sum = laserRadius + alienRadius;
-    auto laserXCentre = _laser1.getEntityCoordinates().getXposition() + laserRadius;
-    auto laserYCentre = _laser1.getEntityCoordinates().getYposition() + laserRadius;
 
-    auto laser2XCentre = _laser2.getEntityCoordinates().getXposition() + laserRadius;
-    auto laser2YCentre = _laser2.getEntityCoordinates().getYposition() + laserRadius;
+    auto laserXCentre = laser1_xPosition + laserRadius;
+    auto laserYCentre = laser1_yPosition + laserRadius;
 
-    auto alienXCentre = _alien.getEntityCoordinates().getXposition() + alienRadius;
-    auto alienYCentre = _alien.getEntityCoordinates().getYposition() + alienRadius;
+    auto laser2XCentre = laser2_xPosition + laserRadius;
+    auto laser2YCentre = laser2_yPosition + laserRadius;
+
+    auto alienXCentre = alienXposition + alienRadius;
+    auto alienYCentre = alienYposition + alienRadius;
 
     auto centreDistance = sqrt(pow(laserXCentre - alienXCentre, 2) + pow(laserYCentre - alienYCentre, 2));
 
@@ -36,16 +41,21 @@ tuple<bool, int> CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserC
     Laser& _laser1,
     Laser& _laser2)
 {
-    auto radii_sum = laserRadius + laserCanonRadius;
-    auto laserXCentre = _laser1.getEntityCoordinates().getXposition() + laserRadius;
-    auto laserYCentre = _laser1.getEntityCoordinates().getYposition() + laserRadius;
-    auto laser2XCentre = _laser2.getEntityCoordinates().getXposition() + laserRadius;
-    auto laser2YCentre = _laser2.getEntityCoordinates().getYposition() + laserRadius;
+    auto [canon1_xPosition, canon1_yPosition] = _laserCanon1.entityPosition();
+    auto [canon2_xPosition, canon2_yPosition] = _laserCanon2.entityPosition();
+    auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
+    auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
 
-    auto LaserCanonXcentre = _laserCanon1.getEntityCoordinates().getXposition() + laserCanonRadius;
-    auto LaserCanonYcentre = _laserCanon1.getEntityCoordinates().getYposition() + laserCanonRadius;
-    auto LaserCanon2Xcentre = _laserCanon2.getEntityCoordinates().getXposition() + laserCanonRadius;
-    auto LaserCanon2Ycentre = _laserCanon2.getEntityCoordinates().getYposition() + laserCanonRadius;
+    auto radii_sum = laserRadius + laserCanonRadius;
+    auto laserXCentre = laser1_xPosition + laserRadius;
+    auto laserYCentre = laser1_yPosition + laserRadius;
+    auto laser2XCentre = laser2_xPosition + laserRadius;
+    auto laser2YCentre = laser2_yPosition + laserRadius;
+
+    auto LaserCanonXcentre = canon1_xPosition + laserCanonRadius;
+    auto LaserCanonYcentre = canon1_yPosition + laserCanonRadius;
+    auto LaserCanon2Xcentre = canon2_xPosition + laserCanonRadius;
+    auto LaserCanon2Ycentre = canon2_yPosition + laserCanonRadius;
 
     auto centreDistance = sqrt(pow(laserXCentre - LaserCanon2Xcentre, 2) + pow(laserYCentre - LaserCanon2Ycentre, 2));
     auto centreDistance2 = sqrt(pow(laser2XCentre - LaserCanonXcentre, 2) + pow(laser2YCentre - LaserCanonYcentre, 2));
@@ -65,14 +75,19 @@ tuple<bool, int> CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserC
 tuple<bool, int>
 CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _alienLaser)
 {
-    auto radii_sum = laserRadius + laserCanonRadius;
-    auto laserXCentre = _alienLaser.getEntityCoordinates().getXposition() + laserRadius;
-    auto laserYCentre = _alienLaser.getEntityCoordinates().getYposition() + laserRadius;
 
-    auto LaserCanonXcentre = _laserCanon1.getEntityCoordinates().getXposition() + laserCanonRadius;
-    auto LaserCanonYcentre = _laserCanon1.getEntityCoordinates().getYposition() + laserCanonRadius;
-    auto LaserCanon2Xcentre = _laserCanon2.getEntityCoordinates().getXposition() + laserCanonRadius;
-    auto LaserCanon2Ycentre = _laserCanon2.getEntityCoordinates().getYposition() + laserCanonRadius;
+    auto [canon1_xPosition, canon1_yPosition] = _laserCanon1.entityPosition();
+    auto [canon2_xPosition, canon2_yPosition] = _laserCanon2.entityPosition();
+    auto [alienLaser_xPosition, alienLaser_yPosition] = _alienLaser.entityPosition();
+
+    auto radii_sum = laserRadius + laserCanonRadius;
+    auto laserXCentre = alienLaser_xPosition + laserRadius;
+    auto laserYCentre = alienLaser_yPosition + laserRadius;
+
+    auto LaserCanonXcentre = canon1_xPosition + laserCanonRadius;
+    auto LaserCanonYcentre = canon1_yPosition + laserCanonRadius;
+    auto LaserCanon2Xcentre = canon2_xPosition + laserCanonRadius;
+    auto LaserCanon2Ycentre = canon2_yPosition + laserCanonRadius;
 
     auto centreDistance = sqrt(pow(laserXCentre - LaserCanonXcentre, 2) + pow(laserYCentre - LaserCanonYcentre, 2));
     auto centreDistance2 = sqrt(pow(laserXCentre - LaserCanon2Xcentre, 2) + pow(laserYCentre - LaserCanon2Ycentre, 2));
@@ -93,12 +108,15 @@ CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1, Laser
 
 void CollisionDetector::LaserCanonShieldAlienLaserCollision(LaserCanonShield& _laserCanonShield, Laser& _alienLaser)
 {
-    auto radii_sum = laserRadius + LaserCanonShieldRadius;
-    auto laserXCentre = _alienLaser.getEntityCoordinates().getXposition() + laserRadius;
-    auto laserYCentre = _alienLaser.getEntityCoordinates().getYposition() + laserRadius;
+    auto [shield_xPosition, shield_yposition] = _laserCanonShield.entityPosition();
+    auto [alienLaser_xPosition, alienLaser_yPosition] = _alienLaser.entityPosition();
 
-    auto LaserCanonShieldXcentre = _laserCanonShield.getEntityCoordinates().getXposition() + LaserCanonShieldRadius;
-    auto LaserCanonShieldYcentre = _laserCanonShield.getEntityCoordinates().getYposition() + LaserCanonShieldRadius;
+    auto radii_sum = laserRadius + LaserCanonShieldRadius;
+    auto laserXCentre = alienLaser_xPosition + laserRadius;
+    auto laserYCentre = alienLaser_yPosition + laserRadius;
+
+    auto LaserCanonShieldXcentre = shield_xPosition + LaserCanonShieldRadius;
+    auto LaserCanonShieldYcentre = shield_yposition + LaserCanonShieldRadius;
 
     auto centreDistance =
         sqrt(pow(laserXCentre - LaserCanonShieldXcentre, 2) + pow(laserYCentre - LaserCanonShieldYcentre, 2));
@@ -113,16 +131,20 @@ void CollisionDetector::LaserCanonShieldLaserCollission(LaserCanonShield& _laser
     Laser& _laser1,
     Laser& _laser2)
 {
+    auto [shield_xPosition, shield_yposition] = _laserCanonShield.entityPosition();
+    auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
+    auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
+
     auto radii_sum = laserRadius + LaserCanonShieldRadius;
 
-    auto laserXCentre = _laser1.getEntityCoordinates().getXposition() + laserRadius;
-    auto laserYCentre = _laser1.getEntityCoordinates().getYposition() + laserRadius;
+    auto laserXCentre = laser1_xPosition + laserRadius;
+    auto laserYCentre = laser1_yPosition + laserRadius;
 
-    auto laser2XCentre = _laser2.getEntityCoordinates().getXposition() + laserRadius;
-    auto laser2YCentre = _laser2.getEntityCoordinates().getYposition() + laserRadius;
+    auto laser2XCentre = laser2_xPosition + laserRadius;
+    auto laser2YCentre = laser2_yPosition + laserRadius;
 
-    auto LaserCanonShieldXcentre = _laserCanonShield.getEntityCoordinates().getXposition() + LaserCanonShieldRadius;
-    auto LaserCanonShieldYcentre = _laserCanonShield.getEntityCoordinates().getYposition() + LaserCanonShieldRadius;
+    auto LaserCanonShieldXcentre = shield_xPosition + LaserCanonShieldRadius;
+    auto LaserCanonShieldYcentre = shield_yposition + LaserCanonShieldRadius;
 
     auto centreDistance =
         sqrt(pow(laserXCentre - LaserCanonShieldXcentre, 2) + pow(laserYCentre - LaserCanonShieldYcentre, 2));
@@ -139,12 +161,15 @@ void CollisionDetector::LaserCanonShieldLaserCollission(LaserCanonShield& _laser
 
 void CollisionDetector::Laser1Laser2Collision(Laser& _laser1, Laser& _laser2)
 {
-    auto radii_sum = laserRadius + laserRadius;
-    auto laserXCentre = _laser1.getEntityCoordinates().getXposition() + laserRadius;
-    auto laserYCentre = _laser1.getEntityCoordinates().getYposition() + laserRadius;
+    auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
+    auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
 
-    auto laser2XCentre = _laser2.getEntityCoordinates().getXposition() + laserRadius;
-    auto laser2YCentre = _laser2.getEntityCoordinates().getYposition() + laserRadius;
+    auto radii_sum = laserRadius + laserRadius;
+    auto laserXCentre = laser1_xPosition + laserRadius;
+    auto laserYCentre = laser1_yPosition + laserRadius;
+
+    auto laser2XCentre = laser2_xPosition + laserRadius;
+    auto laser2YCentre = laser2_yPosition + laserRadius;
 
     auto centreDistance = sqrt(pow(laserXCentre - laser2XCentre, 2) + pow(laserYCentre - laser2YCentre, 2));
 
@@ -156,15 +181,19 @@ void CollisionDetector::Laser1Laser2Collision(Laser& _laser1, Laser& _laser2)
 
 void CollisionDetector::LaserAliensLaserCollision(Laser& _laser1, Laser& _laser2, Laser& _alienLaser)
 {
+    auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
+    auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
+    auto [alienLaser_xPosition, alienLaser_yPosition] = _alienLaser.entityPosition();
+    
     auto radii_sum = laserRadius + alienRadius;
-    auto laserXCentre = _laser1.getEntityCoordinates().getXposition() + laserRadius;
-    auto laserYCentre = _laser1.getEntityCoordinates().getYposition() + laserRadius;
+    auto laserXCentre = laser1_xPosition + laserRadius;
+    auto laserYCentre = laser1_yPosition + laserRadius;
 
-    auto laser2XCentre = _laser2.getEntityCoordinates().getXposition() + laserRadius;
-    auto laser2YCentre = _laser2.getEntityCoordinates().getYposition() + laserRadius;
+    auto laser2XCentre = laser2_xPosition + laserRadius;
+    auto laser2YCentre = laser2_yPosition + laserRadius;
 
-    auto alienLaserXCentre = _alienLaser.getEntityCoordinates().getXposition() + laserRadius;
-    auto alienLaserYCentre = _alienLaser.getEntityCoordinates().getYposition() + laserRadius;
+    auto alienLaserXCentre = alienLaser_xPosition + laserRadius;
+    auto alienLaserYCentre = alienLaser_yPosition + laserRadius;
 
     auto centreDistance = sqrt(pow(laserXCentre - alienLaserXCentre, 2) + pow(laserYCentre - alienLaserYCentre, 2));
     auto centreDistance2 = sqrt(pow(laser2XCentre - alienLaserXCentre, 2) + pow(laser2YCentre - alienLaserYCentre, 2));

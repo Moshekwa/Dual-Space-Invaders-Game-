@@ -6,13 +6,10 @@
 class LaserCanonLife : public GameEntity
 {
 public:
-	LaserCanonLife(int xPosition, int yPosition, bool life, int numberOfLives);
-	~LaserCanonLife();
-    
-   
+    LaserCanonLife(int xPosition, int yPosition, bool life, int numberOfLives);
+    ~LaserCanonLife();
 
 private:
-	
 };
 
 #endif // LASERCANONLIFE_H_INCLUDED

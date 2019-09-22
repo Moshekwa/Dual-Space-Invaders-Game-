@@ -10,9 +10,8 @@ Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary, int numberOfLi
     , bottomBoundary{ 450 }
     , alienRightDirection{ true }
 {
-
-    //if(x < 0 || x > 380)
-	//throw InvalidAlienCoordinates{};
+    if(x < 0 || x > 380 || y < 40 || y > 480)
+	throw InvalidAlienCoordinates{};
 }
 
 const int Alien::numberOfAliens{3};
@@ -29,25 +28,26 @@ tuple<int, int, int, int> Alien::getBoundaries() const
 
 void Alien::move(Direction _direction)
 {
+    auto [x_position, y_position] = entityPosition();
     switch(_direction) {
     case LEFT:
-	if(getEntityCoordinates().getXposition() > leftBoundary) {
-	    setXposition(getEntityCoordinates().getXposition() - getEntitySpeed());
+	if(x_position > leftBoundary) {
+	    setXposition(x_position - getEntitySpeed());
 	}
 	break;
     case RIGHT:
-	if(getEntityCoordinates().getXposition() < rightBoundary) {
-	    setXposition(getEntityCoordinates().getXposition() + getEntitySpeed());
+	if(x_position < rightBoundary) {
+	    setXposition(x_position + getEntitySpeed());
 	}
 	break;
     case UP:
-	if(getEntityCoordinates().getYposition() > upperBoundary) {
-	    setYposition(getEntityCoordinates().getYposition() - 2 * getEntitySpeed());
+	if(y_position > upperBoundary) {
+	    setYposition(y_position - 2 * getEntitySpeed());
 	}
 	break;
     case DOWN:
-	if(getEntityCoordinates().getYposition() < bottomBoundary) {
-	    setYposition(getEntityCoordinates().getYposition() + 2 * getEntitySpeed());
+	if(y_position < bottomBoundary) {
+	    setYposition(y_position + 2 * getEntitySpeed());
 	}
 	break;
     default:
