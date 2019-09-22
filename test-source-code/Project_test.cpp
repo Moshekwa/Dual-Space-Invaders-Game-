@@ -15,71 +15,10 @@
 /*
 //------------------------------Test for the Alien class-----------------------------------------------------
 
-TEST_CASE("Testing if the Alien class is able to create a valid object with initial positions")
-{
-    auto xPosition = 200;
-    auto yPosition = 200;
 
-    auto _alien = Alien{ xPosition, yPosition, 380, 0 };
-    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
-    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
-}
 
-TEST_CASE("Testing the move fuction")
-{
-    auto xPosition = 200;
-    auto yPosition = 200;
 
-    auto _alien = Alien{ xPosition, yPosition, 380, 0 };
-    _alien.move(Direction::LEFT);
-    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition - _alien.getEntitySpeed());
-    _alien.move(Direction::RIGHT);
-    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
-    _alien.move(Direction::UP);
-    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition - 2 * _alien.getEntitySpeed());
-    _alien.move(Direction::DOWN);
-    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
-}
 
-TEST_CASE("Testing the move function at right boundary")
-{
-    auto xPosition = 380;
-    auto yPosition = 200;
-
-    auto _alien = Alien{ xPosition, yPosition, 380, 0 };
-    _alien.move(Direction::RIGHT);
-    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
-}
-
-TEST_CASE("Testing the move function at left boundary")
-{
-    auto xPosition = 0;
-    auto yPosition = 200;
-
-    auto _alien = Alien{ xPosition, yPosition, 380, 0 };
-    _alien.move(Direction::LEFT);
-    CHECK(_alien.getEntityCoordinates().getXposition() == xPosition);
-}
-
-TEST_CASE("Testing the move function at upper boundary")
-{
-    auto xPosition = 0;
-    auto yPosition = 20;
-
-    auto _alien = Alien{ xPosition, yPosition, 380, 0 };
-    _alien.move(Direction::UP);
-    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
-}
-
-TEST_CASE("Testing the move function at bottom boundary")
-{
-    auto xPosition = 380;
-    auto yPosition = 380;
-
-    auto _alien = Alien{ xPosition, yPosition, 380, 0 };
-    _alien.move(Direction::DOWN);
-    CHECK(_alien.getEntityCoordinates().getYposition() == yPosition);
-}
 
 //-------------------------TEST FOR THE LASER CLASS---------------------------------
 TEST_CASE("Testing Laser is able to initialize Laser coordinates")
