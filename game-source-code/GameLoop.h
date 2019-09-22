@@ -61,7 +61,12 @@ private:
     void createLaserCanonLives();
     void createAliens();
     void aliensInitialPositions();
+    
     void gameActivities();
+    void laserCanonActivities();
+    void alienActivities();
+    void laserCanonShieldActivities();
+    
     void displayGameEntities();
     void displayGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries);
     void displayPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);

@@ -53,19 +53,17 @@ tuple<bool, int> CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserC
 
     if(centreDistance < radii_sum && _laserCanon2.isAlive() && _laser1.isAlive()) {
 	_laser1.destroyEntity();
-	//_laserCanon2.destroyEntity();
     return {true, 2};
     }
 
     if(centreDistance2 < radii_sum && _laserCanon1.isAlive() && _laser2.isAlive()) {
 	_laser2.destroyEntity();
-	//_laserCanon1.destroyEntity();
     return {true, 1};
     }
     return {false, 0};
 }
 
-void CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1,
+tuple<bool, int> CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1,
     LaserCanon& _laserCanon2,
     Laser& _alienLaser)
 {
@@ -83,13 +81,16 @@ void CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1,
 
     if(centreDistance < radii_sum && _laserCanon1.isAlive() && _alienLaser.isAlive()) {
 	_alienLaser.destroyEntity();
-	_laserCanon1.destroyEntity();
+	//_laserCanon1.destroyEntity();
+    return {true,1};
     }
 
     if(centreDistance2 < radii_sum && _laserCanon2.isAlive() && _alienLaser.isAlive()) {
 	_alienLaser.destroyEntity();
-	_laserCanon2.destroyEntity();
+	//_laserCanon2.destroyEntity();
+    return {true, 2};
     }
+    return{false, 0};
 }
 
 void CollisionDetector::LaserCanonShieldAlienLaserCollision(LaserCanonShield& _laserCanonShield, Laser& _alienLaser)

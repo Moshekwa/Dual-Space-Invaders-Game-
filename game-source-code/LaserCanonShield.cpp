@@ -5,11 +5,6 @@ LaserCanonShield::LaserCanonShield(int xPosition, int yPosition, bool life, int 
 {
 }
 
-void LaserCanonShield::shoot()
-{
-    giveEntityLife();
-}
-
 const int LaserCanonShield::numberOfShields{6};
 
 int LaserCanonShield::getNumberOfShields()
