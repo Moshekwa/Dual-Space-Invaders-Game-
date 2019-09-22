@@ -12,6 +12,8 @@ public:
     void giveEntityLife();
     void destroyEntity();
     bool isAlive() const;
+    bool isEntityLifeDecreased();
+    void resetLifeDecreasedFlag();
     int getNumberOfLives() const;
     EntityCoordinates getEntityCoordinates() const;
 
@@ -19,6 +21,7 @@ private:
     EntityCoordinates _coordinates;
     bool _life;
     int _numberOfLives;
+    bool lifeDecreased;
 };
 
 #endif // GAMEENTITY_H_INCLUDED

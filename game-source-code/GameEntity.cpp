@@ -4,6 +4,7 @@ GameEntity::GameEntity(int xPosition, int yPosition, bool life, int numberOfLive
     : _coordinates{ EntityCoordinates{ xPosition, yPosition } }
     , _life{ life }
     , _numberOfLives{ numberOfLives }
+    , lifeDecreased{ false }
 {
 }
 
@@ -29,9 +30,9 @@ void GameEntity::destroyEntity()
         if(getNumberOfLives() == 0) {
             _life = false;
         }
-    } else{
+    } else {
         _life = false;
-    } 
+    }
 }
 
 bool GameEntity::isAlive() const
@@ -42,6 +43,20 @@ bool GameEntity::isAlive() const
 int GameEntity::getNumberOfLives() const
 {
     return _numberOfLives;
+}
+
+void GameEntity::resetLifeDecreasedFlag()
+{
+    if(isEntityLifeDecreased()){
+        lifeDecreased = false;
+    } else {
+        lifeDecreased = true;
+    }
+}
+
+bool GameEntity::isEntityLifeDecreased()
+{
+    return lifeDecreased;
 }
 
 EntityCoordinates GameEntity::getEntityCoordinates() const

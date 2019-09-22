@@ -31,7 +31,7 @@ void CollisionDetector::LaserAlienCollision(Laser& _laser1, Laser& _laser2, Alie
     }
 }
 
-void CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserCanon1,
+tuple<bool, int> CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserCanon1,
     LaserCanon& _laserCanon2,
     Laser& _laser1,
     Laser& _laser2)
@@ -49,16 +49,20 @@ void CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserCanon1,
 
     auto centreDistance = sqrt(pow(laserXCentre - LaserCanon2Xcentre, 2) + pow(laserYCentre - LaserCanon2Ycentre, 2));
     auto centreDistance2 = sqrt(pow(laser2XCentre - LaserCanonXcentre, 2) + pow(laser2YCentre - LaserCanonYcentre, 2));
+    
 
     if(centreDistance < radii_sum && _laserCanon2.isAlive() && _laser1.isAlive()) {
 	_laser1.destroyEntity();
-	_laserCanon2.destroyEntity();
+	//_laserCanon2.destroyEntity();
+    return {true, 2};
     }
 
     if(centreDistance2 < radii_sum && _laserCanon1.isAlive() && _laser2.isAlive()) {
 	_laser2.destroyEntity();
-	_laserCanon1.destroyEntity();
+	//_laserCanon1.destroyEntity();
+    return {true, 1};
     }
+    return {false, 0};
 }
 
 void CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1,

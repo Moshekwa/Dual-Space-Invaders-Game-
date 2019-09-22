@@ -56,11 +56,20 @@ private:
 	
     KeyHandler _keyHandler;
     ImageDrawerProxy _imageDrawerProxy;
+    
+    void createLaserCanonShields();
+    void createLaserCanonLives();
+    void createAliens();
+    void aliensInitialPositions();
     void gameActivities();
-    void drawGameEntities();
-    void drawGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries);
-    void drawPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
-    void drawRedAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
+    void displayGameEntities();
+    void displayGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries);
+    void displayPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
+    void displayRedAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
+    void displayLaserCanonLives();
+    void displayLaserCanonShields();
+    void displayLaserCanonsAndLasers();
+    
 
     bool gameWon;
     bool gameLost;

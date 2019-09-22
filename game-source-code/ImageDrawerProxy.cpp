@@ -75,10 +75,10 @@ void ImageDrawerProxy::_drawUpRedAliens(const Alien& _alien, int spriteNumber)
     }
 }
 
-void ImageDrawerProxy::_drawLaserCanonShields(const LaserCanonShield& _laserCanonShield, int shieldNumber)
+void ImageDrawerProxy::_drawLaserCanonShields(const LaserCanonShield& _laserCanonShield, int shieldNumber, int shieldState)
 {
     if(_laserCanonShield.isAlive()){
-    _imageDrawer->drawLaserCanonShields(_laserCanonShield.getEntityCoordinates(), shieldNumber);
+    _imageDrawer->drawLaserCanonShields(_laserCanonShield.getEntityCoordinates(), shieldNumber, shieldState);
     }
 }
 

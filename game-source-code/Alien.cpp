@@ -3,7 +3,7 @@
 using namespace std;
 
 Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary, int numberOfLives)
-    : MovingEntity{ x, y, 3, true, numberOfLives }
+    : MovingEntity{ x, y, 2, true, numberOfLives }
     , rightBoundary{ _rightBoundary }
     , leftBoundary{ _leftBoundary }
     , upperBoundary{ 70 }
