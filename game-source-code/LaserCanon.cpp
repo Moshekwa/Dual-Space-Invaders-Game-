@@ -3,21 +3,21 @@
 LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
     : MovingEntity{ x, y, 5, true, numberOfLives }
 {
-    /*switch(canonNumber) {
+    switch(canonNumber) {
     case 1:
-	if(x < 0 || x > 380 || y != 380) {
+	if(x < 0 || x > 380 || y != 480) {
 	    throw InvalidLaserCanonCoordinates{};
 	}
 	break;
     case 2:
-	if(x < 0 || x > 380 || y != 0) {
+	if(x < 0 || x > 380 || y != 40) {
 
 	    throw InvalidLaserCanonCoordinates{};
 	}
 	break;
     default:
 	break;
-    }*/
+    }
 }
 
 void LaserCanon::move(Direction _direction)

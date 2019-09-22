@@ -17,6 +17,8 @@ public:
     tuple<bool, int> LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _alienLaser);
     void LaserCanonShieldAlienLaserCollision(LaserCanonShield& _laserCanonShield, Laser& _alienLaser);
     void LaserCanonShieldLaserCollission(LaserCanonShield& _laserCanonShield, Laser& _laser1, Laser& _laser2);
+    void Laser1Laser2Collision(Laser& _laser1, Laser& _laser2);
+    void LaserAliensLaserCollision(Laser& _laser1, Laser& _laser2, Laser& _alienLaser);
 
 private:
     int laserRadius = 3;

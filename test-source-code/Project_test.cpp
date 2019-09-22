@@ -1,97 +1,18 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../game-source-code/Alien.h"
 #include "../game-source-code/EntityCoordinates.h"
-#include "../game-source-code/LaserCanon.h"
 #include "doctest.h"
 
-//---------------------Testing Entity Coordinates-----------------------------------------
+//---------------------Testing Entity Coordinates-----------------------------------------------------------------------------------
 
-TEST_CASE("If EntityCoordinates class is able to create valid object initial positions.")
-{
-    auto x_position = 0;
-    auto y_position = 0;
 
-    auto entity_coordinates = EntityCoordinates{ x_position, y_position };
-    CHECK(entity_coordinates.getXposition() == x_position);
-    CHECK(entity_coordinates.getYposition() == y_position);
-}
 
-TEST_CASE("Test set positions functions of the EntityCoordinates class.")
-{
-    auto x_position = 380;
-    auto y_position = 400;
 
-    auto entity_coordinates = EntityCoordinates{ 0, 0 };
-    entity_coordinates.setYposition(y_position);
-    entity_coordinates.setXposition(x_position);
 
-    CHECK(entity_coordinates.getYposition() == y_position);
-    CHECK(entity_coordinates.getYposition() == y_position);
-}
 
-//---------------------------Tests for Lason Cannon class ------------------------------
-TEST_CASE("Testing if player is able to create 2 Laser Canon objects at different initial positions")
-{
-    auto xPosition1 = 190;
-    auto yPosition1 = 380;
-    auto xPosition2 = 190;
-    auto yPosition2 = 0;
-    auto _laserCanon1 = LaserCanon{ xPosition1, yPosition1, 1 };
-    auto _laserCanon2 = LaserCanon{ xPosition2, yPosition2, 2 };
 
-    CHECK(_laserCanon1.getEntityCoordinates().getXposition() == xPosition1);
-    CHECK(_laserCanon2.getEntityCoordinates().getXposition() == xPosition2);
-    CHECK(_laserCanon1.getEntityCoordinates().getYposition() == yPosition1);
-    CHECK(_laserCanon2.getEntityCoordinates().getYposition() == yPosition2);
-}
 
-TEST_CASE("Testing the setPosition functions for Laser Canon")
-{
-    auto xPosition = 190;
-    auto yPosition = 300;
-
-    auto _laserCanon = LaserCanon{ 20, 380, 1 };
-
-    _laserCanon.setXposition(xPosition);
-    _laserCanon.setYposition(yPosition);
-
-    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition);
-    CHECK(_laserCanon.getEntityCoordinates().getYposition() == yPosition);
-}
-
-TEST_CASE("Testing the move function for Lasor Canon")
-{
-    auto xPosition = 190;
-    auto yPosition = 380;
-
-    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1 };
-
-    _laserCanon.move(Direction::LEFT);
-    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition - _laserCanon.getEntitySpeed());
-    _laserCanon.move(Direction::RIGHT);
-    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition);
-}
-
-TEST_CASE("Testing if the Laser Canon obeys the left boundary restrictions")
-{
-    auto xPosition = 4;
-    auto yPosition = 380;
-
-    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1 };
-    _laserCanon.move(Direction::LEFT);
-    CHECK_FALSE(_laserCanon.getEntityCoordinates().getXposition() == xPosition - _laserCanon.getEntitySpeed());
-}
-
-TEST_CASE("Testing if the Laser Canon obeys the right boundary restrictions")
-{
-    auto xPosition = 375;
-    auto yPosition = 380;
-
-    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1 };
-    _laserCanon.move(Direction::RIGHT);
-    CHECK_FALSE(_laserCanon.getEntityCoordinates().getXposition() == xPosition + _laserCanon.getEntitySpeed());
-}
-
+/*
 //------------------------------Test for the Alien class-----------------------------------------------------
 
 TEST_CASE("Testing if the Alien class is able to create a valid object with initial positions")
@@ -199,21 +120,7 @@ TEST_CASE("Testing laser downward movement functionality")
 }
 
 //-------------------TESTS FOR THROWING EXCEPTION FOR INVALID INITIAL COORDIANTES--------------------
-TEST_CASE("Testing for Invalid Laser Canon Coordinates of the first player")
-{
-    auto xPosition = -4;
-    auto yPosition = 400;
 
-    CHECK_THROWS_AS(LaserCanon(xPosition, yPosition, 1), InvalidLaserCanonCoordinates);
-}
-
-TEST_CASE("Testing for Invalid Laser Canon Coordinates of the second player")
-{
-    auto xPosition = -4;
-    auto yPosition = 380;
-
-    CHECK_THROWS_AS(LaserCanon(xPosition, yPosition, 2), InvalidLaserCanonCoordinates);
-}
 
 TEST_CASE("Testing for Invalid Alien Coordinates")
 {
@@ -222,3 +129,4 @@ TEST_CASE("Testing for Invalid Alien Coordinates")
 
     CHECK_THROWS_AS(Alien(x_position, y_position, 380, 0), InvalidAlienCoordinates);
 }
+*/

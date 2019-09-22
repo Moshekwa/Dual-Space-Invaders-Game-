@@ -4,11 +4,6 @@
 
 GameLoop::GameLoop()
     : _windowDisplay{ new WindowDisplay }
-    , _laserCanon1{ new LaserCanon{
-          (get<0>(WindowDisplay::screenDimensions()) / 2) - 10, get<1>(WindowDisplay::screenDimensions()) - 20, 1, 3 } }
-    , _laserCanon2{ new LaserCanon{ (get<0>(WindowDisplay::screenDimensions()) / 2) - 10, 40, 2, 3 } }
-    , _laser1{ new Laser{ *_laserCanon1, 1 } }
-    , _laser2{ new Laser{ *_laserCanon2, 1 } }
     , _imageDrawer{ new ImageDrawer{ _windowDisplay->getWindow() } }
     , _imageDrawerProxy{ _imageDrawer }
     , gameWon{ false }
@@ -18,9 +13,32 @@ GameLoop::GameLoop()
     , upRedAlienRowAlive{ true }
     , upPurpleAlienRowAlive{ true }
 {
+    createLaserCanonsAndLasers();
     createLaserCanonShields();
     createLaserCanonLives();
     createAliens();
+}
+
+void GameLoop::createLaserCanonsAndLasers()
+{
+    _laserCanon1 = make_shared<LaserCanon>(
+        (get<0>(WindowDisplay::screenDimensions()) / 2) - 10, get<1>(WindowDisplay::screenDimensions()) - 20, 1, 3);
+    _laserCanon2 = make_shared<LaserCanon>((get<0>(WindowDisplay::screenDimensions()) / 2) - 10, 40, 2, 3 );
+    _laser1 = make_shared<Laser>( *_laserCanon1, 1);
+    _laser2 = make_shared<Laser>(*_laserCanon2, 1);
+}
+
+void GameLoop::laserCanonsInitialPositions()
+{
+    auto xPosition_1 = (get<0>(WindowDisplay::screenDimensions()) / 2) - 10;
+    auto yPosition_1 = get<1>(WindowDisplay::screenDimensions()) - 20;
+    auto xPosition_2 = get<0>(WindowDisplay::screenDimensions()) / 2;
+    auto yPosition_2 = 40;
+    
+    _laserCanon1->setXposition(xPosition_1);
+    _laserCanon1->setYposition(yPosition_1);
+    _laserCanon2->setXposition(xPosition_2);
+    _laserCanon2->setYposition(yPosition_2);
 }
 
 void GameLoop::createLaserCanonShields()
@@ -192,19 +210,21 @@ void GameLoop::PlayGame()
 
 void GameLoop::gameActivities()
 {
-    laserCanonActivities();
+    laserCanonAndLaserActivities();
     laserCanonShieldActivities();
     alienActivities();
     _windowDisplay->CheckEvent();
 }
 
-void GameLoop::laserCanonActivities()
+void GameLoop::laserCanonAndLaserActivities()
 {
     auto _updater = GameUpdater{};
     auto _collisionDetector = CollisionDetector{};
 
     _updater.updateLaser1Position(*_laserCanon1, *_laser1);
     _updater.updateLaser2Position(*_laserCanon2, *_laser2);
+    
+    _collisionDetector.Laser1Laser2Collision(*_laser1, *_laser2);
 
     if(_windowDisplay->is_singleMode()) {
         _keyHandler.singleModeKeyCheck(*_laserCanon1, *_laserCanon2, *_laser1, *_laser2);
@@ -221,10 +241,12 @@ void GameLoop::laserCanonActivities()
         case 1:
             _laserCanon1->destroyEntity();
             aliensInitialPositions();
+            laserCanonsInitialPositions();
             break;
         case 2:
             _laserCanon2->destroyEntity();
             aliensInitialPositions();
+            laserCanonsInitialPositions();
             break;
         default:
             break;
@@ -234,15 +256,18 @@ void GameLoop::laserCanonActivities()
     for(auto alienLaser : _alienLasers) {
         auto [canonAlienLaserCollision, canonNumber] =
             _collisionDetector.LaserCanonAlienLaserCollision(*_laserCanon1, *_laserCanon2, *alienLaser);
+            _collisionDetector.LaserAliensLaserCollision(*_laser1, *_laser2, *alienLaser);
         if(canonAlienLaserCollision) {
             switch(canonNumber) {
             case 1:
                 _laserCanon1->destroyEntity();
                 aliensInitialPositions();
+                laserCanonsInitialPositions();
                 break;
             case 2:
                 _laserCanon2->destroyEntity();
                 aliensInitialPositions();
+                laserCanonsInitialPositions();
                 break;
             default:
                 break;

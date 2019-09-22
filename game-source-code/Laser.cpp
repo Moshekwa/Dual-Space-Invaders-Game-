@@ -11,7 +11,7 @@ Laser::Laser(LaserCanon& _laserCanon, int numberOfLives)
 }
 
 Laser::Laser(Alien& _alien, int numberOfLives)
-    : Ammunition{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 2, false, numberOfLives }
+    : Ammunition{ _alien.getEntityCoordinates().getXposition(), _alien.getEntityCoordinates().getYposition(), 1, false, numberOfLives }
 {
 }
 

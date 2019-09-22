@@ -4,6 +4,70 @@
 #include "../game-source-code/LaserCanon.h"
 #include "doctest.h"
 
+TEST_CASE("Testing if player is able to create 2 Laser Canon objects at different initial positions")
+{
+    auto xPosition1 = 190;
+    auto yPosition1 = 480;
+    auto xPosition2 = 190;
+    auto yPosition2 = 40;
+    auto _laserCanon1 = LaserCanon{ xPosition1, yPosition1, 1, 3 };
+    auto _laserCanon2 = LaserCanon{ xPosition2, yPosition2, 2, 3 };
+
+    CHECK(_laserCanon1.getEntityCoordinates().getXposition() == xPosition1);
+    CHECK(_laserCanon2.getEntityCoordinates().getXposition() == xPosition2);
+    CHECK(_laserCanon1.getEntityCoordinates().getYposition() == yPosition1);
+    CHECK(_laserCanon2.getEntityCoordinates().getYposition() == yPosition2);
+}
+
+TEST_CASE("Testing the setPosition functions for Laser Canon")
+{
+    auto xPosition = 190;
+    auto yPosition = 480;
+
+    auto _laserCanon = LaserCanon{ 20, 480, 1, 3 };
+
+    _laserCanon.setXposition(xPosition);
+    _laserCanon.setYposition(yPosition);
+
+    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition);
+    CHECK(_laserCanon.getEntityCoordinates().getYposition() == yPosition);
+}
+
+TEST_CASE("Testing the move function for Lasor Canon")
+{
+    auto xPosition = 190;
+    auto yPosition = 480;
+
+    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, 3 };
+
+    _laserCanon.move(Direction::LEFT);
+    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition - _laserCanon.getEntitySpeed());
+    _laserCanon.move(Direction::RIGHT);
+    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition);
+}
+
+TEST_CASE("Testing if the Laser Canon obeys the left boundary restrictions")
+{
+    auto xPosition = 4;
+    auto yPosition = 480;
+
+    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, 3 };
+    _laserCanon.move(Direction::LEFT);
+    CHECK_FALSE(_laserCanon.getEntityCoordinates().getXposition() == xPosition - _laserCanon.getEntitySpeed());
+    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition);
+}
+
+TEST_CASE("Testing if the Laser Canon obeys the right boundary restrictions")
+{
+    auto xPosition = 375;
+    auto yPosition = 480;
+
+    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, 3 };
+    _laserCanon.move(Direction::RIGHT);
+    CHECK_FALSE(_laserCanon.getEntityCoordinates().getXposition() == xPosition + _laserCanon.getEntitySpeed());
+    CHECK(_laserCanon.getEntityCoordinates().getXposition() == xPosition);
+}
+
 TEST_CASE("Testing for Invalid Laser Canon Coordinates of the first player")
 {
     auto xPosition = -4;
@@ -18,72 +82,6 @@ TEST_CASE("Testing for Invalid Laser Canon Coordinates of the second player")
     auto yPosition = 0;
 
     CHECK_THROWS_AS(LaserCanon(xPosition, yPosition, 2, 3), InvalidLaserCanonCoordinates);
-}
-
-TEST_CASE("Testing if player is able to create 2 Laser Canon objects at different initial positions")
-{
-    auto xPosition1 = 190;
-    auto yPosition1 = 480;
-    auto xPosition2 = 190;
-    auto yPosition2 = 40;
-    auto _laserCanon1 = LaserCanon{ xPosition1, yPosition1, 1, 3 };
-    auto _laserCanon2 = LaserCanon{ xPosition2, yPosition2, 2, 3 };
-
-    CHECK(get<0>(_laserCanon1.entityPosition()) == xPosition1);
-    CHECK(get<0>(_laserCanon2.entityPosition()) == xPosition2);
-    CHECK(get<1>(_laserCanon1.entityPosition()) == yPosition1);
-    CHECK(get<1>(_laserCanon2.entityPosition()) == yPosition2);
-}
-
-TEST_CASE("Testing the setPosition functions for Laser Canon")
-{
-    auto xPosition = 190;
-    auto yPosition = 480;
-
-    auto _laserCanon = LaserCanon{ 20, 480, 1, 3 };
-
-    _laserCanon.setXposition(xPosition);
-    _laserCanon.setYposition(yPosition);
-
-    CHECK(get<0>(_laserCanon.entityPosition()) == xPosition);
-    CHECK(get<1>(_laserCanon.entityPosition()) == yPosition);
-}
-
-TEST_CASE("Testing the move function for Lasor Canon")
-{
-    auto xPosition = 190;
-    auto yPosition = 480;
-
-    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, 3 };
-
-    _laserCanon.move(Direction::LEFT);
-    CHECK(get<0>(_laserCanon.entityPosition()) == xPosition - _laserCanon.getEntitySpeed());
-    _laserCanon.move(Direction::RIGHT);
-    CHECK(get<0>(_laserCanon.entityPosition()) == xPosition);
-}
-
-TEST_CASE("Laser Canon obeys the left boundary restrictions")
-{
-    auto xPosition = 190;
-    auto yPosition = 480;
-
-    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, 3 };
-    _laserCanon.setXposition(0);
-    _laserCanon.move(Direction::LEFT);
-    CHECK_FALSE(get<0>(_laserCanon.entityPosition()) == xPosition - _laserCanon.getEntitySpeed());
-    CHECK(get<0>(_laserCanon.entityPosition()) == 0);
-}
-
-TEST_CASE("Laser Canon obeys the right boundary restrictions")
-{
-    auto xPosition = 190;
-    auto yPosition = 480;
-
-    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, 3 };
-    _laserCanon.setXposition(380);
-    _laserCanon.move(Direction::RIGHT);
-    CHECK_FALSE(get<0>(_laserCanon.entityPosition()) == xPosition + _laserCanon.getEntitySpeed());
-    CHECK(get<0>(_laserCanon.entityPosition()) == 380);
 }
 
 TEST_CASE("Testing the destroyEntity function for laserCanon")
@@ -159,29 +157,4 @@ TEST_CASE("Collision detection of laserCanon2 and the laser from canon1")
 
     CHECK(collisionOccured == true);
     CHECK(laserCanonNumber == 2);
-}
-
-TEST_CASE("Setting and returning the score of the laserCanon correctly")
-{
-    auto xPosition = 190;
-    auto yPosition = 480;
-    auto laserCanonLives = 3;
-
-    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, laserCanonLives };
-    _laserCanon.setScore(10);
-    CHECK(get<0>(_laserCanon.getScoreAndHighScore()) == 10);
-}
-
-TEST_CASE("The correct high score is set and returned")
-{
-    auto xPosition = 190;
-    auto yPosition = 480;
-    auto laserCanonLives = 3;
-
-    auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, laserCanonLives };
-    _laserCanon.setScore(20);
-    _laserCanon.setScore(10);
-    auto[score, highScore] = _laserCanon.getScoreAndHighScore();
-    CHECK(score == 10);
-    CHECK(highScore == 20);
 }

@@ -57,13 +57,15 @@ private:
     KeyHandler _keyHandler;
     ImageDrawerProxy _imageDrawerProxy;
     
+    void createLaserCanonsAndLasers();
     void createLaserCanonShields();
     void createLaserCanonLives();
     void createAliens();
     void aliensInitialPositions();
+    void laserCanonsInitialPositions();
     
     void gameActivities();
-    void laserCanonActivities();
+    void laserCanonAndLaserActivities();
     void alienActivities();
     void laserCanonShieldActivities();
     
