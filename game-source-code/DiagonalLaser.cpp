@@ -3,9 +3,9 @@
 DiagonalLaser::DiagonalLaser(LaserCanon& _laserCanon, int numberOfLives)
     : Ammunition{ get<0>(_laserCanon.entityPosition()), get<1>(_laserCanon.entityPosition()), 5, false, numberOfLives }
 {
-	auto [x_position, y_position] = entityPosition();
+    auto [x_position, y_position] = entityPosition();
     if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 480) {
-        throw InvalidCanonDiagonalLaserCoordinates{};
+	throw InvalidCanonDiagonalLaserCoordinates{};
     }
 }
 
@@ -23,7 +23,7 @@ void DiagonalLaser::moveLaserWithCanon(LaserCanon& _laserCanon)
 void DiagonalLaser::move(Direction _direction)
 {
     auto y_position = get<1>(entityPosition());
-	auto x_position = get<0>(entityPosition());
+    auto x_position = get<0>(entityPosition());
     switch(_direction) {
     case UP:
 	setYposition(y_position - getEntitySpeed());

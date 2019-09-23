@@ -11,6 +11,7 @@ TEST_CASE("Laser is able to initialize Laser coordinates")
     auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, 3 };
 
     auto _laser = Laser{ _laserCanon, 1 };
+	//auto [ x_position, y_position ] = _laserCanon.entityPosition();
     CHECK(_laser.getEntityCoordinates().getXposition() == xPosition);
     CHECK(_laser.getEntityCoordinates().getYposition() == yPosition);
 }

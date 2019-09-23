@@ -3,7 +3,9 @@
 #include "Ammunition.h"
 #include "LaserCanon.h"
 
-class InvalidCanonDiagonalLaserCoordinates {};
+class InvalidCanonDiagonalLaserCoordinates
+{
+};
 
 class DiagonalLaser : public Ammunition
 {
