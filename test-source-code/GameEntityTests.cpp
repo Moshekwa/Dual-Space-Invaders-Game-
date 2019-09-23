@@ -24,24 +24,24 @@ TEST_CASE("Testing for Invalid Coordinates of the Game Entity class")
 
 TEST_CASE("Testing if Game Entity does not create a dead object")
 {
-	auto xPosition = 190;
-	auto yPosition = 480;
+    auto xPosition = 190;
+    auto yPosition = 480;
     CHECK_THROWS_AS(GameEntity(xPosition, yPosition, false, 0), InvalidEntityPositions);
 }
 
 TEST_CASE("Checking if set functions of Game Entity throw exceptions for Invalid coordinates")
 {
-	auto xPosition = 190;
-	auto yPosition = 480;
-	auto _gameEntity = GameEntity(xPosition, yPosition, false, 3);
-	
-	auto x_position = 450;
-	auto y_position = -5;
-	CHECK_THROWS( _gameEntity.setXposition(x_position));
-	CHECK_THROWS(_gameEntity.setYposition(y_position));
-	
-	x_position = -6;
-	y_position = 550;
-	CHECK_THROWS( _gameEntity.setXposition(x_position));
-	CHECK_THROWS(_gameEntity.setYposition(y_position));
+    auto xPosition = 190;
+    auto yPosition = 480;
+    auto _gameEntity = GameEntity(xPosition, yPosition, false, 3);
+
+    auto x_position = 450;
+    auto y_position = -5;
+    CHECK_THROWS(_gameEntity.setXposition(x_position));
+    CHECK_THROWS(_gameEntity.setYposition(y_position));
+
+    x_position = -6;
+    y_position = 550;
+    CHECK_THROWS(_gameEntity.setXposition(x_position));
+    CHECK_THROWS(_gameEntity.setYposition(y_position));
 }

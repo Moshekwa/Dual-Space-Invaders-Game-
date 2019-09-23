@@ -10,9 +10,9 @@ TEST_CASE("Laser is able to initialize Laser coordinates")
     auto yPosition = 480;
     auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, 3 };
 
-	auto [ x_position, y_position ] = _laserCanon.entityPosition();
-    CHECK( x_position == xPosition);
-    CHECK( y_position == yPosition);
+    auto [x_position, y_position] = _laserCanon.entityPosition();
+    CHECK(x_position == xPosition);
+    CHECK(y_position == yPosition);
 }
 
 TEST_CASE("Laser is able to move up the screen")
@@ -23,7 +23,7 @@ TEST_CASE("Laser is able to move up the screen")
 
     auto _laser = Laser{ _laserCanon, 1 };
     _laser.move(Direction::UP);
-	auto y_position = get<1>(_laser.entityPosition());
+    auto y_position = get<1>(_laser.entityPosition());
     CHECK(y_position == yPosition - _laser.getEntitySpeed());
 }
 
@@ -36,7 +36,7 @@ TEST_CASE("Laser is able to move down the screen")
     auto _laser2 = Laser{ _laserCanon2, 1 };
     _laser2.move(Direction::DOWN);
     auto y_position = get<1>(_laser2.entityPosition());
-	CHECK(y_position == yPosition + _laser2.getEntitySpeed());
+    CHECK(y_position == yPosition + _laser2.getEntitySpeed());
 }
 
 TEST_CASE("Able to set the laser alive and also destroy it")
@@ -69,9 +69,9 @@ TEST_CASE("Laser does not go above the upper screen boundary, it gets distroyed 
 
     CHECK(_laser1.isAlive() == false);
     _gameUpdater.updateLaser1Position(_laserCanon1, _laser1);
-	auto y_position = get<1>(_laser1.entityPosition());
-	auto y_position_ = get<1>(_laserCanon1.entityPosition());
-    CHECK( y_position == y_position_);
+    auto y_position = get<1>(_laser1.entityPosition());
+    auto y_position_ = get<1>(_laserCanon1.entityPosition());
+    CHECK(y_position == y_position_);
 }
 
 TEST_CASE("Laser does not go below the bottom screen boundary, it gets distroyed and goes back to the canon")
@@ -90,9 +90,9 @@ TEST_CASE("Laser does not go below the bottom screen boundary, it gets distroyed
 
     CHECK(_laser2.isAlive() == false);
     _gameUpdater.updateLaser1Position(_laserCanon2, _laser2);
-	auto y_position = get<1>(_laser2.entityPosition());
+    auto y_position = get<1>(_laser2.entityPosition());
     auto y_position_ = get<1>(_laserCanon2.entityPosition());
-	CHECK(y_position == y_position_);
+    CHECK(y_position == y_position_);
 }
 
 TEST_CASE("Both lasers get destroyed when they collide")
@@ -132,10 +132,9 @@ TEST_CASE("Both lasers do not destroyed when did not collide")
     _laser2.giveEntityLife();
 
     _laser1.setYposition(200);
-    _laser2.setYposition(206); 
+    _laser2.setYposition(206);
     auto _collisionDetector = CollisionDetector{};
     _collisionDetector.Laser1Laser2Collision(_laser1, _laser2);
     CHECK(_laser1.isAlive());
     CHECK(_laser2.isAlive());
 }
-
