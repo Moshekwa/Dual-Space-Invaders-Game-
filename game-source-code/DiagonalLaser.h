@@ -12,9 +12,9 @@ class DiagonalLaser : public Ammunition
 public:
     DiagonalLaser(LaserCanon& _laserCanon, int numberOfLives);
     ~DiagonalLaser();
-    void moveLaserWithCanon(LaserCanon& _laserCanon);
     virtual void move(Direction _direction);
-
+	void moveDiagonalLaserWithCanon (LaserCanon& _laserCanon);
+	
 private:
 };
 

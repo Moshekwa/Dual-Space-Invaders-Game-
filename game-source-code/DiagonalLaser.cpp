@@ -13,7 +13,7 @@ DiagonalLaser::~DiagonalLaser()
 {
 }
 
-void DiagonalLaser::moveLaserWithCanon(LaserCanon& _laserCanon)
+void DiagonalLaser::moveDiagonalLaserWithCanon(LaserCanon& _laserCanon)
 {
     auto [x_position, y_position] = _laserCanon.entityPosition();
     setXposition(x_position + 6);
