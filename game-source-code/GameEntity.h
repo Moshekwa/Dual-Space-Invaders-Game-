@@ -3,6 +3,10 @@
 #include <tuple>
 using namespace std;
 
+class InvalidEntityPositions
+{
+};
+
 class GameEntity
 {
 public:

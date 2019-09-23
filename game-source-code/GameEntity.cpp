@@ -5,17 +5,25 @@ GameEntity::GameEntity(int xPosition, int yPosition, bool life, int numberOfLive
     , _Yposition{ yPosition }
     , _life{ life }
     , _numberOfLives{ numberOfLives }
-
 {
+    if(xPosition < 0 || xPosition > 400 || yPosition < 0 || yPosition > 500) {
+        throw InvalidEntityPositions{};
+    }
 }
 
 void GameEntity::setXposition(int x)
 {
+    if(x < 0 || x > 400) {
+        throw InvalidEntityPositions{};
+    }
     _Xposition = x;
 }
 
 void GameEntity::setYposition(int y)
 {
+    if(y < 0 || y > 500) {
+        throw InvalidEntityPositions{};
+    }
     _Yposition = y;
 }
 
