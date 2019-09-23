@@ -112,7 +112,7 @@ TEST_CASE("Both lasers get destroyed when they collide")
     CHECK_FALSE(_laser2.isAlive());
 }
 
-TEST_CASE("Both lasers do not destroyed when did not collide, (A lowkey test for the collision logic)")
+TEST_CASE("Both lasers do not destroyed when did not collide")
 {
     auto canon1_Xposition = 190;
     auto canon1_Yposition = 480;
