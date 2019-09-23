@@ -1,10 +1,10 @@
 #include "LaserCanon.h"
+#include <fstream>
 
 LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
     : MovingEntity{ x, y, 5, true, numberOfLives }
     , lifeLost{ false }
-    , _score{0}
-    , _highScore{0} //this will change
+    , _score{ 0 }
 {
     switch(canonNumber) {
     case 1:
@@ -21,6 +21,9 @@ LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
     default:
 	break;
     }
+	
+	ReadHighScoreFromFile();
+	
 }
 
 void LaserCanon::move(Direction _direction)
@@ -47,8 +50,8 @@ void LaserCanon::move(Direction _direction)
 void LaserCanon::setScore(int score)
 {
     _score = score;
-    if(_score > _highScore){
-        setHighScore(_score);
+    if(_score > _highScore) {
+	setHighScore(_score);
     }
 }
 
@@ -57,11 +60,28 @@ void LaserCanon::setHighScore(int highScore)
     _highScore = highScore;
 }
 
-tuple<int, int> LaserCanon::getScoreAndHighScore() const
+void LaserCanon::ReadHighScoreFromFile()
 {
-    return {_score, _highScore};
+    ifstream infile("HighScore.txt");
+
+    if(!infile) {
+	throw FileCannotBeOpened{};
+    }
+    infile >> _highScore;
 }
 
+void LaserCanon::updateHighScoreToFile()
+{
+    ofstream outfile("HighScore.txt");
 
+    if(!outfile) {
+	throw FileCannotBeOpened{};
+    }
+	
+	outfile << _highScore;
+}
 
-
+tuple<int, int> LaserCanon::getScoreAndHighScore() const
+{
+    return { _score, _highScore };
+}

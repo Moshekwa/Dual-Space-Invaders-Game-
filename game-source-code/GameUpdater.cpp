@@ -16,6 +16,7 @@ void GameUpdater::updateLaser1Position(LaserCanon& _laserCanon1, Laser& _laser1)
         _laser1.moveLaserWithCanon(_laserCanon1);
     }
 }
+
 /*
 void updateDiagonalLaserPosition(LaserCanon& _LaserCanon& _laserCanon1, DiagonalLaser& _diagonalLaser)
 {
@@ -30,6 +31,7 @@ void updateDiagonalLaserPosition(LaserCanon& _LaserCanon& _laserCanon1, Diagonal
     }
 }
 */
+
 void GameUpdater::updateLaser2Position(LaserCanon& _laserCanon2, Laser& _laser2)
 {
     if(_laser2.isAlive()) {
@@ -113,14 +115,17 @@ void GameUpdater::updateUpAlienPosition(Alien& _alien)
     }
 }
 
-void GameUpdater::updateCanon1_Score(LaserCanon& _laserCanon1, Alien& _alien)
+void GameUpdater::updateCanon1_ScoreAndHighScore(LaserCanon& _laserCanon1, Alien& _alien)
 {
     auto newScore = get<0>(_laserCanon1.getScoreAndHighScore()) + _alien.alienPoints(_alien.getAlienColour());
     _laserCanon1.setScore(newScore);
+	_laserCanon1.updateHighScoreToFile();
 }
 
-void GameUpdater::updateCanon2_Score(LaserCanon& _laserCanon2, Alien& _alien)
+void GameUpdater::updateCanon2_ScoreAndHighScore(LaserCanon& _laserCanon2, Alien& _alien)
 {
     auto newScore = get<0>(_laserCanon2.getScoreAndHighScore()) + _alien.alienPoints(_alien.getAlienColour());
     _laserCanon2.setScore(newScore);
+	_laserCanon2.updateHighScoreToFile();
+	
 }

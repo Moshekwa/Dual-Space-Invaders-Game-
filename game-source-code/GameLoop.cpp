@@ -5,7 +5,6 @@
 GameLoop::GameLoop()
     : _windowDisplay{ new WindowDisplay }
     , _imageDrawer{ new ImageDrawer{ _windowDisplay->getWindow() } }
-    , _imageDrawerProxy{ _imageDrawer }
     , gameWon{ false }
     , gameLost{ false }
     , redAlienRowAlive{ true }
@@ -39,6 +38,7 @@ void GameLoop::PlayGame()
 	} else if(_windowDisplay->isPlay()) {
 	    _imageDrawer->drawScore(*_laserCanon1);
 	    _imageDrawer->drawScore2(*_laserCanon2);
+		_imageDrawer->drawHighScore(*_laserCanon1);
 	    gameActivities();
 	    displayGameEntities();
 	    _windowDisplay->getWindow()->display();

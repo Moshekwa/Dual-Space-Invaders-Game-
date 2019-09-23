@@ -36,12 +36,12 @@ void CollisionDetector::LaserAlienCollision(Laser& _laser1,
     if(centreDistance < radii_sum && _alien.isAlive()) {
         _laser1.destroyEntity();
         _alien.destroyEntity();
-        _gameUpdater.updateCanon1_Score(_laserCanon1, _alien);
+        _gameUpdater.updateCanon1_ScoreAndHighScore(_laserCanon1, _alien);
     }
     if(centreDistance2 < radii_sum && _alien.isAlive()) {
         _laser2.destroyEntity();
         _alien.destroyEntity();
-        _gameUpdater.updateCanon2_Score(_laserCanon2, _alien);
+        _gameUpdater.updateCanon2_ScoreAndHighScore(_laserCanon2, _alien);
     }
 }
 

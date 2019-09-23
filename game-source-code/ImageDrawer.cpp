@@ -302,6 +302,18 @@ void ImageDrawer::drawScore2(LaserCanon& _laserCanon2)
     }
 }
 
+void ImageDrawer::drawHighScore(LaserCanon& _laserCanon1)
+{
+    auto int_score = get<1>(_laserCanon1.getScoreAndHighScore());
+    stringstream ss1;
+    ss1 << int_score;
+    auto x = "HighScore:"s;
+    _texts.at(2)->setString(x + ss1.str().c_str());
+    _texts.at(2)->setCharacterSize(11);
+    _texts.at(2)->setPosition(150, 0);
+    _window->draw(*_texts.at(2));
+}
+
 void ImageDrawer::drawHomeScreen()
 {
     _sprites.at(10)->setScale(0.60, 0.99);

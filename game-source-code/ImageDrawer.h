@@ -1,12 +1,12 @@
 #ifndef ENTITYDRAWER_H_INCLUDED
 #define ENTITYDRAWER_H_INCLUDED
-#include "ImageLoader.h"
+#include "Alien.h"
 #include "GameEntity.h"
+#include "ImageLoader.h"
 #include "Laser.h"
 #include "LaserCanon.h"
 #include "LaserCanonLife.h"
 #include "LaserCanonShield.h"
-#include "Alien.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <vector>
@@ -32,13 +32,14 @@ public:
     void drawUpGreenAliens(const Alien& _alien, int spriteNumber);
     void drawUpPurpleAliens(const Alien& _alien, int spriteNumber);
     void drawUpRedAliens(const Alien& _alien, int spriteNumber);
-    
+
     void drawLaserCanonShields(const LaserCanonShield& _canonShield, int shieldNumber, int shieldState);
-	void drawLaserCanonLives(const LaserCanonLife& _canonLife);
-    
+    void drawLaserCanonLives(const LaserCanonLife& _canonLife);
+
     void drawScore(LaserCanon& _laserCanon1);
     void drawScore2(LaserCanon& _laserCanon2);
-	
+    void drawHighScore(LaserCanon& _laserCanon1);
+
     void drawHomeScreen();
     void drawGameWon();
     void drawGameLost();

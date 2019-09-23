@@ -14,8 +14,8 @@ public:
     void updateUpAlienPosition(Alien& _alien);
     void updateAlienLaserPosition(Alien& _alien, Laser& _alienLaser);
     void updateUpAlienLaserPosition(Alien& _alien, Laser& _alienLaser);
-    void updateCanon1_Score(LaserCanon& _laserCanon1, Alien& _alien);
-    void updateCanon2_Score(LaserCanon& _laserCanon2, Alien& _alien);
+    void updateCanon1_ScoreAndHighScore(LaserCanon& _laserCanon1, Alien& _alien);
+    void updateCanon2_ScoreAndHighScore(LaserCanon& _laserCanon2, Alien& _alien);
 
 	//void updateDiagonalLaserPosition(LaserCanon& _LaserCanon& _laserCanon1, DiagonalLaser& _diagonalLaser); 
 private:

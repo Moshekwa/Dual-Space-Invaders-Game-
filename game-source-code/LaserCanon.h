@@ -7,6 +7,10 @@ class InvalidLaserCanonCoordinates
 {
 };
 
+class FileCannotBeOpened
+{
+};
+
 class LaserCanon : public MovingEntity
 {
 public:
@@ -14,6 +18,8 @@ public:
     virtual void move(Direction _direction);
     void setScore(int score);
     tuple<int, int> getScoreAndHighScore() const;
+    void ReadHighScoreFromFile();
+	void updateHighScoreToFile();
 
 private:
     bool lifeLost;

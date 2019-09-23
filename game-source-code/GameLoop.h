@@ -1,12 +1,16 @@
 #ifndef GAMELOOP_H_INCLUDED
 #define GAMELOOP_H_INCLUDED
 #include "CollisionDetector.h"
-#include "ImageDrawerProxy.h"
 #include "GameEntity.h"
 #include "GameUpdater.h"
 #include "KeyHandler.h"
 #include "Laser.h"
 #include "WindowDisplay.h"
+#include "LaserCanonLife.h"
+#include "ImageDrawer.h"
+#include "LaserCanon.h"
+#include "LaserCanonShield.h"
+#include "Alien.h"
 
 #include <memory>
 #include <vector>
@@ -55,7 +59,6 @@ private:
 	LaserCanonLives _laserCanonLife;
 	
     KeyHandler _keyHandler;
-    ImageDrawerProxy _imageDrawerProxy;
     
     void createLaserCanonsAndLasers();
     void createLaserCanonShields();
