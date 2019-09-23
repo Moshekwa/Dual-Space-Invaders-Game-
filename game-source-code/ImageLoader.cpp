@@ -11,12 +11,16 @@ ImageLoader::ImageLoader()
         shared_ptr<Sprite> _sprite{ new Sprite };
         _sprites.push_back(_sprite);
     }
+    if(!_font.loadFromFile("font.ttf")){
+        exit(1);
+    }
 }
 
 void ImageLoader::loadImagesAndSetSprites()
 {
     loadImages();
     setSprites();
+    createTexts();
 }
 
 Sprites ImageLoader::getSprites() const
@@ -46,4 +50,20 @@ void ImageLoader::setSprites()
         _textures.at(i).setSmooth(true);
         _sprites.at(i)->setTexture(_textures.at(i), true);
     }
+}
+
+void ImageLoader::createTexts()
+{
+    auto _text = make_shared<Text>();
+    _text->setFont(_font);
+    _texts.push_back(_text);
+    
+    auto _text2 = make_shared<Text>();
+    _text2->setFont(_font);
+    _texts.push_back(_text2);
+}
+
+Texts ImageLoader::getTexts() const
+{
+    return _texts;
 }

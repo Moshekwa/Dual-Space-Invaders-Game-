@@ -19,6 +19,32 @@ GameLoop::GameLoop()
     createAliens();
 }
 
+void GameLoop::PlayGame()
+{
+    while(_windowDisplay->getWindow()->isOpen()) {
+        if(!_windowDisplay->isPlay()) {
+
+            if(gameWon) {
+                _imageDrawerProxy._drawGameWon();
+            } else if(gameLost) {
+                _imageDrawerProxy._drawGameLost();
+            } else {
+                _imageDrawerProxy._drawHomeScreen();
+            }
+
+            _windowDisplay->CheckEvent();
+            _windowDisplay->getWindow()->display();
+            _windowDisplay->getWindow()->clear();
+        } else if(_windowDisplay->isPlay()) {
+            _imageDrawerProxy._drawScore(*_laserCanon1, *_laserCanon2);
+            gameActivities();
+            displayGameEntities();
+            _windowDisplay->getWindow()->display();
+            _windowDisplay->getWindow()->clear();
+        }
+    }
+}
+
 void GameLoop::createLaserCanonsAndLasers()
 {
     _laserCanon1 = make_shared<LaserCanon>(
@@ -183,30 +209,7 @@ void GameLoop::aliensInitialPositions()
     }
 }
 
-void GameLoop::PlayGame()
-{
-    while(_windowDisplay->getWindow()->isOpen()) {
-        if(!_windowDisplay->isPlay()) {
 
-            if(gameWon) {
-                _imageDrawerProxy._drawGameWon();
-            } else if(gameLost) {
-                _imageDrawerProxy._drawGameLost();
-            } else {
-                _imageDrawerProxy._drawHomeScreen();
-            }
-
-            _windowDisplay->CheckEvent();
-            _windowDisplay->getWindow()->display();
-            _windowDisplay->getWindow()->clear();
-        } else if(_windowDisplay->isPlay()) {
-            gameActivities();
-            displayGameEntities();
-            _windowDisplay->getWindow()->display();
-            _windowDisplay->getWindow()->clear();
-        }
-    }
-}
 
 void GameLoop::gameActivities()
 {

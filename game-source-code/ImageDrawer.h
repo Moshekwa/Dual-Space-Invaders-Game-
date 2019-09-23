@@ -35,6 +35,9 @@ public:
     
     void drawLaserCanonShields(const LaserCanonShield& _canonShield, int shieldNumber, int shieldState);
 	void drawLaserCanonLives(const LaserCanonLife& _canonLife);
+    
+    void drawScore(LaserCanon& _laserCanon1);
+    void drawScore2(LaserCanon& _laserCanon2);
 	
     void drawHomeScreen();
     void drawGameWon();
@@ -43,6 +46,7 @@ public:
 private:
     shared_ptr<RenderWindow> _window;
     Sprites _sprites;
+    Texts _texts;
     ImageLoader _imageLoader;
 };
 

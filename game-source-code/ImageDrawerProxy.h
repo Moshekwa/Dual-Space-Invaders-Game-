@@ -27,6 +27,8 @@ public:
 
     void _drawLaserCanonShields(const LaserCanonShield& _laserCanonShield, int shieldNumber, int shieldState);
     void _drawLaserCanonLives(const LaserCanonLife& _laserCanonLives);
+    
+    void _drawScore(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2);
 
     void _drawHomeScreen();
     void _drawGameWon();

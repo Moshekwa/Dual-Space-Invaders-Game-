@@ -1,10 +1,12 @@
 #include "ImageDrawer.h"
+#include <sstream>
 
 ImageDrawer::ImageDrawer(shared_ptr<RenderWindow> window)
     : _window{ window }
 {
     _imageLoader.loadImagesAndSetSprites();
     _sprites = _imageLoader.getSprites();
+    _texts = _imageLoader.getTexts();
 }
 
 void ImageDrawer::drawLaserCanon(const LaserCanon& _laserCanon1)
@@ -81,7 +83,7 @@ void ImageDrawer::drawLaserCanonLives(const LaserCanonLife& _canonLife)
 
 void ImageDrawer::drawLaser(const Laser& _laser1)
 {
-    auto[x_position, y_position] = _laser1.entityPosition();
+    auto [x_position, y_position] = _laser1.entityPosition();
     _sprites.at(2)->setScale(0.9f, 0.9f);
     _sprites.at(2)->setPosition(x_position, y_position);
     _window->draw(*_sprites.at(2));
@@ -245,6 +247,30 @@ void ImageDrawer::drawUpRedAliens(const Alien& _alien, int spriteNumber)
     default:
         break;
     }
+}
+
+void ImageDrawer::drawScore(LaserCanon& _laserCanon1)
+{
+    auto int_score = get<0>(_laserCanon1.getScoreAndHighScore());
+    stringstream ss;
+    ss << int_score;
+    auto x = "Canon1:"s;
+    _texts.at(0)->setString(x + ss.str().c_str());
+    _texts.at(0)->setCharacterSize(11);
+    _texts.at(0)->setPosition(0, 0);
+    _window->draw(*_texts.at(0));
+}
+
+void ImageDrawer::drawScore2(LaserCanon& _laserCanon2)
+{
+    auto int_score2 = get<0>(_laserCanon2.getScoreAndHighScore());
+    stringstream ss2;
+    ss2 << int_score2;
+    auto x = "Canon2:"s;
+    _texts.at(1)->setString(x + ss2.str().c_str());
+    _texts.at(1)->setCharacterSize(11);
+    _texts.at(1)->setPosition(0, 15);
+    _window->draw(*_texts.at(1));
 }
 
 void ImageDrawer::drawHomeScreen()

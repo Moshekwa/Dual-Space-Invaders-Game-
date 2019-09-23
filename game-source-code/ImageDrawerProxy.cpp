@@ -88,6 +88,12 @@ void ImageDrawerProxy::_drawLaserCanonLives(const LaserCanonLife& _laserCanonLif
     _imageDrawer->drawLaserCanonLives(_laserCanonLife);
     }
 }
+
+void ImageDrawerProxy::_drawScore(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2)
+{
+    _imageDrawer->drawScore(_laserCanon1);
+    _imageDrawer->drawScore2(_laserCanon2);
+}
 	
 void ImageDrawerProxy::_drawHomeScreen()
 {

@@ -5,6 +5,7 @@
 #include <vector>
 
 using std::shared_ptr;
+using std::make_shared;
 using std::vector;
 using namespace sf;
 
@@ -18,12 +19,16 @@ public:
     ImageLoader();
     void loadImagesAndSetSprites();
     Sprites getSprites() const;
+    Texts getTexts() const;
 
 private:
     Sprites _sprites;
     Textures _textures;
+    Texts _texts;
+    Font _font;
     void loadImages();
     void setSprites();
+    void createTexts();
 };
 
 #endif // ENTITYIMAGELOADER_H_INCLUDED
