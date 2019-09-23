@@ -4,19 +4,10 @@
 #include "../game-source-code/LaserCanon.h"
 #include "doctest.h"
 
-TEST_CASE("Testing for Invalid Laser Canon Coordinates of the first player")
-{
-    auto xPosition = -4;
-    auto yPosition = 400;
-
-    CHECK_THROWS_AS(LaserCanon(xPosition, yPosition, 1, 3), InvalidLaserCanonCoordinates);
-}
-
 TEST_CASE("Testing for Invalid Laser Canon Coordinates of the second player")
 {
     auto xPosition = 500;
     auto yPosition = 0;
-
     CHECK_THROWS_AS(LaserCanon(xPosition, yPosition, 2, 3), InvalidLaserCanonCoordinates);
 }
 
@@ -149,7 +140,7 @@ TEST_CASE("Collision detection of laserCanon2 and the laser from canon1")
     auto _laser1 = Laser{ _laserCanon1, 1 };
     auto _laser2 = Laser{ _laserCanon2, 1 };
 
-     _laser1.setXposition(laserCanon2_Xposition);
+    _laser1.setXposition(laserCanon2_Xposition);
     _laser1.setYposition(laserCanon2_Yposition);
     _laser1.giveEntityLife();
 
@@ -181,7 +172,7 @@ TEST_CASE("The correct high score is set and returned")
     auto _laserCanon = LaserCanon{ xPosition, yPosition, 1, laserCanonLives };
     _laserCanon.setScore(20);
     _laserCanon.setScore(10);
-    auto[score, highScore] = _laserCanon.getScoreAndHighScore();
+    auto [score, highScore] = _laserCanon.getScoreAndHighScore();
     CHECK(score == 10);
     CHECK(highScore == 20);
 }

@@ -7,14 +7,18 @@ GameEntity::GameEntity(int xPosition, int yPosition, bool life, int numberOfLive
     , _numberOfLives{ numberOfLives }
 {
     if(xPosition < 0 || xPosition > 400 || yPosition < 0 || yPosition > 500) {
-        throw InvalidEntityPositions{};
+	throw InvalidEntityPositions{};
+    }
+
+    if(numberOfLives == 0) {
+	throw InvalidEntityPositions{};
     }
 }
 
 void GameEntity::setXposition(int x)
 {
     if(x < 0 || x > 400) {
-        throw InvalidEntityPositions{};
+	throw InvalidEntityPositions{};
     }
     _Xposition = x;
 }
@@ -22,7 +26,7 @@ void GameEntity::setXposition(int x)
 void GameEntity::setYposition(int y)
 {
     if(y < 0 || y > 500) {
-        throw InvalidEntityPositions{};
+	throw InvalidEntityPositions{};
     }
     _Yposition = y;
 }
@@ -40,12 +44,12 @@ void GameEntity::giveEntityLife()
 void GameEntity::destroyEntity()
 {
     if(getNumberOfLives() != 0) {
-        _numberOfLives = _numberOfLives - 1;
-        if(getNumberOfLives() == 0) {
-            _life = false;
-        }
+	_numberOfLives = _numberOfLives - 1;
+	if(getNumberOfLives() == 0) {
+	    _life = false;
+	}
     } else {
-        _life = false;
+	_life = false;
     }
 }
 
