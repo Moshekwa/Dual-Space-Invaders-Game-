@@ -7,12 +7,16 @@
 
 TEST_CASE("Exception throw for Invalid Alien Coordinates")
 {
-    auto x_position = -4;
-    auto y_position = 370;
+    auto x_position = 390;
+    auto y_position = 400;
     CHECK_THROWS_AS(Alien(x_position, y_position, 380, 0, 1, AlienColour::GREEN), InvalidAlienCoordinates);
 
     x_position = 200;
     y_position = 490;
+    CHECK_THROWS_AS(Alien(x_position, y_position, 380, 0, 1, AlienColour::GREEN), InvalidAlienCoordinates);
+
+    x_position = 200;
+    y_position = 39;
     CHECK_THROWS_AS(Alien(x_position, y_position, 380, 0, 1, AlienColour::GREEN), InvalidAlienCoordinates);
 }
 
@@ -140,7 +144,6 @@ TEST_CASE("Score gets updated correctly for different aliens")
     _gameUpdater.updateCanon2_Score(_laserCanon2, _redAlien);
     CHECK(get<0>(_laserCanon1.getScoreAndHighScore()) == 10);
     CHECK(get<0>(_laserCanon2.getScoreAndHighScore()) == 10);
-
 }
 
 TEST_CASE("Score gets updated when an alien is shot")
@@ -149,26 +152,25 @@ TEST_CASE("Score gets updated when an alien is shot")
     auto yposition = 200;
     auto xposition2 = 100;
     auto yposition2 = 100;
-    
+
     auto _laserCanon1 = LaserCanon{ 190, 480, 1, 3 };
     auto _laserCanon2 = LaserCanon{ 190, 40, 2, 3 };
-    auto _laser1 = Laser{_laserCanon1, 1};
-    auto _laser2 = Laser{_laserCanon2, 1};
+    auto _laser1 = Laser{ _laserCanon1, 1 };
+    auto _laser2 = Laser{ _laserCanon2, 1 };
     auto _alien = Alien{ xposition, yposition, 380, 0, 1, AlienColour::GREEN };
     auto _alien2 = Alien{ xposition2, yposition2, 380, 0, 1, AlienColour::RED };
-    
+
     _laser1.setXposition(xposition);
     _laser1.setYposition(yposition);
     _laser2.setXposition(xposition2);
     _laser2.setYposition(yposition2);
     _laser1.giveEntityLife();
     _laser2.giveEntityLife();
-    
-    
+
     auto _collisionDetector = CollisionDetector{};
     _collisionDetector.LaserAlienCollision(_laser1, _laser2, _alien, _laserCanon1, _laserCanon2);
     _collisionDetector.LaserAlienCollision(_laser1, _laser2, _alien2, _laserCanon1, _laserCanon2);
-    
+
     CHECK(get<0>(_laserCanon1.getScoreAndHighScore()) == 30);
-    CHECK(get<0>(_laserCanon2.getScoreAndHighScore()) == 10);    
+    CHECK(get<0>(_laserCanon2.getScoreAndHighScore()) == 10);
 }
