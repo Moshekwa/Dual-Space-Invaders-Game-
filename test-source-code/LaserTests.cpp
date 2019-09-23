@@ -132,3 +132,4 @@ TEST_CASE("Both lasers do not destroyed when did not collide, (A lowkey test for
     CHECK(_laser1.isAlive());
     CHECK(_laser2.isAlive());
 }
+
