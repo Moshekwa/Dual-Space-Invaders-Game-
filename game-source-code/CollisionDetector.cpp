@@ -12,36 +12,35 @@ void CollisionDetector::LaserAlienCollision(Laser& _laser1,
     LaserCanon& _laserCanon1,
     LaserCanon& _laserCanon2)
 {
-    auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
-    auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
-    auto [alienXposition, alienYposition] = _alien.entityPosition();
+    //----------------------------Laser1---------------------------------------
+    auto [laser1_Xmin, laser1_Ymin] = _laser1.entityPosition();
+    auto laser1_Xmax = laser1_Xmin + laserWidth;
+    auto laser1_Ymax = laser1_Ymin + laserHeight;
 
-    auto radii_sum = laserRadius + alienRadius;
+    //------------------------------------Laser2------------------------------------
+    auto [laser2_Xmin, laser2_Ymin] = _laser2.entityPosition();
+    auto laser2_Xmax = laser2_Xmin + laserWidth;
+    auto laser2_Ymax = laser2_Ymin + laserHeight;
 
-    auto laserXCentre = laser1_xPosition + laserRadius;
-    auto laserYCentre = laser1_yPosition + laserRadius;
+    //----------------------------------------Alien----------------------------------------
+    auto [alien_Xmin, alien_Ymin] = _alien.entityPosition();
+    auto alien_Xmax = alien_Xmin + alienWidth;
+    auto alien_Ymax = alien_Ymin + alienHeight;
 
-    auto laser2XCentre = laser2_xPosition + laserRadius;
-    auto laser2YCentre = laser2_yPosition + laserRadius;
-
-    auto alienXCentre = alienXposition + alienRadius;
-    auto alienYCentre = alienYposition + alienRadius;
-
-    auto centreDistance = sqrt(pow(laserXCentre - alienXCentre, 2) + pow(laserYCentre - alienYCentre, 2));
-
-    auto centreDistance2 = sqrt(pow(laser2XCentre - alienXCentre, 2) + pow(laser2YCentre - alienYCentre, 2));
-    
+    //-------------------------------------------------------------------------------------
     auto _gameUpdater = GameUpdater{};
 
-    if(centreDistance < radii_sum && _alien.isAlive()) {
+    if((alien_Xmax >= laser1_Xmin && alien_Xmin <= laser1_Xmax) &&
+        (alien_Ymax >= laser1_Ymin && alien_Ymin <= laser1_Ymax) && (_alien.isAlive())) {
         _laser1.destroyEntity();
         _alien.destroyEntity();
         _gameUpdater.updateCanon1_ScoreAndHighScore(_laserCanon1, _alien);
     }
-    if(centreDistance2 < radii_sum && _alien.isAlive()) {
+    if((alien_Xmax >= laser2_Xmin && alien_Xmin <= laser2_Xmax) &&
+        (alien_Ymax >= laser2_Ymin && alien_Ymin <= laser2_Ymax) && (_alien.isAlive())) {
         _laser2.destroyEntity();
         _alien.destroyEntity();
-        _gameUpdater.updateCanon2_ScoreAndHighScore(_laserCanon2, _alien);
+        _gameUpdater.updateCanon1_ScoreAndHighScore(_laserCanon2, _alien);
     }
 }
 
@@ -50,6 +49,7 @@ tuple<bool, int> CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserC
     Laser& _laser1,
     Laser& _laser2)
 {
+    /*
     auto [canon1_xPosition, canon1_yPosition] = _laserCanon1.entityPosition();
     auto [canon2_xPosition, canon2_yPosition] = _laserCanon2.entityPosition();
     auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
@@ -79,44 +79,48 @@ tuple<bool, int> CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserC
         return { true, 1 };
     }
     return { false, 0 };
+     */
 }
 
 tuple<bool, int>
 CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _alienLaser)
 {
+    /*
+        auto [canon1_xPosition, canon1_yPosition] = _laserCanon1.entityPosition();
+        auto [canon2_xPosition, canon2_yPosition] = _laserCanon2.entityPosition();
+        auto [alienLaser_xPosition, alienLaser_yPosition] = _alienLaser.entityPosition();
 
-    auto [canon1_xPosition, canon1_yPosition] = _laserCanon1.entityPosition();
-    auto [canon2_xPosition, canon2_yPosition] = _laserCanon2.entityPosition();
-    auto [alienLaser_xPosition, alienLaser_yPosition] = _alienLaser.entityPosition();
+        auto radii_sum = laserRadius + laserCanonRadius;
+        auto laserXCentre = alienLaser_xPosition + laserRadius;
+        auto laserYCentre = alienLaser_yPosition + laserRadius;
 
-    auto radii_sum = laserRadius + laserCanonRadius;
-    auto laserXCentre = alienLaser_xPosition + laserRadius;
-    auto laserYCentre = alienLaser_yPosition + laserRadius;
+        auto LaserCanonXcentre = canon1_xPosition + laserCanonRadius;
+        auto LaserCanonYcentre = canon1_yPosition + laserCanonRadius;
+        auto LaserCanon2Xcentre = canon2_xPosition + laserCanonRadius;
+        auto LaserCanon2Ycentre = canon2_yPosition + laserCanonRadius;
 
-    auto LaserCanonXcentre = canon1_xPosition + laserCanonRadius;
-    auto LaserCanonYcentre = canon1_yPosition + laserCanonRadius;
-    auto LaserCanon2Xcentre = canon2_xPosition + laserCanonRadius;
-    auto LaserCanon2Ycentre = canon2_yPosition + laserCanonRadius;
+        auto centreDistance = sqrt(pow(laserXCentre - LaserCanonXcentre, 2) + pow(laserYCentre - LaserCanonYcentre, 2));
+        auto centreDistance2 = sqrt(pow(laserXCentre - LaserCanon2Xcentre, 2) + pow(laserYCentre - LaserCanon2Ycentre,
+       2));
 
-    auto centreDistance = sqrt(pow(laserXCentre - LaserCanonXcentre, 2) + pow(laserYCentre - LaserCanonYcentre, 2));
-    auto centreDistance2 = sqrt(pow(laserXCentre - LaserCanon2Xcentre, 2) + pow(laserYCentre - LaserCanon2Ycentre, 2));
+        if(centreDistance < radii_sum && _laserCanon1.isAlive() && _alienLaser.isAlive()) {
+            _alienLaser.destroyEntity();
+            //_laserCanon1.destroyEntity();
+            return { true, 1 };
+        }
 
-    if(centreDistance < radii_sum && _laserCanon1.isAlive() && _alienLaser.isAlive()) {
-        _alienLaser.destroyEntity();
-        //_laserCanon1.destroyEntity();
-        return { true, 1 };
-    }
-
-    if(centreDistance2 < radii_sum && _laserCanon2.isAlive() && _alienLaser.isAlive()) {
-        _alienLaser.destroyEntity();
-        //_laserCanon2.destroyEntity();
-        return { true, 2 };
-    }
-    return { false, 0 };
+        if(centreDistance2 < radii_sum && _laserCanon2.isAlive() && _alienLaser.isAlive()) {
+            _alienLaser.destroyEntity();
+            //_laserCanon2.destroyEntity();
+            return { true, 2 };
+        }
+        return { false, 0 };
+         */
 }
 
 void CollisionDetector::LaserCanonShieldAlienLaserCollision(LaserCanonShield& _laserCanonShield, Laser& _alienLaser)
 {
+    /*
     auto [shield_xPosition, shield_yposition] = _laserCanonShield.entityPosition();
     auto [alienLaser_xPosition, alienLaser_yPosition] = _alienLaser.entityPosition();
 
@@ -134,12 +138,13 @@ void CollisionDetector::LaserCanonShieldAlienLaserCollision(LaserCanonShield& _l
         _laserCanonShield.destroyEntity();
         _alienLaser.destroyEntity();
     }
+     */
 }
 
 void CollisionDetector::LaserCanonShieldLaserCollission(LaserCanonShield& _laserCanonShield,
     Laser& _laser1,
     Laser& _laser2)
-{
+{ /*
     auto [shield_xPosition, shield_yposition] = _laserCanonShield.entityPosition();
     auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
     auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
@@ -166,10 +171,12 @@ void CollisionDetector::LaserCanonShieldLaserCollission(LaserCanonShield& _laser
     if(centreDistance2 < radii_sum && _laser2.isAlive() && _laserCanonShield.isAlive()) {
         _laser2.destroyEntity();
     }
+     */
 }
 
 void CollisionDetector::Laser1Laser2Collision(Laser& _laser1, Laser& _laser2)
 {
+    /*
     auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
     auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
 
@@ -186,10 +193,12 @@ void CollisionDetector::Laser1Laser2Collision(Laser& _laser1, Laser& _laser2)
         _laser1.destroyEntity();
         _laser2.destroyEntity();
     }
+     */
 }
 
 void CollisionDetector::LaserAliensLaserCollision(Laser& _laser1, Laser& _laser2, Laser& _alienLaser)
 {
+    /*
     auto [laser1_xPosition, laser1_yPosition] = _laser1.entityPosition();
     auto [laser2_xPosition, laser2_yPosition] = _laser2.entityPosition();
     auto [alienLaser_xPosition, alienLaser_yPosition] = _alienLaser.entityPosition();
@@ -216,4 +225,5 @@ void CollisionDetector::LaserAliensLaserCollision(Laser& _laser1, Laser& _laser2
         _laser2.destroyEntity();
         _alienLaser.destroyEntity();
     }
+     */
 }

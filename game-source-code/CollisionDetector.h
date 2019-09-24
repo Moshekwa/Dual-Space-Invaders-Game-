@@ -21,10 +21,14 @@ public:
     void LaserAliensLaserCollision(Laser& _laser1, Laser& _laser2, Laser& _alienLaser);
 
 private:
-    int laserRadius = 3;
-    int alienRadius = 10;
-    int laserCanonRadius = 10;
-    int LaserCanonShieldRadius = 20;
+    int laserWidth = 4;
+    int laserHeight = 6;
+    int alienWidth = 20;
+    int alienHeight = 20;
+    int laserCanonWidth = 20;
+    int laserCanonHeight = 20;
+    int LaserCanonShieldWidth = 40;
+    int LaserCanonShieldHeight = 20;
 };
 
 #endif // COLLISIONDETECTOR_H_INCLUDED
