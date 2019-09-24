@@ -65,6 +65,10 @@ void ImageLoader::createTexts()
     auto _text3 = make_shared<Text>();
     _text3->setFont(_font);
     _texts.push_back(_text3);
+    
+    auto _text4 = make_shared<Text>();
+    _text4->setFont(_font);
+    _texts.push_back(_text4);
 }
 
 Texts ImageLoader::getTexts() const

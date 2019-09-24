@@ -20,7 +20,7 @@ void GameUpdater::updateLaser1Position(LaserCanon& _laserCanon1, Laser& _laser1)
 /*
 void updateDiagonalLaserPosition(LaserCanon& _LaserCanon& _laserCanon1, DiagonalLaser& _diagonalLaser)
 {
-	if(_diagonalLaser.isAlive()) {
+        if(_diagonalLaser.isAlive()) {
         if(get<1>(_diagonalLaser.entityPosition()) <= 40) {
             _diagonalLaser.destroyEntity();
         } else {
@@ -115,17 +115,16 @@ void GameUpdater::updateUpAlienPosition(Alien& _alien)
     }
 }
 
-void GameUpdater::updateCanon1_ScoreAndHighScore(LaserCanon& _laserCanon1, Alien& _alien)
+void GameUpdater::updateCanon1_ScoreAndHighScore(ScoreBoard& _scoreBoard1, Alien& _alien)
 {
-    auto newScore = get<0>(_laserCanon1.getScoreAndHighScore()) + _alien.alienPoints(_alien.getAlienColour());
-    _laserCanon1.setScore(newScore);
-	_laserCanon1.updateHighScoreToFile();
+    auto newScore = _scoreBoard1.getScore() + _alien.alienPoints(_alien.getAlienColour());
+    _scoreBoard1.setScore(newScore);
+    _scoreBoard1.readHighScoreIntoFile(1);
 }
 
-void GameUpdater::updateCanon2_ScoreAndHighScore(LaserCanon& _laserCanon2, Alien& _alien)
+void GameUpdater::updateCanon2_ScoreAndHighScore(ScoreBoard& _scoreBoard2, Alien& _alien)
 {
-    auto newScore = get<0>(_laserCanon2.getScoreAndHighScore()) + _alien.alienPoints(_alien.getAlienColour());
-    _laserCanon2.setScore(newScore);
-	_laserCanon2.updateHighScoreToFile();
-	
+    auto newScore = _scoreBoard2.getScore() + _alien.alienPoints(_alien.getAlienColour());
+    _scoreBoard2.setScore(newScore);
+    _scoreBoard2.readHighScoreIntoFile(2);
 }

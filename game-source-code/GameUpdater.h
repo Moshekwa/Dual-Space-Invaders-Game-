@@ -3,6 +3,7 @@
 #include "Alien.h"
 #include "Laser.h"
 #include "DiagonalLaser.h"
+#include "ScoreBoard.h"
 
 class GameUpdater
 {
@@ -14,8 +15,8 @@ public:
     void updateUpAlienPosition(Alien& _alien);
     void updateAlienLaserPosition(Alien& _alien, Laser& _alienLaser);
     void updateUpAlienLaserPosition(Alien& _alien, Laser& _alienLaser);
-    void updateCanon1_ScoreAndHighScore(LaserCanon& _laserCanon1, Alien& _alien);
-    void updateCanon2_ScoreAndHighScore(LaserCanon& _laserCanon2, Alien& _alien);
+    void updateCanon1_ScoreAndHighScore(ScoreBoard& _scoreBoard1, Alien& _alien);
+    void updateCanon2_ScoreAndHighScore(ScoreBoard& _scoreBoard2, Alien& _alien);
 
 	//void updateDiagonalLaserPosition(LaserCanon& _LaserCanon& _laserCanon1, DiagonalLaser& _diagonalLaser); 
 private:

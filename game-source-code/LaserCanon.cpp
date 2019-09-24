@@ -1,29 +1,24 @@
 #include "LaserCanon.h"
-#include <fstream>
+
 
 LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
     : MovingEntity{ x, y, 5, true, numberOfLives }
-    , lifeLost{ false }
-    , _score{ 0 }
 {
     switch(canonNumber) {
     case 1:
-	if(x < 0 || x > 380 || y != 480) {
-	    throw InvalidLaserCanonCoordinates{};
-	}
-	break;
+        if(x < 0 || x > 380 || y != 480) {
+            throw InvalidLaserCanonCoordinates{};
+        }
+        break;
     case 2:
-	if(x < 0 || x > 380 || y != 40) {
+        if(x < 0 || x > 380 || y != 40) {
 
-	    throw InvalidLaserCanonCoordinates{};
-	}
-	break;
+            throw InvalidLaserCanonCoordinates{};
+        }
+        break;
     default:
-	break;
+        break;
     }
-	
-	ReadHighScoreFromFile();
-	
 }
 
 void LaserCanon::move(Direction _direction)
@@ -33,55 +28,16 @@ void LaserCanon::move(Direction _direction)
     auto x_position = get<0>(entityPosition());
     switch(_direction) {
     case LEFT:
-	if(x_position > leftBoundary) {
-	    setXposition(x_position - getEntitySpeed());
-	}
-	break;
+        if(x_position > leftBoundary) {
+            setXposition(x_position - getEntitySpeed());
+        }
+        break;
     case RIGHT:
-	if(x_position < rightBoundary) {
-	    setXposition(x_position + getEntitySpeed());
-	}
-	break;
+        if(x_position < rightBoundary) {
+            setXposition(x_position + getEntitySpeed());
+        }
+        break;
     default:
-	break;
+        break;
     }
-}
-
-void LaserCanon::setScore(int score)
-{
-    _score = score;
-    if(_score > _highScore) {
-	setHighScore(_score);
-    }
-}
-
-void LaserCanon::setHighScore(int highScore)
-{
-    _highScore = highScore;
-}
-
-void LaserCanon::ReadHighScoreFromFile()
-{
-    ifstream infile("HighScore.txt");
-
-    if(!infile) {
-	throw FileCannotBeOpened{};
-    }
-    infile >> _highScore;
-}
-
-void LaserCanon::updateHighScoreToFile()
-{
-    ofstream outfile("HighScore.txt");
-
-    if(!outfile) {
-	throw FileCannotBeOpened{};
-    }
-	
-	outfile << _highScore;
-}
-
-tuple<int, int> LaserCanon::getScoreAndHighScore() const
-{
-    return { _score, _highScore };
 }

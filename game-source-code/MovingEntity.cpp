@@ -10,3 +10,8 @@ int MovingEntity::getEntitySpeed() const
 {
     return _entitySpeed;
 }
+
+void MovingEntity::setEntitySpeed(int speed)
+{
+    _entitySpeed = speed;
+}

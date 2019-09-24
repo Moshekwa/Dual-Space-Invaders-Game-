@@ -5,6 +5,9 @@
 GameLoop::GameLoop()
     : _windowDisplay{ new WindowDisplay }
     , _imageDrawer{ new ImageDrawer{ _windowDisplay->getWindow() } }
+    , _scoreBoard1{ new ScoreBoard{} }
+    , _scoreBoard2{ new ScoreBoard{} }
+    , _collisionHandler{ new CollisionHandler{} }
     , gameWon{ false }
     , gameLost{ false }
     , redAlienRowAlive{ true }
@@ -36,9 +39,11 @@ void GameLoop::PlayGame()
             _windowDisplay->getWindow()->display();
             _windowDisplay->getWindow()->clear();
         } else if(_windowDisplay->isPlay()) {
-            _imageDrawer->drawScore(*_laserCanon1);
-            _imageDrawer->drawScore2(*_laserCanon2);
-            _imageDrawer->drawHighScore(*_laserCanon1);
+            _imageDrawer->drawScore(*_scoreBoard1);
+            _imageDrawer->drawScore2(*_scoreBoard2);
+            _imageDrawer->drawHighScore1(*_scoreBoard1);
+            _imageDrawer->drawHighScore2(*_scoreBoard2);
+
             gameActivities();
             displayGameEntities();
             _windowDisplay->getWindow()->display();
@@ -230,7 +235,7 @@ void GameLoop::laserCanonAndLaserActivities()
     _updater.updateLaser1Position(*_laserCanon1, *_laser1);
     _updater.updateLaser2Position(*_laserCanon2, *_laser2);
 
-    _collisionDetector.Laser1Laser2Collision(*_laser1, *_laser2);
+    _collisionHandler->handleLaser1Laser2Collision(*_laser1, *_laser2);
 
     if(_windowDisplay->is_singleMode()) {
         _keyHandler.singleModeKeyCheck(*_laserCanon1, *_laserCanon2, *_laser1, *_laser2);
@@ -239,46 +244,16 @@ void GameLoop::laserCanonAndLaserActivities()
         _keyHandler.KeyCheck2(*_laserCanon2, *_laser2);
     }
 
-    auto [collisionOccured, laserCanonNumber] =
-        _collisionDetector.LaserCanonLaserCollision(*_laserCanon1, *_laserCanon2, *_laser1, *_laser2);
-
-    if(collisionOccured) {
-        switch(laserCanonNumber) {
-        case 1:
-            _laserCanon1->destroyEntity();
-            aliensInitialPositions();
-            laserCanonsInitialPositions();
-            break;
-        case 2:
-            _laserCanon2->destroyEntity();
-            aliensInitialPositions();
-            laserCanonsInitialPositions();
-            break;
-        default:
-            break;
-        }
+    _collisionHandler->handleLaserCanonLaserCollision(*_laserCanon1, *_laserCanon2, *_laser1, *_laser2);
+    if(_collisionHandler->isLaserCanonShot()) {
+        aliensInitialPositions();
+        laserCanonsInitialPositions();
     }
+    _collisionHandler->setCanonShotStateFalse();
 
     for(auto alienLaser : _alienLasers) {
-        auto [canonAlienLaserCollision, canonNumber] =
-            _collisionDetector.LaserCanonAlienLaserCollision(*_laserCanon1, *_laserCanon2, *alienLaser);
-        _collisionDetector.LaserAliensLaserCollision(*_laser1, *_laser2, *alienLaser);
-        if(canonAlienLaserCollision) {
-            switch(canonNumber) {
-            case 1:
-                _laserCanon1->destroyEntity();
-                aliensInitialPositions();
-                laserCanonsInitialPositions();
-                break;
-            case 2:
-                _laserCanon2->destroyEntity();
-                aliensInitialPositions();
-                laserCanonsInitialPositions();
-                break;
-            default:
-                break;
-            }
-        }
+        _collisionHandler->handleLaserCanonAlienLaserCollision(*_laserCanon1, *_laserCanon2, *alienLaser);
+        _collisionHandler->handleLaserAliensLaserCollision(*_laser1, *_laser2, *alienLaser);
     }
 
     if(!_laserCanon1->isAlive() || !_laserCanon2->isAlive()) {
@@ -320,15 +295,8 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-        
-        auto [alienKilledByLaser1, alienKilledByLaser2] =
-            _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *greenAlien);
-        if(alienKilledByLaser1) {
-            _updater.updateCanon1_ScoreAndHighScore(*_laserCanon1, *greenAlien);
-        }
-        if(alienKilledByLaser2) {
-            _updater.updateCanon2_ScoreAndHighScore(*_laserCanon2, *greenAlien);
-        }
+
+        _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *greenAlien, *_scoreBoard1, *_scoreBoard2);
 
         if(!greenAlien->isAlive()) {
             counter++;
@@ -359,15 +327,7 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-
-        auto [alienKilledByLaser1, alienKilledByLaser2] =
-            _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *purpleAlien);
-        if(alienKilledByLaser1) {
-            _updater.updateCanon1_ScoreAndHighScore(*_laserCanon1, *purpleAlien);
-        }
-        if(alienKilledByLaser2) {
-            _updater.updateCanon2_ScoreAndHighScore(*_laserCanon2, *purpleAlien);
-        }
+        _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *purpleAlien, *_scoreBoard1, *_scoreBoard2);
 
         if(!purpleAlien->isAlive()) {
             counter++;
@@ -398,15 +358,7 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-
-        auto [alienKilledByLaser1, alienKilledByLaser2] =
-            _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *redAlien);
-        if(alienKilledByLaser1) {
-            _updater.updateCanon1_ScoreAndHighScore(*_laserCanon1, *redAlien);
-        }
-        if(alienKilledByLaser2) {
-            _updater.updateCanon2_ScoreAndHighScore(*_laserCanon2, *redAlien);
-        }
+        _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *redAlien, *_scoreBoard1, *_scoreBoard2);
 
         if(!redAlien->isAlive()) {
             counter++;
@@ -434,15 +386,7 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-        
-        auto [alienKilledByLaser1, alienKilledByLaser2] =
-            _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpGreenAlien);
-        if(alienKilledByLaser1) {
-            _updater.updateCanon1_ScoreAndHighScore(*_laserCanon1, *UpGreenAlien);
-        }
-        if(alienKilledByLaser2) {
-            _updater.updateCanon2_ScoreAndHighScore(*_laserCanon2, *UpGreenAlien);
-        }
+        _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpGreenAlien, *_scoreBoard1, *_scoreBoard2);
 
         if(!UpGreenAlien->isAlive()) {
             counter++;
@@ -474,15 +418,7 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-
-        auto [alienKilledByLaser1, alienKilledByLaser2] =
-            _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpPurpleAlien);
-        if(alienKilledByLaser1) {
-            _updater.updateCanon1_ScoreAndHighScore(*_laserCanon1, *UpPurpleAlien);
-        }
-        if(alienKilledByLaser2) {
-            _updater.updateCanon2_ScoreAndHighScore(*_laserCanon2, *UpPurpleAlien);
-        }
+        _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpPurpleAlien, *_scoreBoard1, *_scoreBoard2);
 
         if(!UpPurpleAlien->isAlive()) {
             counter++;
@@ -513,15 +449,7 @@ void GameLoop::alienActivities()
             auto play = false;
             _windowDisplay->setPlay(play);
         }
-
-        auto [alienKilledByLaser1, alienKilledByLaser2] =
-            _collisionDetector.LaserAlienCollision(*_laser1, *_laser2, *UpRedAlien);
-        if(alienKilledByLaser1) {
-            _updater.updateCanon1_ScoreAndHighScore(*_laserCanon1, *UpRedAlien);
-        }
-        if(alienKilledByLaser2) {
-            _updater.updateCanon2_ScoreAndHighScore(*_laserCanon2, *UpRedAlien);
-        }
+        _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpRedAlien, *_scoreBoard1, *_scoreBoard2);
 
         if(!UpRedAlien->isAlive()) {
             counter++;
@@ -540,12 +468,12 @@ void GameLoop::laserCanonShieldActivities()
     auto _collisionDetector = CollisionDetector{};
     for(auto alienLaser : _alienLasers) {
         for(auto laserCanonShield : _laserCanonShields) {
-            _collisionDetector.LaserCanonShieldAlienLaserCollision(*laserCanonShield, *alienLaser);
+            _collisionHandler->handleLaserCanonShieldAlienLaserCollision(*laserCanonShield, *alienLaser);
         }
     }
 
     for(auto laserCanonShield : _laserCanonShields) {
-        _collisionDetector.LaserCanonShieldLaserCollission(*laserCanonShield, *_laser1, *_laser2);
+        _collisionHandler->handleLaserCanonShieldLaserCollission(*laserCanonShield, *_laser1, *_laser2);
     }
 }
 

@@ -9,6 +9,7 @@ class MovingEntity : public GameEntity
 public:
     MovingEntity(int xPosition, int yPosition, int entitySpeed, bool life, int numberOfLives);
     int getEntitySpeed() const;
+    void setEntitySpeed(int speed);
     virtual void move(Direction _direction) = 0;
     
 private:

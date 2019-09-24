@@ -1,6 +1,7 @@
 #ifndef GAMELOOP_H_INCLUDED
 #define GAMELOOP_H_INCLUDED
 #include "CollisionDetector.h"
+#include "CollisionHandler.h"
 #include "GameEntity.h"
 #include "GameUpdater.h"
 #include "KeyHandler.h"
@@ -11,6 +12,7 @@
 #include "LaserCanon.h"
 #include "LaserCanonShield.h"
 #include "Alien.h"
+#include "ScoreBoard.h"
 
 #include <memory>
 #include <vector>
@@ -45,6 +47,9 @@ private:
     shared_ptr<Laser> _laser2;
     shared_ptr<ImageDrawer> _imageDrawer;
     shared_ptr<Alien> _alien;
+    shared_ptr<ScoreBoard> _scoreBoard1;
+    shared_ptr<ScoreBoard> _scoreBoard2;
+    shared_ptr<CollisionHandler> _collisionHandler;
 
     GreenAliens _greenAliens;
     PurpleAliens _purpleAliens;

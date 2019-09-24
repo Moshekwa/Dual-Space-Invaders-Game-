@@ -7,6 +7,7 @@
 #include "LaserCanon.h"
 #include "LaserCanonLife.h"
 #include "LaserCanonShield.h"
+#include "ScoreBoard.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <vector>
@@ -36,9 +37,10 @@ public:
     void drawLaserCanonShields(const LaserCanonShield& _canonShield, int shieldNumber, int shieldState);
     void drawLaserCanonLives(const LaserCanonLife& _canonLife);
 
-    void drawScore(LaserCanon& _laserCanon1);
-    void drawScore2(LaserCanon& _laserCanon2);
-    void drawHighScore(LaserCanon& _laserCanon1);
+    void drawScore(ScoreBoard& _scoreBoard1);
+    void drawScore2(ScoreBoard& _scoreBoard2);
+    void drawHighScore1(ScoreBoard& _scoreBoard1);
+    void drawHighScore2(ScoreBoard& _scoreBoard2);
 
     void drawHomeScreen();
     void drawGameWon();
