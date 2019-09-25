@@ -13,19 +13,30 @@ void ImageDrawer::drawLaserCanon(const LaserCanon& _laserCanon1)
 {
     if(_laserCanon1.isAlive()) {
         auto [x_position, y_position] = _laserCanon1.entityPosition();
-        _sprites.at(0)->setScale(0.5f, 0.5f);
-        _sprites.at(0)->setPosition(x_position, y_position);
-        _window->draw(*_sprites.at(0));
+        if(y_position == 40) {
+            _sprites.at(1)->setScale(0.5f, 0.5f);
+            _sprites.at(1)->setPosition(x_position, y_position);
+            _window->draw(*_sprites.at(1));
+        } else {
+            _sprites.at(0)->setScale(0.5f, 0.5f);
+            _sprites.at(0)->setPosition(x_position, y_position);
+            _window->draw(*_sprites.at(0));
+        }
     }
 }
-
 void ImageDrawer::drawLaserCanon2(const LaserCanon& _laserCanon2)
 {
     if(_laserCanon2.isAlive()) {
         auto [x_position, y_position] = _laserCanon2.entityPosition();
-        _sprites.at(1)->setScale(0.5f, 0.5f);
-        _sprites.at(1)->setPosition(x_position, y_position);
-        _window->draw(*_sprites.at(1));
+        if(y_position == 480) {
+            _sprites.at(0)->setScale(0.5f, 0.5f);
+            _sprites.at(0)->setPosition(x_position, y_position);
+            _window->draw(*_sprites.at(0));
+        } else {
+            _sprites.at(1)->setScale(0.5f, 0.5f);
+            _sprites.at(1)->setPosition(x_position, y_position);
+            _window->draw(*_sprites.at(1));
+        }
     }
 }
 

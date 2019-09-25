@@ -1,8 +1,6 @@
 #ifndef GAMELOOP_H_INCLUDED
 #define GAMELOOP_H_INCLUDED
-#include "CollisionDetector.h"
 #include "CollisionHandler.h"
-#include "GameEntity.h"
 #include "GameUpdater.h"
 #include "KeyHandler.h"
 #include "Laser.h"

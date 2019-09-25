@@ -16,6 +16,12 @@ void KeyHandler::KeyCheck(LaserCanon& _laserCanon1, Laser& _laser1)
 	_laserCanon1.move(LEFT);
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Up)) {
+	_laserCanon1.move(UP);
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Key::Down)) {
+	_laserCanon1.move(DOWN);
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Key::Space)) {
 	_laser1.shoot();
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
@@ -31,7 +37,14 @@ void KeyHandler::KeyCheck2(LaserCanon& _laserCanon2, Laser& _laser2)
     if(Keyboard::isKeyPressed(Keyboard::Key::A)) {
 	_laserCanon2.move(LEFT);
     }
-    if(Keyboard::isKeyPressed(Keyboard::Key::W)) {
+    
+     if(Keyboard::isKeyPressed(Keyboard::Key::W)) {
+	_laserCanon2.move(UP);
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Key::S)) {
+	_laserCanon2.move(DOWN);
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Key::X)) {
 	_laser2.shoot();
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) {

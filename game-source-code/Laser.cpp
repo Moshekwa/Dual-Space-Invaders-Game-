@@ -35,13 +35,13 @@ void Laser::move(Direction _direction)
 void Laser::moveLaserWithCanon(LaserCanon& _laserCanon)
 {
     auto [x_position, y_position] = _laserCanon.entityPosition(); 
-    setXposition(x_position + 6);
-    setYposition(y_position);
+    setXposition(x_position + 5);
+    setYposition(y_position + 5);
 }
 
 void Laser::moveLaserWithAlien(Alien& _alien)
 {
     auto [x_position, y_position] = _alien.entityPosition();
-    setXposition(x_position + 6);
-    setYposition(y_position);
+    setXposition(x_position + 5);
+    setYposition(y_position + 5);
 }

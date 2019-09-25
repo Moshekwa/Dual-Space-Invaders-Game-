@@ -1,6 +1,5 @@
 #include "LaserCanon.h"
 
-
 LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
     : MovingEntity{ x, y, 5, true, numberOfLives }
 {
@@ -25,16 +24,29 @@ void LaserCanon::move(Direction _direction)
 {
     auto leftBoundary = 0;
     auto rightBoundary = 380;
-    auto x_position = get<0>(entityPosition());
+    auto upperBoundary = 40;
+    auto bottomBoundary = 480;
+    auto [x_position, y_position] = entityPosition();
+
     switch(_direction) {
     case LEFT:
-        if(x_position > leftBoundary) {
+        if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
             setXposition(x_position - getEntitySpeed());
         }
         break;
     case RIGHT:
-        if(x_position < rightBoundary) {
+        if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
             setXposition(x_position + getEntitySpeed());
+        }
+        break;
+    case UP:
+        if(y_position > upperBoundary) {
+            setYposition((y_position - getEntitySpeed()));
+        }
+        break;
+    case DOWN:
+        if(y_position < bottomBoundary) {
+            setYposition((y_position + getEntitySpeed()));
         }
         break;
     default:

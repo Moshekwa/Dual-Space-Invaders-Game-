@@ -230,8 +230,7 @@ void GameLoop::gameActivities()
 void GameLoop::laserCanonAndLaserActivities()
 {
     auto _updater = GameUpdater{};
-    auto _collisionDetector = CollisionDetector{};
-
+    
     _updater.updateLaser1Position(*_laserCanon1, *_laser1);
     _updater.updateLaser2Position(*_laserCanon2, *_laser2);
 
@@ -266,7 +265,6 @@ void GameLoop::laserCanonAndLaserActivities()
 void GameLoop::alienActivities()
 {
     auto _updater = GameUpdater{};
-    auto _collisionDetector = CollisionDetector{};
     auto counter = 0;
     auto AlienCounter = 0;
     auto totalNumberOfAliens = Alien::getNumberOfAliens() * 6;
@@ -465,7 +463,6 @@ void GameLoop::alienActivities()
 
 void GameLoop::laserCanonShieldActivities()
 {
-    auto _collisionDetector = CollisionDetector{};
     for(auto alienLaser : _alienLasers) {
         for(auto laserCanonShield : _laserCanonShields) {
             _collisionHandler->handleLaserCanonShieldAlienLaserCollision(*laserCanonShield, *alienLaser);

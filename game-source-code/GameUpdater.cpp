@@ -7,10 +7,18 @@ GameUpdater::GameUpdater()
 void GameUpdater::updateLaser1Position(LaserCanon& _laserCanon1, Laser& _laser1)
 {
     if(_laser1.isAlive()) {
-        if(get<1>(_laser1.entityPosition()) <= 40) {
-            _laser1.destroyEntity();
+        if(get<1>(_laserCanon1.entityPosition()) == 40) {
+            if(get<1>(_laser1.entityPosition()) >= 490) {
+                _laser1.destroyEntity();
+            } else {
+                _laser1.move(DOWN);
+            }
         } else {
-            _laser1.move(UP);
+            if(get<1>(_laser1.entityPosition()) <= 40) {
+                _laser1.destroyEntity();
+            } else {
+                _laser1.move(UP);
+            }
         }
     } else {
         _laser1.moveLaserWithCanon(_laserCanon1);
@@ -35,10 +43,18 @@ void updateDiagonalLaserPosition(LaserCanon& _LaserCanon& _laserCanon1, Diagonal
 void GameUpdater::updateLaser2Position(LaserCanon& _laserCanon2, Laser& _laser2)
 {
     if(_laser2.isAlive()) {
-        if(get<1>(_laser2.entityPosition()) >= 490) {
-            _laser2.destroyEntity();
+        if(get<1>(_laserCanon2.entityPosition()) == 480) {
+            if(get<1>(_laser2.entityPosition()) <= 40) {
+                _laser2.destroyEntity();
+            } else {
+                _laser2.move(UP);
+            }
         } else {
-            _laser2.move(DOWN);
+            if(get<1>(_laser2.entityPosition()) >= 490) {
+                _laser2.destroyEntity();
+            } else {
+                _laser2.move(DOWN);
+            }
         }
     } else {
         _laser2.moveLaserWithCanon(_laserCanon2);
