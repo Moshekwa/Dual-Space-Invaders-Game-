@@ -292,6 +292,7 @@ void GameLoop::alienActivities()
         }
 
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *greenAlien, *_scoreBoard);
+        _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *greenAlien);
 
         if(!greenAlien->isAlive()) {
             counter++;
@@ -323,6 +324,7 @@ void GameLoop::alienActivities()
             _windowDisplay->setPlay(play);
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *purpleAlien, *_scoreBoard);
+        _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *purpleAlien);
 
         if(!purpleAlien->isAlive()) {
             counter++;
@@ -354,6 +356,7 @@ void GameLoop::alienActivities()
             _windowDisplay->setPlay(play);
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *redAlien, *_scoreBoard);
+        _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *redAlien);
 
         if(!redAlien->isAlive()) {
             counter++;
@@ -382,6 +385,7 @@ void GameLoop::alienActivities()
             _windowDisplay->setPlay(play);
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpGreenAlien, *_scoreBoard);
+         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpGreenAlien);
 
         if(!UpGreenAlien->isAlive()) {
             counter++;
@@ -414,6 +418,7 @@ void GameLoop::alienActivities()
             _windowDisplay->setPlay(play);
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpPurpleAlien, *_scoreBoard);
+        _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpPurpleAlien);
 
         if(!UpPurpleAlien->isAlive()) {
             counter++;
@@ -445,6 +450,7 @@ void GameLoop::alienActivities()
             _windowDisplay->setPlay(play);
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpRedAlien, *_scoreBoard);
+        _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpRedAlien);
 
         if(!UpRedAlien->isAlive()) {
             counter++;

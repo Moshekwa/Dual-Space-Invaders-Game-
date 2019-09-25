@@ -136,7 +136,20 @@ void CollisionHandler::handleLaserAliensLaserCollision(Laser& _laser1, Laser& _l
 void CollisionHandler::hanldleLaserCanonLaserCanonCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2)
 {
     auto collisionOccured = _collisionDetector->LaserCanonLaserCanonCollision(_laserCanon1, _laserCanon2);
-    if(collisionOccured){
-        
+    if(collisionOccured) {
+    }
+}
+
+void CollisionHandler::handleLaserCanonAlienCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Alien& _alien)
+{
+    auto [alienKilledByCanon1, alienKilledByCanon2] =
+        _collisionDetector->LaserCanonAlienCollision(_laserCanon1, _laserCanon2, _alien);
+    if(alienKilledByCanon1) {
+        _laserCanon1.destroyEntity();
+        _alien.destroyEntity();
+    }
+    if(alienKilledByCanon2) {
+        _laserCanon2.destroyEntity();
+        _alien.destroyEntity();
     }
 }

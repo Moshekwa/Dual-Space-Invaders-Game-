@@ -159,3 +159,28 @@ bool CollisionDetector::LaserCanonLaserCanonCollision(LaserCanon& _laserCanon1, 
     }
     return false;
 }
+
+tuple<bool, bool> CollisionDetector::LaserCanonAlienCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Alien& _alien)
+{
+    auto [laserCanon1_Xmin, laserCanon1_Ymin, laserCanon1_Xmax, laserCanon1_Ymax] =
+        _entityShape.laserCanon1Shape(_laserCanon1);
+    auto [laserCanon2_Xmin, laserCanon2_Ymin, laserCanon2_Xmax, laserCanon2_Ymax] =
+        _entityShape.laserCanon2Shape(_laserCanon2);
+    auto [alien_Xmin, alien_Ymin, alien_Xmax, alien_Ymax] = _entityShape.alienShape(_alien);
+    auto alienKilledByCanon1 = false;
+    auto alienKilledByCanon2 = false;
+
+    if((laserCanon1_Xmax >= alien_Xmin && laserCanon1_Xmin <= alien_Xmax) &&
+        (laserCanon1_Ymax >= alien_Ymin && laserCanon1_Ymin <= alien_Ymax) && (_laserCanon1.isAlive()) &&
+        _alien.isAlive()) {
+        alienKilledByCanon1 = true;
+        return { alienKilledByCanon1, alienKilledByCanon2 };
+    }
+    if((laserCanon2_Xmax >= alien_Xmin && laserCanon2_Xmin <= alien_Xmax) &&
+        (laserCanon2_Ymax >= alien_Ymin && laserCanon2_Ymin <= alien_Ymax) && (_laserCanon2.isAlive()) &&
+        _alien.isAlive()) {
+        alienKilledByCanon2 = true;
+        return { alienKilledByCanon1, alienKilledByCanon2 };
+    }
+    return { alienKilledByCanon1, alienKilledByCanon2 };
+}

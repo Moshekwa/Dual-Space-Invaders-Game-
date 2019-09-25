@@ -21,6 +21,7 @@ public:
     void handleLaser1Laser2Collision(Laser& _laser1, Laser& _laser2);
     void handleLaserAliensLaserCollision(Laser& _laser1, Laser& _laser2, Laser& _alienLaser);
     void hanldleLaserCanonLaserCanonCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2);
+    void handleLaserCanonAlienCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Alien& _alien);
 
     bool isLaserCanonShot();
     void setCanonShotStateFalse();

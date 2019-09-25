@@ -141,12 +141,12 @@ void GameUpdater::updateLaserCanon1Position(LaserCanon& _laserCanon1, Direction 
         break;
     case UP:
         if(y_position > upperBoundary) {
-            _laserCanon1.move(RIGHT);
+            _laserCanon1.move(UP);
         }
         break;
     case DOWN:
         if(y_position < bottomBoundary) {
-            _laserCanon1.move(RIGHT);
+            _laserCanon1.move(DOWN);
         }
     default:
         break;
@@ -171,12 +171,12 @@ void GameUpdater::updateLaserCanon2Position(LaserCanon& _laserCanon2, Direction 
         break;
     case UP:
         if(y_position > upperBoundary) {
-            _laserCanon2.move(RIGHT);
+            _laserCanon2.move(UP);
         }
         break;
     case DOWN:
         if(y_position < bottomBoundary) {
-            _laserCanon2.move(RIGHT);
+            _laserCanon2.move(DOWN);
         }
     default:
         break;
