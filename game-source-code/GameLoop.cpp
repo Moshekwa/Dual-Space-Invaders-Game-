@@ -227,7 +227,7 @@ void GameLoop::gameActivities()
 void GameLoop::laserCanonAndLaserActivities()
 {
     auto _updater = GameUpdater{};
-    
+
     _updater.updateLaser1Position(*_laserCanon1, *_laser1);
     _updater.updateLaser2Position(*_laserCanon2, *_laser2);
 
@@ -285,7 +285,8 @@ void GameLoop::alienActivities()
         }
         _updater.updateAlienLaserPosition(*greenAlien, *_alienLasers.at(AlienCounter));
 
-        if(greenAlien->isAlive() && get<1>(greenAlien->entityPosition()) >= get<3>(greenAlien->getMovementBoundaries())) {
+        if(greenAlien->isAlive() &&
+            get<1>(greenAlien->entityPosition()) >= get<3>(greenAlien->getMovementBoundaries())) {
             gameLost = true;
             auto play = false;
             _windowDisplay->setPlay(play);
@@ -293,6 +294,11 @@ void GameLoop::alienActivities()
 
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *greenAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *greenAlien);
+        if(_collisionHandler->isLaserCanonShot()) {
+            aliensInitialPositions();
+            laserCanonsInitialPositions();
+        }
+        _collisionHandler->setCanonShotStateFalse();
 
         if(!greenAlien->isAlive()) {
             counter++;
@@ -318,14 +324,19 @@ void GameLoop::alienActivities()
         }
         _updater.updateAlienLaserPosition(*purpleAlien, *_alienLasers.at(AlienCounter));
 
-        if(purpleAlien->isAlive() && get<1>(purpleAlien->entityPosition()) >= get<3>(purpleAlien->getMovementBoundaries())) {
+        if(purpleAlien->isAlive() &&
+            get<1>(purpleAlien->entityPosition()) >= get<3>(purpleAlien->getMovementBoundaries())) {
             gameLost = true;
             auto play = false;
             _windowDisplay->setPlay(play);
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *purpleAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *purpleAlien);
-
+        if(_collisionHandler->isLaserCanonShot()) {
+            aliensInitialPositions();
+            laserCanonsInitialPositions();
+        }
+        _collisionHandler->setCanonShotStateFalse();
         if(!purpleAlien->isAlive()) {
             counter++;
             if(totalNumberOfAliens == counter) {
@@ -357,6 +368,11 @@ void GameLoop::alienActivities()
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *redAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *redAlien);
+        if(_collisionHandler->isLaserCanonShot()) {
+            aliensInitialPositions();
+            laserCanonsInitialPositions();
+        }
+        _collisionHandler->setCanonShotStateFalse();
 
         if(!redAlien->isAlive()) {
             counter++;
@@ -379,13 +395,19 @@ void GameLoop::alienActivities()
         }
         _updater.updateUpAlienLaserPosition(*UpGreenAlien, *_alienLasers.at(AlienCounter));
 
-        if(UpGreenAlien->isAlive() && get<1>(UpGreenAlien->entityPosition()) <= get<2>(UpGreenAlien->getMovementBoundaries())) {
+        if(UpGreenAlien->isAlive() &&
+            get<1>(UpGreenAlien->entityPosition()) <= get<2>(UpGreenAlien->getMovementBoundaries())) {
             gameLost = true;
             auto play = false;
             _windowDisplay->setPlay(play);
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpGreenAlien, *_scoreBoard);
-         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpGreenAlien);
+        _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpGreenAlien);
+        if(_collisionHandler->isLaserCanonShot()) {
+            aliensInitialPositions();
+            laserCanonsInitialPositions();
+        }
+        _collisionHandler->setCanonShotStateFalse();
 
         if(!UpGreenAlien->isAlive()) {
             counter++;
@@ -419,6 +441,11 @@ void GameLoop::alienActivities()
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpPurpleAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpPurpleAlien);
+        if(_collisionHandler->isLaserCanonShot()) {
+            aliensInitialPositions();
+            laserCanonsInitialPositions();
+        }
+        _collisionHandler->setCanonShotStateFalse();
 
         if(!UpPurpleAlien->isAlive()) {
             counter++;
@@ -444,13 +471,19 @@ void GameLoop::alienActivities()
         }
         _updater.updateUpAlienLaserPosition(*UpRedAlien, *_alienLasers.at(AlienCounter));
 
-        if(UpRedAlien->isAlive() && get<1>(UpRedAlien->entityPosition()) <= get<2>(UpRedAlien->getMovementBoundaries())) {
+        if(UpRedAlien->isAlive() &&
+            get<1>(UpRedAlien->entityPosition()) <= get<2>(UpRedAlien->getMovementBoundaries())) {
             gameLost = true;
             auto play = false;
             _windowDisplay->setPlay(play);
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpRedAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpRedAlien);
+        if(_collisionHandler->isLaserCanonShot()) {
+            aliensInitialPositions();
+            laserCanonsInitialPositions();
+        }
+        _collisionHandler->setCanonShotStateFalse();
 
         if(!UpRedAlien->isAlive()) {
             counter++;

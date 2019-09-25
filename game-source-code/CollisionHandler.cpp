@@ -147,9 +147,11 @@ void CollisionHandler::handleLaserCanonAlienCollision(LaserCanon& _laserCanon1, 
     if(alienKilledByCanon1) {
         _laserCanon1.destroyEntity();
         _alien.destroyEntity();
+        canonIsShot = true;
     }
     if(alienKilledByCanon2) {
         _laserCanon2.destroyEntity();
         _alien.destroyEntity();
+        canonIsShot = true;
     }
 }
