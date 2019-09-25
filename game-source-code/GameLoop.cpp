@@ -228,6 +228,10 @@ void GameLoop::laserCanonAndLaserActivities()
 {
     auto _updater = GameUpdater{};
 
+   // _laserCanon1->setAbilityToMove(true);
+   // _laserCanon2->setAbilityToMove(true);
+    _collisionHandler->handleLaserCanonLaserCollision(*_laserCanon1, *_laserCanon2, *_laser1, *_laser2);
+    _collisionHandler->hanldleLaserCanonLaserCanonCollision(*_laserCanon1, *_laserCanon2);
     _updater.updateLaser1Position(*_laserCanon1, *_laser1);
     _updater.updateLaser2Position(*_laserCanon2, *_laser2);
 
@@ -240,7 +244,6 @@ void GameLoop::laserCanonAndLaserActivities()
         _keyHandler.KeyCheck2(*_laserCanon2, *_laser2);
     }
 
-    _collisionHandler->handleLaserCanonLaserCollision(*_laserCanon1, *_laserCanon2, *_laser1, *_laser2);
     if(_collisionHandler->isLaserCanonShot()) {
         aliensInitialPositions();
         laserCanonsInitialPositions();

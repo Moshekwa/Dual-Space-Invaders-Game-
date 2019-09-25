@@ -128,28 +128,30 @@ void GameUpdater::updateLaserCanon1Position(LaserCanon& _laserCanon1, Direction 
     auto [x_position, y_position] = _laserCanon1.entityPosition();
     auto [leftBoundary, rightBoundary, upperBoundary, bottomBoundary] = _laserCanon1.getMovementBoundaries();
 
-    switch(_direction) {
-    case LEFT:
-        if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
-            _laserCanon1.move(LEFT);
+    if(_laserCanon1.isAbleToMove()) {
+        switch(_direction) {
+        case LEFT:
+            if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+                _laserCanon1.move(LEFT);
+            }
+            break;
+        case RIGHT:
+            if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+                _laserCanon1.move(RIGHT);
+            }
+            break;
+        case UP:
+            if(y_position > upperBoundary) {
+                _laserCanon1.move(UP);
+            }
+            break;
+        case DOWN:
+            if(y_position < bottomBoundary) {
+                _laserCanon1.move(DOWN);
+            }
+        default:
+            break;
         }
-        break;
-    case RIGHT:
-        if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
-            _laserCanon1.move(RIGHT);
-        }
-        break;
-    case UP:
-        if(y_position > upperBoundary) {
-            _laserCanon1.move(UP);
-        }
-        break;
-    case DOWN:
-        if(y_position < bottomBoundary) {
-            _laserCanon1.move(DOWN);
-        }
-    default:
-        break;
     }
 }
 
@@ -158,27 +160,29 @@ void GameUpdater::updateLaserCanon2Position(LaserCanon& _laserCanon2, Direction 
     auto [x_position, y_position] = _laserCanon2.entityPosition();
     auto [leftBoundary, rightBoundary, upperBoundary, bottomBoundary] = _laserCanon2.getMovementBoundaries();
 
-    switch(_direction) {
-    case LEFT:
-        if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
-            _laserCanon2.move(LEFT);
+    if(_laserCanon2.isAbleToMove()) {
+        switch(_direction) {
+        case LEFT:
+            if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+                _laserCanon2.move(LEFT);
+            }
+            break;
+        case RIGHT:
+            if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+                _laserCanon2.move(RIGHT);
+            }
+            break;
+        case UP:
+            if(y_position > upperBoundary) {
+                _laserCanon2.move(UP);
+            }
+            break;
+        case DOWN:
+            if(y_position < bottomBoundary) {
+                _laserCanon2.move(DOWN);
+            }
+        default:
+            break;
         }
-        break;
-    case RIGHT:
-        if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
-            _laserCanon2.move(RIGHT);
-        }
-        break;
-    case UP:
-        if(y_position > upperBoundary) {
-            _laserCanon2.move(UP);
-        }
-        break;
-    case DOWN:
-        if(y_position < bottomBoundary) {
-            _laserCanon2.move(DOWN);
-        }
-    default:
-        break;
     }
 }

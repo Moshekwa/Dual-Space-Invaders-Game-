@@ -1,7 +1,7 @@
 #include "WindowDisplay.h"
 
 WindowDisplay::WindowDisplay()
-    : _window{ new RenderWindow{ VideoMode(screenWidth, screenHeight), "Duel Invaders" } }
+    : _window{ new RenderWindow{ VideoMode(screenWidth, screenHeight), "Duel Space Invaders" } }
 {
     // set frame rate
     const int FPS = 60;

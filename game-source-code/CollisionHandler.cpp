@@ -137,6 +137,8 @@ void CollisionHandler::hanldleLaserCanonLaserCanonCollision(LaserCanon& _laserCa
 {
     auto collisionOccured = _collisionDetector->LaserCanonLaserCanonCollision(_laserCanon1, _laserCanon2);
     if(collisionOccured) {
+      //  _laserCanon1.setAbilityToMove(false);
+      //  _laserCanon2.setAbilityToMove(false);
     }
 }
 
