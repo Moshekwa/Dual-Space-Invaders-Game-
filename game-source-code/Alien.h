@@ -17,16 +17,11 @@ public:
     virtual void move(Direction _direction);
     bool getAlienRightDirection() const;
     void setAlienRightDirection(bool rightDirection);
-    tuple<int, int, int, int> getBoundaries() const;
     static int getNumberOfAliens();
     AlienColour getAlienColour() const;
     int alienPoints(AlienColour _colour);
 
 private:
-    int rightBoundary;
-    int leftBoundary;
-    int upperBoundary;
-    int bottomBoundary;
     bool alienRightDirection;
     const static int numberOfAliens;
     AlienColour _alienColour;

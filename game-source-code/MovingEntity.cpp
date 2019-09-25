@@ -15,3 +15,16 @@ void MovingEntity::setEntitySpeed(int speed)
 {
     _entitySpeed = speed;
 }
+
+void MovingEntity::setMovementBoundaries(int left, int right, int upper, int bottom)
+{
+    leftBoundary = left;
+    rightBoundary = right;
+    upperBoundary = upper;
+    bottomBoundary = bottom;
+}
+
+tuple<int, int, int, int> MovingEntity::getMovementBoundaries()
+{
+    return { leftBoundary, rightBoundary, upperBoundary, bottomBoundary };
+}

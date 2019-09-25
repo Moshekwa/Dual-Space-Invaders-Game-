@@ -25,21 +25,6 @@ void GameUpdater::updateLaser1Position(LaserCanon& _laserCanon1, Laser& _laser1)
     }
 }
 
-/*
-void updateDiagonalLaserPosition(LaserCanon& _LaserCanon& _laserCanon1, DiagonalLaser& _diagonalLaser)
-{
-        if(_diagonalLaser.isAlive()) {
-        if(get<1>(_diagonalLaser.entityPosition()) <= 40) {
-            _diagonalLaser.destroyEntity();
-        } else {
-            _diagonalLaser.move(UP);
-        }
-    } else {
-        _diagonalLaser.moveDiagonalLaserWithCanon(_laserCanon1);
-    }
-}
-*/
-
 void GameUpdater::updateLaser2Position(LaserCanon& _laserCanon2, Laser& _laser2)
 {
     if(_laser2.isAlive()) {
@@ -94,14 +79,14 @@ void GameUpdater::updateAlienPosition(Alien& _alien)
     if(_alien.isAlive()) {
         if(_alien.getAlienRightDirection()) {
             _alien.move(Direction::RIGHT);
-            if(get<0>(_alien.entityPosition()) >= get<1>(_alien.getBoundaries())) {
+            if(get<0>(_alien.entityPosition()) >= get<1>(_alien.getMovementBoundaries())) {
                 _alien.move(Direction::DOWN);
                 _alien.setAlienRightDirection(false);
             }
         }
         if(!_alien.getAlienRightDirection()) {
             _alien.move(Direction::LEFT);
-            if(get<0>(_alien.entityPosition()) <= get<0>(_alien.getBoundaries())) {
+            if(get<0>(_alien.entityPosition()) <= get<0>(_alien.getMovementBoundaries())) {
                 _alien.move(Direction::DOWN);
                 _alien.setAlienRightDirection(true);
                 ;
@@ -115,14 +100,14 @@ void GameUpdater::updateUpAlienPosition(Alien& _alien)
     if(_alien.isAlive()) {
         if(_alien.getAlienRightDirection()) {
             _alien.move(Direction::RIGHT);
-            if(get<0>(_alien.entityPosition()) >= get<1>(_alien.getBoundaries())) {
+            if(get<0>(_alien.entityPosition()) >= get<1>(_alien.getMovementBoundaries())) {
                 _alien.move(Direction::UP);
                 _alien.setAlienRightDirection(false);
             }
         }
         if(!_alien.getAlienRightDirection()) {
             _alien.move(Direction::LEFT);
-            if(get<0>(_alien.entityPosition()) <= get<0>(_alien.getBoundaries())) {
+            if(get<0>(_alien.entityPosition()) <= get<0>(_alien.getMovementBoundaries())) {
                 _alien.move(Direction::UP);
                 _alien.setAlienRightDirection(true);
                 ;
@@ -131,16 +116,19 @@ void GameUpdater::updateUpAlienPosition(Alien& _alien)
     }
 }
 
-void GameUpdater::updateCanon1_ScoreAndHighScore(ScoreBoard& _scoreBoard1, Alien& _alien)
+void GameUpdater::updateCanon_ScoreAndHighScore(ScoreBoard& _scoreBoard, Alien& _alien)
 {
-    auto newScore = _scoreBoard1.getScore() + _alien.alienPoints(_alien.getAlienColour());
-    _scoreBoard1.setScore(newScore);
-    _scoreBoard1.readHighScoreIntoFile(1);
+    auto newScore = _scoreBoard.getScore() + _alien.alienPoints(_alien.getAlienColour());
+    _scoreBoard.setScore(newScore);
+    _scoreBoard.readHighScoreIntoFile();
 }
 
-void GameUpdater::updateCanon2_ScoreAndHighScore(ScoreBoard& _scoreBoard2, Alien& _alien)
+void GameUpdater::updateLaserCanon1Position(LaserCanon& _laserCanon1, Direction _direction)
 {
-    auto newScore = _scoreBoard2.getScore() + _alien.alienPoints(_alien.getAlienColour());
-    _scoreBoard2.setScore(newScore);
-    _scoreBoard2.readHighScoreIntoFile(2);
+    _laserCanon1.move(_direction);
+}
+
+void GameUpdater::updateLaserCanon2Position(LaserCanon& _laserCanon2, Direction _direction)
+{
+    _laserCanon2.move(_direction);
 }

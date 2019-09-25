@@ -285,54 +285,32 @@ void ImageDrawer::drawUpRedAliens(const Alien& _alien, int spriteNumber)
     }
 }
 
-void ImageDrawer::drawScore(ScoreBoard& _scoreBoard1)
+void ImageDrawer::drawScore(ScoreBoard& _scoreBoard)
 {
 
-    auto int_score = _scoreBoard1.getScore();
+    auto int_score = _scoreBoard.getScore();
     stringstream ss;
     ss << int_score;
-    auto x = "Canon1:"s;
+    auto x = "Score:"s;
     _texts.at(0)->setString(x + ss.str().c_str());
     _texts.at(0)->setCharacterSize(11);
     _texts.at(0)->setPosition(0, 0);
     _window->draw(*_texts.at(0));
+
 }
 
-void ImageDrawer::drawScore2(ScoreBoard& _scoreBoard2)
+void ImageDrawer::drawHighScore(ScoreBoard& _scoreBoard)
 {
-    auto int_score2 = _scoreBoard2.getScore();
-    stringstream ss2;
-    ss2 << int_score2;
-    auto x = "Canon2:"s;
-    _texts.at(1)->setString(x + ss2.str().c_str());
+    auto int_score = _scoreBoard.getHighScore();
+    stringstream ss1;
+    ss1 << int_score;
+    auto x = "HighScore:"s;
+    _texts.at(1)->setString(x + ss1.str().c_str());
     _texts.at(1)->setCharacterSize(11);
-    _texts.at(1)->setPosition(0, 15);
+    _texts.at(1)->setPosition(140, 0);
     _window->draw(*_texts.at(1));
 }
 
-void ImageDrawer::drawHighScore1(ScoreBoard& _scoreBoard1)
-{
-    auto int_score = _scoreBoard1.getScore();
-    stringstream ss1;
-    ss1 << int_score;
-    auto x = "HighScore1:"s;
-    _texts.at(2)->setString(x + ss1.str().c_str());
-    _texts.at(2)->setCharacterSize(11);
-    _texts.at(2)->setPosition(140, 0);
-    _window->draw(*_texts.at(2));
-}
-
-void ImageDrawer::drawHighScore2(ScoreBoard& _scoreBoard2)
-{
-    auto int_score = _scoreBoard2.getScore();
-    stringstream ss1;
-    ss1 << int_score;
-    auto x = "HighScore2:"s;
-    _texts.at(3)->setString(x + ss1.str().c_str());
-    _texts.at(3)->setCharacterSize(11);
-    _texts.at(3)->setPosition(140, 15);
-    _window->draw(*_texts.at(3));
-}
 
 void ImageDrawer::drawHomeScreen()
 {

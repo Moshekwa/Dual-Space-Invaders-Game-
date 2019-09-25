@@ -16,14 +16,10 @@ tuple<bool, bool> CollisionDetector::LaserAlienCollision(Laser& _laser1, Laser& 
 
     if((alien_Xmax > laser1_Xmin && alien_Xmin < laser1_Xmax) &&
         (alien_Ymax > laser1_Ymin && alien_Ymin < laser1_Ymax) && (_alien.isAlive())) {
-        _laser1.destroyEntity();
-        _alien.destroyEntity();
         alienKilledByLaser1 = true;
     }
     if((alien_Xmax > laser2_Xmin && alien_Xmin < laser2_Xmax) &&
         (alien_Ymax > laser2_Ymin && alien_Ymin < laser2_Ymax) && (_alien.isAlive())) {
-        _laser2.destroyEntity();
-        _alien.destroyEntity();
         alienKilledByLaser2 = true;
     }
     return { alienKilledByLaser1, alienKilledByLaser2 };
@@ -43,12 +39,10 @@ tuple<bool, int> CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserC
 
     if((laserCanon2_Xmax > laser1_Xmin && laserCanon2_Xmin < laser1_Xmax) &&
         (laserCanon2_Ymax > laser1_Ymin && laserCanon2_Ymin < laser1_Ymax) && (_laserCanon2.isAlive())) {
-        _laser1.destroyEntity();
         return { true, 2 };
     }
     if((laserCanon1_Xmax >= laser2_Xmin && laserCanon1_Xmin <= laser2_Xmax) &&
         (laserCanon1_Ymax >= laser2_Ymin && laserCanon1_Ymin <= laser2_Ymax) && (_laserCanon1.isAlive())) {
-        _laser2.destroyEntity();
         return { true, 1 };
     }
     return { false, 0 };
@@ -67,14 +61,12 @@ CollisionDetector::LaserCanonAlienLaserCollision(LaserCanon& _laserCanon1, Laser
     if((laserCanon1_Xmax > alienlaser_Xmin && laserCanon1_Xmin < alienlaser_Xmax) &&
         (laserCanon1_Ymax > alienlaser_Ymin && laserCanon1_Ymin < alienlaser_Ymax) && (_laserCanon1.isAlive()) &&
         _alienLaser.isAlive()) {
-        _alienLaser.destroyEntity();
         return { true, 1 };
     }
 
     if((laserCanon2_Xmax > alienlaser_Xmin && laserCanon2_Xmin < alienlaser_Xmax) &&
         (laserCanon2_Ymax > alienlaser_Ymin && laserCanon2_Ymin < alienlaser_Ymax) && (_laserCanon2.isAlive()) &&
         _alienLaser.isAlive()) {
-        _alienLaser.destroyEntity();
         return { true, 2 };
     }
 
@@ -151,4 +143,19 @@ tuple<bool, bool> CollisionDetector::LaserAliensLaserCollision(Laser& _laser1, L
     }
 
     return { collisionByLaser1, collisionByLaser2 };
+}
+
+bool CollisionDetector::LaserCanonLaserCanonCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2)
+{
+    auto [laserCanon1_Xmin, laserCanon1_Ymin, laserCanon1_Xmax, laserCanon1_Ymax] =
+        _entityShape.laserCanon1Shape(_laserCanon1);
+    auto [laserCanon2_Xmin, laserCanon2_Ymin, laserCanon2_Xmax, laserCanon2_Ymax] =
+        _entityShape.laserCanon2Shape(_laserCanon2);
+
+    if((laserCanon1_Xmax >= laserCanon2_Xmin && laserCanon1_Xmin <= laserCanon2_Xmax) &&
+        (laserCanon1_Ymax >= laserCanon2_Ymin && laserCanon1_Ymin <= laserCanon2_Ymax) && (_laserCanon1.isAlive()) &&
+        _laserCanon2.isAlive()) {
+        return true;
+    }
+    return false;
 }

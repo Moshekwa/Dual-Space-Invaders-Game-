@@ -2,7 +2,6 @@
 #define GAMEUPDATER_H_INCLUDED
 #include "Alien.h"
 #include "Laser.h"
-#include "DiagonalLaser.h"
 #include "ScoreBoard.h"
 
 class GameUpdater
@@ -15,10 +14,10 @@ public:
     void updateUpAlienPosition(Alien& _alien);
     void updateAlienLaserPosition(Alien& _alien, Laser& _alienLaser);
     void updateUpAlienLaserPosition(Alien& _alien, Laser& _alienLaser);
-    void updateCanon1_ScoreAndHighScore(ScoreBoard& _scoreBoard1, Alien& _alien);
-    void updateCanon2_ScoreAndHighScore(ScoreBoard& _scoreBoard2, Alien& _alien);
+    void updateCanon_ScoreAndHighScore(ScoreBoard& _scoreBoard, Alien& _alien);
+    void updateLaserCanon1Position(LaserCanon& _laserCanon1, Direction _direction);
+    void updateLaserCanon2Position(LaserCanon& _laserCanon2, Direction _direction);
 
-	//void updateDiagonalLaserPosition(LaserCanon& _LaserCanon& _laserCanon1, DiagonalLaser& _diagonalLaser); 
 private:
 };
 

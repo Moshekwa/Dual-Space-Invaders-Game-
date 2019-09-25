@@ -3,16 +3,13 @@
 using namespace std;
 
 Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary, int numberOfLives, AlienColour alienColour)
-    : MovingEntity{ x, y, 1, true, numberOfLives }
-    , rightBoundary{ _rightBoundary }
-    , leftBoundary{ _leftBoundary }
-    , upperBoundary{ 70 }
-    , bottomBoundary{ 450 }
+    : MovingEntity{ x, y, 2, true, numberOfLives }
     , alienRightDirection{ true }
     , _alienColour{ alienColour }
 {
     if(x < 0 || x > 380 || y < 40 || y > 480)
         throw InvalidAlienCoordinates{};
+    setMovementBoundaries(_leftBoundary, _rightBoundary, 0, 460);
 }
 
 AlienColour Alien::getAlienColour() const
@@ -38,21 +35,18 @@ int Alien::alienPoints(AlienColour _colour)
     }
 }
 
-const int Alien::numberOfAliens{ 3 };
+const int Alien::numberOfAliens{ 6 };
 
 int Alien::getNumberOfAliens()
 {
     return numberOfAliens;
 }
 
-tuple<int, int, int, int> Alien::getBoundaries() const
-{
-    return { leftBoundary, rightBoundary, upperBoundary, bottomBoundary };
-}
-
 void Alien::move(Direction _direction)
 {
     auto [x_position, y_position] = entityPosition();
+    auto [leftBoundary, rightBoundary, upperBoundary, bottomBoundary] = getMovementBoundaries();
+    
     switch(_direction) {
     case LEFT:
         if(x_position > leftBoundary) {

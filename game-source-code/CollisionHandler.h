@@ -11,11 +11,7 @@ class CollisionHandler
 public:
     CollisionHandler();
     ~CollisionHandler();
-    void handleLaserAlienCollision(Laser& _laser1,
-        Laser& _laser2,
-        Alien& _alien,
-        ScoreBoard& _scoreBoard1,
-        ScoreBoard& _scoreBoard2);
+    void handleLaserAlienCollision(Laser& _laser1, Laser& _laser2, Alien& _alien, ScoreBoard& _scoreBoard);
     void
     handleLaserCanonLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _laser1, Laser& _laser2);
 
@@ -24,6 +20,7 @@ public:
     void handleLaserCanonShieldLaserCollission(LaserCanonShield& _laserCanonShield, Laser& _laser1, Laser& _laser2);
     void handleLaser1Laser2Collision(Laser& _laser1, Laser& _laser2);
     void handleLaserAliensLaserCollision(Laser& _laser1, Laser& _laser2, Laser& _alienLaser);
+    void hanldleLaserCanonLaserCanonCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2);
 
     bool isLaserCanonShot();
     void setCanonShotStateFalse();

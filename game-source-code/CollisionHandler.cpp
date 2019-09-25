@@ -21,22 +21,18 @@ void CollisionHandler::setCanonShotStateFalse()
     canonIsShot = false;
 }
 
-void CollisionHandler::handleLaserAlienCollision(Laser& _laser1,
-    Laser& _laser2,
-    Alien& _alien,
-    ScoreBoard& _scoreBoard1,
-    ScoreBoard& _scoreBoard2)
+void CollisionHandler::handleLaserAlienCollision(Laser& _laser1, Laser& _laser2, Alien& _alien, ScoreBoard& _scoreBoard)
 {
     auto [alienKilledByLaser1, alienKilledByLaser2] = _collisionDetector->LaserAlienCollision(_laser1, _laser2, _alien);
     if(alienKilledByLaser1) {
         _alien.destroyEntity();
         _laser1.destroyEntity();
-        _gameUpdater->updateCanon1_ScoreAndHighScore(_scoreBoard1, _alien);
+        _gameUpdater->updateCanon_ScoreAndHighScore(_scoreBoard, _alien);
     }
     if(alienKilledByLaser2) {
         _alien.destroyEntity();
         _laser2.destroyEntity();
-        _gameUpdater->updateCanon2_ScoreAndHighScore(_scoreBoard2, _alien);
+        _gameUpdater->updateCanon_ScoreAndHighScore(_scoreBoard, _alien);
     }
 }
 
@@ -71,7 +67,6 @@ void CollisionHandler::handleLaserCanonAlienLaserCollision(LaserCanon& _laserCan
 {
     auto [collisionOccured, canonNumber] =
         _collisionDetector->LaserCanonAlienLaserCollision(_laserCanon1, _laserCanon2, _alienLaser);
-    //   _collisionDetector.LaserAliensLaserCollision(*_laser1, *_laser2, *alienLaser);
     if(collisionOccured) {
         switch(canonNumber) {
         case 1:
@@ -135,5 +130,13 @@ void CollisionHandler::handleLaserAliensLaserCollision(Laser& _laser1, Laser& _l
     if(collisionByLaser2) {
         _laser2.destroyEntity();
         _alienLaser.destroyEntity();
+    }
+}
+
+void CollisionHandler::hanldleLaserCanonLaserCanonCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2)
+{
+    auto collisionOccured = _collisionDetector->LaserCanonLaserCanonCollision(_laserCanon1, _laserCanon2);
+    if(collisionOccured){
+        
     }
 }

@@ -11,9 +11,10 @@ public:
     ScoreBoard();
     ~ScoreBoard();
     void setScore(int score);
+    int getHighScore() const;
     int getScore() const;
-    void readHighScoreFromFile(int canonNumber);
-    void readHighScoreIntoFile(int canonNumber);
+    void readHighScoreFromFile();
+    void readHighScoreIntoFile();
 
 private:
     int _score;

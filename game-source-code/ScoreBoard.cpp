@@ -5,8 +5,7 @@ using namespace std;
 ScoreBoard::ScoreBoard()
     : _score{ 0 }
 {
-    readHighScoreFromFile(1);
-   // readHighScoreFromFile(2);
+    readHighScoreFromFile();
 }
 
 ScoreBoard::~ScoreBoard()
@@ -26,40 +25,27 @@ int ScoreBoard::getScore() const
     return _score;
 }
 
-void ScoreBoard::readHighScoreFromFile(int canonNumber)
+int ScoreBoard::getHighScore() const
 {
-    if(canonNumber == 1) {
-        ifstream infile("HighScore.txt");
-
-        if(!infile) {
-            throw FileCannotBeOpened{};
-        }
-        infile >> _highScore;
-    }
-    if(canonNumber == 2) {
-        ifstream infile2("HighScore2.txt");
-
-        if(!infile2) {
-            throw FileCannotBeOpened{};
-        }
-        infile2 >> _highScore;
-    }
+    return _highScore;
 }
 
-void ScoreBoard::readHighScoreIntoFile(int canonNumber)
+void ScoreBoard::readHighScoreFromFile()
 {
-    if(canonNumber == 1) {
-        ofstream outfile("HighScore.txt");
-        if(!outfile) {
-            throw FileCannotBeOpened{};
-        }
-        outfile << _highScore;
+    ifstream infile("HighScore.txt");
+
+    if(!infile) {
+        throw FileCannotBeOpened{};
     }
-    if(canonNumber == 2) {
-        ofstream outfile2("HighScore2.txt");
-        if(!outfile2) {
-            throw FileCannotBeOpened{};
-        }
-        outfile2 << _highScore;
+    infile >> _highScore;
+}
+
+void ScoreBoard::readHighScoreIntoFile()
+{
+
+    ofstream outfile("HighScore.txt");
+    if(!outfile) {
+        throw FileCannotBeOpened{};
     }
+    outfile << _highScore;
 }

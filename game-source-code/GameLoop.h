@@ -45,8 +45,7 @@ private:
     shared_ptr<Laser> _laser2;
     shared_ptr<ImageDrawer> _imageDrawer;
     shared_ptr<Alien> _alien;
-    shared_ptr<ScoreBoard> _scoreBoard1;
-    shared_ptr<ScoreBoard> _scoreBoard2;
+    shared_ptr<ScoreBoard> _scoreBoard;
     shared_ptr<CollisionHandler> _collisionHandler;
 
     GreenAliens _greenAliens;

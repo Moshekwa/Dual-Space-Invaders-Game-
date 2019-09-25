@@ -3,6 +3,7 @@
 
 #include "LaserCanon.h"
 #include "Laser.h"
+#include "GameUpdater.h"
 #include <memory>
 using std::shared_ptr;
 
