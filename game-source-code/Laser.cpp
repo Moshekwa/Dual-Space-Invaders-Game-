@@ -7,6 +7,7 @@ Laser::Laser(LaserCanon& _laserCanon, int numberOfLives)
     if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 480) {
         throw InvalidCanonLaserCoordinates{};
     }
+    setMovementBoundaries(0,395,40,460);
 }
 
 Laser::Laser(Alien& _alien, int numberOfLives)
@@ -16,6 +17,7 @@ Laser::Laser(Alien& _alien, int numberOfLives)
     if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 480) {
         throw InvalidCanonLaserCoordinates{};
     }
+    setMovementBoundaries(0,395,40,500);
 }
 
 void Laser::move(Direction _direction)

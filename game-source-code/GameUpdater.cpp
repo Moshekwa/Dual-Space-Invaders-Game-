@@ -7,14 +7,14 @@ GameUpdater::GameUpdater()
 void GameUpdater::updateLaser1Position(LaserCanon& _laserCanon1, Laser& _laser1)
 {
     if(_laser1.isAlive()) {
-        if(get<1>(_laserCanon1.entityPosition()) == 40) {
-            if(get<1>(_laser1.entityPosition()) >= 490) {
+        if(get<1>(_laserCanon1.entityPosition()) == get<2>(_laserCanon1.getMovementBoundaries())) {
+            if(get<1>(_laser1.entityPosition()) >= get<3>(_laser1.getMovementBoundaries())) {
                 _laser1.destroyEntity();
             } else {
                 _laser1.move(DOWN);
             }
         } else {
-            if(get<1>(_laser1.entityPosition()) <= 40) {
+            if(get<1>(_laser1.entityPosition()) <= get<2>(_laser1.getMovementBoundaries())) {
                 _laser1.destroyEntity();
             } else {
                 _laser1.move(UP);
@@ -28,14 +28,14 @@ void GameUpdater::updateLaser1Position(LaserCanon& _laserCanon1, Laser& _laser1)
 void GameUpdater::updateLaser2Position(LaserCanon& _laserCanon2, Laser& _laser2)
 {
     if(_laser2.isAlive()) {
-        if(get<1>(_laserCanon2.entityPosition()) == 480) {
-            if(get<1>(_laser2.entityPosition()) <= 40) {
+        if(get<1>(_laserCanon2.entityPosition()) == get<3>(_laserCanon2.getMovementBoundaries())) {
+            if(get<1>(_laser2.entityPosition()) <= get<2>(_laser2.getMovementBoundaries())) {
                 _laser2.destroyEntity();
             } else {
                 _laser2.move(UP);
             }
         } else {
-            if(get<1>(_laser2.entityPosition()) >= 490) {
+            if(get<1>(_laser2.entityPosition()) >= get<3>(_laser2.getMovementBoundaries())) {
                 _laser2.destroyEntity();
             } else {
                 _laser2.move(DOWN);
@@ -49,7 +49,7 @@ void GameUpdater::updateLaser2Position(LaserCanon& _laserCanon2, Laser& _laser2)
 void GameUpdater::updateAlienLaserPosition(Alien& _alien, Laser& _alienLaser)
 {
     if(_alienLaser.isAlive()) {
-        if(get<1>(_alienLaser.entityPosition()) >= 490) {
+        if(get<1>(_alienLaser.entityPosition()) >= get<3>(_alienLaser.getMovementBoundaries())) {
             _alienLaser.destroyEntity();
             _alienLaser.moveLaserWithAlien(_alien);
         } else {
@@ -63,7 +63,7 @@ void GameUpdater::updateAlienLaserPosition(Alien& _alien, Laser& _alienLaser)
 void GameUpdater::updateUpAlienLaserPosition(Alien& _alien, Laser& _alienLaser)
 {
     if(_alienLaser.isAlive()) {
-        if(get<1>(_alienLaser.entityPosition()) <= 40) {
+        if(get<1>(_alienLaser.entityPosition()) <= get<2>(_alienLaser.getMovementBoundaries())) {
             _alienLaser.destroyEntity();
             _alienLaser.moveLaserWithAlien(_alien);
         } else {
@@ -125,10 +125,60 @@ void GameUpdater::updateCanon_ScoreAndHighScore(ScoreBoard& _scoreBoard, Alien& 
 
 void GameUpdater::updateLaserCanon1Position(LaserCanon& _laserCanon1, Direction _direction)
 {
-    _laserCanon1.move(_direction);
+    auto [x_position, y_position] = _laserCanon1.entityPosition();
+    auto [leftBoundary, rightBoundary, upperBoundary, bottomBoundary] = _laserCanon1.getMovementBoundaries();
+
+    switch(_direction) {
+    case LEFT:
+        if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+            _laserCanon1.move(LEFT);
+        }
+        break;
+    case RIGHT:
+        if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+            _laserCanon1.move(RIGHT);
+        }
+        break;
+    case UP:
+        if(y_position > upperBoundary) {
+            _laserCanon1.move(RIGHT);
+        }
+        break;
+    case DOWN:
+        if(y_position < bottomBoundary) {
+            _laserCanon1.move(RIGHT);
+        }
+    default:
+        break;
+    }
 }
 
 void GameUpdater::updateLaserCanon2Position(LaserCanon& _laserCanon2, Direction _direction)
 {
-    _laserCanon2.move(_direction);
+    auto [x_position, y_position] = _laserCanon2.entityPosition();
+    auto [leftBoundary, rightBoundary, upperBoundary, bottomBoundary] = _laserCanon2.getMovementBoundaries();
+
+    switch(_direction) {
+    case LEFT:
+        if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+            _laserCanon2.move(LEFT);
+        }
+        break;
+    case RIGHT:
+        if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+            _laserCanon2.move(RIGHT);
+        }
+        break;
+    case UP:
+        if(y_position > upperBoundary) {
+            _laserCanon2.move(RIGHT);
+        }
+        break;
+    case DOWN:
+        if(y_position < bottomBoundary) {
+            _laserCanon2.move(RIGHT);
+        }
+    default:
+        break;
+    }
 }
