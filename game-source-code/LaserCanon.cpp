@@ -3,6 +3,7 @@
 LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
     : MovingEntity{ x, y, 5, true, numberOfLives }
     , _movement{ true }
+
 {
     switch(canonNumber) {
     case 1:
@@ -20,6 +21,12 @@ LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
         break;
     }
     setMovementBoundaries(0, 380, 40, 480);
+    if(get<1>(entityPosition()) == get<2>(getMovementBoundaries())) {
+        _directionFaced = Direction::DOWN;
+    }
+    if(get<1>(entityPosition()) == get<3>(getMovementBoundaries())) {
+        _directionFaced = Direction::UP;
+    }
 }
 
 void LaserCanon::move(Direction _direction)
@@ -52,4 +59,14 @@ bool LaserCanon::isAbleToMove() const
 void LaserCanon::setAbilityToMove(bool movement)
 {
     _movement = movement;
+}
+
+void LaserCanon::setFacedDirection(Direction directionFaced)
+{
+    _directionFaced = directionFaced;
+}
+
+Direction LaserCanon::getFacedDirection() const
+{
+    return _directionFaced;
 }

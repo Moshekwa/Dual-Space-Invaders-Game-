@@ -1,0 +1,4 @@
+<map id="Ammunition::shoot" name="Ammunition::shoot">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,136,32"/>
+<area shape="rect" id="node2" href="$class_game_entity.html#a655badaed96874b5c03e7c1c06bb87e2" title=" " alt="" coords="184,5,359,32"/>
+</map>

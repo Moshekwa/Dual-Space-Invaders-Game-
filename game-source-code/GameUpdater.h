@@ -1,3 +1,12 @@
+/**
+ * @file GameUpdater.h
+ * @class GameUpdater
+ * @brief Responsible for updating the positions of the game objects and the players' score as the game is being played.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef GAMEUPDATER_H_INCLUDED
 #define GAMEUPDATER_H_INCLUDED
 #include "Alien.h"

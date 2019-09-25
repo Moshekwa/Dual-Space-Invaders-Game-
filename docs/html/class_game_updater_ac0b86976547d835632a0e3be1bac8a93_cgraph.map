@@ -1,0 +1,12 @@
+<map id="GameUpdater::updateUpAlienPosition" name="GameUpdater::updateUpAlienPosition">
+<area shape="rect" id="node1" title=" " alt="" coords="5,133,200,174"/>
+<area shape="rect" id="node2" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="490,5,669,32"/>
+<area shape="rect" id="node3" href="$class_alien.html#aceee46f867d1eb8499fe484692b3b1fb" title=" " alt="" coords="248,165,435,192"/>
+<area shape="rect" id="node4" href="$class_moving_entity.html#a0b09cd6d76a9cd74c55f08efb8dafd09" title=" " alt="" coords="489,57,670,98"/>
+<area shape="rect" id="node5" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="273,216,409,243"/>
+<area shape="rect" id="node6" href="$class_alien.html#a9334af63935cd561c897bfe0ceb19c78" title=" " alt="" coords="297,115,386,141"/>
+<area shape="rect" id="node10" href="$class_alien.html#a0fcd7fdbff89d67f6f2d698ea17a5d26" title=" " alt="" coords="248,267,435,293"/>
+<area shape="rect" id="node7" href="$class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d" title=" " alt="" coords="483,123,676,149"/>
+<area shape="rect" id="node8" href="$class_game_entity.html#a8aabf9f68517365feb902e8a6f6aa5a2" title=" " alt="" coords="495,173,664,200"/>
+<area shape="rect" id="node9" href="$class_game_entity.html#ae69fd63bf13966b5bcafee15cd7ba24e" title=" " alt="" coords="494,224,665,251"/>
+</map>

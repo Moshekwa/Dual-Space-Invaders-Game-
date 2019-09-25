@@ -1,3 +1,12 @@
+/**
+ * @file GameEntity.h
+ * @class GameEntity
+ * @brief This class gives the behaviour and information of all the game entities.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef GAMEENTITY_H_INCLUDED
 #define GAMEENTITY_H_INCLUDED
 #include <tuple>

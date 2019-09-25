@@ -1,0 +1,12 @@
+<map id="MovingEntity::getMovementBoundaries" name="MovingEntity::getMovementBoundaries">
+<area shape="rect" id="node1" title=" " alt="" coords="491,222,672,264"/>
+<area shape="rect" id="node2" href="$class_alien.html#a9334af63935cd561c897bfe0ceb19c78" title=" " alt="" coords="301,55,390,82"/>
+<area shape="rect" id="node3" href="$class_game_updater.html#a64ab239ae88af45d2c840c4f8bab3fd7" title=" " alt="" coords="13,6,192,48"/>
+<area shape="rect" id="node4" href="$class_game_updater.html#ac0b86976547d835632a0e3be1bac8a93" title=" " alt="" coords="5,81,200,122"/>
+<area shape="rect" id="node5" href="$class_game_updater.html#a66f6f4b3658a997f0aacf5e8887db789" title=" " alt="" coords="256,157,435,198"/>
+<area shape="rect" id="node6" href="$class_game_updater.html#a95afe259a0b8708c982a23487141ae73" title=" " alt="" coords="251,222,439,264"/>
+<area shape="rect" id="node7" href="$class_game_updater.html#a2196d60ab01a93057402b7476147bfed" title=" " alt="" coords="251,288,439,329"/>
+<area shape="rect" id="node8" href="$class_game_updater.html#af34cf63f91383fdbb13f48acef52fe54" title=" " alt="" coords="255,353,436,394"/>
+<area shape="rect" id="node9" href="$class_game_updater.html#a9d5f4fe1b5815af094345fff2295efc7" title=" " alt="" coords="255,418,436,460"/>
+<area shape="rect" id="node10" href="$class_game_updater.html#a74cf034dd7a09334bc423823c25480a7" title=" " alt="" coords="248,484,443,525"/>
+</map>

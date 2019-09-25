@@ -1,0 +1,4 @@
+<map id="LaserCanonShield" name="LaserCanonShield">
+<area shape="rect" id="node1" title="This class is gives information about a shield that protects a laser canon." alt="" coords="5,80,132,107"/>
+<area shape="rect" id="node2" href="$class_game_entity.html" title="This class gives the behaviour and information of all the game entities." alt="" coords="23,5,114,32"/>
+</map>

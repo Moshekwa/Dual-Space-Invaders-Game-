@@ -1,0 +1,8 @@
+<map id="MovingEntity" name="MovingEntity">
+<area shape="rect" id="node1" title="This class inherits from Game Entity and add the ability of an object to be move." alt="" coords="77,80,173,107"/>
+<area shape="rect" id="node3" href="$class_alien.html" title="This class models the behaviour an alien object. It inherits from Moving Entity class which inherits ..." alt="" coords="5,155,56,181"/>
+<area shape="rect" id="node4" href="$class_ammunition.html" title="Ammunition inherits from Game Entity and add the ability of an object to be shot." alt="" coords="80,155,171,181"/>
+<area shape="rect" id="node6" href="$class_laser_canon.html" title="This class is responsible for defining the behaviour of a laser canon object." alt="" coords="195,155,285,181"/>
+<area shape="rect" id="node2" href="$class_game_entity.html" title="This class gives the behaviour and information of all the game entities." alt="" coords="80,5,171,32"/>
+<area shape="rect" id="node5" href="$class_laser.html" title="This class is responsible for defining the behaviour of a laser object." alt="" coords="98,229,153,256"/>
+</map>

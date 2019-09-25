@@ -1,10 +1,20 @@
+/**
+ * @file Alien.h
+ * @class Alien
+ * @brief This class models the behaviour an alien object. It inherits from Moving Entity class which inherits from Game
+ * Entity
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef ALIEN_H_INCLUDED
 #define ALIEN_H_INCLUDED
 #include "MovingEntity.h"
 #include <tuple>
 using namespace std;
 
-enum AlienColour {RED, PURPLE, GREEN};
+enum AlienColour { RED, PURPLE, GREEN };
 
 class InvalidAlienCoordinates
 {

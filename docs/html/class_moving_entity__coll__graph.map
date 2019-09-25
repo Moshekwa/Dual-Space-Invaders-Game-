@@ -1,0 +1,4 @@
+<map id="MovingEntity" name="MovingEntity">
+<area shape="rect" id="node1" title="This class inherits from Game Entity and add the ability of an object to be move." alt="" coords="5,80,101,107"/>
+<area shape="rect" id="node2" href="$class_game_entity.html" title="This class gives the behaviour and information of all the game entities." alt="" coords="8,5,99,32"/>
+</map>

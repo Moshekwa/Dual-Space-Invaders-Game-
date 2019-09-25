@@ -1,0 +1,7 @@
+<map id="CollisionDetector::LaserCanonLaserCanonCollision" name="CollisionDetector::LaserCanonLaserCanonCollision">
+<area shape="rect" id="node1" title=" " alt="" coords="5,57,215,98"/>
+<area shape="rect" id="node2" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="281,5,417,32"/>
+<area shape="rect" id="node3" href="$class_entity_shape.html#a2e8d195c1f9608b9d02b5fb3d4577ca8" title=" " alt="" coords="263,57,436,98"/>
+<area shape="rect" id="node5" href="$class_entity_shape.html#a8ced1c014218ed5cf945879414306de3" title=" " alt="" coords="263,122,436,163"/>
+<area shape="rect" id="node4" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="484,97,663,124"/>
+</map>

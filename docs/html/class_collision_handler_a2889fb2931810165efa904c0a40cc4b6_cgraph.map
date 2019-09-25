@@ -1,0 +1,5 @@
+<map id="CollisionHandler::handleLaserAliensLaserCollision" name="CollisionHandler::handleLaserAliensLaserCollision">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,176,47"/>
+<area shape="rect" id="node2" href="$class_game_entity.html#a9caddd3e1c22b5038415eebd31332c2e" title=" " alt="" coords="224,13,400,39"/>
+<area shape="rect" id="node3" href="$class_game_entity.html#ad95a7c6f575fca8e67d5589ce95e784a" title=" " alt="" coords="448,13,652,39"/>
+</map>

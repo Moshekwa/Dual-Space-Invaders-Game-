@@ -1,3 +1,12 @@
+/**
+ * @file EntityShape.h
+ * @class EntityShape
+ * @brief This class is responsible for keeping track of the position ranges an object occupies.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef ENTITYSHAPE_H_INCLUDED
 #define ENTITYSHAPE_H_INCLUDED
 #include "Alien.h"

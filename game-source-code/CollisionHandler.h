@@ -1,3 +1,12 @@
+/**
+ * @file CollisionHandler.h
+ * @class CollisionHandler
+ * @brief This class makes decision based on whether or not collision between game objects occured.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef COLLISIONHANDLER_H_INCLUDED
 #define COLLISIONHANDLER_H_INCLUDED
 #include "CollisionDetector.h"

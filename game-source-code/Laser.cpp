@@ -2,12 +2,13 @@
 
 Laser::Laser(LaserCanon& _laserCanon, int numberOfLives)
     : Ammunition{ get<0>(_laserCanon.entityPosition()), get<1>(_laserCanon.entityPosition()), 5, false, numberOfLives }
+    , laserMotion{ false }
 {
     auto [x_position, y_position] = entityPosition();
     if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 480) {
         throw InvalidCanonLaserCoordinates{};
     }
-    setMovementBoundaries(0,395,40,460);
+    setMovementBoundaries(0, 395, 40, 460);
 }
 
 Laser::Laser(Alien& _alien, int numberOfLives)
@@ -17,7 +18,7 @@ Laser::Laser(Alien& _alien, int numberOfLives)
     if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 480) {
         throw InvalidCanonLaserCoordinates{};
     }
-    setMovementBoundaries(0,395,40,500);
+    setMovementBoundaries(0, 395, 40, 500);
 }
 
 void Laser::move(Direction _direction)
@@ -36,7 +37,7 @@ void Laser::move(Direction _direction)
 
 void Laser::moveLaserWithCanon(LaserCanon& _laserCanon)
 {
-    auto [x_position, y_position] = _laserCanon.entityPosition(); 
+    auto [x_position, y_position] = _laserCanon.entityPosition();
     setXposition(x_position + 5);
     setYposition(y_position + 5);
 }
@@ -46,4 +47,14 @@ void Laser::moveLaserWithAlien(Alien& _alien)
     auto [x_position, y_position] = _alien.entityPosition();
     setXposition(x_position + 5);
     setYposition(y_position + 5);
+}
+
+void Laser::setLaserInMotion(bool motion)
+{
+    laserMotion = motion;
+}
+
+bool Laser::isLaserInMotion() const
+{
+    return laserMotion;
 }

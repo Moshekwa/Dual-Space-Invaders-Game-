@@ -1,0 +1,10 @@
+<map id="GameUpdater::updateLaserCanon1Position" name="GameUpdater::updateLaserCanon1Position">
+<area shape="rect" id="node1" title=" " alt="" coords="5,59,187,101"/>
+<area shape="rect" id="node2" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="471,12,650,39"/>
+<area shape="rect" id="node3" href="$class_moving_entity.html#a0b09cd6d76a9cd74c55f08efb8dafd09" title=" " alt="" coords="235,30,416,71"/>
+<area shape="rect" id="node4" href="$class_laser_canon.html#a3279000cdba34c0711d83e24df8dedd9" title=" " alt="" coords="236,96,415,123"/>
+<area shape="rect" id="node5" href="$class_laser_canon.html#a152369b3d5f645f35f2e7bb89f9b5ba2" title=" " alt="" coords="261,147,390,173"/>
+<area shape="rect" id="node6" href="$class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d" title=" " alt="" coords="464,96,657,123"/>
+<area shape="rect" id="node7" href="$class_game_entity.html#a8aabf9f68517365feb902e8a6f6aa5a2" title=" " alt="" coords="476,147,645,173"/>
+<area shape="rect" id="node8" href="$class_game_entity.html#ae69fd63bf13966b5bcafee15cd7ba24e" title=" " alt="" coords="475,197,646,224"/>
+</map>

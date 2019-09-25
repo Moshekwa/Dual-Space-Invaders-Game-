@@ -1,0 +1,31 @@
+<map id="GameEntity::isAlive" name="GameEntity::isAlive">
+<area shape="rect" id="node1" title=" " alt="" coords="268,767,404,793"/>
+<area shape="rect" id="node2" href="$class_image_drawer.html#a4e1d23c12420c2c1ce1fa6dc8b2e8e03" title=" " alt="" coords="16,5,209,32"/>
+<area shape="rect" id="node3" href="$class_image_drawer.html#ab20cbb9ebfec5f33714657fbc39fe9b4" title=" " alt="" coords="11,56,214,83"/>
+<area shape="rect" id="node4" href="$class_image_drawer.html#a34f970ace82c1fadd17f9a84b04b7e80" title=" " alt="" coords="31,107,195,133"/>
+<area shape="rect" id="node5" href="$class_image_drawer.html#ab81837518019eaa60438922bba528008" title=" " alt="" coords="27,157,198,184"/>
+<area shape="rect" id="node6" href="$class_image_drawer.html#aed8990f2c50f5df31bcfcb386d60e71c" title=" " alt="" coords="12,208,213,235"/>
+<area shape="rect" id="node7" href="$class_image_drawer.html#a7514eb179b15b44df2ba74a1c62af89f" title=" " alt="" coords="9,259,217,285"/>
+<area shape="rect" id="node8" href="$class_image_drawer.html#a1a89f84c4800ca84f409ee800e570cc9" title=" " alt="" coords="12,310,213,351"/>
+<area shape="rect" id="node9" href="$class_image_drawer.html#aa048bd8f1a4161d8ac444122cfbf0d59" title=" " alt="" coords="12,375,213,417"/>
+<area shape="rect" id="node10" href="$class_image_drawer.html#aabb22997b4d0661efd855d9527860810" title=" " alt="" coords="10,441,215,468"/>
+<area shape="rect" id="node11" href="$class_image_drawer.html#a5c79506a875e1e0a58813d705b6db623" title=" " alt="" coords="17,492,208,519"/>
+<area shape="rect" id="node12" href="$class_image_drawer.html#af52321896fbdbc2f8789939111f8311e" title=" " alt="" coords="21,543,204,585"/>
+<area shape="rect" id="node13" href="$class_image_drawer.html#a0dd6298a489102732e38a383006751f9" title=" " alt="" coords="20,609,205,650"/>
+<area shape="rect" id="node14" href="$class_image_drawer.html#aecf969ab2663af7e8de6d00b81cd6bfc" title=" " alt="" coords="9,675,216,701"/>
+<area shape="rect" id="node15" href="$class_collision_detector.html#a65f4aa43636123af3ae0542c89a5f84d" title=" " alt="" coords="38,726,187,767"/>
+<area shape="rect" id="node16" href="$class_collision_detector.html#ab2341d5632f8b55760bbe280552bf649" title=" " alt="" coords="47,791,179,833"/>
+<area shape="rect" id="node17" href="$class_collision_detector.html#a4f390eb60425e0c8d29f3fcf844cc891" title=" " alt="" coords="27,857,198,898"/>
+<area shape="rect" id="node18" href="$class_collision_detector.html#a73cbc2d482aa2cd6b5212594bac5229c" title=" " alt="" coords="28,922,197,963"/>
+<area shape="rect" id="node19" href="$class_collision_detector.html#a9cc2b2d67ef3b8fbfbd41d2c4241cf22" title=" " alt="" coords="12,987,213,1029"/>
+<area shape="rect" id="node20" href="$class_collision_detector.html#a028bb66b85f732979a932e3810e4e1b2" title=" " alt="" coords="8,1053,217,1094"/>
+<area shape="rect" id="node21" href="$class_collision_detector.html#a100d6bef217821ee0dffeaa24c3468d9" title=" " alt="" coords="27,1118,199,1159"/>
+<area shape="rect" id="node22" href="$class_collision_detector.html#ae2a82002b89d1ad019e354887693bce7" title=" " alt="" coords="19,1184,207,1240"/>
+<area shape="rect" id="node23" href="$class_collision_detector.html#af6ae16f3d2907dd2346bc85b38acd5d9" title=" " alt="" coords="5,1265,220,1306"/>
+<area shape="rect" id="node24" href="$class_game_updater.html#a66f6f4b3658a997f0aacf5e8887db789" title=" " alt="" coords="23,1330,202,1371"/>
+<area shape="rect" id="node25" href="$class_game_updater.html#a64ab239ae88af45d2c840c4f8bab3fd7" title=" " alt="" coords="23,1395,202,1437"/>
+<area shape="rect" id="node26" href="$class_game_updater.html#a95afe259a0b8708c982a23487141ae73" title=" " alt="" coords="19,1461,207,1502"/>
+<area shape="rect" id="node27" href="$class_game_updater.html#a2196d60ab01a93057402b7476147bfed" title=" " alt="" coords="19,1526,207,1567"/>
+<area shape="rect" id="node28" href="$class_game_updater.html#a74cf034dd7a09334bc423823c25480a7" title=" " alt="" coords="15,1591,210,1633"/>
+<area shape="rect" id="node29" href="$class_game_updater.html#ac0b86976547d835632a0e3be1bac8a93" title=" " alt="" coords="15,1657,210,1698"/>
+</map>

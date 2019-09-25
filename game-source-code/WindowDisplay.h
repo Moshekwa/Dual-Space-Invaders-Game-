@@ -1,3 +1,12 @@
+/**
+ * @file WindowDisplay.h
+ * @class WindowDisplay
+ * @brief This class creates the SFML screen for displaying the game. 
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef WINDOWDISPLAY_H_INCLUDED
 #define WINDOWDISPLAY_H_INCLUDED
 #include <SFML/Graphics.hpp>

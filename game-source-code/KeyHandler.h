@@ -1,3 +1,12 @@
+/**
+ * @file KeyHandler.h
+ * @class KeyHandler
+ * @brief This class used to check user key input from the keyboard and then act accordingly.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef KEYHANDLER_H_INCLUDED
 #define KEYHANDLER_H_INCLUDED
 

@@ -1,3 +1,12 @@
+/**
+ * @file MovingEntity.h
+ * @class MovingEntity
+ * @brief This class inherits from Game Entity and add the ability of an object to be move.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef MOVINGENTITY_H_INCLUDED
 #define MOVINGENTITY_H_INCLUDED
 #include "GameEntity.h"

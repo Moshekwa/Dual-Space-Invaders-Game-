@@ -1,0 +1,8 @@
+<map id="CollisionDetector::LaserAlienCollision" name="CollisionDetector::LaserAlienCollision">
+<area shape="rect" id="node1" title=" " alt="" coords="5,74,137,115"/>
+<area shape="rect" id="node2" href="$class_entity_shape.html#a8775b188fc6da64827c397e57b2b3682" title=" " alt="" coords="189,5,355,32"/>
+<area shape="rect" id="node4" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="204,56,340,83"/>
+<area shape="rect" id="node5" href="$class_entity_shape.html#af5e79ebd626f5becae76328e3fe38429" title=" " alt="" coords="185,107,359,133"/>
+<area shape="rect" id="node6" href="$class_entity_shape.html#a81a0716765199fb2e408068623fa02be" title=" " alt="" coords="185,157,359,184"/>
+<area shape="rect" id="node3" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="407,107,585,133"/>
+</map>

@@ -1,3 +1,12 @@
+/**
+ * @file LaserCanonShield.h
+ * @class LaserCanonShield
+ * @brief This class is gives information about a shield that protects a laser canon.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+ 
 #ifndef LASERCANONSHIELD_H_INCLUDED
 #define LASERCANONSHIELD_H_INCLUDED
 #include "GameEntity.h"

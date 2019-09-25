@@ -1,3 +1,12 @@
+/**
+ * @file CollisionDetector.h
+ * @class CollisionDetector
+ * @brief This class is responsible for detecting collision of game objects.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef COLLISIONDETECTOR_H_INCLUDED
 #define COLLISIONDETECTOR_H_INCLUDED
 #include "EntityShape.h"

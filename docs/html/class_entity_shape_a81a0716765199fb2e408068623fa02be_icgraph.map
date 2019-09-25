@@ -1,0 +1,8 @@
+<map id="EntityShape::laser2Shape" name="EntityShape::laser2Shape">
+<area shape="rect" id="node1" title=" " alt="" coords="268,143,441,170"/>
+<area shape="rect" id="node2" href="$class_collision_detector.html#a65f4aa43636123af3ae0542c89a5f84d" title=" " alt="" coords="38,5,187,47"/>
+<area shape="rect" id="node3" href="$class_collision_detector.html#ab2341d5632f8b55760bbe280552bf649" title=" " alt="" coords="47,71,179,112"/>
+<area shape="rect" id="node4" href="$class_collision_detector.html#a4f390eb60425e0c8d29f3fcf844cc891" title=" " alt="" coords="27,136,198,177"/>
+<area shape="rect" id="node5" href="$class_collision_detector.html#a100d6bef217821ee0dffeaa24c3468d9" title=" " alt="" coords="27,201,199,243"/>
+<area shape="rect" id="node6" href="$class_collision_detector.html#af6ae16f3d2907dd2346bc85b38acd5d9" title=" " alt="" coords="5,267,220,308"/>
+</map>

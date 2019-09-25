@@ -1,3 +1,12 @@
+/**
+ * @file ImageLoader.h
+ * @class ImageLoader
+ * @brief Responsible for loading all the images and texts that will be displayed on the game window.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef ENTITYIMAGELOADER_H_INCLUDED
 #define ENTITYIMAGELOADER_H_INCLUDED
 #include <SFML/Graphics.hpp>

@@ -1,3 +1,13 @@
+/**
+ * @file ImageDrawer.h
+ * @class ImageDrawer
+ * @brief This class is responsible for mapping the stored images and text with the positions where they are to be
+ * displayed.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef ENTITYDRAWER_H_INCLUDED
 #define ENTITYDRAWER_H_INCLUDED
 #include "Alien.h"
@@ -20,8 +30,8 @@ class ImageDrawer
 {
 public:
     ImageDrawer(shared_ptr<RenderWindow> window);
-    void drawLaserCanon(const LaserCanon& _laserCanon1);
-    void drawLaserCanon2(const LaserCanon& _laserCanon2);
+    void drawLaserCanon(LaserCanon& _laserCanon1);
+    void drawLaserCanon2(LaserCanon& _laserCanon2);
     void drawLaser(const Laser& _laser1);
     void drawLaser2(const Laser& _laser2);
     void drawAlienLaser(const Laser& _alienLaser);

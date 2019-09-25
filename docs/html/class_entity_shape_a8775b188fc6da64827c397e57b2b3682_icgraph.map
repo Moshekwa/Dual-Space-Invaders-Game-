@@ -1,0 +1,5 @@
+<map id="EntityShape::alienShape" name="EntityShape::alienShape">
+<area shape="rect" id="node1" title=" " alt="" coords="223,46,388,73"/>
+<area shape="rect" id="node2" href="$class_collision_detector.html#ab2341d5632f8b55760bbe280552bf649" title=" " alt="" coords="24,5,156,47"/>
+<area shape="rect" id="node3" href="$class_collision_detector.html#a73cbc2d482aa2cd6b5212594bac5229c" title=" " alt="" coords="5,71,175,112"/>
+</map>

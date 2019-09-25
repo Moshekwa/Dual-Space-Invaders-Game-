@@ -9,11 +9,11 @@ ImageDrawer::ImageDrawer(shared_ptr<RenderWindow> window)
     _texts = _imageLoader.getTexts();
 }
 
-void ImageDrawer::drawLaserCanon(const LaserCanon& _laserCanon1)
+void ImageDrawer::drawLaserCanon(LaserCanon& _laserCanon1)
 {
     if(_laserCanon1.isAlive()) {
         auto [x_position, y_position] = _laserCanon1.entityPosition();
-        if(y_position == 40) {
+        if(_laserCanon1.getFacedDirection() == Direction::DOWN) {
             _sprites.at(1)->setScale(0.5f, 0.5f);
             _sprites.at(1)->setPosition(x_position, y_position);
             _window->draw(*_sprites.at(1));
@@ -24,18 +24,18 @@ void ImageDrawer::drawLaserCanon(const LaserCanon& _laserCanon1)
         }
     }
 }
-void ImageDrawer::drawLaserCanon2(const LaserCanon& _laserCanon2)
+void ImageDrawer::drawLaserCanon2(LaserCanon& _laserCanon2)
 {
     if(_laserCanon2.isAlive()) {
         auto [x_position, y_position] = _laserCanon2.entityPosition();
-        if(y_position == 480) {
-            _sprites.at(0)->setScale(0.5f, 0.5f);
-            _sprites.at(0)->setPosition(x_position, y_position);
-            _window->draw(*_sprites.at(0));
-        } else {
+        if(_laserCanon2.getFacedDirection() == Direction::DOWN) {
             _sprites.at(1)->setScale(0.5f, 0.5f);
             _sprites.at(1)->setPosition(x_position, y_position);
             _window->draw(*_sprites.at(1));
+        } else {
+            _sprites.at(0)->setScale(0.5f, 0.5f);
+            _sprites.at(0)->setPosition(x_position, y_position);
+            _window->draw(*_sprites.at(0));
         }
     }
 }
@@ -296,7 +296,6 @@ void ImageDrawer::drawScore(ScoreBoard& _scoreBoard)
     _texts.at(0)->setCharacterSize(11);
     _texts.at(0)->setPosition(0, 0);
     _window->draw(*_texts.at(0));
-
 }
 
 void ImageDrawer::drawHighScore(ScoreBoard& _scoreBoard)
@@ -310,7 +309,6 @@ void ImageDrawer::drawHighScore(ScoreBoard& _scoreBoard)
     _texts.at(1)->setPosition(140, 0);
     _window->draw(*_texts.at(1));
 }
-
 
 void ImageDrawer::drawHomeScreen()
 {

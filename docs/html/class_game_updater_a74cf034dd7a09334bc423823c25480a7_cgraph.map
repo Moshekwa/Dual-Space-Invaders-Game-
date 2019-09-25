@@ -1,0 +1,13 @@
+<map id="GameUpdater::updateUpAlienLaserPosition" name="GameUpdater::updateUpAlienLaserPosition">
+<area shape="rect" id="node1" title=" " alt="" coords="5,175,200,217"/>
+<area shape="rect" id="node2" href="$class_game_entity.html#a9caddd3e1c22b5038415eebd31332c2e" title=" " alt="" coords="251,31,427,57"/>
+<area shape="rect" id="node4" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="490,208,669,235"/>
+<area shape="rect" id="node5" href="$class_moving_entity.html#a0b09cd6d76a9cd74c55f08efb8dafd09" title=" " alt="" coords="248,259,429,301"/>
+<area shape="rect" id="node6" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="271,325,407,352"/>
+<area shape="rect" id="node7" href="$class_laser.html#a16b40dbf18fd79fe83ad430666f7a468" title=" " alt="" coords="293,107,385,133"/>
+<area shape="rect" id="node10" href="$class_laser.html#a7eb43681af5ec12d1975ab31b4817119" title=" " alt="" coords="249,157,429,184"/>
+<area shape="rect" id="node3" href="$class_game_entity.html#ad95a7c6f575fca8e67d5589ce95e784a" title=" " alt="" coords="477,5,681,32"/>
+<area shape="rect" id="node8" href="$class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d" title=" " alt="" coords="483,56,676,83"/>
+<area shape="rect" id="node9" href="$class_game_entity.html#ae69fd63bf13966b5bcafee15cd7ba24e" title=" " alt="" coords="494,107,665,133"/>
+<area shape="rect" id="node11" href="$class_game_entity.html#a8aabf9f68517365feb902e8a6f6aa5a2" title=" " alt="" coords="495,157,664,184"/>
+</map>

@@ -1,3 +1,12 @@
+/**
+ * @file LaserCanon.h
+ * @class LaserCanon
+ * @brief This class is responsible for defining the behaviour of a laser canon object.
+ * @bug No Known Bugs.
+ * @version 3.0
+ * @date 25/09/2019
+ */
+
 #ifndef LASERCANON_H_INCLUDED
 #define LASERCANON_H_INCLUDED
 #include "MovingEntity.h"
@@ -14,10 +23,13 @@ public:
     LaserCanon(int x, int y, int canonNumber, int numberOfLives);
     bool isAbleToMove() const;
     void setAbilityToMove(bool movement);
+    void setFacedDirection(Direction directionFaced);
+    Direction getFacedDirection() const;
     virtual void move(Direction _direction);
 
 private:
     int _movement;
+    Direction _directionFaced;
 };
 
 #endif // LASERCANON_H_INCLUDED
