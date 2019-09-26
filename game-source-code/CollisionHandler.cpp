@@ -3,7 +3,7 @@
 CollisionHandler::CollisionHandler()
     : _collisionDetector{ new CollisionDetector{} }
     , _gameUpdater{ new GameUpdater{} }
-    , canonIsShot{ false }
+    , canonIsKilled{ false }
 {
 }
 
@@ -11,14 +11,14 @@ CollisionHandler::~CollisionHandler()
 {
 }
 
-bool CollisionHandler::isLaserCanonShot()
+bool CollisionHandler::isLaserCanonKilled()
 {
-    return canonIsShot;
+    return canonIsKilled;
 }
 
-void CollisionHandler::setCanonShotStateFalse()
+void CollisionHandler::setCanonKilledFlagFalse()
 {
-    canonIsShot = false;
+    canonIsKilled = false;
 }
 
 void CollisionHandler::handleLaserAlienCollision(Laser& _laser1, Laser& _laser2, Alien& _alien, ScoreBoard& _scoreBoard)
@@ -48,12 +48,12 @@ void CollisionHandler::handleLaserCanonLaserCollision(LaserCanon& _laserCanon1,
         case 1:
             _laserCanon1.destroyEntity();
             _laser2.destroyEntity();
-            canonIsShot = true;
+            canonIsKilled = true;
             break;
         case 2:
             _laserCanon2.destroyEntity();
             _laser1.destroyEntity();
-            canonIsShot = true;
+            canonIsKilled = true;
             break;
         default:
             break;
@@ -72,12 +72,12 @@ void CollisionHandler::handleLaserCanonAlienLaserCollision(LaserCanon& _laserCan
         case 1:
             _laserCanon1.destroyEntity();
             _alienLaser.destroyEntity();
-            canonIsShot = true;
+            canonIsKilled = true;
             break;
         case 2:
             _laserCanon2.destroyEntity();
             _alienLaser.destroyEntity();
-            canonIsShot = true;
+            canonIsKilled = true;
             break;
         default:
             break;
@@ -137,8 +137,9 @@ void CollisionHandler::hanldleLaserCanonLaserCanonCollision(LaserCanon& _laserCa
 {
     auto collisionOccured = _collisionDetector->LaserCanonLaserCanonCollision(_laserCanon1, _laserCanon2);
     if(collisionOccured) {
-      //  _laserCanon1.setAbilityToMove(false);
-      //  _laserCanon2.setAbilityToMove(false);
+       _laserCanon1.destroyEntity();
+       _laserCanon2.destroyEntity();
+       canonIsKilled = true;
     }
 }
 
@@ -149,11 +150,11 @@ void CollisionHandler::handleLaserCanonAlienCollision(LaserCanon& _laserCanon1, 
     if(alienKilledByCanon1) {
         _laserCanon1.destroyEntity();
         _alien.destroyEntity();
-        canonIsShot = true;
+        canonIsKilled = true;
     }
     if(alienKilledByCanon2) {
         _laserCanon2.destroyEntity();
         _alien.destroyEntity();
-        canonIsShot = true;
+        canonIsKilled = true;
     }
 }

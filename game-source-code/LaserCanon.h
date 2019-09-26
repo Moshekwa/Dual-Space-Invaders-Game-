@@ -21,14 +21,11 @@ class LaserCanon : public MovingEntity
 {
 public:
     LaserCanon(int x, int y, int canonNumber, int numberOfLives);
-    bool isAbleToMove() const;
-    void setAbilityToMove(bool movement);
     void setFacedDirection(Direction directionFaced);
     Direction getFacedDirection() const;
     virtual void move(Direction _direction);
 
 private:
-    int _movement;
     Direction _directionFaced;
 };
 

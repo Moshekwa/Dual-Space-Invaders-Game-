@@ -38,10 +38,8 @@ void GameLoop::PlayGame()
             _windowDisplay->getWindow()->display();
             _windowDisplay->getWindow()->clear();
         } else if(_windowDisplay->isPlay()) {
-            _imageDrawer->drawScore(*_scoreBoard);
-            _imageDrawer->drawHighScore(*_scoreBoard);
-
             gameActivities();
+            displayTexts();
             displayGameEntities();
             _windowDisplay->getWindow()->display();
             _windowDisplay->getWindow()->clear();
@@ -228,10 +226,20 @@ void GameLoop::laserCanonAndLaserActivities()
 {
     auto _updater = GameUpdater{};
 
-   // _laserCanon1->setAbilityToMove(true);
-   // _laserCanon2->setAbilityToMove(true);
     _collisionHandler->handleLaserCanonLaserCollision(*_laserCanon1, *_laserCanon2, *_laser1, *_laser2);
+    if(_collisionHandler->isLaserCanonKilled()) {
+        aliensInitialPositions();
+        laserCanonsInitialPositions();
+    }
+    _collisionHandler->setCanonKilledFlagFalse();
+
     _collisionHandler->hanldleLaserCanonLaserCanonCollision(*_laserCanon1, *_laserCanon2);
+    if(_collisionHandler->isLaserCanonKilled()) {
+        aliensInitialPositions();
+        laserCanonsInitialPositions();
+    }
+    _collisionHandler->setCanonKilledFlagFalse();
+
     _updater.updateLaser1Position(*_laserCanon1, *_laser1);
     _updater.updateLaser2Position(*_laserCanon2, *_laser2);
 
@@ -243,12 +251,6 @@ void GameLoop::laserCanonAndLaserActivities()
         _keyHandler.KeyCheck(*_laserCanon1, *_laser1);
         _keyHandler.KeyCheck2(*_laserCanon2, *_laser2);
     }
-
-    if(_collisionHandler->isLaserCanonShot()) {
-        aliensInitialPositions();
-        laserCanonsInitialPositions();
-    }
-    _collisionHandler->setCanonShotStateFalse();
 
     for(auto alienLaser : _alienLasers) {
         _collisionHandler->handleLaserCanonAlienLaserCollision(*_laserCanon1, *_laserCanon2, *alienLaser);
@@ -297,11 +299,11 @@ void GameLoop::alienActivities()
 
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *greenAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *greenAlien);
-        if(_collisionHandler->isLaserCanonShot()) {
+        if(_collisionHandler->isLaserCanonKilled()) {
             aliensInitialPositions();
             laserCanonsInitialPositions();
         }
-        _collisionHandler->setCanonShotStateFalse();
+        _collisionHandler->setCanonKilledFlagFalse();
 
         if(!greenAlien->isAlive()) {
             counter++;
@@ -335,11 +337,11 @@ void GameLoop::alienActivities()
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *purpleAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *purpleAlien);
-        if(_collisionHandler->isLaserCanonShot()) {
+        if(_collisionHandler->isLaserCanonKilled()) {
             aliensInitialPositions();
             laserCanonsInitialPositions();
         }
-        _collisionHandler->setCanonShotStateFalse();
+        _collisionHandler->setCanonKilledFlagFalse();
         if(!purpleAlien->isAlive()) {
             counter++;
             if(totalNumberOfAliens == counter) {
@@ -371,11 +373,11 @@ void GameLoop::alienActivities()
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *redAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *redAlien);
-        if(_collisionHandler->isLaserCanonShot()) {
+        if(_collisionHandler->isLaserCanonKilled()) {
             aliensInitialPositions();
             laserCanonsInitialPositions();
         }
-        _collisionHandler->setCanonShotStateFalse();
+        _collisionHandler->setCanonKilledFlagFalse();
 
         if(!redAlien->isAlive()) {
             counter++;
@@ -406,11 +408,11 @@ void GameLoop::alienActivities()
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpGreenAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpGreenAlien);
-        if(_collisionHandler->isLaserCanonShot()) {
+        if(_collisionHandler->isLaserCanonKilled()) {
             aliensInitialPositions();
             laserCanonsInitialPositions();
         }
-        _collisionHandler->setCanonShotStateFalse();
+        _collisionHandler->setCanonKilledFlagFalse();
 
         if(!UpGreenAlien->isAlive()) {
             counter++;
@@ -444,11 +446,11 @@ void GameLoop::alienActivities()
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpPurpleAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpPurpleAlien);
-        if(_collisionHandler->isLaserCanonShot()) {
+        if(_collisionHandler->isLaserCanonKilled()) {
             aliensInitialPositions();
             laserCanonsInitialPositions();
         }
-        _collisionHandler->setCanonShotStateFalse();
+        _collisionHandler->setCanonKilledFlagFalse();
 
         if(!UpPurpleAlien->isAlive()) {
             counter++;
@@ -482,11 +484,11 @@ void GameLoop::alienActivities()
         }
         _collisionHandler->handleLaserAlienCollision(*_laser1, *_laser2, *UpRedAlien, *_scoreBoard);
         _collisionHandler->handleLaserCanonAlienCollision(*_laserCanon1, *_laserCanon2, *UpRedAlien);
-        if(_collisionHandler->isLaserCanonShot()) {
+        if(_collisionHandler->isLaserCanonKilled()) {
             aliensInitialPositions();
             laserCanonsInitialPositions();
         }
-        _collisionHandler->setCanonShotStateFalse();
+        _collisionHandler->setCanonKilledFlagFalse();
 
         if(!UpRedAlien->isAlive()) {
             counter++;
@@ -523,6 +525,17 @@ void GameLoop::displayGameEntities()
     displayLaserCanonShields();
     displayLaserCanonLives();
     displayLaserCanonsAndLasers();
+}
+
+void GameLoop::displayTexts()
+{
+    _imageDrawer->drawScore(*_scoreBoard);
+    _imageDrawer->drawHighScore(*_scoreBoard);
+    if(_windowDisplay->is_singleMode()) {
+        _imageDrawer->drawGameMode(1);
+    } else {
+        _imageDrawer->drawGameMode(2);
+    }
 }
 
 void GameLoop::displayLaserCanonsAndLasers()

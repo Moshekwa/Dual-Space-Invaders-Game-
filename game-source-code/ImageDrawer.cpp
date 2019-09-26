@@ -9,7 +9,7 @@ ImageDrawer::ImageDrawer(shared_ptr<RenderWindow> window)
     _texts = _imageLoader.getTexts();
 }
 
-void ImageDrawer::drawLaserCanon(LaserCanon& _laserCanon1)
+void ImageDrawer::drawLaserCanon(const LaserCanon& _laserCanon1)
 {
     if(_laserCanon1.isAlive()) {
         auto [x_position, y_position] = _laserCanon1.entityPosition();
@@ -24,7 +24,7 @@ void ImageDrawer::drawLaserCanon(LaserCanon& _laserCanon1)
         }
     }
 }
-void ImageDrawer::drawLaserCanon2(LaserCanon& _laserCanon2)
+void ImageDrawer::drawLaserCanon2(const LaserCanon& _laserCanon2)
 {
     if(_laserCanon2.isAlive()) {
         auto [x_position, y_position] = _laserCanon2.entityPosition();
@@ -285,7 +285,7 @@ void ImageDrawer::drawUpRedAliens(const Alien& _alien, int spriteNumber)
     }
 }
 
-void ImageDrawer::drawScore(ScoreBoard& _scoreBoard)
+void ImageDrawer::drawScore(const ScoreBoard& _scoreBoard)
 {
 
     auto int_score = _scoreBoard.getScore();
@@ -298,7 +298,7 @@ void ImageDrawer::drawScore(ScoreBoard& _scoreBoard)
     _window->draw(*_texts.at(0));
 }
 
-void ImageDrawer::drawHighScore(ScoreBoard& _scoreBoard)
+void ImageDrawer::drawHighScore(const ScoreBoard& _scoreBoard)
 {
     auto int_score = _scoreBoard.getHighScore();
     stringstream ss1;
@@ -306,8 +306,27 @@ void ImageDrawer::drawHighScore(ScoreBoard& _scoreBoard)
     auto x = "HighScore:"s;
     _texts.at(1)->setString(x + ss1.str().c_str());
     _texts.at(1)->setCharacterSize(11);
-    _texts.at(1)->setPosition(140, 0);
+    _texts.at(1)->setPosition(130, 20);
     _window->draw(*_texts.at(1));
+}
+
+void ImageDrawer::drawGameMode(int gameMode)
+{
+    auto mode = ""s;
+    switch(gameMode) {
+    case 1:
+        mode = "SINGLE PLAY MODE";
+        break;
+    case 2:
+        mode = "DUAL PLAY MODE";
+        break;
+    default:
+        break;
+    }
+    _texts.at(2)->setString(mode);
+    _texts.at(2)->setCharacterSize(15);
+    _texts.at(2)->setPosition(100, 0);
+    _window->draw(*_texts.at(2));
 }
 
 void ImageDrawer::drawHomeScreen()

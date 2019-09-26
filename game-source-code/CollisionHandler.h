@@ -32,13 +32,13 @@ public:
     void hanldleLaserCanonLaserCanonCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2);
     void handleLaserCanonAlienCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Alien& _alien);
 
-    bool isLaserCanonShot();
-    void setCanonShotStateFalse();
+    bool isLaserCanonKilled();
+    void setCanonKilledFlagFalse();
 
 private:
     shared_ptr<CollisionDetector> _collisionDetector;
     shared_ptr<GameUpdater> _gameUpdater;
-    bool canonIsShot;
+    bool canonIsKilled;
 };
 
 #endif // COLLISIONHANDLER_H_INCLUDED

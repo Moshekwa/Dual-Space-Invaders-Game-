@@ -8,21 +8,17 @@ void GameUpdater::updateLaser1Position(LaserCanon& _laserCanon1, Laser& _laser1)
 {
     // getMovementBoundaries returns : leftBoundary, rightBoundary, upperBoundary and bottomBoundary.
     if(_laser1.isAlive()) {
-        if(_laserCanon1.getFacedDirection() == Direction::DOWN && !_laser1.isLaserInMotion()) {
+        if(_laserCanon1.getFacedDirection() == Direction::DOWN) {
             if(get<1>(_laser1.entityPosition()) >= get<3>(_laser1.getMovementBoundaries())) {
                 _laser1.destroyEntity();
-                _laser1.setLaserInMotion(false);
             } else {
                 _laser1.move(DOWN);
-                _laser1.setLaserInMotion(true);
             }
         } else {
             if(get<1>(_laser1.entityPosition()) <= get<2>(_laser1.getMovementBoundaries())) {
                 _laser1.destroyEntity();
-                _laser1.setLaserInMotion(false);
             } else {
                 _laser1.move(UP);
-                _laser1.setLaserInMotion(true);
             }
         }
     } else {
@@ -138,32 +134,28 @@ void GameUpdater::updateLaserCanon1Position(LaserCanon& _laserCanon1, Direction 
     if(y_position == bottomBoundary) {
         _laserCanon1.setFacedDirection(Direction::UP);
     }
-    if(_laserCanon1.isAbleToMove()) {
-        switch(_direction) {
-        case LEFT:
-            if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
-                _laserCanon1.move(LEFT);
-            }
-            break;
-        case RIGHT:
-            if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
-                _laserCanon1.move(RIGHT);
-            }
-            break;
-        case UP:
-            if(y_position > upperBoundary) {
-                _laserCanon1.move(UP);
-                _laserCanon1.setFacedDirection(Direction::UP);
-            }
-            break;
-        case DOWN:
-            if(y_position < bottomBoundary) {
-                _laserCanon1.move(DOWN);
-                _laserCanon1.setFacedDirection(Direction::DOWN);
-            }
-        default:
-            break;
+    switch(_direction) {
+    case LEFT:
+        if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+            _laserCanon1.move(LEFT);
         }
+        break;
+    case RIGHT:
+        if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+            _laserCanon1.move(RIGHT);
+        }
+        break;
+    case UP:
+        if(y_position > upperBoundary) {
+            _laserCanon1.move(UP);
+        }
+        break;
+    case DOWN:
+        if(y_position < bottomBoundary) {
+            _laserCanon1.move(DOWN);
+        }
+    default:
+        break;
     }
 }
 
@@ -171,32 +163,36 @@ void GameUpdater::updateLaserCanon2Position(LaserCanon& _laserCanon2, Direction 
 {
     auto [x_position, y_position] = _laserCanon2.entityPosition();
     auto [leftBoundary, rightBoundary, upperBoundary, bottomBoundary] = _laserCanon2.getMovementBoundaries();
-    if(_laserCanon2.isAbleToMove()) {
-        switch(_direction) {
-        case LEFT:
-            if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
-                _laserCanon2.move(LEFT);
-            }
-            break;
-        case RIGHT:
-            if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
-                _laserCanon2.move(RIGHT);
-            }
-            break;
-        case UP:
-            if(y_position > upperBoundary) {
-                _laserCanon2.move(UP);
-                _laserCanon2.setFacedDirection(Direction::UP);
-            }
-            break;
-        case DOWN:
-            if(y_position < bottomBoundary) {
-                _laserCanon2.move(DOWN);
-                _laserCanon2.setFacedDirection(Direction::DOWN);
-            }
 
-        default:
-            break;
+    if(y_position == upperBoundary) {
+        _laserCanon2.setFacedDirection(Direction::DOWN);
+    }
+    if(y_position == bottomBoundary) {
+        _laserCanon2.setFacedDirection(Direction::UP);
+    }
+
+    switch(_direction) {
+    case LEFT:
+        if(x_position > leftBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+            _laserCanon2.move(LEFT);
         }
+        break;
+    case RIGHT:
+        if(x_position < rightBoundary && (y_position == upperBoundary || y_position == bottomBoundary)) {
+            _laserCanon2.move(RIGHT);
+        }
+        break;
+    case UP:
+        if(y_position > upperBoundary) {
+            _laserCanon2.move(UP);
+        }
+        break;
+    case DOWN:
+        if(y_position < bottomBoundary) {
+            _laserCanon2.move(DOWN);
+        }
+
+    default:
+        break;
     }
 }

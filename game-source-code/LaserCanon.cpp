@@ -2,7 +2,6 @@
 
 LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
     : MovingEntity{ x, y, 5, true, numberOfLives }
-    , _movement{ true }
 
 {
     switch(canonNumber) {
@@ -49,16 +48,6 @@ void LaserCanon::move(Direction _direction)
     default:
         break;
     }
-}
-
-bool LaserCanon::isAbleToMove() const
-{
-    return _movement;
-}
-
-void LaserCanon::setAbilityToMove(bool movement)
-{
-    _movement = movement;
 }
 
 void LaserCanon::setFacedDirection(Direction directionFaced)

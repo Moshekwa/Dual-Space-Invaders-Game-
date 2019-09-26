@@ -28,12 +28,9 @@ public:
     Laser(Alien& _alien, int numberOfLives);
     void moveLaserWithCanon(LaserCanon& _laserCanon);
     void moveLaserWithAlien(Alien& _alien);
-    bool isLaserInMotion() const;
-    void setLaserInMotion(bool motion);
     virtual void move(Direction _direction);
 
 private:
-    bool laserMotion;
 };
 
 #endif // LASER_H_INCLUDED

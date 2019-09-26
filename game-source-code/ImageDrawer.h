@@ -30,8 +30,8 @@ class ImageDrawer
 {
 public:
     ImageDrawer(shared_ptr<RenderWindow> window);
-    void drawLaserCanon(LaserCanon& _laserCanon1);
-    void drawLaserCanon2(LaserCanon& _laserCanon2);
+    void drawLaserCanon(const LaserCanon& _laserCanon1);
+    void drawLaserCanon2(const LaserCanon& _laserCanon2);
     void drawLaser(const Laser& _laser1);
     void drawLaser2(const Laser& _laser2);
     void drawAlienLaser(const Laser& _alienLaser);
@@ -47,8 +47,9 @@ public:
     void drawLaserCanonShields(const LaserCanonShield& _canonShield, int shieldNumber, int shieldState);
     void drawLaserCanonLives(const LaserCanonLife& _canonLife);
 
-    void drawScore(ScoreBoard& _scoreBoard);
-    void drawHighScore(ScoreBoard& _scoreBoard);
+    void drawScore(const ScoreBoard& _scoreBoard);
+    void drawHighScore(const ScoreBoard& _scoreBoard);
+    void drawGameMode(int gameMode);
 
     void drawHomeScreen();
     void drawGameWon();

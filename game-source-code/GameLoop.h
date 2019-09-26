@@ -85,6 +85,7 @@ private:
     void laserCanonShieldActivities();
 
     void displayGameEntities();
+    void displayTexts();
     void displayGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries);
     void displayPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
     void displayRedAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);

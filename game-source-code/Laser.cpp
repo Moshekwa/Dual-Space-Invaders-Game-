@@ -2,7 +2,6 @@
 
 Laser::Laser(LaserCanon& _laserCanon, int numberOfLives)
     : Ammunition{ get<0>(_laserCanon.entityPosition()), get<1>(_laserCanon.entityPosition()), 5, false, numberOfLives }
-    , laserMotion{ false }
 {
     auto [x_position, y_position] = entityPosition();
     if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 480) {
@@ -49,12 +48,3 @@ void Laser::moveLaserWithAlien(Alien& _alien)
     setYposition(y_position + 5);
 }
 
-void Laser::setLaserInMotion(bool motion)
-{
-    laserMotion = motion;
-}
-
-bool Laser::isLaserInMotion() const
-{
-    return laserMotion;
-}
