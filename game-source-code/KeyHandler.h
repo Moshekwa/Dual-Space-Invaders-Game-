@@ -10,18 +10,20 @@
 #ifndef KEYHANDLER_H_INCLUDED
 #define KEYHANDLER_H_INCLUDED
 
-#include "LaserCanon.h"
-#include "Laser.h"
 #include "GameUpdater.h"
+#include "Laser.h"
+#include "LaserCanon.h"
 #include <memory>
-using std::shared_ptr;
+#include <tuple>
 using std::make_shared;
+using std::shared_ptr;
 
 class KeyHandler
 {
 public:
     KeyHandler();
-    void KeyCheck(LaserCanon& _laserCanon1,  Laser& _laser1);
+    tuple<bool, bool, bool> keyCheckGameMode();
+    void KeyCheck(LaserCanon& _laserCanon1, Laser& _laser1);
     void KeyCheck2(LaserCanon& _laserCanon2, Laser& _laser2);
     void singleModeKeyCheck(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _laser1, Laser& _laser2);
 

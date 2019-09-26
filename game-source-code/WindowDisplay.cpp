@@ -1,4 +1,7 @@
+#include "KeyHandler.h"
 #include "WindowDisplay.h"
+#include <memory>
+using std::make_shared;
 
 WindowDisplay::WindowDisplay()
     : _window{ new RenderWindow{ VideoMode(screenWidth, screenHeight), "Duel Space Invaders" } }
@@ -16,14 +19,17 @@ const int WindowDisplay::screenHeight{ 500 };
 void WindowDisplay::CheckEvent()
 {
     auto event = Event{};
+    auto _keyHandler = make_shared<KeyHandler>();
+    auto [quit, singlePlay, dualPlay] = _keyHandler->keyCheckGameMode();
+
     while(_window->pollEvent(event)) {
-        if(event.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Key::Escape)) {
+        if(event.type == Event::Closed || quit) {
             _window->close();
         }
-        if(Keyboard::isKeyPressed(Keyboard::Key::K)) {
+        if(dualPlay) {
             _play = true;
         }
-        if(Keyboard::isKeyPressed(Keyboard::Key::L)) {
+        if(singlePlay) {
             _play = true;
             _singleMode = true;
         }

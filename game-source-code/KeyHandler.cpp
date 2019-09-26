@@ -74,3 +74,20 @@ void KeyHandler::singleModeKeyCheck(LaserCanon& _laserCanon1, LaserCanon& _laser
         exit(0);
     }
 }
+
+tuple<bool,bool,bool> KeyHandler::keyCheckGameMode()
+{
+    auto _escape = false;
+    auto _singleMode = false;
+    auto _dualMode = false;
+    if(Keyboard::isKeyPressed(Keyboard::Key::Escape)){
+        _escape = true;
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Key::L)){
+        _singleMode = true;
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Key::K)){
+        _dualMode = true;
+    }
+    return {_escape, _singleMode, _dualMode};
+}
