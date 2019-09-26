@@ -31,6 +31,9 @@ public:
     void handleLaserAliensLaserCollision(Laser& _laser1, Laser& _laser2, Laser& _alienLaser);
     void hanldleLaserCanonLaserCanonCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2);
     void handleLaserCanonAlienCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Alien& _alien);
+    void handleCanonShieldLaserCanonCollision(LaserCanon& _laserCanon1,
+        LaserCanon& _laserCanon2,
+        LaserCanonShield& _laserCanonShield);
 
     bool isLaserCanonKilled();
     void setCanonKilledFlagFalse();

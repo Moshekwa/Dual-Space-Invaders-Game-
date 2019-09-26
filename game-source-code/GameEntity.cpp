@@ -11,7 +11,7 @@ GameEntity::GameEntity(int xPosition, int yPosition, bool life, int numberOfLive
     }
 
     if(numberOfLives == 0) {
-        throw InvalidEntityPositions{};
+        throw NumberOfLivesCannotBeZero{};
     }
 }
 

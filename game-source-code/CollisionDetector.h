@@ -29,7 +29,10 @@ public:
     bool Laser1Laser2Collision(Laser& _laser1, Laser& _laser2);
     tuple<bool, bool> LaserAliensLaserCollision(Laser& _laser1, Laser& _laser2, Laser& _alienLaser);
     bool LaserCanonLaserCanonCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2);
-    tuple<bool,bool> LaserCanonAlienCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Alien& _alien);
+    tuple<bool, bool> LaserCanonAlienCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Alien& _alien);
+    tuple<bool,bool> CanonShieldLaserCanonCollision(LaserCanon& _laserCanon1,
+        LaserCanon& _laserCanon2,
+        LaserCanonShield& _laserCanonShield);
 
 private:
     EntityShape _entityShape;

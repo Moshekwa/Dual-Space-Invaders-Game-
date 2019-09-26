@@ -3,7 +3,11 @@
 MovingEntity::MovingEntity(int xPosition, int yPosition, int entitySpeed, bool life, int numberOfLives)
     : GameEntity{ xPosition, yPosition, life, numberOfLives }
 {
+    if(entitySpeed > 0){
     _entitySpeed = entitySpeed;
+    } else{
+        throw EntitySpeedCannotBeZero{};
+    }
 }
 
 int MovingEntity::getEntitySpeed() const

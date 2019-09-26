@@ -130,9 +130,11 @@ void GameUpdater::updateLaserCanon1Position(LaserCanon& _laserCanon1, Direction 
     auto [leftBoundary, rightBoundary, upperBoundary, bottomBoundary] = _laserCanon1.getMovementBoundaries();
     if(y_position == upperBoundary) {
         _laserCanon1.setFacedDirection(Direction::DOWN);
+        _laserCanon1.setAbilityToMove(true);
     }
     if(y_position == bottomBoundary) {
         _laserCanon1.setFacedDirection(Direction::UP);
+        _laserCanon1.setAbilityToMove(true);
     }
     switch(_direction) {
     case LEFT:
@@ -147,12 +149,24 @@ void GameUpdater::updateLaserCanon1Position(LaserCanon& _laserCanon1, Direction 
         break;
     case UP:
         if(y_position > upperBoundary) {
-            _laserCanon1.move(UP);
+            if(_laserCanon1.isAbleToMove()) {
+                _laserCanon1.move(UP);
+            }
+            if(!_laserCanon1.isAbleToMove() && _laserCanon1.getFacedDirection() == Direction::DOWN) {
+                _laserCanon1.setAbilityToMove(true);
+                _laserCanon1.move(UP);
+            }
         }
         break;
     case DOWN:
         if(y_position < bottomBoundary) {
-            _laserCanon1.move(DOWN);
+            if(!_laserCanon1.isAbleToMove() && _laserCanon1.getFacedDirection() == Direction::UP) {
+                _laserCanon1.setAbilityToMove(true);
+                _laserCanon1.move(DOWN);
+            }
+            if(_laserCanon1.isAbleToMove()) {
+                _laserCanon1.move(DOWN);
+            }
         }
     default:
         break;
@@ -184,12 +198,24 @@ void GameUpdater::updateLaserCanon2Position(LaserCanon& _laserCanon2, Direction 
         break;
     case UP:
         if(y_position > upperBoundary) {
-            _laserCanon2.move(UP);
+            if(_laserCanon2.isAbleToMove()) {
+                _laserCanon2.move(UP);
+            }
+            if(!_laserCanon2.isAbleToMove() && _laserCanon2.getFacedDirection() == Direction::DOWN) {
+                _laserCanon2.setAbilityToMove(true);
+                _laserCanon2.move(UP);
+            }
         }
         break;
     case DOWN:
         if(y_position < bottomBoundary) {
-            _laserCanon2.move(DOWN);
+            if(!_laserCanon2.isAbleToMove() && _laserCanon2.getFacedDirection() == Direction::UP) {
+                _laserCanon2.setAbilityToMove(true);
+                _laserCanon2.move(DOWN);
+            }
+            if(_laserCanon2.isAbleToMove()) {
+                _laserCanon2.move(DOWN);
+            }
         }
 
     default:

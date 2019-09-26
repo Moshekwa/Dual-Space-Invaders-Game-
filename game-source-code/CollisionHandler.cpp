@@ -137,9 +137,9 @@ void CollisionHandler::hanldleLaserCanonLaserCanonCollision(LaserCanon& _laserCa
 {
     auto collisionOccured = _collisionDetector->LaserCanonLaserCanonCollision(_laserCanon1, _laserCanon2);
     if(collisionOccured) {
-       _laserCanon1.destroyEntity();
-       _laserCanon2.destroyEntity();
-       canonIsKilled = true;
+        _laserCanon1.destroyEntity();
+        _laserCanon2.destroyEntity();
+        canonIsKilled = true;
     }
 }
 
@@ -156,5 +156,19 @@ void CollisionHandler::handleLaserCanonAlienCollision(LaserCanon& _laserCanon1, 
         _laserCanon2.destroyEntity();
         _alien.destroyEntity();
         canonIsKilled = true;
+    }
+}
+
+void CollisionHandler::handleCanonShieldLaserCanonCollision(LaserCanon& _laserCanon1,
+    LaserCanon& _laserCanon2,
+    LaserCanonShield& _laserCanonShield)
+{
+    auto [shieldHitByCanon1, shieldHitByCanon2] =
+        _collisionDetector->CanonShieldLaserCanonCollision(_laserCanon1, _laserCanon2, _laserCanonShield);
+    if(shieldHitByCanon1) {
+        _laserCanon1.setAbilityToMove(false);
+    }
+    if(shieldHitByCanon2) {
+        _laserCanon2.setAbilityToMove(false);
     }
 }

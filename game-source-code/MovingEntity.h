@@ -13,6 +13,10 @@
 
 enum Direction { UP, DOWN, LEFT, RIGHT };
 
+class EntitySpeedCannotBeZero
+{
+};
+
 class MovingEntity : public GameEntity
 {
 public:
@@ -22,7 +26,7 @@ public:
     void setMovementBoundaries(int left, int right, int upper, int bottom);
     tuple<int, int, int, int> getMovementBoundaries();
     virtual void move(Direction _direction) = 0;
-    
+
 private:
     int _entitySpeed;
     int rightBoundary;

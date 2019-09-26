@@ -12,7 +12,7 @@
 #include "MovingEntity.h"
 #include <tuple>
 
-class InvalidLaserCanonCoordinates
+class InvalidLaserCanonPosition
 {
 };
 
@@ -23,10 +23,13 @@ public:
     LaserCanon(int x, int y, int canonNumber, int numberOfLives);
     void setFacedDirection(Direction directionFaced);
     Direction getFacedDirection() const;
+    void setAbilityToMove(bool movementAbility);
+    bool isAbleToMove() const;
     virtual void move(Direction _direction);
 
 private:
     Direction _directionFaced;
+    bool ableToMove;
 };
 
 #endif // LASERCANON_H_INCLUDED

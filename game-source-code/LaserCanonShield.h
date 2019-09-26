@@ -6,17 +6,21 @@
  * @version 3.0
  * @date 25/09/2019
  */
- 
+
 #ifndef LASERCANONSHIELD_H_INCLUDED
 #define LASERCANONSHIELD_H_INCLUDED
 #include "GameEntity.h"
+
+class InvalidShieldPosition
+{
+};
 
 class LaserCanonShield : public GameEntity
 {
 public:
     LaserCanonShield(int xPosition, int yPosition, bool life, int numberOfLives);
     static int getNumberOfShields();
-    
+
 private:
     const static int numberOfShields;
 };

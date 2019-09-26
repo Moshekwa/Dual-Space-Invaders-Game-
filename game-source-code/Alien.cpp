@@ -9,7 +9,7 @@ Alien::Alien(int x, int y, int _rightBoundary, int _leftBoundary, int numberOfLi
 {
     if(x < 0 || x > 380 || y < 40 || y > 480)
         throw InvalidAlienCoordinates{};
-    setMovementBoundaries(_leftBoundary, _rightBoundary, 0, 460);
+    setMovementBoundaries(_leftBoundary, _rightBoundary, 80, 460);
 }
 
 AlienColour Alien::getAlienColour() const

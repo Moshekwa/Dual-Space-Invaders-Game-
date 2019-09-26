@@ -38,11 +38,13 @@ tuple<bool, int> CollisionDetector::LaserCanonLaserCollision(LaserCanon& _laserC
         _entityShape.laserCanon2Shape(_laserCanon2);
 
     if((laserCanon2_Xmax > laser1_Xmin && laserCanon2_Xmin < laser1_Xmax) &&
-        (laserCanon2_Ymax > laser1_Ymin && laserCanon2_Ymin < laser1_Ymax) && _laserCanon2.isAlive() && _laser2.isAlive()) {
+        (laserCanon2_Ymax > laser1_Ymin && laserCanon2_Ymin < laser1_Ymax) && _laserCanon2.isAlive() &&
+        _laser2.isAlive()) {
         return { true, 2 };
     }
     if((laserCanon1_Xmax >= laser2_Xmin && laserCanon1_Xmin <= laser2_Xmax) &&
-        (laserCanon1_Ymax >= laser2_Ymin && laserCanon1_Ymin <= laser2_Ymax) && _laserCanon1.isAlive() && _laser1.isAlive()) {
+        (laserCanon1_Ymax >= laser2_Ymin && laserCanon1_Ymin <= laser2_Ymax) && _laserCanon1.isAlive() &&
+        _laser1.isAlive()) {
         return { true, 1 };
     }
     return { false, 0 };
@@ -184,4 +186,29 @@ CollisionDetector::LaserCanonAlienCollision(LaserCanon& _laserCanon1, LaserCanon
         return { alienKilledByCanon1, alienKilledByCanon2 };
     }
     return { alienKilledByCanon1, alienKilledByCanon2 };
+}
+
+tuple<bool, bool> CollisionDetector::CanonShieldLaserCanonCollision(LaserCanon& _laserCanon1,
+    LaserCanon& _laserCanon2,
+    LaserCanonShield& _laserCanonShield)
+{
+    auto [laserCanon1_Xmin, laserCanon1_Ymin, laserCanon1_Xmax, laserCanon1_Ymax] =
+        _entityShape.laserCanon1Shape(_laserCanon1);
+    auto [laserCanon2_Xmin, laserCanon2_Ymin, laserCanon2_Xmax, laserCanon2_Ymax] =
+        _entityShape.laserCanon2Shape(_laserCanon2);
+    auto [shield_Xmin, shield_Ymin, shield_Xmax, shield_Ymax] = _entityShape.laserCanonShieldShape(_laserCanonShield);
+    auto shieldHitByCanon1 = false;
+    auto shieldHitByCanon2 = false;
+
+    if((laserCanon1_Xmax >= shield_Xmin && laserCanon1_Xmin <= shield_Xmax) &&
+        (laserCanon1_Ymax >= shield_Ymin && laserCanon1_Ymin <= shield_Ymax) && (_laserCanon1.isAlive()) &&
+        _laserCanonShield.isAlive()) {
+        shieldHitByCanon1 = true;
+    }
+    if((laserCanon2_Xmax >= shield_Xmin && laserCanon2_Xmin <= shield_Xmax) &&
+        (laserCanon2_Ymax >= shield_Ymin && laserCanon2_Ymin <= shield_Ymax) && (_laserCanon2.isAlive()) &&
+        _laserCanonShield.isAlive()) {
+        shieldHitByCanon2 = true;
+    }
+    return { shieldHitByCanon1, shieldHitByCanon2 };
 }

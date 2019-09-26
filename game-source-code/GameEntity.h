@@ -16,6 +16,10 @@ class InvalidEntityPositions
 {
 };
 
+class NumberOfLivesCannotBeZero
+{
+};
+
 class GameEntity
 {
 public:

@@ -242,7 +242,6 @@ void GameLoop::laserCanonAndLaserActivities()
 
     _updater.updateLaser1Position(*_laserCanon1, *_laser1);
     _updater.updateLaser2Position(*_laserCanon2, *_laser2);
-
     _collisionHandler->handleLaser1Laser2Collision(*_laser1, *_laser2);
 
     if(_windowDisplay->is_singleMode()) {
@@ -512,6 +511,7 @@ void GameLoop::laserCanonShieldActivities()
 
     for(auto laserCanonShield : _laserCanonShields) {
         _collisionHandler->handleLaserCanonShieldLaserCollission(*laserCanonShield, *_laser1, *_laser2);
+        _collisionHandler->handleCanonShieldLaserCanonCollision(*_laserCanon1, *_laserCanon2, *laserCanonShield);
     }
 }
 

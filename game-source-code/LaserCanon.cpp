@@ -2,18 +2,19 @@
 
 LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
     : MovingEntity{ x, y, 5, true, numberOfLives }
+    , ableToMove{ true }
 
 {
     switch(canonNumber) {
     case 1:
-        if(x < 0 || x > 380 || y != 480) {
-            throw InvalidLaserCanonCoordinates{};
+        if(x != 190 || y != 480) {
+            throw InvalidLaserCanonPosition{};
         }
         break;
     case 2:
-        if(x < 0 || x > 380 || y != 40) {
+        if(x != 190 || y != 40) {
 
-            throw InvalidLaserCanonCoordinates{};
+            throw InvalidLaserCanonPosition{};
         }
         break;
     default:
@@ -58,4 +59,14 @@ void LaserCanon::setFacedDirection(Direction directionFaced)
 Direction LaserCanon::getFacedDirection() const
 {
     return _directionFaced;
+}
+
+void LaserCanon::setAbilityToMove(bool movementAbility)
+{
+    ableToMove = movementAbility;
+}
+
+bool LaserCanon::isAbleToMove() const
+{
+    return ableToMove;
 }

@@ -4,20 +4,20 @@ Laser::Laser(LaserCanon& _laserCanon, int numberOfLives)
     : Ammunition{ get<0>(_laserCanon.entityPosition()), get<1>(_laserCanon.entityPosition()), 5, false, numberOfLives }
 {
     auto [x_position, y_position] = entityPosition();
-    if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 480) {
+    if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 490) {
         throw InvalidCanonLaserCoordinates{};
     }
-    setMovementBoundaries(0, 395, 40, 460);
+    setMovementBoundaries(0, 395, 40, 490);
 }
 
 Laser::Laser(Alien& _alien, int numberOfLives)
     : Ammunition{ get<0>(_alien.entityPosition()), get<1>(_alien.entityPosition()), 1, false, numberOfLives }
 {
     auto [x_position, y_position] = entityPosition();
-    if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 480) {
+    if(x_position < 0 || x_position > 400 || y_position < 40 || y_position > 490) {
         throw InvalidCanonLaserCoordinates{};
     }
-    setMovementBoundaries(0, 395, 40, 500);
+    setMovementBoundaries(0, 395, 40, 490);
 }
 
 void Laser::move(Direction _direction)
