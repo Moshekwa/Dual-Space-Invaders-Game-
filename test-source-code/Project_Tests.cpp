@@ -109,7 +109,7 @@ TEST_CASE("Laser does not go above the upper screen boundary, it gets distroyed 
     CHECK(y_position == y_position_ + 5); // laser offsets from laser canon by 5 units.
 }
 
-TEST_CASE("Laser does not go below the bottom screen boundary, it gets distroyed and goes back to the canon")
+TEST_CASE("Laser does not go below the bottom screen boundary, it gets destroyed and goes back to the canon")
 {
     auto xPosition = 190;
     auto yPosition = 40;
@@ -121,6 +121,7 @@ TEST_CASE("Laser does not go below the bottom screen boundary, it gets distroyed
     _laser2.giveEntityLife();
 
     auto _gameUpdater = GameUpdater{};
+    _gameUpdater.updateLaser2Position(_laserCanon2, _laser2);
     _gameUpdater.updateLaser2Position(_laserCanon2, _laser2);
     _gameUpdater.updateLaser2Position(_laserCanon2, _laser2);
     _gameUpdater.updateLaser2Position(_laserCanon2, _laser2);
