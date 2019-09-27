@@ -8,10 +8,6 @@ ScoreBoard::ScoreBoard()
     readHighScoreFromFile();
 }
 
-ScoreBoard::~ScoreBoard()
-{
-}
-
 void ScoreBoard::setScore(int score)
 {
     _score = score;

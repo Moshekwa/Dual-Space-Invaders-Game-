@@ -5,6 +5,3 @@ LaserCanonLife::LaserCanonLife(int xPosition, int yPosition, bool life, int numb
 {
 }
 
-LaserCanonLife::~LaserCanonLife()
-{
-}

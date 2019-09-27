@@ -35,7 +35,7 @@ int Alien::alienPoints(AlienColour _colour)
     }
 }
 
-const int Alien::numberOfAliens{ 6 };
+const int Alien::numberOfAliens{ 7 };
 
 int Alien::getNumberOfAliens()
 {

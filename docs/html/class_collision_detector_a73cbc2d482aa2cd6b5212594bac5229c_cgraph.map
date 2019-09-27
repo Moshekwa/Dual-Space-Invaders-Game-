@@ -1,8 +1,4 @@
 <map id="CollisionDetector::LaserCanonAlienCollision" name="CollisionDetector::LaserCanonAlienCollision">
-<area shape="rect" id="node1" title=" " alt="" coords="5,78,175,119"/>
-<area shape="rect" id="node2" href="$class_entity_shape.html#a8775b188fc6da64827c397e57b2b3682" title=" " alt="" coords="227,5,392,32"/>
-<area shape="rect" id="node4" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="241,56,377,83"/>
-<area shape="rect" id="node5" href="$class_entity_shape.html#a2e8d195c1f9608b9d02b5fb3d4577ca8" title=" " alt="" coords="223,107,396,149"/>
-<area shape="rect" id="node6" href="$class_entity_shape.html#a8ced1c014218ed5cf945879414306de3" title=" " alt="" coords="223,173,396,214"/>
-<area shape="rect" id="node3" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="444,115,623,141"/>
+<area shape="rect" id="node1" title="detects the laser canon and alien collision" alt="" coords="5,5,175,47"/>
+<area shape="rect" id="node2" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="223,13,359,39"/>
 </map>

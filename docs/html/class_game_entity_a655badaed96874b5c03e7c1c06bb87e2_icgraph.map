@@ -1,7 +1,7 @@
 <map id="GameEntity::giveEntityLife" name="GameEntity::giveEntityLife">
 <area shape="rect" id="node1" title=" " alt="" coords="419,56,593,83"/>
-<area shape="rect" id="node2" href="$class_ammunition.html#a37513b5cfef75fb9bcfccbb208b1541f" title=" " alt="" coords="240,56,371,83"/>
-<area shape="rect" id="node3" href="$class_key_handler.html#a5a29baaf3e4db50a6e9bfb89d0a26e47" title=" " alt="" coords="20,5,177,32"/>
-<area shape="rect" id="node4" href="$class_key_handler.html#a6ecbc2cc1a6be0699fbc5baf69296818" title=" " alt="" coords="17,56,181,83"/>
-<area shape="rect" id="node5" href="$class_key_handler.html#ac186b90abd5cdaf1635288d31a5b22d1" title=" " alt="" coords="5,107,192,149"/>
+<area shape="rect" id="node2" href="$class_ammunition.html#a37513b5cfef75fb9bcfccbb208b1541f" title="this function is essencially responsible setting the ammunition in motion" alt="" coords="240,56,371,83"/>
+<area shape="rect" id="node3" href="$class_key_handler.html#a5a29baaf3e4db50a6e9bfb89d0a26e47" title="checks the keys pressed for moving and shooting the first player&#39;s game object" alt="" coords="20,5,177,32"/>
+<area shape="rect" id="node4" href="$class_key_handler.html#a6ecbc2cc1a6be0699fbc5baf69296818" title="checks the keys pressed for moving and shooting the second player&#39;s game object" alt="" coords="17,56,181,83"/>
+<area shape="rect" id="node5" href="$class_key_handler.html#ac186b90abd5cdaf1635288d31a5b22d1" title="checks the keys pressed for controlling the game objects when single play mode is active" alt="" coords="5,107,192,149"/>
 </map>

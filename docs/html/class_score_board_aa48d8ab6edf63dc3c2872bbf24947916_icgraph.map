@@ -1,5 +1,5 @@
 <map id="ScoreBoard::getScore" name="ScoreBoard::getScore">
 <area shape="rect" id="node1" title=" " alt="" coords="240,35,391,61"/>
-<area shape="rect" id="node2" href="$class_image_drawer.html#aeba23c85794482e16d821752748f583c" title=" " alt="" coords="15,5,182,32"/>
+<area shape="rect" id="node2" href="$class_image_drawer.html#aad9e978efa0030c6bfafc734003aa018" title=" " alt="" coords="15,5,182,32"/>
 <area shape="rect" id="node3" href="$class_game_updater.html#a07c2672c6f3552a93891a76efb22c5d7" title=" " alt="" coords="5,57,192,98"/>
 </map>

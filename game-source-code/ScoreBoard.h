@@ -18,13 +18,12 @@ class ScoreBoard
 {
 public:
     ScoreBoard();
-    ~ScoreBoard();
     void setScore(int score);
     int getHighScore() const;
     int getScore() const;
     void readHighScoreFromFile();
     void readHighScoreIntoFile();
-
+    ~ScoreBoard(){};
 private:
     int _score;
     int _highScore;

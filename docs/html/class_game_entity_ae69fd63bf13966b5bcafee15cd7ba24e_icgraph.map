@@ -1,16 +1,16 @@
 <map id="GameEntity::setYposition" name="GameEntity::setYposition">
-<area shape="rect" id="node1" title=" " alt="" coords="484,282,655,309"/>
-<area shape="rect" id="node2" href="$class_laser_canon.html#a152369b3d5f645f35f2e7bb89f9b5ba2" title=" " alt="" coords="277,78,407,105"/>
-<area shape="rect" id="node5" href="$class_alien.html#a9334af63935cd561c897bfe0ceb19c78" title=" " alt="" coords="297,209,387,235"/>
-<area shape="rect" id="node8" href="$class_laser.html#a16b40dbf18fd79fe83ad430666f7a468" title=" " alt="" coords="296,339,388,366"/>
-<area shape="rect" id="node13" href="$class_laser.html#a7eb43681af5ec12d1975ab31b4817119" title=" " alt="" coords="252,282,432,309"/>
-<area shape="rect" id="node14" href="$class_laser.html#a88cab9ca4839c0ac4d7b308e9cdce2e9" title=" " alt="" coords="248,405,436,431"/>
-<area shape="rect" id="node3" href="$class_game_updater.html#af34cf63f91383fdbb13f48acef52fe54" title=" " alt="" coords="12,5,193,47"/>
-<area shape="rect" id="node4" href="$class_game_updater.html#a9d5f4fe1b5815af094345fff2295efc7" title=" " alt="" coords="12,71,193,112"/>
-<area shape="rect" id="node6" href="$class_game_updater.html#a64ab239ae88af45d2c840c4f8bab3fd7" title=" " alt="" coords="13,136,192,177"/>
-<area shape="rect" id="node7" href="$class_game_updater.html#ac0b86976547d835632a0e3be1bac8a93" title=" " alt="" coords="5,201,200,243"/>
-<area shape="rect" id="node9" href="$class_game_updater.html#a66f6f4b3658a997f0aacf5e8887db789" title=" " alt="" coords="13,267,192,308"/>
-<area shape="rect" id="node10" href="$class_game_updater.html#a95afe259a0b8708c982a23487141ae73" title=" " alt="" coords="9,397,197,439"/>
-<area shape="rect" id="node11" href="$class_game_updater.html#a2196d60ab01a93057402b7476147bfed" title=" " alt="" coords="9,463,197,504"/>
-<area shape="rect" id="node12" href="$class_game_updater.html#a74cf034dd7a09334bc423823c25480a7" title=" " alt="" coords="5,332,200,373"/>
+<area shape="rect" id="node1" title=" " alt="" coords="484,242,655,269"/>
+<area shape="rect" id="node2" href="$class_alien.html#a8714f54a71d9567455af1956f1705282" title="responsible for moving the alien object towards the desired direction" alt="" coords="297,78,387,105"/>
+<area shape="rect" id="node5" href="$class_laser.html#a4c4474d67f89d8889bc4b0a5d5f2a9bd" title=" " alt="" coords="296,242,388,269"/>
+<area shape="rect" id="node10" href="$class_laser_canon.html#a3b09e0b6c1d06c1ca685b4676866e857" title=" " alt="" coords="277,405,407,431"/>
+<area shape="rect" id="node13" href="$class_laser.html#a7eb43681af5ec12d1975ab31b4817119" title=" " alt="" coords="252,191,432,218"/>
+<area shape="rect" id="node14" href="$class_laser.html#a88cab9ca4839c0ac4d7b308e9cdce2e9" title=" " alt="" coords="248,293,436,319"/>
+<area shape="rect" id="node3" href="$class_game_updater.html#a64ab239ae88af45d2c840c4f8bab3fd7" title=" " alt="" coords="13,5,192,47"/>
+<area shape="rect" id="node4" href="$class_game_updater.html#ac0b86976547d835632a0e3be1bac8a93" title=" " alt="" coords="5,71,200,112"/>
+<area shape="rect" id="node6" href="$class_game_updater.html#a66f6f4b3658a997f0aacf5e8887db789" title=" " alt="" coords="13,136,192,177"/>
+<area shape="rect" id="node7" href="$class_game_updater.html#a95afe259a0b8708c982a23487141ae73" title=" " alt="" coords="9,267,197,308"/>
+<area shape="rect" id="node8" href="$class_game_updater.html#a2196d60ab01a93057402b7476147bfed" title=" " alt="" coords="9,332,197,373"/>
+<area shape="rect" id="node9" href="$class_game_updater.html#a74cf034dd7a09334bc423823c25480a7" title=" " alt="" coords="5,201,200,243"/>
+<area shape="rect" id="node11" href="$class_game_updater.html#af34cf63f91383fdbb13f48acef52fe54" title=" " alt="" coords="12,397,193,439"/>
+<area shape="rect" id="node12" href="$class_game_updater.html#a9d5f4fe1b5815af094345fff2295efc7" title=" " alt="" coords="12,463,193,504"/>
 </map>

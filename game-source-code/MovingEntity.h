@@ -21,11 +21,23 @@ class MovingEntity : public GameEntity
 {
 public:
     MovingEntity(int xPosition, int yPosition, int entitySpeed, bool life, int numberOfLives);
+    /**
+     * @brief return the number of units a moving entity moves by on the screen
+     * @return
+     */
     int getEntitySpeed() const;
     void setEntitySpeed(int speed);
+    /**
+     * @brief sets boundaries for objects that are able to move
+     * @param left
+     * @param right
+     * @param upper
+     * @param bottom
+     */
     void setMovementBoundaries(int left, int right, int upper, int bottom);
     tuple<int, int, int, int> getMovementBoundaries();
     virtual void move(Direction _direction) = 0;
+    ~MovingEntity(){};
 
 private:
     int _entitySpeed;

@@ -79,32 +79,39 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_game_entity.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_entity.html">GameEntity</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_number_of_lives_cannot_be_zero.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_number_of_lives_cannot_be_zero.html">NumberOfLivesCannotBeZero</a></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_game_entity.html">GameEntity</a>(<span class="keywordtype">int</span> xPosition, <span class="keywordtype">int</span> yPosition, <span class="keywordtype">bool</span> life, <span class="keywordtype">int</span> numberOfLives);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> setXposition(<span class="keywordtype">int</span> x);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> setYposition(<span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    tuple&lt;int, int&gt; entityPosition() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> giveEntityLife();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> destroyEntity();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> isAlive() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> getNumberOfLives() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> _Xposition;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> _Yposition;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> _life;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> _numberOfLives;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif // GAMEENTITY_H_INCLUDED</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_game_entity.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_entity.html">GameEntity</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_game_entity.html">GameEntity</a>(<span class="keywordtype">int</span> xPosition, <span class="keywordtype">int</span> yPosition, <span class="keywordtype">bool</span> life, <span class="keywordtype">int</span> numberOfLives);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> setXposition(<span class="keywordtype">int</span> x);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> setYposition(<span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    tuple&lt;int, int&gt; entityPosition() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> giveEntityLife();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> destroyEntity();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> isAlive() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> getNumberOfLives() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_game_entity.html#a241238b29b5e440107a5b295edf24f9c">   34</a></span>&#160;    <a class="code" href="class_game_entity.html#a241238b29b5e440107a5b295edf24f9c">~GameEntity</a>(){};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> _Xposition;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> _Yposition;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> _life;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> _numberOfLives;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif // GAMEENTITY_H_INCLUDED</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_invalid_entity_positions_html"><div class="ttname"><a href="class_invalid_entity_positions.html">InvalidEntityPositions</a></div><div class="ttdef"><b>Definition:</b> GameEntity.h:15</div></div>
-<div class="ttc" id="aclass_game_entity_html"><div class="ttname"><a href="class_game_entity.html">GameEntity</a></div><div class="ttdoc">This class gives the behaviour and information of all the game entities.</div><div class="ttdef"><b>Definition:</b> GameEntity.h:19</div></div>
+<div class="ttc" id="aclass_number_of_lives_cannot_be_zero_html"><div class="ttname"><a href="class_number_of_lives_cannot_be_zero.html">NumberOfLivesCannotBeZero</a></div><div class="ttdef"><b>Definition:</b> GameEntity.h:19</div></div>
+<div class="ttc" id="aclass_game_entity_html"><div class="ttname"><a href="class_game_entity.html">GameEntity</a></div><div class="ttdoc">This class gives the behaviour and information of all the game entities.</div><div class="ttdef"><b>Definition:</b> GameEntity.h:23</div></div>
 <div class="ttc" id="a_game_entity_8h_html"><div class="ttname"><a href="_game_entity_8h.html">GameEntity.h</a></div></div>
 <div class="ttc" id="aclass_game_entity_html_ae69fd63bf13966b5bcafee15cd7ba24e"><div class="ttname"><a href="class_game_entity.html#ae69fd63bf13966b5bcafee15cd7ba24e">GameEntity::setYposition</a></div><div class="ttdeci">void setYposition(int y)</div><div class="ttdef"><b>Definition:</b> GameEntity.cpp:25</div></div>
 <div class="ttc" id="aclass_game_entity_html_a655badaed96874b5c03e7c1c06bb87e2"><div class="ttname"><a href="class_game_entity.html#a655badaed96874b5c03e7c1c06bb87e2">GameEntity::giveEntityLife</a></div><div class="ttdeci">void giveEntityLife()</div><div class="ttdef"><b>Definition:</b> GameEntity.cpp:37</div></div>
+<div class="ttc" id="aclass_game_entity_html_a241238b29b5e440107a5b295edf24f9c"><div class="ttname"><a href="class_game_entity.html#a241238b29b5e440107a5b295edf24f9c">GameEntity::~GameEntity</a></div><div class="ttdeci">~GameEntity()</div><div class="ttdef"><b>Definition:</b> GameEntity.h:34</div></div>
 <div class="ttc" id="aclass_game_entity_html_a2552e7964fce95a5b0fddd09fa10affa"><div class="ttname"><a href="class_game_entity.html#a2552e7964fce95a5b0fddd09fa10affa">GameEntity::GameEntity</a></div><div class="ttdeci">GameEntity(int xPosition, int yPosition, bool life, int numberOfLives)</div><div class="ttdef"><b>Definition:</b> GameEntity.cpp:3</div></div>
 <div class="ttc" id="aclass_game_entity_html_a8aabf9f68517365feb902e8a6f6aa5a2"><div class="ttname"><a href="class_game_entity.html#a8aabf9f68517365feb902e8a6f6aa5a2">GameEntity::setXposition</a></div><div class="ttdeci">void setXposition(int x)</div><div class="ttdef"><b>Definition:</b> GameEntity.cpp:18</div></div>
 <div class="ttc" id="aclass_game_entity_html_a9caddd3e1c22b5038415eebd31332c2e"><div class="ttname"><a href="class_game_entity.html#a9caddd3e1c22b5038415eebd31332c2e">GameEntity::destroyEntity</a></div><div class="ttdeci">void destroyEntity()</div><div class="ttdef"><b>Definition:</b> GameEntity.cpp:42</div></div>

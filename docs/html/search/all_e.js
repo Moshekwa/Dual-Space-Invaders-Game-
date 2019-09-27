@@ -1,19 +1,8 @@
 var searchData=
 [
-  ['scoreboard_145',['ScoreBoard',['../class_score_board.html',1,'ScoreBoard'],['../class_score_board.html#a7d0760d6ff5bd6440dd682a016db31e3',1,'ScoreBoard::ScoreBoard()']]],
-  ['scoreboard_2ecpp_146',['ScoreBoard.cpp',['../_score_board_8cpp.html',1,'']]],
-  ['scoreboard_2eh_147',['ScoreBoard.h',['../_score_board_8h.html',1,'']]],
-  ['screendimensions_148',['screenDimensions',['../class_window_display.html#ac63c2e1b0a12599dfe57b58b581f106b',1,'WindowDisplay']]],
-  ['setabilitytomove_149',['setAbilityToMove',['../class_laser_canon.html#a8c6bf144bf33990be7a28154d4e8e0f0',1,'LaserCanon']]],
-  ['setalienrightdirection_150',['setAlienRightDirection',['../class_alien.html#a0fcd7fdbff89d67f6f2d698ea17a5d26',1,'Alien']]],
-  ['setcanonshotstatefalse_151',['setCanonShotStateFalse',['../class_collision_handler.html#a0f7273ac5f55a2e88b11857ab7998a2a',1,'CollisionHandler']]],
-  ['setentityspeed_152',['setEntitySpeed',['../class_moving_entity.html#a062c0cb2d12dc52cc89567c083399645',1,'MovingEntity']]],
-  ['setmovementboundaries_153',['setMovementBoundaries',['../class_moving_entity.html#a7ac1a5cb1c864c7b8766d1a22129bf6e',1,'MovingEntity']]],
-  ['setplay_154',['setPlay',['../class_window_display.html#ac3cfd7604a99092d26c52779ff15d112',1,'WindowDisplay']]],
-  ['setscore_155',['setScore',['../class_score_board.html#a02055578a87eb69a865b82ceb41599ec',1,'ScoreBoard']]],
-  ['setxposition_156',['setXposition',['../class_game_entity.html#a8aabf9f68517365feb902e8a6f6aa5a2',1,'GameEntity']]],
-  ['setyposition_157',['setYposition',['../class_game_entity.html#ae69fd63bf13966b5bcafee15cd7ba24e',1,'GameEntity']]],
-  ['shoot_158',['shoot',['../class_ammunition.html#a37513b5cfef75fb9bcfccbb208b1541f',1,'Ammunition']]],
-  ['singlemodekeycheck_159',['singleModeKeyCheck',['../class_key_handler.html#ac186b90abd5cdaf1635288d31a5b22d1',1,'KeyHandler']]],
-  ['sprites_160',['Sprites',['../_image_loader_8h.html#aceb04cb8507e9dc1430f32479e09a983',1,'ImageLoader.h']]]
+  ['readhighscorefromfile_146',['readHighScoreFromFile',['../class_score_board.html#aa2107d7f8ad7067a3b57305d6e64c2e8',1,'ScoreBoard']]],
+  ['readhighscoreintofile_147',['readHighScoreIntoFile',['../class_score_board.html#a7b4aacac3e9b56f2a86b820b14c1eb04',1,'ScoreBoard']]],
+  ['red_148',['RED',['../_alien_8h.html#ad55397dccd181b1f666895967ecc6183af80f9a890089d211842d59625e561f88',1,'Alien.h']]],
+  ['redaliens_149',['RedAliens',['../_game_loop_8h.html#ac6cf316cf2dad316299fba823b36182c',1,'GameLoop.h']]],
+  ['right_150',['RIGHT',['../_moving_entity_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38',1,'MovingEntity.h']]]
 ];

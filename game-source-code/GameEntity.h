@@ -31,6 +31,7 @@ public:
     void destroyEntity();
     bool isAlive() const;
     int getNumberOfLives() const;
+    ~GameEntity(){};
 
 private:
     int _Xposition;

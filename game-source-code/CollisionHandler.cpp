@@ -7,10 +7,6 @@ CollisionHandler::CollisionHandler()
 {
 }
 
-CollisionHandler::~CollisionHandler()
-{
-}
-
 bool CollisionHandler::isLaserCanonKilled()
 {
     return canonIsKilled;

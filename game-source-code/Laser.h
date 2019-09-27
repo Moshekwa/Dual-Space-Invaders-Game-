@@ -9,9 +9,9 @@
 
 #ifndef LASER_H_INCLUDED
 #define LASER_H_INCLUDED
+#include "Alien.h"
 #include "Ammunition.h"
 #include "LaserCanon.h"
-#include "Alien.h"
 
 class InvalidCanonLaserCoordinates
 {
@@ -28,7 +28,8 @@ public:
     Laser(Alien& _alien, int numberOfLives);
     void moveLaserWithCanon(LaserCanon& _laserCanon);
     void moveLaserWithAlien(Alien& _alien);
-    virtual void move(Direction _direction);
+    virtual void move(Direction _direction) override;
+    ~Laser(){};
 
 private:
 };

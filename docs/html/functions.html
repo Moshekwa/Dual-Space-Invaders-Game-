@@ -83,6 +83,9 @@ $(function() {
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>CanonShieldLaserCanonCollision()
+: <a class="el" href="class_collision_detector.html#a9dc23beb7b4ba3beb463bdca05b31c4f">CollisionDetector</a>
+</li>
 <li>CheckEvent()
 : <a class="el" href="class_window_display.html#a9c83e359653b86e2c51de2d361566a47">WindowDisplay</a>
 </li>
@@ -105,6 +108,9 @@ $(function() {
 <li>drawGameLost()
 : <a class="el" href="class_image_drawer.html#a1ba011fa5fdd18edd86007ef35bc25c1">ImageDrawer</a>
 </li>
+<li>drawGameMode()
+: <a class="el" href="class_image_drawer.html#a023764e4501eefe4c87d8614c506688e">ImageDrawer</a>
+</li>
 <li>drawGameWon()
 : <a class="el" href="class_image_drawer.html#a2c1085fe8d7a4c8df72cca0d662f2f35">ImageDrawer</a>
 </li>
@@ -112,7 +118,7 @@ $(function() {
 : <a class="el" href="class_image_drawer.html#ab20cbb9ebfec5f33714657fbc39fe9b4">ImageDrawer</a>
 </li>
 <li>drawHighScore()
-: <a class="el" href="class_image_drawer.html#ad06486bb652492d24a1985c140742720">ImageDrawer</a>
+: <a class="el" href="class_image_drawer.html#a0b0b29c132651ab5b17a42b84a1473aa">ImageDrawer</a>
 </li>
 <li>drawHomeScreen()
 : <a class="el" href="class_image_drawer.html#a9f44820b766a8521d687f97237ccc14e">ImageDrawer</a>
@@ -142,7 +148,7 @@ $(function() {
 : <a class="el" href="class_image_drawer.html#a5c79506a875e1e0a58813d705b6db623">ImageDrawer</a>
 </li>
 <li>drawScore()
-: <a class="el" href="class_image_drawer.html#aeba23c85794482e16d821752748f583c">ImageDrawer</a>
+: <a class="el" href="class_image_drawer.html#aad9e978efa0030c6bfafc734003aa018">ImageDrawer</a>
 </li>
 <li>drawUpGreenAliens()
 : <a class="el" href="class_image_drawer.html#af52321896fbdbc2f8789939111f8311e">ImageDrawer</a>
@@ -185,6 +191,9 @@ $(function() {
 <li>getEntitySpeed()
 : <a class="el" href="class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d">MovingEntity</a>
 </li>
+<li>getFacedDirection()
+: <a class="el" href="class_laser_canon.html#a22cf134bd7301d9efc1fc1651ca76ce8">LaserCanon</a>
+</li>
 <li>getHighScore()
 : <a class="el" href="class_score_board.html#ab53ec963aa7ac2a69b8ce7df388c28bb">ScoreBoard</a>
 </li>
@@ -219,6 +228,9 @@ $(function() {
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
+<li>handleCanonShieldLaserCanonCollision()
+: <a class="el" href="class_collision_handler.html#ae48a7b07ca6012ed11f9c834341c3ce3">CollisionHandler</a>
+</li>
 <li>handleLaser1Laser2Collision()
 : <a class="el" href="class_collision_handler.html#a56a124bc5da937c8c0adf7214e10731b">CollisionHandler</a>
 </li>
@@ -265,8 +277,8 @@ $(function() {
 <li>isAlive()
 : <a class="el" href="class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0">GameEntity</a>
 </li>
-<li>isLaserCanonShot()
-: <a class="el" href="class_collision_handler.html#a7fa2e4dad98313f193d8c40aac835696">CollisionHandler</a>
+<li>isLaserCanonKilled()
+: <a class="el" href="class_collision_handler.html#acb50a2245068c8a697edc40cb84b74f0">CollisionHandler</a>
 </li>
 <li>isPlay()
 : <a class="el" href="class_window_display.html#a20fce2e140775a25b16f08c32dd8a6be">WindowDisplay</a>
@@ -281,6 +293,9 @@ $(function() {
 <li>KeyCheck2()
 : <a class="el" href="class_key_handler.html#a6ecbc2cc1a6be0699fbc5baf69296818">KeyHandler</a>
 </li>
+<li>keyCheckGameMode()
+: <a class="el" href="class_key_handler.html#afe0bf4bded3033489b13816994c6ec2c">KeyHandler</a>
+</li>
 <li>KeyHandler()
 : <a class="el" href="class_key_handler.html#a9f90e60def9a242e88629dc6d6641789">KeyHandler</a>
 </li>
@@ -294,12 +309,6 @@ $(function() {
 <li>Laser1Laser2Collision()
 : <a class="el" href="class_collision_detector.html#a65f4aa43636123af3ae0542c89a5f84d">CollisionDetector</a>
 </li>
-<li>laser1Shape()
-: <a class="el" href="class_entity_shape.html#af5e79ebd626f5becae76328e3fe38429">EntityShape</a>
-</li>
-<li>laser2Shape()
-: <a class="el" href="class_entity_shape.html#a81a0716765199fb2e408068623fa02be">EntityShape</a>
-</li>
 <li>LaserAlienCollision()
 : <a class="el" href="class_collision_detector.html#ab2341d5632f8b55760bbe280552bf649">CollisionDetector</a>
 </li>
@@ -308,12 +317,6 @@ $(function() {
 </li>
 <li>LaserCanon()
 : <a class="el" href="class_laser_canon.html#a567e79217aa24b3a38645da2d7b4ce5b">LaserCanon</a>
-</li>
-<li>laserCanon1Shape()
-: <a class="el" href="class_entity_shape.html#a2e8d195c1f9608b9d02b5fb3d4577ca8">EntityShape</a>
-</li>
-<li>laserCanon2Shape()
-: <a class="el" href="class_entity_shape.html#a8ced1c014218ed5cf945879414306de3">EntityShape</a>
 </li>
 <li>LaserCanonAlienCollision()
 : <a class="el" href="class_collision_detector.html#a73cbc2d482aa2cd6b5212594bac5229c">CollisionDetector</a>
@@ -330,6 +333,9 @@ $(function() {
 <li>LaserCanonLife()
 : <a class="el" href="class_laser_canon_life.html#a17dff9bd7e22568572bc3d7f50045fd1">LaserCanonLife</a>
 </li>
+<li>laserCanonShape()
+: <a class="el" href="class_entity_shape.html#a2ca8414ba44844d3d64652e2cb581143">EntityShape</a>
+</li>
 <li>LaserCanonShield()
 : <a class="el" href="class_laser_canon_shield.html#adfe3230468d1939be97d86a59865b360">LaserCanonShield</a>
 </li>
@@ -342,6 +348,9 @@ $(function() {
 <li>laserCanonShieldShape()
 : <a class="el" href="class_entity_shape.html#a9e8d2a6660bcd50e7df3ca1f82bfb962">EntityShape</a>
 </li>
+<li>laserShape()
+: <a class="el" href="class_entity_shape.html#a4ecb1b2fb890ba97a9817bce53010306">EntityShape</a>
+</li>
 <li>loadImagesAndSetSprites()
 : <a class="el" href="class_image_loader.html#abbd08c045ce5c64a94a2b8e933832412">ImageLoader</a>
 </li>
@@ -350,9 +359,9 @@ $(function() {
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>move()
-: <a class="el" href="class_alien.html#a9334af63935cd561c897bfe0ceb19c78">Alien</a>
-, <a class="el" href="class_laser.html#a16b40dbf18fd79fe83ad430666f7a468">Laser</a>
-, <a class="el" href="class_laser_canon.html#a152369b3d5f645f35f2e7bb89f9b5ba2">LaserCanon</a>
+: <a class="el" href="class_alien.html#a8714f54a71d9567455af1956f1705282">Alien</a>
+, <a class="el" href="class_laser.html#a4c4474d67f89d8889bc4b0a5d5f2a9bd">Laser</a>
+, <a class="el" href="class_laser_canon.html#a3b09e0b6c1d06c1ca685b4676866e857">LaserCanon</a>
 , <a class="el" href="class_moving_entity.html#ab4a9389b9a5d6a8ff8bd9f825ed13bc6">MovingEntity</a>
 </li>
 <li>moveLaserWithAlien()
@@ -392,16 +401,19 @@ $(function() {
 : <a class="el" href="class_window_display.html#ac63c2e1b0a12599dfe57b58b581f106b">WindowDisplay</a>
 </li>
 <li>setAbilityToMove()
-: <a class="el" href="class_laser_canon.html#a8c6bf144bf33990be7a28154d4e8e0f0">LaserCanon</a>
+: <a class="el" href="class_laser_canon.html#a160b5424e71d46ae902abd2ad5deac99">LaserCanon</a>
 </li>
 <li>setAlienRightDirection()
 : <a class="el" href="class_alien.html#a0fcd7fdbff89d67f6f2d698ea17a5d26">Alien</a>
 </li>
-<li>setCanonShotStateFalse()
-: <a class="el" href="class_collision_handler.html#a0f7273ac5f55a2e88b11857ab7998a2a">CollisionHandler</a>
+<li>setCanonKilledFlagFalse()
+: <a class="el" href="class_collision_handler.html#afd7e4733cb402abf2eaacf07be627f22">CollisionHandler</a>
 </li>
 <li>setEntitySpeed()
 : <a class="el" href="class_moving_entity.html#a062c0cb2d12dc52cc89567c083399645">MovingEntity</a>
+</li>
+<li>setFacedDirection()
+: <a class="el" href="class_laser_canon.html#ab520fc95307564c987a13aa6dcf0ad77">LaserCanon</a>
 </li>
 <li>setMovementBoundaries()
 : <a class="el" href="class_moving_entity.html#a7ac1a5cb1c864c7b8766d1a22129bf6e">MovingEntity</a>
@@ -466,17 +478,59 @@ $(function() {
 
 
 <h3><a id="index__7E"></a>- ~ -</h3><ul>
+<li>~Alien()
+: <a class="el" href="class_alien.html#a7cdfd79d84b51a18003bf41585aedd43">Alien</a>
+</li>
+<li>~Ammunition()
+: <a class="el" href="class_ammunition.html#a83c9e0937d7e252b499388251f243b10">Ammunition</a>
+</li>
+<li>~CollisionDetector()
+: <a class="el" href="class_collision_detector.html#a1a0f7a386920e0cf83a101be92f04598">CollisionDetector</a>
+</li>
 <li>~CollisionHandler()
 : <a class="el" href="class_collision_handler.html#a99f5524cf1706f9ea95500cf273a9d97">CollisionHandler</a>
 </li>
 <li>~EntityShape()
 : <a class="el" href="class_entity_shape.html#a8f739106388e225fb5f7c1ae3df0d66b">EntityShape</a>
 </li>
+<li>~GameEntity()
+: <a class="el" href="class_game_entity.html#a241238b29b5e440107a5b295edf24f9c">GameEntity</a>
+</li>
+<li>~GameLoop()
+: <a class="el" href="class_game_loop.html#ae6c558d0d751a068dbafe2cae465ec1f">GameLoop</a>
+</li>
+<li>~GameUpdater()
+: <a class="el" href="class_game_updater.html#a37f553c658a369fcc6836f6305765495">GameUpdater</a>
+</li>
+<li>~ImageDrawer()
+: <a class="el" href="class_image_drawer.html#a174f94bc0a844ab16d16d71df4851f8f">ImageDrawer</a>
+</li>
+<li>~ImageLoader()
+: <a class="el" href="class_image_loader.html#a844109a0a6b4e4a9513fa6822f623dcc">ImageLoader</a>
+</li>
+<li>~KeyHandler()
+: <a class="el" href="class_key_handler.html#abcd8e7571a7a90ba891efa72f8d1bd51">KeyHandler</a>
+</li>
+<li>~Laser()
+: <a class="el" href="class_laser.html#aa9baee5ed9775426e0b1d563c4687711">Laser</a>
+</li>
+<li>~LaserCanon()
+: <a class="el" href="class_laser_canon.html#ae4a232454eed84b75b01fef2180fa65e">LaserCanon</a>
+</li>
 <li>~LaserCanonLife()
 : <a class="el" href="class_laser_canon_life.html#af0d3a28b526cf981fa6226199946c4df">LaserCanonLife</a>
 </li>
+<li>~LaserCanonShield()
+: <a class="el" href="class_laser_canon_shield.html#a50c859fa7ae722a3563e241831f70ff6">LaserCanonShield</a>
+</li>
+<li>~MovingEntity()
+: <a class="el" href="class_moving_entity.html#a53091426d44d2ef8593de24e5365054a">MovingEntity</a>
+</li>
 <li>~ScoreBoard()
 : <a class="el" href="class_score_board.html#a013e4595d35ab03d6f480c9388cc7b8a">ScoreBoard</a>
+</li>
+<li>~WindowDisplay()
+: <a class="el" href="class_window_display.html#a50429a62d8ba58802287ffecb80e23f1">WindowDisplay</a>
 </li>
 </ul>
 </div><!-- contents -->

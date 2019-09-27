@@ -324,15 +324,15 @@ void ImageDrawer::drawGameMode(int gameMode)
         break;
     }
     _texts.at(2)->setString(mode);
-    _texts.at(2)->setCharacterSize(15);
-    _texts.at(2)->setPosition(100, 0);
+    _texts.at(2)->setCharacterSize(12);
+    _texts.at(2)->setPosition(120, 0);
     _window->draw(*_texts.at(2));
 }
 
 void ImageDrawer::drawHomeScreen()
 {
-    _sprites.at(10)->setScale(0.60, 0.99);
-    _sprites.at(10)->setPosition(0, 50);
+    _sprites.at(10)->setScale(0.34, 0.7);
+    _sprites.at(10)->setPosition(0, 0);
     _window->draw(*_sprites.at(10));
 }
 

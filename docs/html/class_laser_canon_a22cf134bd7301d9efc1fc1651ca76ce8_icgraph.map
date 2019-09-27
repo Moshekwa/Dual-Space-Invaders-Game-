@@ -1,0 +1,9 @@
+<map id="LaserCanon::getFacedDirection" name="LaserCanon::getFacedDirection">
+<area shape="rect" id="node1" title="return the direction the laser canon is facing" alt="" coords="261,148,465,175"/>
+<area shape="rect" id="node2" href="$class_image_drawer.html#aed8990f2c50f5df31bcfcb386d60e71c" title=" " alt="" coords="9,5,210,32"/>
+<area shape="rect" id="node3" href="$class_image_drawer.html#a7514eb179b15b44df2ba74a1c62af89f" title=" " alt="" coords="5,56,213,83"/>
+<area shape="rect" id="node4" href="$class_game_updater.html#a95afe259a0b8708c982a23487141ae73" title=" " alt="" coords="15,107,203,149"/>
+<area shape="rect" id="node5" href="$class_game_updater.html#a2196d60ab01a93057402b7476147bfed" title=" " alt="" coords="15,173,203,214"/>
+<area shape="rect" id="node6" href="$class_game_updater.html#af34cf63f91383fdbb13f48acef52fe54" title=" " alt="" coords="19,238,200,279"/>
+<area shape="rect" id="node7" href="$class_game_updater.html#a9d5f4fe1b5815af094345fff2295efc7" title=" " alt="" coords="19,303,200,345"/>
+</map>

@@ -1,7 +1,4 @@
 <map id="CollisionDetector::LaserCanonShieldAlienLaserCollision" name="CollisionDetector::LaserCanonShieldAlienLaserCollision">
-<area shape="rect" id="node1" title=" " alt="" coords="5,41,193,97"/>
-<area shape="rect" id="node2" href="$class_entity_shape.html#a9412664016271533146a6db058312af8" title=" " alt="" coords="244,5,441,32"/>
-<area shape="rect" id="node4" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="275,56,411,83"/>
-<area shape="rect" id="node5" href="$class_entity_shape.html#a9e8d2a6660bcd50e7df3ca1f82bfb962" title=" " alt="" coords="241,107,444,149"/>
-<area shape="rect" id="node3" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="492,60,671,87"/>
+<area shape="rect" id="node1" title="detects the collision between the shield and an alien laser" alt="" coords="5,5,193,61"/>
+<area shape="rect" id="node2" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="241,20,377,47"/>
 </map>

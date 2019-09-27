@@ -26,6 +26,7 @@ public:
     void updateCanon_ScoreAndHighScore(ScoreBoard& _scoreBoard, Alien& _alien);
     void updateLaserCanon1Position(LaserCanon& _laserCanon1, Direction _direction);
     void updateLaserCanon2Position(LaserCanon& _laserCanon2, Direction _direction);
+    ~GameUpdater(){};
 
 private:
 };

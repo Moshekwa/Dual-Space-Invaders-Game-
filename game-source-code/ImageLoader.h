@@ -29,6 +29,7 @@ public:
     void loadImagesAndSetSprites();
     Sprites getSprites() const;
     Texts getTexts() const;
+    ~ImageLoader(){};
 
 private:
     Sprites _sprites;

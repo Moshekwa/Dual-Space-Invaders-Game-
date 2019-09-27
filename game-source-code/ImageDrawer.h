@@ -54,6 +54,7 @@ public:
     void drawHomeScreen();
     void drawGameWon();
     void drawGameLost();
+    ~ImageDrawer(){};
 
 private:
     shared_ptr<RenderWindow> _window;

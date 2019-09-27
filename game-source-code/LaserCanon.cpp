@@ -1,7 +1,7 @@
 #include "LaserCanon.h"
 
 LaserCanon::LaserCanon(int x, int y, int canonNumber, int numberOfLives)
-    : MovingEntity{ x, y, 5, true, numberOfLives }
+    : MovingEntity{ x, y, 4, true, numberOfLives }
     , ableToMove{ true }
 
 {

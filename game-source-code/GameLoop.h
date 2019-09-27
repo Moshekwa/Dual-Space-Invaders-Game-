@@ -45,7 +45,12 @@ class GameLoop
 {
 public:
     GameLoop();
+    /**
+     *  @brief This is where the entire game is played.
+     *  All game objects are created and exist within the scope of this function
+     */
     void PlayGame();
+    ~GameLoop(){};
 
 private:
     shared_ptr<WindowDisplay> _windowDisplay;
@@ -71,33 +76,107 @@ private:
     LaserCanonLives _laserCanonLife;
 
     KeyHandler _keyHandler;
-
+    /**
+     * @brief creates shared pointers to the laser canon and laser objects
+     */
     void createLaserCanonsAndLasers();
+    /**
+     * @brief creates shared pointers to the laser canon shields objects
+     */
     void createLaserCanonShields();
+    /**
+     * @brief creates shared pointers to the laser canon lives objects
+     */
     void createLaserCanonLives();
+    /**
+     * @brief creates shared pointers to the alien objects
+     */
     void createAliens();
+    /**
+     * @brief Resets the aliens to their initial positions
+     */
     void aliensInitialPositions();
+    /**
+     * @brief Resets the laser canons to their initial positions
+     */
     void laserCanonsInitialPositions();
 
+    /**
+     * @brief This function updates all game objects accordingly depending on operations that acted on them.
+     */
     void gameActivities();
+    /**
+     * @brief Updates laser canon and laser object activities. It is called within the scope of gameActivities.
+     */
     void laserCanonAndLaserActivities();
+    /**
+     * @brief Updates alien objects activities as the game is being played.
+     */
     void alienActivities();
+    /**
+     * @brief This function updates the activities affecting the shields protecting the laser canon.
+     */
     void laserCanonShieldActivities();
 
+    /**
+     * @brief displays all game objects that are alive on the game play screen
+     */
     void displayGameEntities();
+
+    /**
+     *@brief displays the all the game texts: currently being the score, high score and the game mode being played
+     */
     void displayTexts();
+    /**
+     * @brief displays green alien objects present in the game and represents it with an appropriate sprite at specific
+     * positions for animation.
+     * @param spriteNumber
+     * @param spriteBoundaries
+     */
     void displayGreenAlians(vector<int> spriteNumber, vector<int> spriteBoundaries);
+    /**
+     * @brief displays purple alien objects present in the game and represents it with an appropriate sprite at specific
+     * positions for animation
+     * @param spriteNumber
+     * @param spriteBoundaries
+     */
     void displayPurpleAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
+    /**
+     * @brief displays red alien objects present in the game and represents it with an appropriate sprite at specific
+     * positions for animation
+     * @param spriteNumber
+     * @param spriteBoundaries
+     */
     void displayRedAliens(vector<int> spriteNumber, vector<int> spriteBoundaries);
+    /**
+     * @brief represents the number of lives a player has as the game is being played
+     */
     void displayLaserCanonLives();
     void displayLaserCanonShields();
     void displayLaserCanonsAndLasers();
-
+    /**
+    * This boolean is set true when the game is won
+    */
     bool gameWon;
+    /**
+    * This boolean is set true when the game is lost
+    */ 
     bool gameLost;
+    /**
+    * this boolean is set false when all the red alien objects in a row are no longer alive. 
+    */ 
     bool redAlienRowAlive;
+    /**
+    * this boolean is set false when all the purple alien objects in a row are no longer alive. 
+    */
     bool purpleAlienRowAlive;
+    /**
+    * this boolean is set false when all the upward-facing red alien objects in a row are no longer alive. 
+    */
     bool upRedAlienRowAlive;
+    /**
+    * this boolean is set false when all the upward-facing purple alien objects in a row are no longer alive. 
+    */
     bool upPurpleAlienRowAlive;
 };
 

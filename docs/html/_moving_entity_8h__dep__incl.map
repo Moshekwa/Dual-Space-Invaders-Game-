@@ -1,29 +1,30 @@
 <map id="C:/Users/game/Desktop/SoftwareDevelopment/course&#45;project/game&#45;source&#45;code/MovingEntity.h" name="C:/Users/game/Desktop/SoftwareDevelopment/course&#45;project/game&#45;source&#45;code/MovingEntity.h">
-<area shape="rect" id="node1" title=" " alt="" coords="955,5,1142,76"/>
-<area shape="rect" id="node2" href="$_alien_8h.html" title=" " alt="" coords="473,124,659,195"/>
-<area shape="rect" id="node21" href="$_ammunition_8h.html" title=" " alt="" coords="850,124,1037,195"/>
-<area shape="rect" id="node23" href="$_laser_canon_8h.html" title=" " alt="" coords="1061,124,1247,195"/>
-<area shape="rect" id="node27" href="$_moving_entity_8cpp.html" title=" " alt="" coords="1271,124,1458,195"/>
-<area shape="rect" id="node3" href="$_alien_8cpp.html" title=" " alt="" coords="241,243,427,313"/>
-<area shape="rect" id="node4" href="$_entity_shape_8h.html" title=" " alt="" coords="553,361,739,432"/>
-<area shape="rect" id="node9" href="$_game_loop_8h.html" title=" " alt="" coords="814,717,1001,788"/>
-<area shape="rect" id="node13" href="$_laser_8h.html" title=" " alt="" coords="865,243,1051,313"/>
-<area shape="rect" id="node14" href="$_game_updater_8h.html" title=" " alt="" coords="211,361,398,432"/>
-<area shape="rect" id="node18" href="$_image_drawer_8h.html" title=" " alt="" coords="1126,361,1313,432"/>
-<area shape="rect" id="node5" href="$_collision_detector_8h.html" title=" " alt="" coords="342,480,529,551"/>
-<area shape="rect" id="node12" href="$_entity_shape_8cpp.html" title=" " alt="" coords="603,480,790,551"/>
-<area shape="rect" id="node6" href="$_collision_detector_8cpp.html" title=" " alt="" coords="317,599,503,669"/>
-<area shape="rect" id="node7" href="$_collision_handler_8h.html" title=" " alt="" coords="30,599,217,669"/>
-<area shape="rect" id="node8" href="$_collision_handler_8cpp.html" title=" " alt="" coords="30,717,217,788"/>
-<area shape="rect" id="node10" href="$_duel_space_invaders_8cpp.html" title=" " alt="" coords="704,836,897,907"/>
-<area shape="rect" id="node11" href="$_game_loop_8cpp.html" title=" " alt="" coords="922,836,1109,907"/>
-<area shape="rect" id="node15" href="$_key_handler_8h.html" title=" " alt="" coords="814,480,1001,551"/>
-<area shape="rect" id="node20" href="$_laser_8cpp.html" title=" " alt="" coords="814,361,1001,432"/>
-<area shape="rect" id="node17" href="$_game_updater_8cpp.html" title=" " alt="" coords="30,480,217,551"/>
-<area shape="rect" id="node16" href="$_key_handler_8cpp.html" title=" " alt="" coords="814,599,1001,669"/>
-<area shape="rect" id="node19" href="$_image_drawer_8cpp.html" title=" " alt="" coords="1126,480,1313,551"/>
-<area shape="rect" id="node22" href="$_ammunition_8cpp.html" title=" " alt="" coords="603,243,790,313"/>
-<area shape="rect" id="node24" href="$_laser_canon_life_8h.html" title=" " alt="" coords="1314,243,1501,313"/>
-<area shape="rect" id="node26" href="$_laser_canon_8cpp.html" title=" " alt="" coords="1525,243,1711,313"/>
-<area shape="rect" id="node25" href="$_laser_canon_life_8cpp.html" title=" " alt="" coords="1438,361,1625,432"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1101,5,1288,76"/>
+<area shape="rect" id="node2" href="$_alien_8h.html" title=" " alt="" coords="659,124,845,195"/>
+<area shape="rect" id="node22" href="$_ammunition_8h.html" title=" " alt="" coords="996,124,1183,195"/>
+<area shape="rect" id="node24" href="$_laser_canon_8h.html" title=" " alt="" coords="1207,124,1393,195"/>
+<area shape="rect" id="node28" href="$_moving_entity_8cpp.html" title=" " alt="" coords="1417,124,1604,195"/>
+<area shape="rect" id="node3" href="$_alien_8cpp.html" title=" " alt="" coords="5,243,192,313"/>
+<area shape="rect" id="node4" href="$_entity_shape_8h.html" title=" " alt="" coords="739,361,925,432"/>
+<area shape="rect" id="node9" href="$_game_loop_8h.html" title=" " alt="" coords="1156,717,1343,788"/>
+<area shape="rect" id="node13" href="$_laser_8h.html" title=" " alt="" coords="1051,243,1237,313"/>
+<area shape="rect" id="node14" href="$_game_updater_8h.html" title=" " alt="" coords="528,361,715,432"/>
+<area shape="rect" id="node19" href="$_image_drawer_8h.html" title=" " alt="" coords="1363,361,1549,432"/>
+<area shape="rect" id="node5" href="$_collision_detector_8h.html" title=" " alt="" coords="579,480,765,551"/>
+<area shape="rect" id="node12" href="$_entity_shape_8cpp.html" title=" " alt="" coords="840,480,1027,551"/>
+<area shape="rect" id="node6" href="$_collision_detector_8cpp.html" title=" " alt="" coords="528,599,715,669"/>
+<area shape="rect" id="node7" href="$_collision_handler_8h.html" title=" " alt="" coords="317,599,504,669"/>
+<area shape="rect" id="node8" href="$_collision_handler_8cpp.html" title=" " alt="" coords="317,717,504,788"/>
+<area shape="rect" id="node10" href="$_duel_space_invaders_8cpp.html" title=" " alt="" coords="1046,836,1239,907"/>
+<area shape="rect" id="node11" href="$_game_loop_8cpp.html" title=" " alt="" coords="1264,836,1451,907"/>
+<area shape="rect" id="node15" href="$_key_handler_8h.html" title=" " alt="" coords="1051,480,1237,551"/>
+<area shape="rect" id="node21" href="$_laser_8cpp.html" title=" " alt="" coords="949,361,1136,432"/>
+<area shape="rect" id="node18" href="$_game_updater_8cpp.html" title=" " alt="" coords="317,480,504,551"/>
+<area shape="rect" id="node16" href="$_key_handler_8cpp.html" title=" " alt="" coords="1000,599,1187,669"/>
+<area shape="rect" id="node17" href="$_window_display_8cpp.html" title=" " alt="" coords="789,599,976,669"/>
+<area shape="rect" id="node20" href="$_image_drawer_8cpp.html" title=" " alt="" coords="1413,480,1600,551"/>
+<area shape="rect" id="node23" href="$_ammunition_8cpp.html" title=" " alt="" coords="789,243,976,313"/>
+<area shape="rect" id="node25" href="$_laser_canon_life_8h.html" title=" " alt="" coords="1464,243,1651,313"/>
+<area shape="rect" id="node27" href="$_laser_canon_8cpp.html" title=" " alt="" coords="1675,243,1861,313"/>
+<area shape="rect" id="node26" href="$_laser_canon_life_8cpp.html" title=" " alt="" coords="1573,361,1760,432"/>
 </map>

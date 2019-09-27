@@ -1,10 +1,10 @@
 <map id="C:/Users/game/Desktop/SoftwareDevelopment/course&#45;project/game&#45;source&#45;code/Laser.cpp" name="C:/Users/game/Desktop/SoftwareDevelopment/course&#45;project/game&#45;source&#45;code/Laser.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="90,5,277,76"/>
-<area shape="rect" id="node2" href="$_laser_8h.html" title=" " alt="" coords="151,124,216,151"/>
-<area shape="rect" id="node3" href="$_ammunition_8h.html" title=" " alt="" coords="132,199,235,225"/>
-<area shape="rect" id="node7" href="$_laser_canon_8h.html" title=" " alt="" coords="5,199,108,225"/>
-<area shape="rect" id="node8" href="$_alien_8h.html" title=" " alt="" coords="259,199,321,225"/>
-<area shape="rect" id="node4" href="$_moving_entity_8h.html" title=" " alt="" coords="130,273,237,300"/>
-<area shape="rect" id="node5" href="$_game_entity_8h.html" title=" " alt="" coords="132,348,235,375"/>
-<area shape="rect" id="node6" title=" " alt="" coords="158,423,209,449"/>
+<area shape="rect" id="node1" title=" " alt="" coords="50,5,237,76"/>
+<area shape="rect" id="node2" href="$_laser_8h.html" title=" " alt="" coords="111,124,176,151"/>
+<area shape="rect" id="node3" href="$_alien_8h.html" title=" " alt="" coords="5,199,68,225"/>
+<area shape="rect" id="node7" href="$_ammunition_8h.html" title=" " alt="" coords="92,199,195,225"/>
+<area shape="rect" id="node8" href="$_laser_canon_8h.html" title=" " alt="" coords="219,199,321,225"/>
+<area shape="rect" id="node4" href="$_moving_entity_8h.html" title=" " alt="" coords="90,273,197,300"/>
+<area shape="rect" id="node6" title=" " alt="" coords="118,423,169,449"/>
+<area shape="rect" id="node5" href="$_game_entity_8h.html" title=" " alt="" coords="92,348,195,375"/>
 </map>

@@ -20,14 +20,37 @@ class EntityShape
 {
 public:
     EntityShape();
-    tuple<int, int, int, int> laser1Shape(Laser& _laser1);
-    tuple<int, int, int, int> laser2Shape(Laser& _laser2);
+    /**
+     * @brief keeps track of a rectangular shape around the sprite of the laser object
+     * @param _laser
+     * @return
+     */
+    tuple<int, int, int, int> laserShape(Laser& _laser);
+    /**
+     * @brief keeps track of a rectangular shape around the sprite of an alien laser object
+     * @param _alienLaser
+     * @return
+     */
     tuple<int, int, int, int> alienLaserShape(Laser& _alienLaser);
-    tuple<int, int, int, int> laserCanon1Shape(LaserCanon& _laserCanon1);
-    tuple<int, int, int, int> laserCanon2Shape(LaserCanon& _laserCanon2);
+    /**
+     * @brief keeps track of a rectangular shape around the sprite of the laser canon object
+     * @param _laserCanon
+     * @return
+     */
+    tuple<int, int, int, int> laserCanonShape(LaserCanon& _laserCanon);
+    /**
+     * @brief keeps track of a rectangular shape around the sprite of the alien object
+     * @param _alien
+     * @return
+     */
     tuple<int, int, int, int> alienShape(Alien& _alien);
+    /**
+     * @brief keeps track of a rectangular shape around the sprite of the laser canon shield object
+     * @param _shield
+     * @return
+     */
     tuple<int, int, int, int> laserCanonShieldShape(LaserCanonShield& _shield);
-    ~EntityShape();
+    ~EntityShape(){};
 
 private:
     int laserWidth = 5;

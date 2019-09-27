@@ -1,7 +1,7 @@
 /**
  * @file WindowDisplay.h
  * @class WindowDisplay
- * @brief This class creates the SFML screen for displaying the game. 
+ * @brief This class creates the SFML screen for displaying the game.
  * @bug No Known Bugs.
  * @version 3.0
  * @date 25/09/2019
@@ -29,6 +29,7 @@ public:
     bool is_singleMode() const;
 
     shared_ptr<RenderWindow> getWindow();
+    ~WindowDisplay(){};
 
 private:
     const static int screenWidth;

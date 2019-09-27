@@ -4,22 +4,9 @@ EntityShape::EntityShape()
 {
 }
 
-EntityShape::~EntityShape()
+tuple<int, int, int, int> EntityShape::laserShape(Laser& _laser)
 {
-}
-
-tuple<int, int, int, int> EntityShape::laser1Shape(Laser& _laser1)
-{
-    auto [x_min, y_min] = _laser1.entityPosition();
-    auto x_max = x_min + laserWidth;
-    auto y_max = y_min + laserHeight;
-
-    return { x_min, y_min, x_max, y_max };
-}
-
-tuple<int, int, int, int> EntityShape::laser2Shape(Laser& _laser2)
-{
-    auto [x_min, y_min] = _laser2.entityPosition();
+    auto [x_min, y_min] = _laser.entityPosition();
     auto x_max = x_min + laserWidth;
     auto y_max = y_min + laserHeight;
 
@@ -44,18 +31,9 @@ tuple<int, int, int, int> EntityShape::alienShape(Alien& _alien)
     return { x_min, y_min, x_max, y_max };
 }
 
-tuple<int, int, int, int> EntityShape::laserCanon1Shape(LaserCanon& _laserCanon1)
+tuple<int, int, int, int> EntityShape::laserCanonShape(LaserCanon& _laserCanon)
 {
-    auto [x_min, y_min] = _laserCanon1.entityPosition();
-    auto x_max = x_min + laserCanonWidth;
-    auto y_max = y_min + laserCanonHeight;
-
-    return { x_min, y_min, x_max, y_max };
-}
-
-tuple<int, int, int, int> EntityShape::laserCanon2Shape(LaserCanon& _laserCanon2)
-{
-    auto [x_min, y_min] = _laserCanon2.entityPosition();
+    auto [x_min, y_min] = _laserCanon.entityPosition();
     auto x_max = x_min + laserCanonWidth;
     auto y_max = y_min + laserCanonHeight;
 

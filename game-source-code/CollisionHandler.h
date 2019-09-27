@@ -19,7 +19,6 @@ class CollisionHandler
 {
 public:
     CollisionHandler();
-    ~CollisionHandler();
     void handleLaserAlienCollision(Laser& _laser1, Laser& _laser2, Alien& _alien, ScoreBoard& _scoreBoard);
     void
     handleLaserCanonLaserCollision(LaserCanon& _laserCanon1, LaserCanon& _laserCanon2, Laser& _laser1, Laser& _laser2);
@@ -35,8 +34,16 @@ public:
         LaserCanon& _laserCanon2,
         LaserCanonShield& _laserCanonShield);
 
+    /**
+     * @brief returns true if a laser canon is destroyed from collision
+     * @return
+     */
     bool isLaserCanonKilled();
+    /**
+     * @brief sets a flag to be checked if collision occured
+     */
     void setCanonKilledFlagFalse();
+    ~CollisionHandler(){};
 
 private:
     shared_ptr<CollisionDetector> _collisionDetector;

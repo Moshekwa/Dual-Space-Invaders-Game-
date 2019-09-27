@@ -99,27 +99,37 @@ Collaboration diagram for Alien:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a076cc81876dfb8d3c39a28ecd4375563"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alien.html#a076cc81876dfb8d3c39a28ecd4375563">Alien</a> (int x, int y, int _rightBoundary, int _leftBoundary, int numberOfLives, <a class="el" href="_alien_8h.html#ad55397dccd181b1f666895967ecc6183">AlienColour</a> alienColour)</td></tr>
 <tr class="separator:a076cc81876dfb8d3c39a28ecd4375563"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9334af63935cd561c897bfe0ceb19c78"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alien.html#a9334af63935cd561c897bfe0ceb19c78">move</a> (<a class="el" href="_moving_entity_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> _direction)</td></tr>
-<tr class="separator:a9334af63935cd561c897bfe0ceb19c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8714f54a71d9567455af1956f1705282"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alien.html#a8714f54a71d9567455af1956f1705282">move</a> (<a class="el" href="_moving_entity_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> _direction) override</td></tr>
+<tr class="memdesc:a8714f54a71d9567455af1956f1705282"><td class="mdescLeft">&#160;</td><td class="mdescRight">responsible for moving the alien object towards the desired direction  <a href="class_alien.html#a8714f54a71d9567455af1956f1705282">More...</a><br /></td></tr>
+<tr class="separator:a8714f54a71d9567455af1956f1705282"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceee46f867d1eb8499fe484692b3b1fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alien.html#aceee46f867d1eb8499fe484692b3b1fb">getAlienRightDirection</a> () const</td></tr>
+<tr class="memdesc:aceee46f867d1eb8499fe484692b3b1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a boolean to confirm that the alien is moving towards the right hand side.  <a href="class_alien.html#aceee46f867d1eb8499fe484692b3b1fb">More...</a><br /></td></tr>
 <tr class="separator:aceee46f867d1eb8499fe484692b3b1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fcd7fdbff89d67f6f2d698ea17a5d26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alien.html#a0fcd7fdbff89d67f6f2d698ea17a5d26">setAlienRightDirection</a> (bool rightDirection)</td></tr>
+<tr class="memdesc:a0fcd7fdbff89d67f6f2d698ea17a5d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the boolean that confirms the right movement of the alien.  <a href="class_alien.html#a0fcd7fdbff89d67f6f2d698ea17a5d26">More...</a><br /></td></tr>
 <tr class="separator:a0fcd7fdbff89d67f6f2d698ea17a5d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc36de2945a3b072ba952b83bb43888b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_alien_8h.html#ad55397dccd181b1f666895967ecc6183">AlienColour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alien.html#acc36de2945a3b072ba952b83bb43888b">getAlienColour</a> () const</td></tr>
 <tr class="separator:acc36de2945a3b072ba952b83bb43888b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1371e8cc3963cb9efb6555dbdf568f63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alien.html#a1371e8cc3963cb9efb6555dbdf568f63">alienPoints</a> (<a class="el" href="_alien_8h.html#ad55397dccd181b1f666895967ecc6183">AlienColour</a> _colour)</td></tr>
+<tr class="memdesc:a1371e8cc3963cb9efb6555dbdf568f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes in a colour and returns an appropriate score for that colour alien.  <a href="class_alien.html#a1371e8cc3963cb9efb6555dbdf568f63">More...</a><br /></td></tr>
 <tr class="separator:a1371e8cc3963cb9efb6555dbdf568f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cdfd79d84b51a18003bf41585aedd43"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alien.html#a7cdfd79d84b51a18003bf41585aedd43">~Alien</a> ()</td></tr>
+<tr class="separator:a7cdfd79d84b51a18003bf41585aedd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_moving_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_moving_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_moving_entity.html">MovingEntity</a></td></tr>
 <tr class="memitem:a909b1a037ef48d4e40805bc2abfe8cf4 inherit pub_methods_class_moving_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moving_entity.html#a909b1a037ef48d4e40805bc2abfe8cf4">MovingEntity</a> (int xPosition, int yPosition, int entitySpeed, bool life, int numberOfLives)</td></tr>
 <tr class="separator:a909b1a037ef48d4e40805bc2abfe8cf4 inherit pub_methods_class_moving_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27e8c426174bdc9c8d9a7a7891e10b2d inherit pub_methods_class_moving_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d">getEntitySpeed</a> () const</td></tr>
+<tr class="memdesc:a27e8c426174bdc9c8d9a7a7891e10b2d inherit pub_methods_class_moving_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of units a moving entity moves by on the screen  <a href="class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d">More...</a><br /></td></tr>
 <tr class="separator:a27e8c426174bdc9c8d9a7a7891e10b2d inherit pub_methods_class_moving_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a062c0cb2d12dc52cc89567c083399645 inherit pub_methods_class_moving_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moving_entity.html#a062c0cb2d12dc52cc89567c083399645">setEntitySpeed</a> (int speed)</td></tr>
 <tr class="separator:a062c0cb2d12dc52cc89567c083399645 inherit pub_methods_class_moving_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ac1a5cb1c864c7b8766d1a22129bf6e inherit pub_methods_class_moving_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moving_entity.html#a7ac1a5cb1c864c7b8766d1a22129bf6e">setMovementBoundaries</a> (int left, int right, int upper, int bottom)</td></tr>
+<tr class="memdesc:a7ac1a5cb1c864c7b8766d1a22129bf6e inherit pub_methods_class_moving_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets boundaries for objects that are able to move  <a href="class_moving_entity.html#a7ac1a5cb1c864c7b8766d1a22129bf6e">More...</a><br /></td></tr>
 <tr class="separator:a7ac1a5cb1c864c7b8766d1a22129bf6e inherit pub_methods_class_moving_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b09cd6d76a9cd74c55f08efb8dafd09 inherit pub_methods_class_moving_entity"><td class="memItemLeft" align="right" valign="top">tuple&lt; int, int, int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moving_entity.html#a0b09cd6d76a9cd74c55f08efb8dafd09">getMovementBoundaries</a> ()</td></tr>
 <tr class="separator:a0b09cd6d76a9cd74c55f08efb8dafd09 inherit pub_methods_class_moving_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53091426d44d2ef8593de24e5365054a inherit pub_methods_class_moving_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moving_entity.html#a53091426d44d2ef8593de24e5365054a">~MovingEntity</a> ()</td></tr>
+<tr class="separator:a53091426d44d2ef8593de24e5365054a inherit pub_methods_class_moving_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_game_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_game_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_game_entity.html">GameEntity</a></td></tr>
 <tr class="memitem:a2552e7964fce95a5b0fddd09fa10affa inherit pub_methods_class_game_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_entity.html#a2552e7964fce95a5b0fddd09fa10affa">GameEntity</a> (int xPosition, int yPosition, bool life, int numberOfLives)</td></tr>
 <tr class="separator:a2552e7964fce95a5b0fddd09fa10affa inherit pub_methods_class_game_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,10 +147,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af07dae87e7d895f3a458c6bba84f76e0 inherit pub_methods_class_game_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad95a7c6f575fca8e67d5589ce95e784a inherit pub_methods_class_game_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_entity.html#ad95a7c6f575fca8e67d5589ce95e784a">getNumberOfLives</a> () const</td></tr>
 <tr class="separator:ad95a7c6f575fca8e67d5589ce95e784a inherit pub_methods_class_game_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a241238b29b5e440107a5b295edf24f9c inherit pub_methods_class_game_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_entity.html#a241238b29b5e440107a5b295edf24f9c">~GameEntity</a> ()</td></tr>
+<tr class="separator:a241238b29b5e440107a5b295edf24f9c inherit pub_methods_class_game_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a92dbf405245bc2b3b378d19af0589864"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alien.html#a92dbf405245bc2b3b378d19af0589864">getNumberOfAliens</a> ()</td></tr>
+<tr class="memdesc:a92dbf405245bc2b3b378d19af0589864"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the number of alien objects to be present in the game once it starts running. This number shows the number of alien per row. There are three rows of aliens on each alien armada with different colours.  <a href="class_alien.html#a92dbf405245bc2b3b378d19af0589864">More...</a><br /></td></tr>
 <tr class="separator:a92dbf405245bc2b3b378d19af0589864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -201,6 +214,31 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a7cdfd79d84b51a18003bf41585aedd43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cdfd79d84b51a18003bf41585aedd43">&#9670;&nbsp;</a></span>~Alien()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Alien::~Alien </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1371e8cc3963cb9efb6555dbdf568f63"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1371e8cc3963cb9efb6555dbdf568f63">&#9670;&nbsp;</a></span>alienPoints()</h2>
@@ -217,12 +255,21 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Takes in a colour and returns an appropriate score for that colour alien. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_colour</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_alien_a1371e8cc3963cb9efb6555dbdf568f63_icgraph.png" border="0" usemap="#class_alien_a1371e8cc3963cb9efb6555dbdf568f63_icgraph" alt=""/></div>
 <map name="class_alien_a1371e8cc3963cb9efb6555dbdf568f63_icgraph" id="class_alien_a1371e8cc3963cb9efb6555dbdf568f63_icgraph">
-<area shape="rect" title=" " alt="" coords="240,13,363,39"/>
+<area shape="rect" title="Takes in a colour and returns an appropriate score for that colour alien." alt="" coords="240,13,363,39"/>
 <area shape="rect" href="class_game_updater.html#a07c2672c6f3552a93891a76efb22c5d7" title=" " alt="" coords="5,5,192,47"/>
 </map>
 </div>
@@ -269,12 +316,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>returns a boolean to confirm that the alien is moving towards the right hand side. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_alien_aceee46f867d1eb8499fe484692b3b1fb_icgraph.png" border="0" usemap="#class_alien_aceee46f867d1eb8499fe484692b3b1fb_icgraph" alt=""/></div>
 <map name="class_alien_aceee46f867d1eb8499fe484692b3b1fb_icgraph" id="class_alien_aceee46f867d1eb8499fe484692b3b1fb_icgraph">
-<area shape="rect" title=" " alt="" coords="248,46,435,73"/>
+<area shape="rect" title="returns a boolean to confirm that the alien is moving towards the right hand side." alt="" coords="248,46,435,73"/>
 <area shape="rect" href="class_game_updater.html#a64ab239ae88af45d2c840c4f8bab3fd7" title=" " alt="" coords="13,5,192,47"/>
 <area shape="rect" href="class_game_updater.html#ac0b86976547d835632a0e3be1bac8a93" title=" " alt="" coords="5,71,200,112"/>
 </map>
@@ -305,10 +355,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>returns the number of alien objects to be present in the game once it starts running. This number shows the number of alien per row. There are three rows of aliens on each alien armada with different colours. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
 </div>
 </div>
-<a id="a9334af63935cd561c897bfe0ceb19c78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9334af63935cd561c897bfe0ceb19c78">&#9670;&nbsp;</a></span>move()</h2>
+<a id="a8714f54a71d9567455af1956f1705282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8714f54a71d9567455af1956f1705282">&#9670;&nbsp;</a></span>move()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,20 +379,28 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>responsible for moving the alien object towards the desired direction </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_direction</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="class_moving_entity.html#ab4a9389b9a5d6a8ff8bd9f825ed13bc6">MovingEntity</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_alien_a9334af63935cd561c897bfe0ceb19c78_cgraph.png" border="0" usemap="#class_alien_a9334af63935cd561c897bfe0ceb19c78_cgraph" alt=""/></div>
-<map name="class_alien_a9334af63935cd561c897bfe0ceb19c78_cgraph" id="class_alien_a9334af63935cd561c897bfe0ceb19c78_cgraph">
-<area shape="rect" title=" " alt="" coords="5,115,95,141"/>
+<div class="center"><img src="class_alien_a8714f54a71d9567455af1956f1705282_cgraph.png" border="0" usemap="#class_alien_a8714f54a71d9567455af1956f1705282_cgraph" alt=""/></div>
+<map name="class_alien_a8714f54a71d9567455af1956f1705282_cgraph" id="class_alien_a8714f54a71d9567455af1956f1705282_cgraph">
+<area shape="rect" title="responsible for moving the alien object towards the desired direction" alt="" coords="5,115,95,141"/>
 <area shape="rect" href="class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="150,5,329,32"/>
-<area shape="rect" href="class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d" title=" " alt="" coords="143,56,336,83"/>
+<area shape="rect" href="class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d" title="return the number of units a moving entity moves by on the screen" alt="" coords="143,56,336,83"/>
 <area shape="rect" href="class_moving_entity.html#a0b09cd6d76a9cd74c55f08efb8dafd09" title=" " alt="" coords="149,107,330,149"/>
 <area shape="rect" href="class_game_entity.html#a8aabf9f68517365feb902e8a6f6aa5a2" title=" " alt="" coords="155,173,324,200"/>
 <area shape="rect" href="class_game_entity.html#ae69fd63bf13966b5bcafee15cd7ba24e" title=" " alt="" coords="154,224,325,251"/>
@@ -348,9 +409,9 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_alien_a9334af63935cd561c897bfe0ceb19c78_icgraph.png" border="0" usemap="#class_alien_a9334af63935cd561c897bfe0ceb19c78_icgraph" alt=""/></div>
-<map name="class_alien_a9334af63935cd561c897bfe0ceb19c78_icgraph" id="class_alien_a9334af63935cd561c897bfe0ceb19c78_icgraph">
-<area shape="rect" title=" " alt="" coords="248,46,337,73"/>
+<div class="center"><img src="class_alien_a8714f54a71d9567455af1956f1705282_icgraph.png" border="0" usemap="#class_alien_a8714f54a71d9567455af1956f1705282_icgraph" alt=""/></div>
+<map name="class_alien_a8714f54a71d9567455af1956f1705282_icgraph" id="class_alien_a8714f54a71d9567455af1956f1705282_icgraph">
+<area shape="rect" title="responsible for moving the alien object towards the desired direction" alt="" coords="248,46,337,73"/>
 <area shape="rect" href="class_game_updater.html#a64ab239ae88af45d2c840c4f8bab3fd7" title=" " alt="" coords="13,5,192,47"/>
 <area shape="rect" href="class_game_updater.html#ac0b86976547d835632a0e3be1bac8a93" title=" " alt="" coords="5,71,200,112"/>
 </map>
@@ -373,12 +434,20 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>sets the boolean that confirms the right movement of the alien. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rightDirection</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_alien_a0fcd7fdbff89d67f6f2d698ea17a5d26_icgraph.png" border="0" usemap="#class_alien_a0fcd7fdbff89d67f6f2d698ea17a5d26_icgraph" alt=""/></div>
 <map name="class_alien_a0fcd7fdbff89d67f6f2d698ea17a5d26_icgraph" id="class_alien_a0fcd7fdbff89d67f6f2d698ea17a5d26_icgraph">
-<area shape="rect" title=" " alt="" coords="248,46,435,73"/>
+<area shape="rect" title="sets the boolean that confirms the right movement of the alien." alt="" coords="248,46,435,73"/>
 <area shape="rect" href="class_game_updater.html#a64ab239ae88af45d2c840c4f8bab3fd7" title=" " alt="" coords="13,5,192,47"/>
 <area shape="rect" href="class_game_updater.html#ac0b86976547d835632a0e3be1bac8a93" title=" " alt="" coords="5,71,200,112"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="KeyHandler::KeyCheck" name="KeyHandler::KeyCheck">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,163,32"/>
-<area shape="rect" id="node2" href="$class_ammunition.html#a37513b5cfef75fb9bcfccbb208b1541f" title=" " alt="" coords="211,5,341,32"/>
+<area shape="rect" id="node1" title="checks the keys pressed for moving and shooting the first player&#39;s game object" alt="" coords="5,5,163,32"/>
+<area shape="rect" id="node2" href="$class_ammunition.html#a37513b5cfef75fb9bcfccbb208b1541f" title="this function is essencially responsible setting the ammunition in motion" alt="" coords="211,5,341,32"/>
 <area shape="rect" id="node3" href="$class_game_entity.html#a655badaed96874b5c03e7c1c06bb87e2" title=" " alt="" coords="389,5,564,32"/>
 </map>

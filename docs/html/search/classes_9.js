@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scoreboard_205',['ScoreBoard',['../class_score_board.html',1,'']]]
+  ['numberoflivescannotbezero_228',['NumberOfLivesCannotBeZero',['../class_number_of_lives_cannot_be_zero.html',1,'']]]
 ];

@@ -67,6 +67,7 @@ void GameLoop::laserCanonsInitialPositions()
     _laserCanon1->setYposition(yPosition_1);
     _laserCanon2->setXposition(xPosition_2);
     _laserCanon2->setYposition(yPosition_2);
+    _scoreBoard->setScore(_scoreBoard->getScore()-20);
 }
 
 void GameLoop::createLaserCanonShields()

@@ -4,10 +4,10 @@
 <area shape="rect" id="node4" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="474,208,653,235"/>
 <area shape="rect" id="node5" href="$class_moving_entity.html#a0b09cd6d76a9cd74c55f08efb8dafd09" title=" " alt="" coords="232,259,413,301"/>
 <area shape="rect" id="node6" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="255,325,391,352"/>
-<area shape="rect" id="node7" href="$class_laser.html#a16b40dbf18fd79fe83ad430666f7a468" title=" " alt="" coords="277,107,369,133"/>
+<area shape="rect" id="node7" href="$class_laser.html#a4c4474d67f89d8889bc4b0a5d5f2a9bd" title=" " alt="" coords="277,107,369,133"/>
 <area shape="rect" id="node10" href="$class_laser.html#a7eb43681af5ec12d1975ab31b4817119" title=" " alt="" coords="233,157,413,184"/>
 <area shape="rect" id="node3" href="$class_game_entity.html#ad95a7c6f575fca8e67d5589ce95e784a" title=" " alt="" coords="461,5,665,32"/>
-<area shape="rect" id="node8" href="$class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d" title=" " alt="" coords="467,56,660,83"/>
+<area shape="rect" id="node8" href="$class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d" title="return the number of units a moving entity moves by on the screen" alt="" coords="467,56,660,83"/>
 <area shape="rect" id="node9" href="$class_game_entity.html#ae69fd63bf13966b5bcafee15cd7ba24e" title=" " alt="" coords="478,107,649,133"/>
 <area shape="rect" id="node11" href="$class_game_entity.html#a8aabf9f68517365feb902e8a6f6aa5a2" title=" " alt="" coords="479,157,648,184"/>
 </map>

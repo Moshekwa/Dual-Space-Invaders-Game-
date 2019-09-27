@@ -15,8 +15,11 @@ class Ammunition : public MovingEntity
 {
 public:
     Ammunition(int xPosition, int yPosition, int entitySpeed, bool life, int numberOfLives);
+    /**
+     * @brief this function is essencially responsible setting the ammunition in motion
+     */
     void shoot();
-  
+    ~Ammunition(){};
 };
 
 #endif // SHOOTINGENTITY_H_INCLUDED

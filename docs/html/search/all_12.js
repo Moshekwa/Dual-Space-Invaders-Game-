@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['_7ecollisionhandler_179',['~CollisionHandler',['../class_collision_handler.html#a99f5524cf1706f9ea95500cf273a9d97',1,'CollisionHandler']]],
-  ['_7eentityshape_180',['~EntityShape',['../class_entity_shape.html#a8f739106388e225fb5f7c1ae3df0d66b',1,'EntityShape']]],
-  ['_7elasercanonlife_181',['~LaserCanonLife',['../class_laser_canon_life.html#af0d3a28b526cf981fa6226199946c4df',1,'LaserCanonLife']]],
-  ['_7escoreboard_182',['~ScoreBoard',['../class_score_board.html#a013e4595d35ab03d6f480c9388cc7b8a',1,'ScoreBoard']]]
+  ['windowdisplay_183',['WindowDisplay',['../class_window_display.html',1,'WindowDisplay'],['../class_window_display.html#a8bd2f1e4a0e14646aca64a388012eb3e',1,'WindowDisplay::WindowDisplay()']]],
+  ['windowdisplay_2ecpp_184',['WindowDisplay.cpp',['../_window_display_8cpp.html',1,'']]],
+  ['windowdisplay_2eh_185',['WindowDisplay.h',['../_window_display_8h.html',1,'']]]
 ];

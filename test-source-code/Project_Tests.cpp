@@ -373,8 +373,8 @@ TEST_CASE("Collision detection of laserCanon1 and the laser from canon2 and they
 
     auto _collisionHandler = CollisionHandler{};
     _collisionHandler.handleLaserCanonLaserCollision(_laserCanon1, _laserCanon2, _laser1, _laser2);
-    CHECK(_laserCanon1.isAlive());
-    CHECK(_laser2.isAlive());
+    CHECK_FALSE(_laserCanon1.isAlive());
+    CHECK_FALSE(_laser2.isAlive());
 }
 
 TEST_CASE("Collision detection of laserCanon2 and the laser from canon1 and they both get destroyed")
@@ -391,14 +391,14 @@ TEST_CASE("Collision detection of laserCanon2 and the laser from canon1 and they
     auto _laser1 = Laser{ _laserCanon1, 1 };
     auto _laser2 = Laser{ _laserCanon2, 1 };
 
-    _laser1.setXposition(laserCanon1_Xposition);
-    _laser1.setYposition(laserCanon1_Yposition);
+    _laser1.setXposition(laserCanon2_Xposition);
+    _laser1.setYposition(laserCanon2_Yposition);
     _laser1.giveEntityLife();
 
     auto _collisionHandler = CollisionHandler{};
     _collisionHandler.handleLaserCanonLaserCollision(_laserCanon1, _laserCanon2, _laser1, _laser2);
-    CHECK(_laserCanon2.isAlive());
-    CHECK(_laser1.isAlive());
+    CHECK_FALSE(_laserCanon2.isAlive());
+    CHECK_FALSE(_laser1.isAlive());
 }
 
 //------------------------------------------------------LaserCanonShieldTests------------------------------------

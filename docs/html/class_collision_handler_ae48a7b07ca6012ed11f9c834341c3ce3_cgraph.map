@@ -1,0 +1,4 @@
+<map id="CollisionHandler::handleCanonShieldLaserCanonCollision" name="CollisionHandler::handleCanonShieldLaserCanonCollision">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,219,47"/>
+<area shape="rect" id="node2" href="$class_laser_canon.html#a160b5424e71d46ae902abd2ad5deac99" title="sets the canon&#39;s ability to move true of false" alt="" coords="267,13,464,39"/>
+</map>

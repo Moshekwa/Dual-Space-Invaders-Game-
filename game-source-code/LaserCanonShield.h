@@ -20,6 +20,7 @@ class LaserCanonShield : public GameEntity
 public:
     LaserCanonShield(int xPosition, int yPosition, bool life, int numberOfLives);
     static int getNumberOfShields();
+    ~LaserCanonShield(){};
 
 private:
     const static int numberOfShields;

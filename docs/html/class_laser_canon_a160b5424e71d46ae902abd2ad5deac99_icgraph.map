@@ -1,0 +1,6 @@
+<map id="LaserCanon::setAbilityToMove" name="LaserCanon::setAbilityToMove">
+<area shape="rect" id="node1" title="sets the canon&#39;s ability to move true of false" alt="" coords="267,78,464,105"/>
+<area shape="rect" id="node2" href="$class_collision_handler.html#ae48a7b07ca6012ed11f9c834341c3ce3" title=" " alt="" coords="5,5,219,47"/>
+<area shape="rect" id="node3" href="$class_game_updater.html#af34cf63f91383fdbb13f48acef52fe54" title=" " alt="" coords="21,71,203,112"/>
+<area shape="rect" id="node4" href="$class_game_updater.html#a9d5f4fe1b5815af094345fff2295efc7" title=" " alt="" coords="21,136,203,177"/>
+</map>
