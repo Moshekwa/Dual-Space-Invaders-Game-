@@ -1,8 +1,0 @@
-<map id="Alien::move" name="Alien::move">
-<area shape="rect" id="node1" title="responsible for moving the alien object towards the desired direction" alt="" coords="5,115,95,141"/>
-<area shape="rect" id="node2" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="150,5,329,32"/>
-<area shape="rect" id="node3" href="$class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d" title="return the number of units a moving entity moves by on the screen" alt="" coords="143,56,336,83"/>
-<area shape="rect" id="node4" href="$class_moving_entity.html#a0b09cd6d76a9cd74c55f08efb8dafd09" title=" " alt="" coords="149,107,330,149"/>
-<area shape="rect" id="node5" href="$class_game_entity.html#a8aabf9f68517365feb902e8a6f6aa5a2" title=" " alt="" coords="155,173,324,200"/>
-<area shape="rect" id="node6" href="$class_game_entity.html#ae69fd63bf13966b5bcafee15cd7ba24e" title=" " alt="" coords="154,224,325,251"/>
-</map>

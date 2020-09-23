@@ -1,4 +1,0 @@
-<map id="EntityShape::laserShape" name="EntityShape::laserShape">
-<area shape="rect" id="node1" title="keeps track of a rectangular shape around the sprite of the laser object" alt="" coords="5,5,172,32"/>
-<area shape="rect" id="node2" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="220,5,399,32"/>
-</map>

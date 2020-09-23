@@ -1,6 +1,0 @@
-<map id="Laser::move" name="Laser::move">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,97,83"/>
-<area shape="rect" id="node2" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="153,5,331,32"/>
-<area shape="rect" id="node3" href="$class_moving_entity.html#a27e8c426174bdc9c8d9a7a7891e10b2d" title="return the number of units a moving entity moves by on the screen" alt="" coords="145,56,339,83"/>
-<area shape="rect" id="node4" href="$class_game_entity.html#ae69fd63bf13966b5bcafee15cd7ba24e" title=" " alt="" coords="157,107,327,133"/>
-</map>

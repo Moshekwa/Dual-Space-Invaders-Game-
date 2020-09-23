@@ -1,4 +1,0 @@
-<map id="LaserCanonLife" name="LaserCanonLife">
-<area shape="rect" id="node1" title="This class is defining objects that depict the remaining lives of the laser canons." alt="" coords="5,80,116,107"/>
-<area shape="rect" id="node2" href="$class_game_entity.html" title="This class gives the behaviour and information of all the game entities." alt="" coords="15,5,106,32"/>
-</map>

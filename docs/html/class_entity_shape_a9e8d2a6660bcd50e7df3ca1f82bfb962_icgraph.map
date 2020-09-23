@@ -1,5 +1,0 @@
-<map id="EntityShape::laserCanonShieldShape" name="EntityShape::laserCanonShieldShape">
-<area shape="rect" id="node1" title=" " alt="" coords="268,50,471,91"/>
-<area shape="rect" id="node2" href="$class_collision_detector.html#ae2a82002b89d1ad019e354887693bce7" title=" " alt="" coords="19,5,207,61"/>
-<area shape="rect" id="node3" href="$class_collision_detector.html#af6ae16f3d2907dd2346bc85b38acd5d9" title=" " alt="" coords="5,86,220,127"/>
-</map>

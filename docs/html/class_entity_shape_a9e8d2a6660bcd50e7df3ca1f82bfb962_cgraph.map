@@ -1,4 +1,0 @@
-<map id="EntityShape::laserCanonShieldShape" name="EntityShape::laserCanonShieldShape">
-<area shape="rect" id="node1" title="keeps track of a rectangular shape around the sprite of the laser canon shield object" alt="" coords="5,5,208,47"/>
-<area shape="rect" id="node2" href="$class_game_entity.html#aea483bd84d93046f26cf9f7fdf877d6c" title=" " alt="" coords="256,13,435,39"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="GameUpdater::updateCanon_ScoreAndHighScore" name="GameUpdater::updateCanon_ScoreAndHighScore">
-<area shape="rect" id="node1" title=" " alt="" coords="5,99,192,141"/>
-<area shape="rect" id="node2" href="$class_alien.html#a1371e8cc3963cb9efb6555dbdf568f63" title="Takes in a colour and returns an appropriate score for that colour alien." alt="" coords="270,5,393,32"/>
-<area shape="rect" id="node3" href="$class_alien.html#acc36de2945a3b072ba952b83bb43888b" title=" " alt="" coords="260,56,403,83"/>
-<area shape="rect" id="node4" href="$class_score_board.html#aa48d8ab6edf63dc3c2872bbf24947916" title=" " alt="" coords="256,107,407,133"/>
-<area shape="rect" id="node5" href="$class_score_board.html#a7b4aacac3e9b56f2a86b820b14c1eb04" title=" " alt="" coords="240,158,423,199"/>
-<area shape="rect" id="node6" href="$class_score_board.html#a02055578a87eb69a865b82ceb41599ec" title=" " alt="" coords="256,224,407,251"/>
-</map>

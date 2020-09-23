@@ -1,4 +1,0 @@
-<map id="CollisionDetector::LaserCanonShieldAlienLaserCollision" name="CollisionDetector::LaserCanonShieldAlienLaserCollision">
-<area shape="rect" id="node1" title="detects the collision between the shield and an alien laser" alt="" coords="5,5,193,61"/>
-<area shape="rect" id="node2" href="$class_game_entity.html#af07dae87e7d895f3a458c6bba84f76e0" title=" " alt="" coords="241,20,377,47"/>
-</map>

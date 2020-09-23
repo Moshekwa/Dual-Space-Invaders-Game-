@@ -1,5 +1,0 @@
-<map id="Alien::getAlienRightDirection" name="Alien::getAlienRightDirection">
-<area shape="rect" id="node1" title="returns a boolean to confirm that the alien is moving towards the right hand side." alt="" coords="248,46,435,73"/>
-<area shape="rect" id="node2" href="$class_game_updater.html#a64ab239ae88af45d2c840c4f8bab3fd7" title=" " alt="" coords="13,5,192,47"/>
-<area shape="rect" id="node3" href="$class_game_updater.html#ac0b86976547d835632a0e3be1bac8a93" title=" " alt="" coords="5,71,200,112"/>
-</map>

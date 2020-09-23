@@ -1,5 +1,0 @@
-<map id="LaserCanon::isAbleToMove" name="LaserCanon::isAbleToMove">
-<area shape="rect" id="node1" title="returns true if the canon is able to move" alt="" coords="235,46,413,73"/>
-<area shape="rect" id="node2" href="$class_game_updater.html#af34cf63f91383fdbb13f48acef52fe54" title=" " alt="" coords="5,5,187,47"/>
-<area shape="rect" id="node3" href="$class_game_updater.html#a9d5f4fe1b5815af094345fff2295efc7" title=" " alt="" coords="5,71,187,112"/>
-</map>
